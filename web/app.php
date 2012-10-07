@@ -1,5 +1,8 @@
 <?php
 
+// http://symfony.com/doc/2.0/book/installation.html
+umask(0000); // This will let the permissions be 0777
+
 use Symfony\Component\ClassLoader\ApcClassLoader;
 use Symfony\Component\HttpFoundation\Request;
 
