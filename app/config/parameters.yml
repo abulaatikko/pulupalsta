@@ -1,9 +1,9 @@
 parameters:
-    database_driver:   pdo_mysql
+    database_driver:   pdo_pgsql
     database_host:     localhost
     database_port:     ~
-    database_name:     symfony
-    database_user:     root
+    database_name:     palsta_dev
+    database_user:     www-data
     database_password: ~
 
     mailer_transport:  smtp
@@ -12,4 +12,4 @@ parameters:
     mailer_password:   ~
 
     locale:            en
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:            345k34y5783u3487345348hf345g46g46346jk45k8g35nmjj346j7n
