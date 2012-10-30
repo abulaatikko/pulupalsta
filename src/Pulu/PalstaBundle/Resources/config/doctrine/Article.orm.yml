@@ -1,0 +1,36 @@
+# src/Pulu/PalstaBundle/Resources/config/doctrine/Article.orm.yml
+Pulu\PalstaBundle\Entity\Article:
+    type: entity
+    table: article
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: sequence
+            sequenceGenerator:
+                sequenceName: article_seq
+                allocationSize: 10
+                initialValue: 1
+    fields:
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        modified:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        points:
+            type: integer
+        visits:
+            type: integer
+    lifecycleCallbacks:
+        prePersist: [ setCreated, setModified ]
+        preUpdate: [ setModified ]
+    oneToMany:
+        localizations:
+            targetEntity: ArticleLocalization
+            mappedBy: article
+            cascade: ["persist"]
