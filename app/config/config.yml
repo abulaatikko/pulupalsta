@@ -26,7 +26,8 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ ]
+    bundles:
+        - PuluPalstaBundle
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

@@ -1,3 +1,7 @@
+pulu_palsta_front:
+    pattern: /
+    defaults: { _controller: PuluPalstaBundle:Front:index}
+
 pulu_palsta_article_create:
     pattern: /article/create/{name}
     defaults: { _controller: PuluPalstaBundle:Article:create, name = 'Test name' }

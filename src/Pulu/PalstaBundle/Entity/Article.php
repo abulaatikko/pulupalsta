@@ -20,7 +20,7 @@ class Article {
         return $this->id;
     }
 
-    public function getName($lang) {
+    public function getName($lang = 'FI') {
         $translations = $this->getLocalization();
         //\Doctrine\Common\Util\Debug::dump($translations);
         foreach ($translations as $trans) {
@@ -31,7 +31,7 @@ class Article {
         return '';
     }
 
-    public function getTeaser($lang) {
+    public function getTeaser($lang = 'FI') {
         $translations = $this->getLocalization();
         foreach ($translations as $trans) {
             if ($trans->getLanguage() == $lang) {
@@ -90,7 +90,7 @@ class Article {
     {
          //if (!$this->translations->contains($a)) {
             $a->setArticle($this);
-             $this->localizations[] = $a;
+            $this->localizations[] = $a;
          //}
     }
 

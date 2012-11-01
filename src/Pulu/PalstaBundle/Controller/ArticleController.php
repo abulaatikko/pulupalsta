@@ -6,8 +6,7 @@ use Pulu\PalstaBundle\Entity\ArticleLocalization;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-class ArticleController extends Controller
-{
+class ArticleController extends Controller {
     public function createAction($name) {
     	$article = new Article();
         $article->setPoints(1);
