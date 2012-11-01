@@ -14,14 +14,8 @@ Pulu\PalstaBundle\Entity\Article:
     fields:
         created:
             type: datetime
-            gedmo:
-                timestampable:
-                    on: create
         modified:
             type: datetime
-            gedmo:
-                timestampable:
-                    on: update
         points:
             type: integer
         visits:

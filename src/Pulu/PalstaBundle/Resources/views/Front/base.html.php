@@ -34,7 +34,7 @@
 <div class="row">
     <div class="twelve columns">
 
-<div style="position: absolute; top: 0px; right: 0px; font-size: 14px; line-height: 1.2em"><a href="">suomeksi</a> | <a href="">in English</a></div>
+<div id="switch-language"><a href="">suomeksi</a></div>
 
 <p id="title">Pulupalsta</p>
 <p id="slogan">palstanhoitoa jo vuodesta 2006</p>
