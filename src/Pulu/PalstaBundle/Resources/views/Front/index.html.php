@@ -1,4 +1,4 @@
-<?php $view->extend('PuluPalstaBundle:Front:base.html.php') ?>
+<?php $view->extend('::base.html.php') ?>
 
 <?php $view['slots']->set('title', 'Palstanhoitoa jo vuodesta 2006 - Pulupalsta') ?>
 

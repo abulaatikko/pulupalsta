@@ -9,3 +9,7 @@ pulu_palsta_article_create:
 pulu_palsta_article_list:
     pattern: /article
     defaults: { _controller: PuluPalstaBundle:Article:index }
+
+pulu_palsta_about:
+    pattern: /tietoa
+    defaults: { _controller: PuluPalstaBundle:About:index }

@@ -28,8 +28,6 @@
 </head>
 <body>
 
-
-
 <!-- Main row -->
 <div class="row">
     <div class="twelve columns">
@@ -40,11 +38,11 @@
 <p id="slogan">palstanhoitoa jo vuodesta 2006</p>
 
 <ul id="navigation">
-    <li><a href="">Kansi</a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_front') ?>">Kansi</a></li>
     <li><a href="">Luettelo</a></li>
 </ul>
 <ul id="about">
-    <li><a href="">Hä?</a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_about') ?>">Hä?</a></li>
 </ul>
 
 <!-- Contents row -->
