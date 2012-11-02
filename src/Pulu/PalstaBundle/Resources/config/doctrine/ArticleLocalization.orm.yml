@@ -2,13 +2,13 @@ Pulu\PalstaBundle\Entity\ArticleLocalization:
     type: entity
     table: article_localization
     id:
-        id:
+        article:
             type: integer
-            generator: { strategy: AUTO }
-    fields:
+            associationKey: true
         language:
             type: string
             length: 2
+    fields:
         name:
             type: string
             length: 256
@@ -20,11 +20,3 @@ Pulu\PalstaBundle\Entity\ArticleLocalization:
         article:
             targetEntity: Article
             inversedBy: localizations
-            joinColumn:
-                name: article_id
-                referencedColumnName: id
-                nullable: false
-                onDelete: cascade
-    uniqueConstraints:
-        article_language_un:
-            columns: [article_id, language]
