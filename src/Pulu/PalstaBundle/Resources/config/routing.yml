@@ -1,15 +1,55 @@
-pulu_palsta_front:
+pulu_palsta_root:
     pattern: /
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /fi
+        permanent: true
+
+pulu_palsta_front:
+    pattern: /{_locale}
     defaults: { _controller: PuluPalstaBundle:Front:index}
-
-pulu_palsta_article_create:
-    pattern: /article/create/{name}
-    defaults: { _controller: PuluPalstaBundle:Article:create, name = 'Test name' }
-
-pulu_palsta_article_list:
-    pattern: /article
-    defaults: { _controller: PuluPalstaBundle:Article:index }
+    requirements:
+        _locale: fi|en
 
 pulu_palsta_about:
-    pattern: /tietoa
+    pattern: /{_locale}/tietoa
     defaults: { _controller: PuluPalstaBundle:About:index }
+    requirements:
+        _locale: fi|en
+
+pulu_palsta_list:
+    pattern: /{_locale}/luettelo
+    defaults: { _controller: PuluPalstaBundle:List:index }
+    requirements:
+        _locale: fi|en
+
+##### ADMIN #####
+pulu_palsta_admin:
+    pattern: /admin
+    defaults: { _controller: PuluPalstaBundle:Admin:index }
+
+pulu_palsta_admin_article:
+    pattern: /admin/article
+    defaults: { _controller: PuluPalstaBundle:Admin:article }
+
+pulu_palsta_admin_article_create:
+    pattern: /admin/article/create
+    defaults: { _controller: PuluPalstaBundle:Admin:createArticle }
+
+pulu_palsta_admin_article_edit:
+    pattern: /admin/article/edit/{id}
+    defaults: { _controller: PuluPalstaBundle:Admin:editArticle }
+    requirements:
+        id: \d+
+
+pulu_palsta_admin_comment:
+    pattern: /admin/comment
+    defaults: { _controller: PuluPalstaBundle:Admin:comment }
+
+pulu_palsta_admin_account:
+    pattern: /admin/account
+    defaults: { _controller: PuluPalstaBundle:Admin:account }
+
+pulu_palsta_admin_setting:
+    pattern: /admin/setting
+    defaults: { _controller: PuluPalstaBundle:Admin:setting }

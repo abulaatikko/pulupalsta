@@ -1,6 +1,8 @@
 <?php
 namespace Pulu\PalstaBundle\Entity;
 
+//use Doctrine\ORM\Mapping as ORM;
+
 class ArticleLocalization {
 
     // Stupid Doctrine restriction http://docs.doctrine-project.org/projects/doctrine-orm/en/2.0.x/reference/limitations-and-known-issues.html

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width" />
-    <title><?php $view['slots']->output('title', 'Pulupalsta') ?></title>
+    <title><?php $view['slots']->output('title', 'Ylläpito - Pulupalsta') ?></title>
     <?php foreach ($view['assetic']->stylesheets(
         array(
             '@PuluPalstaBundle/Resources/public/css/foundation.css',
@@ -25,43 +25,41 @@
     <!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <style type="text/css">
+    .row { width: 100%; max-width: 100%; min-width: 768px; margin: 0 auto; }
+    body { margin: 10px; }
+    #title { margin: 30px; }
+    </style>
 </head>
 <body>
 
-<!-- Main row -->
+<p id="title">Ylläpito</p>
+<!--<p id="slogan">palstanhoitoa jo vuodesta 2006</p>-->
+
+<!-- Main area -->
 <div class="row">
-    <div class="twelve columns">
+    <!-- Naviation area -->
+    <div class="two columns" style="border-top: 4px solid #285EAE; border-bottom: 4px solid #285EAE; border-right: 4px dashed #285EAE; background: #fff">
 
-<?php if ($app->getRequest()->getLocale() == 'fi'): ?>
-<div id="switch-language"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), (array('_locale' => 'en'))) ?>">in English</a></div>
-<? else: ?>
-<div id="switch-language"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), (array('_locale' => 'fi'))) ?>">suomeksi</a></div>
-<? endif ?>
+<h3>Navigaatio</h3>
 
-<p id="title">Pulupalsta</p>
-<p id="slogan">palstanhoitoa jo vuodesta 2006</p>
-
-<ul id="navigation">
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_front') ?>">Kansi</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_list') ?>">Luettelo</a></li>
-</ul>
-<ul id="about">
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_about') ?>">Hä?</a></li>
+<ul>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article') ?>">Artikkelit</a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_comment') ?>">Kommentit</a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_account') ?>">Käyttäjät</a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_setting') ?>">Asetukset</a></li>
 </ul>
 
-<!-- Contents row -->
-<div class="row">
-    <div class="twelve columns" id="main-contents">
+    </div><!-- Navigation area ends -->
+    <!-- Body -->
+    <div class="ten columns" style="border-top: 4px solid #285EAE; border-bottom: 4px solid #285EAE; background: #fff">
 
 <?php $view['slots']->output('body') ?>
 
-    </div><!-- twelve columns ends -->
-</div><!-- Contents row ends -->
+    </div><!-- Body ends -->
+</div>
+<!-- Main area ends -->
 
-<p id="copyright">&copy; 2006-2012 Lassi Heikkinen</p>
-
-    </div><!-- twelve columns ends -->
-</div><!-- Main row ends -->
 
 <!-- Included JS Files (Uncompressed) -->
 <!--
@@ -90,13 +88,6 @@
     <?php endforeach; ?>
 <!--<script src="javascripts/foundation.min.js"></script>
 <script src="javascripts/app.js"></script>-->
-
-<script type="text/javascript">
-var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-s.parentNode.insertBefore(g,s)}(document,'script'));
-</script>
 
 </body>
 </html>

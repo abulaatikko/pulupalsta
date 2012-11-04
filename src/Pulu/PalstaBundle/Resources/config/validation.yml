@@ -1,0 +1,4 @@
+Pulu\PalstaBundle\Entity\ArticleLocalization:
+    properties:
+        name:
+            - NotNull: ~

@@ -1,5 +1,4 @@
 <?php
-// src/Pulu/PalstaBundle/Entity/Article.php
 namespace Pulu\PalstaBundle\Entity;
 
 class Article {
@@ -21,24 +20,11 @@ class Article {
     }
 
     public function getName($lang = 'FI') {
-        $translations = $this->getLocalization();
-        //\Doctrine\Common\Util\Debug::dump($translations);
-        foreach ($translations as $trans) {
-            if ($trans->getLanguage() == $lang) {
-                return $trans->getName();
-            }
-        }
-        return '';
+        return $this->getLocalization($lang)->getName();
     }
 
     public function getTeaser($lang = 'FI') {
-        $translations = $this->getLocalization();
-        foreach ($translations as $trans) {
-            if ($trans->getLanguage() == $lang) {
-                return $trans->getTeaser();
-            }
-        }
-        return '';
+        return $this->getLocalization($lang)->getTeaser();
     }
 
     public function setCreated() {
@@ -77,17 +63,41 @@ class Article {
         return $this->visits;
     }
 
-    /*public function removeTranslation(\Pulu\PalstaBundle\Entity\ArticleLocalization $localizations)
-    {
+    /*public function removeTranslation(\Pulu\PalstaBundle\Entity\ArticleLocalization $localizations) {
         $this->localizations->removeElement($localizations);
     }*/
 
-    public function getLocalization() {
-        return $this->localizations;
+    public function getLocalization($lang = 'FI') {
+        $translations = $this->localizations;
+        foreach ($translations as $trans) {
+            if ($trans->getLanguage() == $lang) {
+                return $trans;
+            }
+        }
+        return new ArticleLocalization();
     }
 
-    public function setLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $a)
-    {
+    /*public function setName($name, $lang = 'FI') {
+        $translations = $this->getLocalization();
+        foreach ($translations as $trans) {
+            if ($trans->getLanguage() == $lang) {
+                $trans->setName($name);
+                return $this;
+            }
+        }
+    }*/
+
+    /*public function setTeaser($teaser, $lang = 'FI') {
+        $translations = $this->getLocalization();
+        foreach ($translations as $trans) {
+            if ($trans->getLanguage() == $lang) {
+                $trans->setName($teaser);
+                return $this;
+            }
+        }
+    }*/
+
+    public function setLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $a) {
          //if (!$this->translations->contains($a)) {
             $a->setArticle($this);
             $this->localizations[] = $a;
