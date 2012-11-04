@@ -12,8 +12,8 @@ class ArticleType extends AbstractType {
         $points = $options['data']->getPoints();
         $defaultPoints = empty($points) ? '1' : $points;
         $builder
-            ->add('visits', null, array('label' => 'Vierailuja'))
-            ->add('points', null, array('label' => 'Pojoja', 'data' => $defaultPoints))
+            ->add('visits', 'integer', array('label' => 'Vierailuja', 'invalid_message' => 'Virheellinen arvo'))
+            ->add('points', 'integer', array('label' => 'Pojoja', 'invalid_message' => 'Virheellinen arvo', 'data' => $defaultPoints))
             ->add('localization', new ArticleLocalizationType(), array('label' => ' '));
     }
 

@@ -1,4 +1,4 @@
 Pulu\PalstaBundle\Entity\ArticleLocalization:
     properties:
         name:
-            - NotNull: ~
+            - NotNull: { message: "article.name.not_blank" }

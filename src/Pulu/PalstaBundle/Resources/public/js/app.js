@@ -66,4 +66,14 @@ $(document).ready(function() {
 /* -----------------------------------------
    Admin
 ----------------------------------------- */
-$('#notice').delay(2000).fadeOut(2000);
+//$('#notice').delay(2000).fadeOut(2000);
+$('#notice').delay(2000).slideUp(2000);
+//$("#notice").delay(2000).animate({ height: 'toggle', opacity: 'toggle' }, 2000);
+
+$("#deleteConfirmation").click(function() {
+  $("#deleteConfirmationModal").reveal();
+  return false;
+});
+$("#deleteConfirmationModal").find(".close").click(function() {
+  $(this).trigger('reveal:close');
+});

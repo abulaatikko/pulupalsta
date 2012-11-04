@@ -13,6 +13,8 @@
 <?php endif ?>
 
 <form action="<?php echo $view['router']->generate($formUrl, array('id' => $article->getId())) ?>" method="post" <?php echo $view['form']->enctype($form) ?> >
+    
+    <?php $view['form']->setTheme($form, array('PuluPalstaBundle:Form')) ;?>
     <?php echo $view['form']->widget($form) ?>
 
     <?php if ($article->getId() > 0): ?>
@@ -20,8 +22,22 @@
     <?php endif ?>
     <input class="button" type="submit" value="Tallenna" />
     <?php if ($article->getId() > 0): ?>
-    <input class="alert button right" name="delete" type="submit" value="Poista" />
+    <input class="alert button right" id="deleteConfirmation" type="submit" value="Poista" />
     <?php endif ?>
 </form>
+
+<?php $view['slots']->stop('stop') ?>
+
+<?php $view['slots']->start('reveal') ?>
+
+<div id="deleteConfirmationModal" class="reveal-modal small">
+  <h4>Oletko varma?</h4>
+  
+  <form action="<?php echo $view['router']->generate($formUrl, array('id' => $article->getId())) ?>" method="post" <?php echo $view['form']->enctype($form) ?> >
+    <input class="secondary button close" type="submit" value="Peruuta" />
+    <input class="alert button right" name="delete" type="submit" value="Kyllä" />
+  </form>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
 
 <?php $view['slots']->stop() ?>

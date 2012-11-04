@@ -55,17 +55,17 @@
     <div class="ten columns" style="border-top: 4px solid #285EAE; border-bottom: 4px solid #285EAE; background: #fff">
 
 <? if ($view['session']->hasFlash('notice')): ?>
-<div style="margin: 20px 0px" id="notice">
+<div style="padding-top: 20px;" id="notice">
 <?php foreach ($view['session']->getFlash('notice') as $message): ?>
-    <?php echo "<div class='alert-box success'>$message</div>" ?>
+    <?php echo "<div class='alert-box success' style='margin: 0px'>$message</div>" ?>
 <?php endforeach; ?>
 </div>
 <? endif ?>
 
 <? if ($view['session']->hasFlash('error')): ?>
-<div style="margin: 20px 0px" id="error">
+<div style="padding-top: 20px;" id="error">
 <?php foreach ($view['session']->getFlash('error') as $message): ?>
-    <?php echo "<div class='alert-box alert'>$message</div>" ?>
+    <?php echo "<div class='alert-box alert' style='margin: 0px'>$message</div>" ?>
 <?php endforeach; ?>
 </div>
 <? endif ?>
@@ -75,6 +75,8 @@
     </div><!-- Body ends -->
 </div>
 <!-- Main area ends -->
+
+<?php $view['slots']->output('reveal') ?>
 
 
 <!-- Included JS Files (Uncompressed) -->
