@@ -1,6 +1,8 @@
 <?php
 namespace Pulu\PalstaBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 class Article {
 
     protected $id;
@@ -73,10 +75,6 @@ class Article {
         return $this->visits;
     }
 
-    /*public function removeTranslation(\Pulu\PalstaBundle\Entity\ArticleLocalization $localizations) {
-        $this->localizations->removeElement($localizations);
-    }*/
-
     public function getLocalization($lang = 'FI') {
         $translations = $this->localizations;
         foreach ($translations as $trans) {
@@ -87,26 +85,6 @@ class Article {
         return new ArticleLocalization();
     }
 
-    /*public function setName($name, $lang = 'FI') {
-        $translations = $this->getLocalization();
-        foreach ($translations as $trans) {
-            if ($trans->getLanguage() == $lang) {
-                $trans->setName($name);
-                return $this;
-            }
-        }
-    }*/
-
-    /*public function setTeaser($teaser, $lang = 'FI') {
-        $translations = $this->getLocalization();
-        foreach ($translations as $trans) {
-            if ($trans->getLanguage() == $lang) {
-                $trans->setName($teaser);
-                return $this;
-            }
-        }
-    }*/
-
     public function setLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $a) {
          //if (!$this->translations->contains($a)) {
             $a->setArticle($this);
@@ -114,4 +92,37 @@ class Article {
          //}
     }
 
+
+    /**
+     * Add localizations
+     *
+     * @param Pulu\PalstaBundle\Entity\ArticleLocalization $localizations
+     * @return Article
+     */
+    public function addLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $localizations)
+    {
+        $this->localizations[] = $localizations;
+    
+        return $this;
+    }
+
+    /**
+     * Remove localizations
+     *
+     * @param Pulu\PalstaBundle\Entity\ArticleLocalization $localizations
+     */
+    public function removeLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $localizations)
+    {
+        $this->localizations->removeElement($localizations);
+    }
+
+    /**
+     * Get localizations
+     *
+     * @return Doctrine\Common\Collections\Collection 
+     */
+    public function getLocalizations()
+    {
+        return $this->localizations;
+    }
 }

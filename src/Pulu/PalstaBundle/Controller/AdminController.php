@@ -15,8 +15,7 @@ class AdminController extends Controller {
     }
 
     public function listArticleAction() {
-        $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article');
-        $articles = $repository->createQueryBuilder('A')->innerJoin('A.localizations', 'B')->where('A.deleted IS NULL')->orderBy('B.name', 'ASC')->getQuery()->getResult();
+        $articles = $this->getDoctrine()->getManager()->getRepository('PuluPalstaBundle:Article')->findAllOrderedByName();
 
         return $this->render('PuluPalstaBundle:Admin:article.html.php', array(
             'articles' => $articles

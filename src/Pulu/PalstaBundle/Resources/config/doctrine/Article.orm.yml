@@ -1,6 +1,7 @@
 Pulu\PalstaBundle\Entity\Article:
     type: entity
     table: article
+    repositoryClass: Pulu\PalstaBundle\Entity\ArticleRepository
     id:
         id:
             type: integer
