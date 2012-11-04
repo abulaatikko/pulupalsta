@@ -30,15 +30,21 @@ pulu_palsta_admin:
 
 pulu_palsta_admin_article:
     pattern: /admin/article
-    defaults: { _controller: PuluPalstaBundle:Admin:article }
+    defaults: { _controller: PuluPalstaBundle:Admin:listArticle }
 
 pulu_palsta_admin_article_create:
     pattern: /admin/article/create
-    defaults: { _controller: PuluPalstaBundle:Admin:createArticle }
+    defaults: { _controller: PuluPalstaBundle:Admin:handleArticle }
 
 pulu_palsta_admin_article_edit:
     pattern: /admin/article/edit/{id}
-    defaults: { _controller: PuluPalstaBundle:Admin:editArticle }
+    defaults: { _controller: PuluPalstaBundle:Admin:handleArticle }
+    requirements:
+        id: \d+
+
+pulu_palsta_admin_article_delete:
+    pattern: /admin/article/delete/{id}
+    defaults: { _controller: PuluPalstaBundle:Admin:handleArticle }
     requirements:
         id: \d+
 

@@ -36,7 +36,7 @@ ul#about li		{float: right;}
 .wide           {width: 100%;}
 
 /* -----------------------------------------
-   Shared Styles
+   Shared Styles (overdriven)
 ----------------------------------------- */
 
 /* Link */
@@ -49,6 +49,10 @@ table th 		{background-color: #E2B2E4;}
 table tbody tr.even,
 table tbody tr.alt	{background: #F5EFF5;}
 table tbody tr:nth-child(even) {background-color: #F5EFF5;}
+
+/* Notice/alert message */
+div.alert-box, div.notice-box   { padding: 16px; font-size: 22px; }
+
 
 /* -----------------------------------------
    Main page

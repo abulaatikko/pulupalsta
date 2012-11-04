@@ -1,4 +1,3 @@
-# src/Pulu/PalstaBundle/Resources/config/doctrine/Article.orm.yml
 Pulu\PalstaBundle\Entity\Article:
     type: entity
     table: article
@@ -16,6 +15,9 @@ Pulu\PalstaBundle\Entity\Article:
             type: datetime
         modified:
             type: datetime
+        deleted:
+            type: datetime
+            nullable: true
         points:
             type: integer
         visits:

@@ -8,6 +8,7 @@ class Article {
     protected $visits;
     protected $created;
     protected $modified;
+    protected $deleted;
 
     protected $localizations;
 
@@ -43,6 +44,15 @@ class Article {
 
     public function getModified() {
         return $this->modified;
+    }
+
+    public function setDeleted() {
+        $this->deleted = new \DateTime('now');
+        return $this;
+    }
+
+    public function getDeleted() {
+        return $this->deleted;
     }
 
     public function setPoints($points) {
