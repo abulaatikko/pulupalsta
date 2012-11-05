@@ -1,3 +1,13 @@
+Pulu\PalstaBundle\Entity\Article:
+    properties:
+        visits:
+            - Min: 0
+            - Max: 1000000000
+
+        points:
+            - Min: 0
+            - Max: 1000
+
 Pulu\PalstaBundle\Entity\ArticleLocalization:
     properties:
         name:

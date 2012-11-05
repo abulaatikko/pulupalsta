@@ -12,6 +12,9 @@ Pulu\PalstaBundle\Entity\Article:
                 allocationSize: 10
                 initialValue: 1
     fields:
+        article_number:
+            type: integer
+            unique: true
         created:
             type: datetime
         modified:
@@ -22,7 +25,7 @@ Pulu\PalstaBundle\Entity\Article:
         points:
             type: integer
         visits:
-            type: integer
+            type: integer    
     lifecycleCallbacks:
         prePersist: [ setCreated, setModified ]
         preUpdate: [ setModified ]

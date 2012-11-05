@@ -25,7 +25,8 @@ class AdminController extends Controller {
     public function handleArticleAction($id = null) {
         $request = $this->get('request');
         $article = empty($id) ? new Article() : $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find($id);
-        $form = $this->createForm(new ArticleType(), $article);
+        $defaultArticleNumber = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findNextArticleNumber();
+        $form = $this->createForm(new ArticleType(), $article, array('default_article_number' => $defaultArticleNumber));
 
         if ($request->isMethod('POST')) {
             $em = $this->getDoctrine()->getManager();

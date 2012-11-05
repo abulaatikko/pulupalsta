@@ -6,5 +6,7 @@
 
 <h2>Kojelauta</h2>
 
+<p>Jotain turhaa</p>
+
 
 <?php $view['slots']->stop() ?>

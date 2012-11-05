@@ -3,16 +3,16 @@ namespace Pulu\PalstaBundle\Entity;
 
 class ArticleLocalization {
 
-    // Stupid Doctrine restriction http://docs.doctrine-project.org/projects/doctrine-orm/en/2.0.x/reference/limitations-and-known-issues.html
-    protected $id;
+    #protected $id;
     protected $article;
     protected $language = 'FI';
     protected $name;
     protected $teaser;
+    protected $body;
 
-    public function getId() {
-        return $this->id;
-    }
+    #public function getId() {
+    #    return $this->id;
+    #}
 
     public function setLanguage($language) {
         $this->language = $language;
@@ -29,6 +29,11 @@ class ArticleLocalization {
         return $this;
     }
 
+    public function setBody($body) {
+        $this->body = $body;
+        return $this;
+    }
+
     public function getLanguage() {
         return $this->language;
     }
@@ -39,6 +44,10 @@ class ArticleLocalization {
 
     public function getTeaser() {
         return $this->teaser;
+    }
+
+    public function getBody() {
+        return $this->body;
     }
 
     public function setArticle(\Pulu\PalstaBundle\Entity\Article $article) {

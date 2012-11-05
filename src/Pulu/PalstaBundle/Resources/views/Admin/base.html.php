@@ -29,6 +29,7 @@
     .row { width: 100%; max-width: 100%; min-width: 768px; margin: 0 auto; }
     body { margin: 10px; }
     #title { margin: 30px; }
+    .breadcrumbs { margin-top: 15px; }
     </style>
 </head>
 <body>
@@ -43,12 +44,14 @@
 
 <h3>Navigaatio</h3>
 
-<ul>
+<ul style="margin-left: 10px; list-style-type: square">
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article') ?>">Artikkelit</a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_comment') ?>">Kommentit</a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_account') ?>">Käyttäjät</a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_setting') ?>">Asetukset</a></li>
 </ul>
+
+<p><a href="<?php echo $view['router']->generate('pulu_palsta_front', array('_locale' => 'fi')) ?>">Avaa sivusto</a></p>
 
     </div><!-- Navigation area ends -->
     <!-- Body -->

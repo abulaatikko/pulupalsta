@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 class Article {
 
     protected $id;
+    protected $article_number;
     protected $points;
     protected $visits;
     protected $created;
@@ -22,12 +23,12 @@ class Article {
         return $this->id;
     }
 
-    public function getName($lang = 'FI') {
-        return $this->getLocalization($lang)->getName();
+    public function getArticleNumber() {
+        return $this->article_number;
     }
 
-    public function getTeaser($lang = 'FI') {
-        return $this->getLocalization($lang)->getTeaser();
+    public function setArticleNumber($articleNumber) {
+        $this->article_number = $articleNumber;
     }
 
     public function setCreated() {
@@ -75,14 +76,30 @@ class Article {
         return $this->visits;
     }
 
+    public function getLocalizations() {
+        return $this->localizations;
+    }
+
     public function getLocalization($lang = 'FI') {
-        $translations = $this->localizations;
+        $translations = $this->getLocalizations();
         foreach ($translations as $trans) {
             if ($trans->getLanguage() == $lang) {
                 return $trans;
             }
         }
         return new ArticleLocalization();
+    }
+
+    public function getName($lang = 'FI') {
+        return $this->getLocalization($lang)->getName();
+    }
+
+    public function getTeaser($lang = 'FI') {
+        return $this->getLocalization($lang)->getTeaser();
+    }
+
+    public function getBody($lang = 'FI') {
+        return $this->getLocalization($lang)->getBody();
     }
 
     public function setLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $a) {
@@ -114,15 +131,5 @@ class Article {
     public function removeLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $localizations)
     {
         $this->localizations->removeElement($localizations);
-    }
-
-    /**
-     * Get localizations
-     *
-     * @return Doctrine\Common\Collections\Collection 
-     */
-    public function getLocalizations()
-    {
-        return $this->localizations;
     }
 }

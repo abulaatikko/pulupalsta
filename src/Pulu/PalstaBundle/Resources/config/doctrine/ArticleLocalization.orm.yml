@@ -16,6 +16,9 @@ Pulu\PalstaBundle\Entity\ArticleLocalization:
             type: text
             length: 1024
             nullable: true
+        body:
+            type: text
+            nullable: true
     manyToOne:
         article:
             targetEntity: Article
