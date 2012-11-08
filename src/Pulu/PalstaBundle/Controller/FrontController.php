@@ -4,7 +4,6 @@ namespace Pulu\PalstaBundle\Controller;
 use Pulu\PalstaBundle\Entity\Article;
 use Pulu\PalstaBundle\Entity\ArticleLocalization;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 
 class FrontController extends Controller {
     public function indexAction() {

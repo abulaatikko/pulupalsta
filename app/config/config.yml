@@ -13,10 +13,9 @@ framework:
     csrf_protection: true
     validation:      { enabled: true }
     templating:      { engines: ['twig', 'php'] } #assets_version: SomeVersionScheme
-    default_locale:  %locale%
+    default_locale:  fi
     trust_proxy_headers: false # Whether or not the Request object should trust proxy headers (X_FORWARDED_FOR/HTTP_CLIENT_IP)
     session:         ~
-    default_locale:  fi
 
 # Twig Configuration
 twig:

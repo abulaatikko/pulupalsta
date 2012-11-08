@@ -10,8 +10,6 @@ class ListController extends Controller {
 
         return $this->render('PuluPalstaBundle:List:index.html.php', array(
             'articles' => $articles
-        ));
-
-        
+        ));        
     }
 }

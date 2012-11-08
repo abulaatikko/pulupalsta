@@ -30,21 +30,25 @@
     body { margin: 10px; }
     #title { margin: 30px; }
     .breadcrumbs { margin-top: 15px; }
+    #navigation { border-top: 4px solid #285EAE; border-bottom: 4px solid #285EAE; border-right: 4px dashed #285EAE; background: #fff; }
+    #navigation ul { margin-left: 10px; list-style-type: square; }
+    #contents { border-top: 4px solid #285EAE; border-bottom: 4px solid #285EAE; background: #fff; }
+    #notice { padding-top: 20px; }
+    #notice .alert-box { margin: 0px; }
     </style>
 </head>
 <body>
 
 <p id="title">Ylläpito</p>
-<!--<p id="slogan">palstanhoitoa jo vuodesta 2006</p>-->
 
 <!-- Main area -->
 <div class="row">
     <!-- Naviation area -->
-    <div class="two columns" style="border-top: 4px solid #285EAE; border-bottom: 4px solid #285EAE; border-right: 4px dashed #285EAE; background: #fff">
+    <div class="two columns" id="navigation">
 
 <h3>Navigaatio</h3>
 
-<ul style="margin-left: 10px; list-style-type: square">
+<ul>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article') ?>">Artikkelit</a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_comment') ?>">Kommentit</a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_account') ?>">Käyttäjät</a></li>
@@ -55,12 +59,12 @@
 
     </div><!-- Navigation area ends -->
     <!-- Body -->
-    <div class="ten columns" style="border-top: 4px solid #285EAE; border-bottom: 4px solid #285EAE; background: #fff">
+    <div class="ten columns" id="contents">
 
 <? if ($view['session']->hasFlash('notice')): ?>
-<div style="padding-top: 20px;" id="notice">
+<div id="notice">
 <?php foreach ($view['session']->getFlash('notice') as $message): ?>
-    <?php echo "<div class='alert-box success' style='margin: 0px'>$message</div>" ?>
+    <?php echo "<div class='alert-box success'>$message</div>" ?>
 <?php endforeach; ?>
 </div>
 <? endif ?>
@@ -68,7 +72,7 @@
 <? if ($view['session']->hasFlash('error')): ?>
 <div style="padding-top: 20px;" id="error">
 <?php foreach ($view['session']->getFlash('error') as $message): ?>
-    <?php echo "<div class='alert-box alert' style='margin: 0px'>$message</div>" ?>
+    <?php echo "<div class='alert-box alert'>$message</div>" ?>
 <?php endforeach; ?>
 </div>
 <? endif ?>

@@ -1,8 +1,6 @@
 <?php
 namespace Pulu\PalstaBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 class Article {
 
     protected $id;

@@ -76,4 +76,5 @@ $("#deleteConfirmation").click(function() {
 });
 $("#deleteConfirmationModal").find(".close").click(function() {
   $(this).trigger('reveal:close');
+  return false;
 });

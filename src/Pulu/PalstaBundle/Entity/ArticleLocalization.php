@@ -1,18 +1,15 @@
 <?php
 namespace Pulu\PalstaBundle\Entity;
 
+use Pulu\PalstaBundle\Entity\Article;
+
 class ArticleLocalization {
 
-    #protected $id;
     protected $article;
     protected $language = 'FI';
     protected $name;
     protected $teaser;
     protected $body;
-
-    #public function getId() {
-    #    return $this->id;
-    #}
 
     public function setLanguage($language) {
         $this->language = $language;
@@ -50,7 +47,7 @@ class ArticleLocalization {
         return $this->body;
     }
 
-    public function setArticle(\Pulu\PalstaBundle\Entity\Article $article) {
+    public function setArticle(Article $article) {
         $this->article = $article;    
         return $this;
     }
