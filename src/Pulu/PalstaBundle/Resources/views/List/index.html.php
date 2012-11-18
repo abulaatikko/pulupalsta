@@ -1,17 +1,17 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', 'Luettelo - Pulupalsta') ?>
+<?php $view['slots']->set('title', $view['translator']->trans('Directory') . ' - Pulupalsta') ?>
 
 <?php $view['slots']->start('body') ?>
 
-<h1>Luettelo</h1>
+<h1><?php echo $view['translator']->trans('Directory') ?></h1>
 
 <table class="wide">
 <thead>
 <tr>
     <th>#</th>
-    <th>Kirjoitus</th>
-    <th>Julkaistu</th>
+    <th><?php echo $view['translator']->trans('Kirjoitus') ?></th>
+    <th><?php echo $view['translator']->trans('Julkaistu') ?></th>
 </tr>
 </thead>
 <tbody>
@@ -19,7 +19,7 @@
 <? foreach ($articles as $article): ?>
 <tr>
     <td><?php echo $i++ ?>.</td>
-    <td><a href=''><?php echo $article->getName(); ?> (<?php echo $article->getId() ?>)</a></td>
+    <td><a href=''><?php echo $article->getName($app->getRequest()->getLocale()); ?> (<?php echo $article->getId() ?>)</a></td>
     <td class="nowrap"><?php echo $article->getCreated()->format('Y-m-d'); ?></td>
 </tr>
 <? endforeach ?>

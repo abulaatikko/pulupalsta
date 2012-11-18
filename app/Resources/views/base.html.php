@@ -39,14 +39,14 @@
 <? endif ?>
 
 <p id="title">Pulupalsta</p>
-<p id="slogan">palstanhoitoa jo vuodesta 2006</p>
+<p id="slogan"><?php echo $view['translator']->trans('Palstan hoitoa jo vuodesta 2006') ?></p>
 
 <ul id="navigation">
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_front') ?>">Kansi</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_list') ?>">Luettelo</a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_front') ?>"><?php echo $view['translator']->trans('Kansi') ?></a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_list') ?>"><?php echo $view['translator']->trans('Luettelo') ?></a></li>
 </ul>
 <ul id="about">
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_about') ?>">Hä?</a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_about') ?>"><?php echo $view['translator']->trans('Hä') ?>?</a></li>
 </ul>
 
 <!-- Contents row -->

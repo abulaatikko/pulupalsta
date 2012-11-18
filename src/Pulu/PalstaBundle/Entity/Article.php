@@ -11,10 +11,10 @@ class Article {
     protected $modified;
     protected $deleted;
 
-    protected $localizations;
+    public $articleLocalizations;
 
     public function __construct() {
-        $this->localizations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->articleLocalizations = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function getId() {
@@ -74,12 +74,16 @@ class Article {
         return $this->visits;
     }
 
-    public function getLocalizations() {
-        return $this->localizations;
+    public function getArticleLocalizations() {
+        return $this->articleLocalizations;
     }
 
-    public function getLocalization($lang = 'FI') {
-        $translations = $this->getLocalizations();
+    public function setLocalizations(ArrayCollection $articleLocalizations) {
+        $this->articleLocalizations = $articleLocalizations;
+    }
+
+    public function getArticleLocalization($lang = 'fi') {
+        $translations = $this->getArticleLocalizations();
         foreach ($translations as $trans) {
             if ($trans->getLanguage() == $lang) {
                 return $trans;
@@ -88,22 +92,22 @@ class Article {
         return new ArticleLocalization();
     }
 
-    public function getName($lang = 'FI') {
-        return $this->getLocalization($lang)->getName();
+    public function getName($lang = 'fi') {
+        return $this->getArticleLocalization($lang)->getName();
     }
 
-    public function getTeaser($lang = 'FI') {
-        return $this->getLocalization($lang)->getTeaser();
+    public function getTeaser($lang = 'fi') {
+        return $this->getArticleLocalization($lang)->getTeaser();
     }
 
-    public function getBody($lang = 'FI') {
-        return $this->getLocalization($lang)->getBody();
+    public function getBody($lang = 'fi') {
+        return $this->getArticleLocalization($lang)->getBody();
     }
 
     public function setLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $a) {
          //if (!$this->translations->contains($a)) {
             $a->setArticle($this);
-            $this->localizations[] = $a;
+            $this->articleLocalizations[] = $a;
          //}
     }
 
@@ -114,9 +118,9 @@ class Article {
      * @param Pulu\PalstaBundle\Entity\ArticleLocalization $localizations
      * @return Article
      */
-    public function addLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $localizations)
+    public function addLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $articleLocalizations)
     {
-        $this->localizations[] = $localizations;
+        $this->articleLocalizations[] = $articleLocalizations;
     
         return $this;
     }
@@ -126,8 +130,8 @@ class Article {
      *
      * @param Pulu\PalstaBundle\Entity\ArticleLocalization $localizations
      */
-    public function removeLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $localizations)
+    public function removeLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $articleLocalizations)
     {
-        $this->localizations->removeElement($localizations);
+        $this->articleLocalizations->removeElement($articleLocalizations);
     }
 }

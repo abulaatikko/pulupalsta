@@ -8,8 +8,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class FrontController extends Controller {
     public function indexAction() {
         $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article');
-        $recentArticles = $repository->createQueryBuilder('A')->orderBy('A.created', 'DESC')->setMaxResults(10)->getQuery()->getResult();
-        $popularArticles = $repository->createQueryBuilder('A')->orderBy('A.points', 'DESC')->setMaxResults(10)->getQuery()->getResult();
+        $repository->setLanguage($this->getRequest()->getLocale());
+        $recentArticles = $repository->findOrderedByCreated(10);
+        $popularArticles = $repository->findOrderedByPoint(10);
         return $this->render('PuluPalstaBundle:Front:index.html.php', array(
             'recentArticles' => $recentArticles,
             'popularArticles' => $popularArticles

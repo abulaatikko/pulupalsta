@@ -28,9 +28,15 @@
 
 <form action="<?php echo $view['router']->generate($formUrl, array('id' => $article->getId())) ?>" method="post" <?php echo $view['form']->enctype($form) ?> >
     <?php $view['form']->setTheme($form, array('PuluPalstaBundle:Form')) ;?>
-    <?php echo $view['form']->row($form['localization']['name']) ?>
-    <?php echo $view['form']->row($form['localization']['teaser']) ?>
-    <?php echo $view['form']->row($form['localization']['body']) ?>
+    <?php echo $view['form']->row($form['articleLocalizations'][0]['language']) ?>
+    <?php echo $view['form']->row($form['articleLocalizations'][0]['name']) ?>
+    <?php echo $view['form']->row($form['articleLocalizations'][0]['teaser']) ?>
+    <?php echo $view['form']->row($form['articleLocalizations'][0]['body']) ?>
+
+    <?php echo $view['form']->row($form['articleLocalizations'][1]['language']) ?>
+    <?php echo $view['form']->row($form['articleLocalizations'][1]['name']) ?>
+    <?php echo $view['form']->row($form['articleLocalizations'][1]['teaser']) ?>
+    <?php echo $view['form']->row($form['articleLocalizations'][1]['body']) ?>
 
     <div class="row">
     <div class="three columns">

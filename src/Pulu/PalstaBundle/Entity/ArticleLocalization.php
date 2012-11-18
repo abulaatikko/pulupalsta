@@ -6,7 +6,7 @@ use Pulu\PalstaBundle\Entity\Article;
 class ArticleLocalization {
 
     protected $article;
-    protected $language = 'FI';
+    protected $language = 'fi';
     protected $name;
     protected $teaser;
     protected $body;
