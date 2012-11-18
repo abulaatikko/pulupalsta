@@ -30,7 +30,7 @@ Pulu\PalstaBundle\Entity\Article:
         prePersist: [ setCreated, setModified ]
         preUpdate: [ setModified ]
     oneToMany:
-        articleLocalizations:
+        localizations:
             targetEntity: ArticleLocalization
             mappedBy: article
             cascade: ["persist"]

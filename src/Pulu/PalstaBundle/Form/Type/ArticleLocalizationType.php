@@ -26,6 +26,6 @@ class ArticleLocalizationType extends AbstractType
     }
 
     public function getName() {
-        return 'articleLocalization';
+        return 'localization';
     }
 }

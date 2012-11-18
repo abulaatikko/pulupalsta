@@ -12,7 +12,6 @@ class ArticleType extends AbstractType {
         $articleNumber = $options['data']->getArticleNumber();
         $defaultPoints = empty($points) ? '1' : $points;
         $defaultArticleNumber = empty($articleNumber) ? $options['default_article_number'] : $articleNumber;
-        $articleLocalization = new ArticleLocalizationType();
         $builder
             ->add('article_number', 'integer', array(
                 'label' => 'Artikkelinumero',
@@ -22,7 +21,7 @@ class ArticleType extends AbstractType {
             ->add('points', 'integer', array(
                 'label' => 'Pojoja', 
                 'data' => $defaultPoints))
-            ->add('articleLocalizations', 'collection', array('type' => new ArticleLocalizationType()));
+            ->add('localizations', 'collection', array('type' => new ArticleLocalizationType()));
     }
 
     public function getName() {

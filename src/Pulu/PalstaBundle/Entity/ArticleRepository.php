@@ -9,7 +9,7 @@ class ArticleRepository extends EntityRepository {
 
     public function findAllOrderedByName() {
     	$lang = $this->getLanguage();
-        return $this->createQueryBuilder('A')->innerJoin('A.articleLocalizations', 'B')->where("A.deleted IS NULL AND B.language = '" . $lang . "'")->orderBy('B.name', 'ASC')->getQuery()->getResult();
+        return $this->createQueryBuilder('A')->innerJoin('A.localizations', 'B')->where("A.deleted IS NULL AND B.language = '" . $lang . "'")->orderBy('B.name', 'ASC')->getQuery()->getResult();
     }
 
     public function findNextArticleNumber() {
@@ -19,7 +19,7 @@ class ArticleRepository extends EntityRepository {
     public function findOrderedByCreated($max = '10') {
         $lang = $this->getLanguage();
         return $this->createQueryBuilder('A')
-            ->innerJoin('A.articleLocalizations', 'B')
+            ->innerJoin('A.localizations', 'B')
             ->where("B.language = '" . $lang . "'")
             ->orderBy('A.created', 'DESC')
             ->setMaxResults($max)
@@ -29,7 +29,7 @@ class ArticleRepository extends EntityRepository {
     public function findOrderedByPoint($max = 10) {
         $lang = $this->getLanguage();
         return $this->createQueryBuilder('A')
-            ->innerJoin('A.articleLocalizations', 'B')
+            ->innerJoin('A.localizations', 'B')
             ->where("B.language = '" . $lang . "'")
             ->orderBy('A.points', 'DESC')
             ->setMaxResults($max)

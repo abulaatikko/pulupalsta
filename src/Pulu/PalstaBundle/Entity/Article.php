@@ -11,10 +11,10 @@ class Article {
     protected $modified;
     protected $deleted;
 
-    public $articleLocalizations;
+    public $localizations;
 
     public function __construct() {
-        $this->articleLocalizations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->localizations = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function getId() {
@@ -74,16 +74,16 @@ class Article {
         return $this->visits;
     }
 
-    public function getArticleLocalizations() {
-        return $this->articleLocalizations;
+    public function getLocalizations() {
+        return $this->localizations;
     }
 
-    public function setLocalizations(ArrayCollection $articleLocalizations) {
-        $this->articleLocalizations = $articleLocalizations;
+    public function setLocalizations(ArrayCollection $localizations) {
+        $this->localizations = $localizations;
     }
 
-    public function getArticleLocalization($lang = 'fi') {
-        $translations = $this->getArticleLocalizations();
+    public function getLocalization($lang = 'fi') {
+        $translations = $this->getLocalizations();
         foreach ($translations as $trans) {
             if ($trans->getLanguage() == $lang) {
                 return $trans;
@@ -93,21 +93,21 @@ class Article {
     }
 
     public function getName($lang = 'fi') {
-        return $this->getArticleLocalization($lang)->getName();
+        return $this->getLocalization($lang)->getName();
     }
 
     public function getTeaser($lang = 'fi') {
-        return $this->getArticleLocalization($lang)->getTeaser();
+        return $this->getLocalization($lang)->getTeaser();
     }
 
     public function getBody($lang = 'fi') {
-        return $this->getArticleLocalization($lang)->getBody();
+        return $this->getLocalization($lang)->getBody();
     }
 
     public function setLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $a) {
          //if (!$this->translations->contains($a)) {
             $a->setArticle($this);
-            $this->articleLocalizations[] = $a;
+            $this->localizations[] = $a;
          //}
     }
 
@@ -118,9 +118,9 @@ class Article {
      * @param Pulu\PalstaBundle\Entity\ArticleLocalization $localizations
      * @return Article
      */
-    public function addLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $articleLocalizations)
+    public function addLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $localizations)
     {
-        $this->articleLocalizations[] = $articleLocalizations;
+        $this->localizations[] = $localizations;
     
         return $this;
     }
@@ -130,8 +130,8 @@ class Article {
      *
      * @param Pulu\PalstaBundle\Entity\ArticleLocalization $localizations
      */
-    public function removeLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $articleLocalizations)
+    public function removeLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $localizations)
     {
-        $this->articleLocalizations->removeElement($articleLocalizations);
+        $this->localizations->removeElement($localizations);
     }
 }

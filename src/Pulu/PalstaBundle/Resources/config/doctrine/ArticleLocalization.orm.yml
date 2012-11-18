@@ -22,4 +22,4 @@ Pulu\PalstaBundle\Entity\ArticleLocalization:
     manyToOne:
         article:
             targetEntity: Article
-            inversedBy: articleLocalizations
+            inversedBy: localizations
