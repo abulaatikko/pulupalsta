@@ -18,10 +18,10 @@ class ArticleLocalizationType extends AbstractType
 
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
-            'data_class' => 'Pulu\PalstaBundle\Entity\ArticleLocalization',
+            'data_class' => 'Pulu\PalstaBundle\Entity\ArticleLocalization'/*,
             'query_builder' => function(ArticleRepository $repository) {
                 return $repository->createQueryBuilder('A')->add('orderBy', 'A.language', 'ASC');
-            }
+            }*/
         ));
     }
 

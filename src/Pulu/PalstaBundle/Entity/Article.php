@@ -11,7 +11,7 @@ class Article {
     protected $modified;
     protected $deleted;
 
-    public $localizations;
+    protected $localizations;
 
     public function __construct() {
         $this->localizations = new \Doctrine\Common\Collections\ArrayCollection();
@@ -104,34 +104,9 @@ class Article {
         return $this->getLocalization($lang)->getBody();
     }
 
-    public function setLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $a) {
-         //if (!$this->translations->contains($a)) {
-            $a->setArticle($this);
-            $this->localizations[] = $a;
-         //}
+    public function setLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $localization) {
+        $a->setArticle($this);
+        $this->localizations[] = $localization;
     }
 
-
-    /**
-     * Add localizations
-     *
-     * @param Pulu\PalstaBundle\Entity\ArticleLocalization $localizations
-     * @return Article
-     */
-    public function addLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $localizations)
-    {
-        $this->localizations[] = $localizations;
-    
-        return $this;
-    }
-
-    /**
-     * Remove localizations
-     *
-     * @param Pulu\PalstaBundle\Entity\ArticleLocalization $localizations
-     */
-    public function removeLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $localizations)
-    {
-        $this->localizations->removeElement($localizations);
-    }
 }
