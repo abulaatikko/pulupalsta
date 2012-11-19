@@ -19,7 +19,7 @@
 <? foreach ($articles as $article): ?>
 <tr>
     <td><?php echo $i++ ?>.</td>
-    <td><a href=''><?php echo $article->getName($app->getRequest()->getLocale()); ?> (<?php echo $article->getId() ?>)</a></td>
+    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getId(), 'name' => $view['helper']->toFilename($article->getName($app->getRequest()->getLocale())))) ?>'><?php echo $article->getName($app->getRequest()->getLocale()); ?> (<?php echo $article->getId() ?>)</a></td>
     <td class="nowrap"><?php echo $article->getCreated()->format('Y-m-d'); ?></td>
 </tr>
 <? endforeach ?>

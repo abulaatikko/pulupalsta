@@ -23,6 +23,21 @@ pulu_palsta_list:
     requirements:
         _locale: fi|en
 
+pulu_palsta_article_without_name:
+    pattern: /{_locale}/{id}
+    defaults: { _controller: PuluPalstaBundle:Article:redirect }
+    requirements:
+        id: \d+
+        _locale: fi|en
+
+pulu_palsta_article:
+    pattern: /{_locale}/{id}-{name}
+    defaults: { _controller: PuluPalstaBundle:Article:view, id: 1, name: default }
+    requirements:
+        id: \d+
+        name: ([A-Za-z0-9-]+)
+        _locale: fi|en
+
 ##### ADMIN #####
 pulu_palsta_admin:
     pattern: /admin

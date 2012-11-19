@@ -2,21 +2,26 @@
 namespace Pulu\PalstaBundle\Controller;
 
 use Pulu\PalstaBundle\Entity\Article;
-use Pulu\PalstaBundle\Entity\ArticleLocalization;
+#use Pulu\PalstaBundle\Entity\ArticleLocalization;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 
 class ArticleController extends Controller {
 
-    public function indexAction() {
-        $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article');
-        $articles = $repository->findAll();
-        $html = '<ul>';
-        foreach ($articles as $article) {
-            $html .= '<li>' . $article->getName('FI') . ' (' . $article->getId() . ', ' . $article->getTeaser('FI') . ')</li>';
-        }
-        $html .= '</ul>';
-        
-        return new Response($html);
+    public function viewAction($id, $name) {
+        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find($id);
+
+        return $this->render('PuluPalstaBundle:Article:view.html.php', array(
+            'article' => $article
+        ));
     }
+
+    public function redirectAction($id) {
+        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find($id);
+        $name = $article->getName($this->getRequest()->getLocale());
+        $name = $this->get('helper')->toFilename($name);
+
+        return $this->redirect($this->generateUrl('pulu_palsta_article', array('id' => $id, 'name' => $name)), 301);
+    }
+
+
 }

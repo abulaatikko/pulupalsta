@@ -118,7 +118,7 @@
 <? foreach ($popularArticles as $article): ?>
 <tr>
     <td><?php echo $i++ ?>.</td>
-    <td><a href=''><?php echo $article->getName($app->getRequest()->getLocale()); ?></a></td>
+    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getId(), 'name' => $view['helper']->toFilename($article->getName($app->getRequest()->getLocale())))) ?>'><?php echo $article->getName($app->getRequest()->getLocale()); ?></a></td>
     <td class="nowrap"><?php echo $article->getPoints(); ?></td>
 </tr>
 <? endforeach ?>
@@ -144,7 +144,7 @@
 <? foreach ($recentArticles as $article): ?>
 <tr>
     <td><?php echo $i++ ?>.</td>
-    <td><a href=''><?php echo $article->getName($app->getRequest()->getLocale()); ?></a></td>
+    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getId(), 'name' => $view['helper']->toFilename($article->getName($app->getRequest()->getLocale())))) ?>'><?php echo $article->getName($app->getRequest()->getLocale()); ?></a></td>
     <td class="nowrap"><?php echo $article->getCreated()->format('Y-m-d'); ?></td>
 </tr>
 <? endforeach ?>

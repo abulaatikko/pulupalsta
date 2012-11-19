@@ -32,10 +32,11 @@
 <div class="row">
     <div class="twelve columns">
 
+<?php $route_params = $app->getRequest()->get('_route_params'); ?>
 <?php if ($app->getRequest()->getLocale() == 'fi'): ?>
-<div id="switch-language"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), (array('_locale' => 'en'))) ?>">in English</a></div>
+<div id="switch-language"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'en'))) ?>">in English</a></div>
 <? else: ?>
-<div id="switch-language"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), (array('_locale' => 'fi'))) ?>">suomeksi</a></div>
+<div id="switch-language"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'fi'))) ?>">suomeksi</a></div>
 <? endif ?>
 
 <p id="title">Pulupalsta</p>
