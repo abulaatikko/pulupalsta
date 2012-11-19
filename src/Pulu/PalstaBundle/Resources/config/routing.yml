@@ -65,7 +65,7 @@ pulu_palsta_admin_article_delete:
 
 pulu_palsta_admin_comment:
     pattern: /admin/comment
-    defaults: { _controller: PuluPalstaBundle:Admin:comment }
+    defaults: { _controller: PuluPalstaBundle:Admin:listComment }
 
 pulu_palsta_admin_account:
     pattern: /admin/account

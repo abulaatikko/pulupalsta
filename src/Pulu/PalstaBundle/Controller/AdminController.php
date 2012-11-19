@@ -15,7 +15,7 @@ class AdminController extends Controller {
     }
 
     public function listArticleAction() {
-        $repository = $this->getDoctrine()->getManager()->getRepository('PuluPalstaBundle:Article');
+        $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article');
         $articles = $repository->findAllOrderedByName();
 
         return $this->render('PuluPalstaBundle:Admin:article.html.php', array(
@@ -58,6 +58,15 @@ class AdminController extends Controller {
         return $this->render('PuluPalstaBundle:Admin:handleArticle.html.php', array(
             'form' => $form->createView(),
             'article' => $article
+        ));
+    }
+
+    public function listCommentAction() {
+        $repository = $this->getDoctrine()->getManager()->getRepository('PuluPalstaBundle:Comment');
+        $comments = $repository->findByCreated();
+
+        return $this->render('PuluPalstaBundle:Admin:comment.html.php', array(
+            'comments' => $comments
         ));
     }
 

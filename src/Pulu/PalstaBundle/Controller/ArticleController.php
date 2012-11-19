@@ -2,7 +2,6 @@
 namespace Pulu\PalstaBundle\Controller;
 
 use Pulu\PalstaBundle\Entity\Article;
-#use Pulu\PalstaBundle\Entity\ArticleLocalization;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ArticleController extends Controller {

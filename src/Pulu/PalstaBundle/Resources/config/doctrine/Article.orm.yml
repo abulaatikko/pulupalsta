@@ -34,3 +34,7 @@ Pulu\PalstaBundle\Entity\Article:
             targetEntity: ArticleLocalization
             mappedBy: article
             cascade: ["persist"]
+        comments:
+            targetEntity: Comment
+            mappedBy: comment
+            cascade: ["persist"]

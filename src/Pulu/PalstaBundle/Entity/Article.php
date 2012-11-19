@@ -1,6 +1,10 @@
 <?php
 namespace Pulu\PalstaBundle\Entity;
 
+use \Doctrine\Common\Collections\ArrayCollection;
+use \Pulu\PalstaBundle\Entity\ArticleLocalization;
+use \Pulu\PalstaBundle\Entity\Comment;
+
 class Article {
 
     protected $id;
@@ -12,9 +16,11 @@ class Article {
     protected $deleted;
 
     protected $localizations;
+    protected $comments;
 
     public function __construct() {
-        $this->localizations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->localizations = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId() {
@@ -82,6 +88,14 @@ class Article {
         $this->localizations = $localizations;
     }
 
+    public function getComments() {
+        return $this->comments;
+    }
+
+    public function setComments(ArrayCollection $comments) {
+        $this->comments = $comments;
+    }
+
     public function getLocalization($lang = 'fi') {
         $translations = $this->getLocalizations();
         foreach ($translations as $trans) {
@@ -90,6 +104,16 @@ class Article {
             }
         }
         return new ArticleLocalization();
+    }
+
+    public function setLocalization(ArticleLocalization $localization) {
+        $a->setArticle($this);
+        $this->localizations[] = $localization;
+    }
+
+    public function setComment(Comment $comment) {
+        $a->setComment($this);
+        $this->comments[] = $comment;
     }
 
     public function getName($lang = 'fi') {
@@ -102,11 +126,6 @@ class Article {
 
     public function getBody($lang = 'fi') {
         return $this->getLocalization($lang)->getBody();
-    }
-
-    public function setLocalization(\Pulu\PalstaBundle\Entity\ArticleLocalization $localization) {
-        $a->setArticle($this);
-        $this->localizations[] = $localization;
     }
 
 }

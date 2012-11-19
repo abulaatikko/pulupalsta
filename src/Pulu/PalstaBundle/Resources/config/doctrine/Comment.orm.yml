@@ -1,0 +1,53 @@
+Pulu\PalstaBundle\Entity\Comment:
+    type: entity
+    table: comment
+    repositoryClass: Pulu\PalstaBundle\Entity\CommentRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: sequence
+            sequenceGenerator:
+                sequenceName: comment_seq
+                allocationSize: 10
+                initialValue: 1
+    fields:
+        language:
+            type: string
+            length: 2
+        content:
+            type: string
+            nullable: true
+        account_id:
+            type: integer
+            nullable: true
+        author_name:
+            type: string
+            length: 64
+            nullable: true
+        author_ip_address:
+            type: string
+            length: 64
+            nullable: true
+        author_useragent:
+            type: string
+            length: 256
+            nullable: true
+        created:
+            type: datetime
+        modified:
+            type: datetime
+        deleted:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks:
+        prePersist: [ setCreated, setModified ]
+        preUpdate: [ setModified ]
+    manyToOne:
+        article:
+            targetEntity: Article
+            inversedBy: comments
+            joinColumn:
+                name: article_id
+                referencedColumnName: id
+                nullable: false
