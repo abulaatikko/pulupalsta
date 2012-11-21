@@ -21,10 +21,7 @@ class ArticleType extends AbstractType {
             ->add('points', 'integer', array(
                 'label' => 'Pojoja', 
                 'data' => $defaultPoints))
-            ->add('localizations', 'collection',  
-                array(
-                    'type' => new ArticleLocalizationType()
-                ));
+            ->add('localizations', 'collection',  array('type' => new ArticleLocalizationType()));
     }
 
     public function getName() {

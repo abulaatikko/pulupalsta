@@ -10,7 +10,7 @@ class ArticleLocalizationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-            ->add('language', 'text')
+            ->add('language', 'hidden')
             ->add('name', 'text', array('label' => 'Nimi'))
             ->add('teaser', 'textarea', array('label' => 'Houkutusteksti', 'required' => false))
             ->add('body', 'textarea', array('label' => 'Runko', 'required' => false));

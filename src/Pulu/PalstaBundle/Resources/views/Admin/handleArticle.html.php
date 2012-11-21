@@ -26,15 +26,19 @@
 <?php $formUrl = 'pulu_palsta_admin_article_create'; ?>
 <?php endif ?>
 
+<p><a href="#" class="switch-language" data-to="fi">suomeksi</a> | <a href="#" class="switch-language" data-to="en">englanniksi</a></p>
+
 <form action="<?php echo $view['router']->generate($formUrl, array('id' => $article->getId())) ?>" method="post" <?php echo $view['form']->enctype($form) ?> >
     <?php $view['form']->setTheme($form, array('PuluPalstaBundle:Form')) ;?>
 
 <?php if (! empty($form['localizations'])): ?>
         <?php foreach ($form['localizations'] as $row): ?>
-            <?php echo $view['form']->row($row['language']) ?>
+            <div id="language-<?php echo $row['language']->vars['value'] ?>">
+            <?php $view['form']->row($row['language']) // skip printing ?>
             <?php echo $view['form']->row($row['name']) ?>
             <?php echo $view['form']->row($row['teaser']) ?>
             <?php echo $view['form']->row($row['body']) ?>
+            </div>
         <? endforeach ?>
     <? endif ?>
 

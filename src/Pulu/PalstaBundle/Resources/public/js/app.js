@@ -66,10 +66,10 @@ $(document).ready(function() {
 /* -----------------------------------------
    Admin
 ----------------------------------------- */
-//$('#notice').delay(2000).fadeOut(2000);
+// Notice
 $('#notice').delay(2000).slideUp(2000);
-//$("#notice").delay(2000).animate({ height: 'toggle', opacity: 'toggle' }, 2000);
 
+// Delete confirmation
 $("#deleteConfirmation").click(function() {
   $("#deleteConfirmationModal").reveal();
   return false;
@@ -77,4 +77,20 @@ $("#deleteConfirmation").click(function() {
 $("#deleteConfirmationModal").find(".close").click(function() {
   $(this).trigger('reveal:close');
   return false;
+});
+
+// Article localization
+$('#language-en').hide();
+$('a.switch-language[data-to="fi"]').css("font-weight", "bold");
+$('.switch-language').bind('click', function() {
+  var to = $(this).attr('data-to');
+  $('#language-' + to).show();
+  $('a.switch-language[data-to="' + to + '"]').css("font-weight", "bold");
+  if (to == 'en') {
+    $('#language-fi').hide();    
+    $('a.switch-language[data-to="fi"]').css("font-weight", "normal");
+  } else {
+    $('#language-en').hide();
+    $('a.switch-language[data-to="en"]').css("font-weight", "normal");
+  }
 });
