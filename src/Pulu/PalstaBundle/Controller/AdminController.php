@@ -62,7 +62,6 @@ class AdminController extends Controller {
             if (! $id > 0) {
                 return $this->redirect($this->generateUrl('pulu_palsta_admin_article_edit', array('id' => $article->getId())));
             }
-
         }
 
         return $this->render('PuluPalstaBundle:Admin:handleArticle.html.php', array(

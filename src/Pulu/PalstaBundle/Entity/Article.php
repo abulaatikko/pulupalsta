@@ -20,7 +20,7 @@ class Article {
 
     public function __construct() {
         $this->localizations = new ArrayCollection();
-        //$this->comments = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     public function getId() {
