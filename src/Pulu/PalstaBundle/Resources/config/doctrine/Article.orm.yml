@@ -8,7 +8,7 @@ Pulu\PalstaBundle\Entity\Article:
             generator:
                 strategy: sequence
             sequenceGenerator:
-                sequenceName: article_seq
+                sequenceName: article_id_seq
                 allocationSize: 10
                 initialValue: 1
     fields:

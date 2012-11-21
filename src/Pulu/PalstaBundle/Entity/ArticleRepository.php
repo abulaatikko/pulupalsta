@@ -13,7 +13,7 @@ class ArticleRepository extends EntityRepository {
     }
 
     public function findNextArticleNumber() {
-        return intval($this->createQueryBuilder('A')->select('MAX(A.article_number)')->where('A.deleted IS NULL')->getQuery()->getSingleScalarResult() + 1);
+        return intval($this->createQueryBuilder('A')->select('MAX(A.article_number)')->getQuery()->getSingleScalarResult() + 1);
     }
 
     public function findOrderedByCreated($max = '10') {

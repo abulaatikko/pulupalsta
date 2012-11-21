@@ -25,14 +25,25 @@ class AdminController extends Controller {
 
     public function handleArticleAction($id = null) {
         $request = $this->get('request');
-        $article = empty($id) ? new Article() : $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find($id);
+        if (empty($id)) {
+            $article = new Article();
+            $articleLocalizationFI = new ArticleLocalization();
+            $articleLocalizationFI->setLanguage('fi');
+            $articleLocalizationFI->setArticle($article);
+            $articleLocalizationEN = new ArticleLocalization();
+            $articleLocalizationEN->setLanguage('en');
+            $articleLocalizationEN->setArticle($article);
+            $article->getLocalizations()->add($articleLocalizationFI);
+            $article->getLocalizations()->add($articleLocalizationEN);
+        } else {
+            $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find($id);
+        }
         $defaultArticleNumber = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findNextArticleNumber();
         $form = $this->createForm(new ArticleType(), $article, array('default_article_number' => $defaultArticleNumber));
 
         if ($request->isMethod('POST')) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
-
             $delete = $request->get('delete');
             if ($delete) {
                 $article->setDeleted();
@@ -40,9 +51,8 @@ class AdminController extends Controller {
                 $this->get('session')->getFlashBag()->add('notice', 'Artikkeli poistettu');
                 return $this->redirect($this->generateUrl('pulu_palsta_admin_article'));
             }
-
             $form->bind($request);
-            if ($form->isValid()) {
+            if ($form->isValid()) {                
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('notice', 'Artikkeli tallennettu');
             } else {

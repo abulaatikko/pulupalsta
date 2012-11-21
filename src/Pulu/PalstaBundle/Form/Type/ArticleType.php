@@ -21,7 +21,18 @@ class ArticleType extends AbstractType {
             ->add('points', 'integer', array(
                 'label' => 'Pojoja', 
                 'data' => $defaultPoints))
-            ->add('localizations', 'collection', array('type' => new ArticleLocalizationType()));
+            //->add('localizations', 'entity', array('class' => 'Pulu\PalstaBundle\Entity\ArticleLocalization'))
+            //->add('localizations', 'entity', array('class' => 'Pulu\PalstaBundle\Entity\ArticleLocalization'));
+            //->add('localizations_en', 'entity', new ArticleLocalizationType());
+            ->add('localizations', 'collection',  
+                array(
+                    'type' => new ArticleLocalizationType(),
+                    //'prototype' => true,
+                    //'by_reference' => false,
+                    'options' => array(
+                        'data_class' => 'Pulu\PalstaBundle\Entity\ArticleLocalization'
+                    )
+                ));
     }
 
     public function getName() {

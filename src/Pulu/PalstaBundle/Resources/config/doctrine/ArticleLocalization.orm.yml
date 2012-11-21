@@ -23,3 +23,7 @@ Pulu\PalstaBundle\Entity\ArticleLocalization:
         article:
             targetEntity: Article
             inversedBy: localizations
+            joinColumn:
+                name: article_id
+                referencedColumnName: id
+                nullable: false
