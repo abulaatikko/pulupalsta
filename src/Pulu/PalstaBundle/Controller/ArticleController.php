@@ -8,15 +8,44 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ArticleController extends Controller {
 
+    const SAFE_QUESTION_ANSWER = 'lima';
+
     public function viewAction($id, $name) {
         $R = $this->get('request');
         $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find($id);
+        $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment');
+        $comments = $repository->findByCreated(null, $article->getId(), $R->getLocale());
 
         $comment = new Comment();
         $form = $this->createForm(new CommentType(), $comment);
 
+        if ($R->isMethod('POST')) {
+            $data = $R->request->get('comment');
+            if (isset($data['safe_question']) && mb_strtolower($data['safe_question']) == mb_strtolower(self::SAFE_QUESTION_ANSWER)) {
+                $form->bind($R);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($comment);
+                if ($form->isValid()) {
+                    $comment->setArticle($article);
+                    $comment->setLanguage($R->getLocale());
+                    $comment->setAuthorIpAddress($R->getClientIp());
+                    $comment->setAuthorUserAgent($R->server->get('HTTP_USER_AGENT'));
+
+                    $em->flush();
+                    $this->get('session')->getFlashBag()->add('notice', 'Kommentti on lähetetty');
+                } else {
+                    $this->get('session')->getFlashBag()->add('error', 'Kommentin lähetys epäonnistui');
+                }
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'Kommentin lähetys epäonnistui');
+            }         
+
+            return $this->redirect($this->generateUrl('pulu_palsta_article', array('id' => $article->getId())));
+        }
+
         return $this->render('PuluPalstaBundle:Article:view.html.php', array(
             'article' => $article,
+            'comments' => $comments,
             'form' => $form->createView()
         ));
     }

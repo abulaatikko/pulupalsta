@@ -31,16 +31,30 @@
 <!-- Main row -->
 <div class="row">
     <div class="twelve columns">
+        <!-- Main wrapper -->
+        <div id="main-wrapper">
+
+<!-- Language switch row -->
+<div class="row">
+    <div class="twelve columns">
 
 <?php $route_params = $app->getRequest()->get('_route_params'); ?>
 <?php if ($app->getRequest()->getLocale() == 'fi'): ?>
-<div id="switch-language"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'en'))) ?>">in English</a></div>
+        <div id="switch-language"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'en'))) ?>">in English</a></div>
 <? else: ?>
-<div id="switch-language"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'fi'))) ?>">suomeksi</a></div>
+        <div id="switch-language"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'fi'))) ?>">suomeksi</a></div>
 <? endif ?>
 
+    </div>
+</div><!-- Language switch row ends -->
+
+<!-- Main heading -->
 <p id="title">Pulupalsta</p>
 <p id="slogan"><?php echo $view['translator']->trans('Palstan hoitoa jo vuodesta 2006') ?></p>
+
+<!-- Navigation row -->
+<div class="row">
+    <div class="twelve columns">
 
 <ul id="navigation">
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_front') ?>"><?php echo $view['translator']->trans('Kansi') ?></a></li>
@@ -50,9 +64,28 @@
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_about') ?>"><?php echo $view['translator']->trans('Hä') ?>?</a></li>
 </ul>
 
+    </div>
+</div><!-- Navigation ends -->
+
 <!-- Contents row -->
 <div class="row">
     <div class="twelve columns" id="main-contents">
+
+<? if ($view['session']->hasFlash('notice')): ?>
+<div style="padding-top: 20px;" id="notice">
+<?php foreach ($view['session']->getFlash('notice') as $message): ?>
+    <?php echo "<div class='alert-box success'>$message</div>" ?>
+<?php endforeach; ?>
+</div>
+<? endif ?>
+
+<? if ($view['session']->hasFlash('error')): ?>
+<div style="padding-top: 20px;" id="error">
+<?php foreach ($view['session']->getFlash('error') as $message): ?>
+    <?php echo "<div class='alert-box alert'>$message</div>" ?>
+<?php endforeach; ?>
+</div>
+<? endif ?>
 
 <?php $view['slots']->output('body') ?>
 
@@ -61,6 +94,7 @@
 
 <p id="copyright">&copy; 2006-2012 Lassi Heikkinen</p>
 
+        </div><!-- Main wrapper ends -->
     </div><!-- twelve columns ends -->
 </div><!-- Main row ends -->
 

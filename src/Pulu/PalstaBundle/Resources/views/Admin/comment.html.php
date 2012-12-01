@@ -31,7 +31,7 @@
         <?php echo $comment->getAuthorIpAddress() ?><br />
         <?php echo $comment->getAuthorUserAgent() ?>
     </td>
-    <td><?php echo $comment->getContent() ?></td>
+    <td><?php echo $comment->getBody() ?></td>
     <td class="nowrap"><?php echo $comment->getCreated()->format('Y-m-d') ?></td>
     <td class="nowrap"><?php echo $comment->getModified()->format('Y-m-d') ?></td>
 </tr>

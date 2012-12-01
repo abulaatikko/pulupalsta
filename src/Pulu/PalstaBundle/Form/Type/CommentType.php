@@ -10,11 +10,11 @@ class CommentType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
             ->add('author_name', 'text', array(
-                'label' => 'Nimi'))
-            ->add('body', 'integer', array(
+                'label' => 'Nimesi'))
+            ->add('body', 'textarea', array(
                 'label' => 'Kommentti'))
-            ->add('bot_question', 'integer', array(
-                'label' => 'Turvakysymys',
+            ->add('safe_question', 'text', array(
+                'label' => 'Turvakysymys: Mikä on Perun pääkaupunki?',
                 'property_path' => false));
     }
 

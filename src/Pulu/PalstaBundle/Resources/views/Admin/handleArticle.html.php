@@ -56,7 +56,8 @@
     </div>
     </div>
 
-    <?php echo $view['form']->widget($form) ?>
+
+    <?php echo $view['form']->rest($form) ?>
     <?php if ($article->getId() > 0): ?>
     <input type="hidden" name="id" value="<?php echo $article->getId() ?>" />
     <?php endif ?>
