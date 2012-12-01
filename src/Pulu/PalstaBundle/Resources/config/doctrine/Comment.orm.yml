@@ -15,7 +15,7 @@ Pulu\PalstaBundle\Entity\Comment:
         language:
             type: string
             length: 2
-        content:
+        body:
             type: string
             nullable: true
         account_id:

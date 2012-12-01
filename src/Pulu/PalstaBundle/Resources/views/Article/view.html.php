@@ -10,4 +10,8 @@
 
 <p><?php echo $article->getBody($app->getRequest()->getLocale()) ?></p>
 
+<h2>Kommentit</h2>
+
+<?php echo $view['form']->widget($form) ?>
+
 <?php $view['slots']->stop() ?>

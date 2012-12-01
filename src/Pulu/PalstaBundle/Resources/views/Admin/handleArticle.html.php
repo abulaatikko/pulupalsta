@@ -34,7 +34,7 @@
 <?php if (! empty($form['localizations'])): ?>
         <?php foreach ($form['localizations'] as $row): ?>
             <div id="language-<?php echo $row['language']->vars['value'] ?>">
-            <?php $view['form']->row($row['language']) // skip printing ?>
+            <?php echo $view['form']->row($row['language']) // skip printing ?>
             <?php echo $view['form']->row($row['name']) ?>
             <?php echo $view['form']->row($row['teaser']) ?>
             <?php echo $view['form']->row($row['body']) ?>

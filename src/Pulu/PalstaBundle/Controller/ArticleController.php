@@ -2,15 +2,22 @@
 namespace Pulu\PalstaBundle\Controller;
 
 use Pulu\PalstaBundle\Entity\Article;
+use Pulu\PalstaBundle\Entity\Comment;
+use Pulu\PalstaBundle\Form\Type\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ArticleController extends Controller {
 
     public function viewAction($id, $name) {
+        $R = $this->get('request');
         $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find($id);
 
+        $comment = new Comment();
+        $form = $this->createForm(new CommentType(), $comment);
+
         return $this->render('PuluPalstaBundle:Article:view.html.php', array(
-            'article' => $article
+            'article' => $article,
+            'form' => $form->createView()
         ));
     }
 

@@ -7,7 +7,7 @@ class Comment {
     protected $id;
     protected $article;
     protected $language;
-    protected $content;
+    protected $body;
     protected $account_id;
     protected $author_name;
     protected $author_ip_address;
@@ -38,12 +38,12 @@ class Comment {
         return $this;
     }
 
-    public function getContent() {
-        return $this->content;
+    public function getBody() {
+        return $this->body;
     }
 
-    public function setContent($content) {
-        $this->content = $content;
+    public function setBody($body) {
+        $this->body = $body;
         return $this;
     }
 

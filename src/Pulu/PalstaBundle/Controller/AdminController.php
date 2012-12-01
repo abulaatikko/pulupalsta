@@ -24,7 +24,7 @@ class AdminController extends Controller {
     }
 
     public function handleArticleAction($id = null) {
-        $request = $this->get('request');
+        $R = $this->get('request');
         if (empty($id)) {
             $article = new Article();
             $articleLocalizationFI = new ArticleLocalization();
@@ -41,17 +41,17 @@ class AdminController extends Controller {
         $defaultArticleNumber = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findNextArticleNumber();
         $form = $this->createForm(new ArticleType(), $article, array('default_article_number' => $defaultArticleNumber));
 
-        if ($request->isMethod('POST')) {
+        if ($R->isMethod('POST')) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
-            $delete = $request->get('delete');
+            $delete = $R->get('delete');
             if ($delete) {
                 $article->setDeleted();
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('notice', 'Artikkeli poistettu');
                 return $this->redirect($this->generateUrl('pulu_palsta_admin_article'));
             }
-            $form->bind($request);
+            $form->bind($R);
             if ($form->isValid()) {                
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('notice', 'Artikkeli tallennettu');
