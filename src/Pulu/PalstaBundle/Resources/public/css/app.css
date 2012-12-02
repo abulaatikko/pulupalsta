@@ -46,8 +46,9 @@ a			{text-decoration: none;}
 a:hover			{text-decoration: underline;}
 
 /* Table */
-table			{border: 2px solid #CC8ACE; background-color: #fff;}
-table th 		{background-color: #E2B2E4;}
+table		     	{border: 2px solid #CC8ACE; background-color: #fff;}
+table thead tr th 		{background-color: #E2B2E4; padding: 5px;}
+table tbody tr td        {padding: 5px;}
 table tbody tr.even,
 table tbody tr.alt	{background: #F5EFF5;}
 table tbody tr:nth-child(even) {background-color: #F5EFF5;}

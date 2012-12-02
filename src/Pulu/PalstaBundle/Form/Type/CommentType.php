@@ -8,7 +8,6 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class CommentType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
-
         $safety_questions = array(
             array(
                 'question' => 'Turvakysymys: Mikä on maailman väkirikkain valtio?',
@@ -30,12 +29,15 @@ class CommentType extends AbstractType {
 
         $builder
             ->add('author_name', 'text', array(
-                'label' => 'Nimesi'))
+                'label' => 'Nimesi',
+                'data' => $options['default_author_name']))
             ->add('body', 'textarea', array(
-                'label' => 'Kommentti'))
+                'label' => 'Kommentti',
+                'data' => $options['default_body']))
             ->add('safety_question', 'text', array(
                 'label' => $safety_questions[0]['question'],
-                'property_path' => false))
+                'property_path' => false,
+                'data' => $options['default_safety_question']))
             ->add('safety_answer', 'hidden', array(
                 'data' => base64_encode(serialize($safety_questions[0]['answers'])),
                 'property_path' => false));
@@ -47,7 +49,10 @@ class CommentType extends AbstractType {
 
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
-            'data_class' => 'Pulu\PalstaBundle\Entity\Comment'
+            'data_class' => 'Pulu\PalstaBundle\Entity\Comment',
+            'default_body' => '',
+            'default_author_name' => '',
+            'default_safety_question' => ''
         ));
     }
 

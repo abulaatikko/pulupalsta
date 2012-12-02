@@ -38,7 +38,7 @@
 <div class="row">
     <div class="twelve columns">
 
-<ul class="tabs-content" style="margin: 20px 0px 0px 0px">
+<ul class="tabs-content" id="switch-language">
     <li class="active">
         <dl class="tabs pill">
 <?php $route_params = $app->getRequest()->get('_route_params'); ?>

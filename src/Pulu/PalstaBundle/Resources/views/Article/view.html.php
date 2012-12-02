@@ -23,7 +23,7 @@
 <tbody>
 <? foreach ($comments as $comment): ?>
 <tr>
-    <td style="width: 20%"><strong><?php echo $comment->getAuthorName() ?></strong><br /><?php echo $comment->getCreated()->format('Y-m-d H:i') ?></td>
+    <td style="width: 12%"><strong><?php echo $comment->getAuthorName() ?></strong><br /><small><?php echo $comment->getCreated()->format('Y-m-d H:i') ?></small></td>
     <td><?php echo(nl2br($view['helper']->convertUrlsToLinks(htmlspecialchars($comment->getBody())))) ?></td>
 </tr>
 <? endforeach ?>
