@@ -32,5 +32,11 @@ Lähetä: Submit
 HTML ei sallittu: HTML not allowed
 BBCode ei sallittu: BBCode not allowed
 Nimesi: Your name
-Kommentti lähetettiin onnistuneesti: Your comment was succesfully sent
-Kommentin lähetys epäonnistui: Unfortunately sending your comment failed
+Kommentti lähetettiin onnistuneesti: Your comment was successfully sent
+Kommentin lähetys epäonnistui: Failed to send your comment
+
+"Turvakysymys: Mikä on maailman väkirikkain valtio?": "Safety question: Which country has the largest population?"
+"Turvakysymys: Mikä on nimeltään lähin tähtemme?": "Safety question: What's the name of the nearest star?"
+"Turvakysymys: Mikä on aakkosten ensimmäinen kirjain?": "Safety question: What's the first letter of the alphabet?"
+"Turvakysymys: Mikä on tämän sivuston tekijän etunimi?": "Safety question: What's the first name of the creator of this site?"
+"Turvakysymys: Paljonko on kuusi kertaa kuusi?": "Safety question: How much is six multiplied by six?"

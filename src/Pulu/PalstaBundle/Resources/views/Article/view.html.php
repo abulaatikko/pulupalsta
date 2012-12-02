@@ -42,7 +42,7 @@
     </div>
     <div class="six columns">
     <?php echo $view['form']->row($form['author_name']) ?>
-    <?php echo $view['form']->row($form['safe_question']) ?>
+    <?php echo $view['form']->row($form['safety_question']) ?>
     <?php echo $view['form']->rest($form) ?>
     <p><input class="button success" type="submit" value="<?php echo $view['translator']->trans('Lähetä') ?>" /></p>
     </div>

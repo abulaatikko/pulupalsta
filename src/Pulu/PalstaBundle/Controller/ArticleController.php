@@ -8,8 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ArticleController extends Controller {
 
-    const SAFE_QUESTION_ANSWER = 'lima';
-
     public function viewAction($id, $name) {
         $R = $this->get('request');
         $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find($id);
@@ -20,25 +18,30 @@ class ArticleController extends Controller {
         $form = $this->createForm(new CommentType(), $comment);
 
         if ($R->isMethod('POST')) {
+            $failed = true;
             $translator = $this->get('translator');
             $data = $R->request->get('comment');
-            if (isset($data['safe_question']) && mb_strtolower($data['safe_question']) == mb_strtolower(self::SAFE_QUESTION_ANSWER)) {
-                $form->bind($R);
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($comment);
-                if ($form->isValid()) {
-                    $comment->setBody(strip_tags($comment->getBody()));
-                    $comment->setArticle($article);
-                    $comment->setLanguage($R->getLocale());
-                    $comment->setAuthorIpAddress($R->getClientIp());
-                    $comment->setAuthorUserAgent($R->server->get('HTTP_USER_AGENT'));
+            if (isset($data['safety_question'])) {
+                $answers = unserialize(base64_decode($data['safety_answer']));
+                array_map('mb_strtolower', $answers);
+                if (in_array(mb_strtolower($data['safety_question']), $answers)) {
+                    $form->bind($R);
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($comment);
+                    if ($form->isValid()) {
+                        $comment->setBody(strip_tags($comment->getBody()));
+                        $comment->setArticle($article);
+                        $comment->setLanguage($R->getLocale());
+                        $comment->setAuthorIpAddress($R->getClientIp());
+                        $comment->setAuthorUserAgent($R->server->get('HTTP_USER_AGENT'));
 
-                    $em->flush();
-                    $this->get('session')->getFlashBag()->add('notice', $translator->trans('Kommentti on lähetetty'));
-                } else {
-                    $this->get('session')->getFlashBag()->add('error', $translator->trans('Kommentin lähetys epäonnistui'));
+                        $em->flush();
+                        $this->get('session')->getFlashBag()->add('notice', $translator->trans('Kommentti lähetettiin onnistuneesti'));
+                        $failed = false;
+                    }
                 }
-            } else {
+            }
+            if ($failed) {
                 $this->get('session')->getFlashBag()->add('error', $translator->trans('Kommentin lähetys epäonnistui'));
             }         
 
