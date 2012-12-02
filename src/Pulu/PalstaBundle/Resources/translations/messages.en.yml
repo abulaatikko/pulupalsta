@@ -13,7 +13,7 @@ Julkaistu: Published
 Pisteet: Points
 Lisää: More
 
-#Luettelo
+# Directory
 
 # About
 Tietoa: About
@@ -22,3 +22,15 @@ Miksi: Why
 Miten: How
 Kuka: Who
 Milloin: When
+
+# Article
+Kommentit: Comments
+Kirjoittaja: Author
+Kommentti: Comment
+Kirjoita uusi kommentti: Write a new comment
+Lähetä: Submit
+HTML ei sallittu: HTML not allowed
+BBCode ei sallittu: BBCode not allowed
+Nimesi: Your name
+Kommentti lähetettiin onnistuneesti: Your comment was succesfully sent
+Kommentin lähetys epäonnistui: Unfortunately sending your comment failed
