@@ -26,7 +26,14 @@
 <?php $formUrl = 'pulu_palsta_admin_article_create'; ?>
 <?php endif ?>
 
-<p><a href="#" class="switch-language" data-to="fi">suomeksi</a> | <a href="#" class="switch-language" data-to="en">englanniksi</a></p>
+<ul class="tabs-content" id="admin-switch-language">
+    <li class="active">
+    <dl class="tabs pill">
+        <dd class="active"><a href="javascript:void(0);" class="switch-language" data-to="fi">suomeksi</a></dd>
+        <dd><a href="javascript:void(0);" class="switch-language" data-to="en">englanniksi</a></dd>
+    </dl>
+</li>
+</ul>
 
 <form action="<?php echo $view['router']->generate($formUrl, array('id' => $article->getId())) ?>" method="post" <?php echo $view['form']->enctype($form) ?> >
     <?php $view['form']->setTheme($form, array('PuluPalstaBundle:Form')) ;?>

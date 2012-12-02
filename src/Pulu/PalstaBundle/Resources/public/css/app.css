@@ -32,6 +32,7 @@ ul#about a:hover	{background: #E2B2E4;}
 ul#navigation li	{float: left;}
 ul#about li		{float: right;}
 #switch-language {position: absolute; top: 10px; right: 0px; font-size: 14px; line-height: 1.2em;}
+#switch-language dd a {cursor: pointer;}
 
 .nowrap			{white-space: nowrap;}
 .wide           {width: 100%;}

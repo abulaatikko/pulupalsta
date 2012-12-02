@@ -38,12 +38,18 @@
 <div class="row">
     <div class="twelve columns">
 
+<ul class="tabs-content" style="margin: 20px 0px 0px 0px">
+    <li class="active">
+        <dl class="tabs pill">
 <?php $route_params = $app->getRequest()->get('_route_params'); ?>
 <?php if ($app->getRequest()->getLocale() == 'fi'): ?>
-        <div id="switch-language"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'en'))) ?>">in English</a></div>
+        <dd class="active" class="switch-language" data-to="fi"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'en'))) ?>">in English</a></dd>
 <? else: ?>
-        <div id="switch-language"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'fi'))) ?>">suomeksi</a></div>
+        <dd class="active" class="switch-language" data-to="en"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'fi'))) ?>">suomeksi</a></dd>
 <? endif ?>
+        </dl>
+    </li>
+</ul>
 
     </div>
 </div><!-- Language switch row ends -->
