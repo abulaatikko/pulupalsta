@@ -25,7 +25,15 @@ Pulu\PalstaBundle\Entity\Article:
         points:
             type: integer
         visits:
-            type: integer    
+            type: integer
+        use_translator:
+            type: boolean
+            default: false 
+            nullable: true
+        is_public:
+            type: boolean
+            default: false
+            nullable: true
     lifecycleCallbacks:
         prePersist: [ setCreated, setModified ]
         preUpdate: [ setModified ]

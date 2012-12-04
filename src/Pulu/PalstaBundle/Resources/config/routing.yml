@@ -63,6 +63,26 @@ pulu_palsta_admin_article_delete:
     requirements:
         id: \d+
 
+pulu_palsta_admin_tag:
+    pattern: /admin/tag
+    defaults: { _controller: PuluPalstaBundle:Admin:listTag }
+
+pulu_palsta_admin_tag_create:
+    pattern: /admin/tag/create
+    defaults: { _controller: PuluPalstaBundle:Admin:handleTag }
+
+pulu_palsta_admin_tag_edit:
+    pattern: /admin/tag/edit/{id}
+    defaults: { _controller: PuluPalstaBundle:Admin:handleTag }
+    requirements:
+        id: \d+
+
+pulu_palsta_admin_tag_delete:
+    pattern: /admin/tag/delete/{id}
+    defaults: { _controller: PuluPalstaBundle:Admin:handleTag }
+    requirements:
+        id: \d+
+
 pulu_palsta_admin_comment:
     pattern: /admin/comment
     defaults: { _controller: PuluPalstaBundle:Admin:listComment }

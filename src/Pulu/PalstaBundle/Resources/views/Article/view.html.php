@@ -6,13 +6,22 @@
 
 <h1><?php echo $article->getName($app->getRequest()->getLocale()) ?></h1>
 
-<p><?php echo $article->getTeaser($app->getRequest()->getLocale()) ?></p>
+<?php $body = $article->getBody($app->getRequest()->getLocale()); ?>
+<?php $locale = $app->getRequest()->getLocale(); ?>
+<? if (empty($body)): ?>
+    <? if ($locale == 'fi'): ?>
+        <? $body = $article->getBody('en'); ?>
+<div class="alert-box">Valitettavasti artikkelista ei löydy suomenkielistä käännöstä<?php if ($article->getUseTranslator() === true): ?>, mutta ainahan voit avata sivun <a href="http://translate.google.com/translate?sl=en&tl=fi&ie=UTF-8&u=<?php echo urlencode($view['router']->generate($app->getRequest()->get('_route'), array('_locale'=> 'en'), true)) ?>">Google Translatorin</a> kautta<? endif ?>.</div>
+    <? else: ?>
+        <? $body = $article->getBody('fi'); ?>
+<div class="alert-box">Unfortunately an English translation doesn't exist<?php if ($article->getUseTranslator() === true): ?> but you can probably get a clue from looking at the <a href="http://translate.google.com/translate?sl=fi&tl=en&ie=UTF-8&u=<?php echo urlencode($view['router']->generate($app->getRequest()->get('_route'), array('_locale'=> 'fi'), true)) ?>">Google Translator</a> version<? endif ?>.</div>
+    <? endif ?>
+<? endif ?>
+<?php echo $body ?>
 
-<?php echo $article->getBody($app->getRequest()->getLocale()) ?>
-
-<?php if (! empty($comments)): ?>
 <h2><?php echo $view['translator']->trans('Kommentit') ?></h2>
 
+<?php if (! empty($comments)): ?>
 <table class="wide">
 <thead>
 <tr>

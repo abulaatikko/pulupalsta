@@ -4,6 +4,9 @@ namespace Pulu\PalstaBundle\Controller;
 use Pulu\PalstaBundle\Entity\Article;
 use Pulu\PalstaBundle\Entity\ArticleLocalization;
 use Pulu\PalstaBundle\Form\Type\ArticleType;
+use Pulu\PalstaBundle\Entity\Tag;
+use Pulu\PalstaBundle\Entity\TagLocalization;
+use Pulu\PalstaBundle\Form\Type\TagType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Form;
@@ -76,6 +79,61 @@ class AdminController extends Controller {
 
         return $this->render('PuluPalstaBundle:Admin:comment.html.php', array(
             'comments' => $comments
+        ));
+    }
+
+    public function listTagAction() {
+        $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Tag');
+        $tags = $repository->findAllOrderedByName();
+
+        return $this->render('PuluPalstaBundle:Admin:tag.html.php', array(
+            'tags' => $tags
+        ));
+    }
+
+    public function handleTagAction($id = null) {
+        $R = $this->get('request');
+        if (empty($id)) {
+            $tag = new Tag();
+            $tagLocalizationFI = new TagLocalization();
+            $tagLocalizationFI->setLanguage('fi');
+            $tagLocalizationFI->setTag($tag);
+            $tagLocalizationEN = new TagLocalization();
+            $tagLocalizationEN->setLanguage('en');
+            $tagLocalizationEN->setTag($tag);
+            $tag->getLocalizations()->add($tagLocalizationFI);
+            $tag->getLocalizations()->add($tagLocalizationEN);
+        } else {
+            $tag = $this->getDoctrine()->getRepository('PuluPalstaBundle:Tag')->find($id);
+        }
+        $form = $this->createForm(new TagType(), $tag);
+
+        if ($R->isMethod('POST')) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($tag);
+            $delete = $R->get('delete');
+            if ($delete) {
+                //$tag->setDeleted();
+                //$em->flush();
+                $this->get('session')->getFlashBag()->add('notice', 'Asiasana poistettu');
+                return $this->redirect($this->generateUrl('pulu_palsta_admin_tag'));
+            }
+            $form->bind($R);
+            if ($form->isValid()) {                
+                $em->flush();
+                $this->get('session')->getFlashBag()->add('notice', 'Asiasana tallennettu');
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'Asiasanan tallennus epäonnistui');
+            }
+
+            if (! $id > 0) {
+                return $this->redirect($this->generateUrl('pulu_palsta_admin_tag_edit', array('id' => $tag->getId())));
+            }
+        }
+
+        return $this->render('PuluPalstaBundle:Admin:handleTag.html.php', array(
+            'form' => $form->createView(),
+            'tag' => $tag
         ));
     }
 

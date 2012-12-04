@@ -1,0 +1,18 @@
+Pulu\PalstaBundle\Entity\TagLocalization:
+    type: entity
+    table: tag_localization
+    id:
+        tag:
+            type: integer
+            associationKey: true
+        language:
+            type: string
+            length: 2
+    fields:
+        name:
+            type: string
+            length: 256
+    manyToOne:
+        tag:
+            targetEntity: Tag
+            inversedBy: localizations

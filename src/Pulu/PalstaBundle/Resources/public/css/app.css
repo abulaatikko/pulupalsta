@@ -54,7 +54,7 @@ table tbody tr.alt	{background: #F5EFF5;}
 table tbody tr:nth-child(even) {background-color: #F5EFF5;}
 
 /* Notice/alert message */
-div.alert-box, div.notice-box   { padding: 16px; font-size: 22px; }
+div.alert-box, div.notice-box   { padding: 16px; font-size: 22px; line-height: 1.5; text-shadow: none; }
 
 
 /* -----------------------------------------

@@ -1,0 +1,33 @@
+Pulu\PalstaBundle\Entity\Tag:
+    type: entity
+    table: tag
+    repositoryClass: Pulu\PalstaBundle\Entity\TagRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: sequence
+            sequenceGenerator:
+                sequenceName: tag_id_seq
+                allocationSize: 10
+                initialValue: 1
+    fields:
+        weight:
+            type: decimal
+            precision: 10
+            scale: 3
+        created:
+            type: datetime
+        modified:
+            type: datetime
+        deleted:
+            type: datetime
+            nullable: true
+    lifecycleCallbacks:
+        prePersist: [ setCreated, setModified ]
+        preUpdate: [ setModified ]
+    oneToMany:
+        localizations:
+            targetEntity: TagLocalization
+            mappedBy: tag
+            cascade: ["persist"]

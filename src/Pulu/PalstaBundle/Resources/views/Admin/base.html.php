@@ -51,6 +51,7 @@
 <ul>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article') ?>">Artikkelit</a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_comment') ?>">Kommentit</a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_tag') ?>">Asiasanat</a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_account') ?>">Käyttäjät</a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_setting') ?>">Asetukset</a></li>
 </ul>

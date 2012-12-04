@@ -29,6 +29,12 @@ class ArticleType extends AbstractType {
             ->add('points', 'integer', array(
                 'label' => 'Pojoja', 
                 'data' => $defaultPoints))
+            ->add('use_translator', 'checkbox', array(
+                'label' => 'Käytä automaattista käännöstä',
+                'required' => false))
+            ->add('is_public', 'checkbox', array(
+                'label' => 'Julkinen',
+                'required' => false))
             ->add('localizations', 'collection',  array('type' => new ArticleLocalizationType()));
     }
 
