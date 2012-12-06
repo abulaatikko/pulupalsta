@@ -6,6 +6,7 @@ use Pulu\PalstaBundle\Entity\ArticleLocalization;
 use Pulu\PalstaBundle\Form\Type\ArticleType;
 use Pulu\PalstaBundle\Entity\Tag;
 use Pulu\PalstaBundle\Entity\TagLocalization;
+use Pulu\PalstaBundle\Entity\ArticleTag;
 use Pulu\PalstaBundle\Form\Type\TagType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -55,7 +56,28 @@ class AdminController extends Controller {
                 return $this->redirect($this->generateUrl('pulu_palsta_admin_article'));
             }
             $form->bind($R);
-            if ($form->isValid()) {                
+            if ($form->isValid()) {
+                $requestData = $R->get('article');
+
+                /* 
+                 * Article tags
+                 */
+
+                // 1: delete all tag links
+                $em->createQuery("DELETE FROM PuluPalstaBundle:ArticleTag A WHERE A.article = :article_id")
+                    ->setParameter('article_id', $article->getId())->execute();
+                // 2: add tags
+                if (! empty($requestData['tag_list'])) {
+                    $tag_ids = explode(';', $requestData['tag_list']);                    
+                    foreach ($tag_ids as $tag_id) {
+                        $tag = $this->getDoctrine()->getRepository('PuluPalstaBundle:Tag')->find($tag_id);
+                        $articleTag = new ArticleTag();
+                        $articleTag->setArticle($article);
+                        $articleTag->setTag($tag);
+                        $em->persist($articleTag);
+                    }
+                }
+
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('notice', 'Artikkeli tallennettu');
             } else {

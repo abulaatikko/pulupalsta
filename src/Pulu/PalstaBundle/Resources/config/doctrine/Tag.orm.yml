@@ -16,6 +16,7 @@ Pulu\PalstaBundle\Entity\Tag:
             type: decimal
             precision: 10
             scale: 3
+            nullable: true
         created:
             type: datetime
         modified:
@@ -29,5 +30,9 @@ Pulu\PalstaBundle\Entity\Tag:
     oneToMany:
         localizations:
             targetEntity: TagLocalization
+            mappedBy: tag
+            cascade: ["persist"]
+        articles:
+            targetEntity: ArticleTag
             mappedBy: tag
             cascade: ["persist"]

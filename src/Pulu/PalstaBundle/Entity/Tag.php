@@ -13,9 +13,11 @@ class Tag {
     protected $deleted;
 
     protected $localizations;
+    protected $articles;
 
     public function __construct() {
         $this->localizations = new ArrayCollection();
+        $this->articles = new ArrayCollection();
     }
 
     public function getId() {
@@ -72,16 +74,20 @@ class Tag {
                 return $trans;
             }
         }
-        return new ArticleLocalization();
+        return new TagLocalization();
     }
 
-    public function setLocalization(ArticleLocalization $localization) {
-        $a->setArticle($this);
+    public function setLocalization(TagLocalization $localization) {
+        $a->setTag($this);
         $this->localizations[] = $localization;
     }
 
     public function getName($lang = 'fi') {
         return $this->getLocalization($lang)->getName();
+    }
+
+    public function getArticles() {
+        return $this->articles->toArray();
     }
 
 }

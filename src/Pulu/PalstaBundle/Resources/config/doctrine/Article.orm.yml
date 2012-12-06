@@ -44,5 +44,9 @@ Pulu\PalstaBundle\Entity\Article:
             cascade: ["persist"]
         comments:
             targetEntity: Comment
-            mappedBy: comment
+            mappedBy: article
+            cascade: ["persist"]
+        tags:
+            targetEntity: ArticleTag
+            mappedBy: article
             cascade: ["persist"]

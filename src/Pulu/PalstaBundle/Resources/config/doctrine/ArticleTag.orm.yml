@@ -1,0 +1,28 @@
+Pulu\PalstaBundle\Entity\ArticleTag:
+    type: entity
+    table: article_tag
+    #repositoryClass: Pulu\PalstaBundle\Entity\TagRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: sequence
+            sequenceGenerator:
+                sequenceName: article_tag_id_seq
+                allocationSize: 10
+                initialValue: 1
+    fields:
+        weight:
+            type: decimal
+            precision: 10
+            scale: 3
+            nullable: true
+    manyToOne:
+        article:
+            targetEntity: Article
+            inversedBy: tags
+            #associationKey: true
+        tag:
+            targetEntity: Tag
+            inversedBy: articles
+            #associationKey: true

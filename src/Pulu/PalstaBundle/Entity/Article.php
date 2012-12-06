@@ -19,10 +19,12 @@ class Article {
 
     protected $localizations;
     protected $comments;
+    protected $tags;
 
     public function __construct() {
         $this->localizations = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->tags = new ArrayCollection();
     }
 
     public function getId() {
@@ -144,6 +146,10 @@ class Article {
 
     public function getBody($lang = 'fi') {
         return $this->getLocalization($lang)->getBody();
+    }
+
+    public function getTags() {
+        return $this->tags->toArray();
     }
 
 }

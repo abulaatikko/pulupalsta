@@ -8,7 +8,7 @@ Pulu\PalstaBundle\Entity\Comment:
             generator:
                 strategy: sequence
             sequenceGenerator:
-                sequenceName: comment_seq
+                sequenceName: comment_id_seq
                 allocationSize: 10
                 initialValue: 1
     fields:

@@ -11,10 +11,17 @@ class ArticleType extends AbstractType {
         $points = null;
         $visits = null;
         $articleNumber = null;
+        $tags = array();
         if (isset($options['data'])) {
             $points = $options['data']->getPoints();
             $visits = $options['data']->getVisits();
             $articleNumber = $options['data']->getArticleNumber();
+            $currentTags = $options['data']->getTags();
+            if (! empty($currentTags)) {
+                foreach ($currentTags as $currentTag) {
+                    $tags[] = $currentTag->getTag()->getId();
+                }
+            }
         }        
         $defaultPoints = empty($points) ? $options['default_points'] : $points;
         $defaultVisits = empty($visits) ? $options['default_visits'] : $visits;
@@ -35,6 +42,12 @@ class ArticleType extends AbstractType {
             ->add('is_public', 'checkbox', array(
                 'label' => 'Julkinen',
                 'required' => false))
+            ->add('tag_list', 'text', array(
+                'label' => 'Asiasanat',
+                'required' => false,
+                'property_path' => false,
+                'data' => implode(';', $tags)
+            ))
             ->add('localizations', 'collection',  array('type' => new ArticleLocalizationType()));
     }
 
