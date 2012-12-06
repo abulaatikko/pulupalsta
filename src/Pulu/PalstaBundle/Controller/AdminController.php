@@ -113,8 +113,12 @@ class AdminController extends Controller {
             $em->persist($tag);
             $delete = $R->get('delete');
             if ($delete) {
-                //$tag->setDeleted();
-                //$em->flush();
+                $tagLocalizations = $tag->getLocalizations();
+                foreach ($tagLocalizations as $tagLocalization) {
+                    $em->remove($tagLocalization);
+                }
+                $em->remove($tag);
+                $em->flush();
                 $this->get('session')->getFlashBag()->add('notice', 'Asiasana poistettu');
                 return $this->redirect($this->generateUrl('pulu_palsta_admin_tag'));
             }

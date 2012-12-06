@@ -1,10 +1,10 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', $view['translator']->trans('Directory') . ' - Pulupalsta') ?>
+<?php $view['slots']->set('title', $view['translator']->trans('Luettelo') . ' - Pulupalsta') ?>
 
 <?php $view['slots']->start('body') ?>
 
-<h1><?php echo $view['translator']->trans('Directory') ?></h1>
+<h1><?php echo $view['translator']->trans('Luettelo') ?></h1>
 
 <table class="wide">
 <thead>
