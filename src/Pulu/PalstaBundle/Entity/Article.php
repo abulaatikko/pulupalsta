@@ -149,7 +149,8 @@ class Article {
     }
 
     public function getKeywords() {
-        return $this->keywords->toArray();
+        //return $this->keywords->toArray();
+        return $this->keywords;
     }
 
 }

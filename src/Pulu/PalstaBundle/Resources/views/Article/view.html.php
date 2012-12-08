@@ -9,11 +9,10 @@
 <h1><?php echo $article->getName($currentLocale) ?></h1>
 
 <p><strong><?php echo $view['translator']->trans('Avainsanat') ?></strong>:
-<?php $keywords = $article->getKeywords(); ?>
 <?php $printKeywords = array(); ?>
-<? foreach ($keywords as $keyword): ?>
-    <?php $printKeywords[] = '<em>' . $keyword->getKeyword()->getName($currentLocale) . '</em>'; ?>
-<? endforeach ?>
+<?php foreach ($article_keywords as $article_keyword): ?>
+    <?php $printKeywords[] = '<em>' . $article_keyword->getName($currentLocale) . '</em>'; ?>
+<?php endforeach ?>
 <?php echo implode(', ', $printKeywords) ?></p>
 
 <?php $body = $article->getBody($currentLocale); ?>

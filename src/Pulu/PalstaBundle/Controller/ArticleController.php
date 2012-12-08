@@ -60,10 +60,13 @@ class ArticleController extends Controller {
             }
         }
 
+        $articleKeywords = $this->getDoctrine()->getRepository('PuluPalstaBundle:Keyword')->findByArticleOrderedByWeight($article);
+
         return $this->render('PuluPalstaBundle:Article:view.html.php', array(
             'article' => $article,
             'comments' => $comments,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'article_keywords' => $articleKeywords
         ));
     }
 
