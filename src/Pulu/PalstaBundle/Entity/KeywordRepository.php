@@ -3,7 +3,7 @@ namespace Pulu\PalstaBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 
-class TagRepository extends EntityRepository {
+class KeywordRepository extends EntityRepository {
 
     protected static $language = 'fi';
 

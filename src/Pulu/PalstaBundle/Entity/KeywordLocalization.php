@@ -1,11 +1,11 @@
 <?php
 namespace Pulu\PalstaBundle\Entity;
 
-use Pulu\PalstaBundle\Entity\Tag;
+use Pulu\PalstaBundle\Entity\Keyword;
 
-class TagLocalization {
+class KeywordLocalization {
 
-    protected $tag;
+    protected $keyword;
     protected $language = 'fi';
     protected $name;
 
@@ -27,13 +27,13 @@ class TagLocalization {
         return $this->name;
     }
 
-    public function setTag(Tag $tag) {
-        $this->tag = $tag;    
+    public function setKeyword(Keyword $keyword) {
+        $this->keyword = $keyword;    
         return $this;
     }
 
-    public function getTag() {
-        return $this->tag;
+    public function getKeyword() {
+        return $this->keyword;
     }
 
 }

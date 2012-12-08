@@ -4,10 +4,10 @@ namespace Pulu\PalstaBundle\Controller;
 use Pulu\PalstaBundle\Entity\Article;
 use Pulu\PalstaBundle\Entity\ArticleLocalization;
 use Pulu\PalstaBundle\Form\Type\ArticleType;
-use Pulu\PalstaBundle\Entity\Tag;
-use Pulu\PalstaBundle\Entity\TagLocalization;
-use Pulu\PalstaBundle\Entity\ArticleTag;
-use Pulu\PalstaBundle\Form\Type\TagType;
+use Pulu\PalstaBundle\Entity\Keyword;
+use Pulu\PalstaBundle\Entity\KeywordLocalization;
+use Pulu\PalstaBundle\Entity\ArticleKeyword;
+use Pulu\PalstaBundle\Form\Type\KeywordType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Form;
@@ -42,8 +42,13 @@ class AdminController extends Controller {
         } else {
             $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find($id);
         }
+
         $defaultArticleNumber = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findNextArticleNumber();
-        $form = $this->createForm(new ArticleType(), $article, array('default_article_number' => $defaultArticleNumber));
+        $availableKeywords = $this->getDoctrine()->getRepository('PuluPalstaBundle:Keyword')->findAllOrderedByName();
+        $form = $this->createForm(new ArticleType(), $article, array(
+            'default_article_number' => $defaultArticleNumber,
+            'available_keywords' => $availableKeywords
+        ));
 
         if ($R->isMethod('POST')) {
             $em = $this->getDoctrine()->getManager();
@@ -58,35 +63,35 @@ class AdminController extends Controller {
             $form->bind($R);
             if ($form->isValid()) {
                 $requestData = $R->get('article');
-
-                /* 
-                 * Article tags
-                 */
-
-                // 1: delete all tag links
-                $em->createQuery("DELETE FROM PuluPalstaBundle:ArticleTag A WHERE A.article = :article_id")
-                    ->setParameter('article_id', $article->getId())->execute();
-                // 2: add tags
-                if (! empty($requestData['tag_list'])) {
-                    $tag_ids = explode(';', $requestData['tag_list']);                    
-                    foreach ($tag_ids as $tag_id) {
-                        $tag = $this->getDoctrine()->getRepository('PuluPalstaBundle:Tag')->find($tag_id);
-                        $articleTag = new ArticleTag();
-                        $articleTag->setArticle($article);
-                        $articleTag->setTag($tag);
-                        $em->persist($articleTag);
+                // Article keywords
+                $currentKeywords = $article->getKeywords();
+                foreach ($currentKeywords as $currentKeyword) {
+                    $em->remove($currentKeyword);
+                }
+                for ($i = 0; $i <= 100; $i++) {
+                    $keyword_id_key = 'keyword_' . $i . '_id';
+                    $keyword_weight_key = 'keyword_' . $i . '_weight';
+                    if (isset($requestData[$keyword_id_key]) && ! empty($requestData[$keyword_id_key])) {
+                        $keyword_id = $requestData[$keyword_id_key];
+                        $keyword = $this->getDoctrine()->getRepository('PuluPalstaBundle:Keyword')->find($keyword_id);
+                        $articleKeyword = new ArticleKeyword();
+                        $articleKeyword->setArticle($article);
+                        $articleKeyword->setKeyword($keyword);
+                        if (isset($requestData[$keyword_weight_key])) {
+                            $articleKeyword->setWeight($requestData[$keyword_weight_key]);
+                        }
+                        $em->persist($articleKeyword);
+                    } else {                        
+                        break;
                     }
                 }
-
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('notice', 'Artikkeli tallennettu');
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'Artikkelin tallennus epäonnistui');
             }
 
-            if (! $id > 0) {
-                return $this->redirect($this->generateUrl('pulu_palsta_admin_article_edit', array('id' => $article->getId())));
-            }
+            return $this->redirect($this->generateUrl('pulu_palsta_admin_article_edit', array('id' => $article->getId())));
         }
 
         return $this->render('PuluPalstaBundle:Admin:handleArticle.html.php', array(
@@ -104,62 +109,62 @@ class AdminController extends Controller {
         ));
     }
 
-    public function listTagAction() {
-        $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Tag');
-        $tags = $repository->findAllOrderedByName();
+    public function listKeywordAction() {
+        $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Keyword');
+        $keywords = $repository->findAllOrderedByName();
 
-        return $this->render('PuluPalstaBundle:Admin:tag.html.php', array(
-            'tags' => $tags
+        return $this->render('PuluPalstaBundle:Admin:keyword.html.php', array(
+            'keywords' => $keywords
         ));
     }
 
-    public function handleTagAction($id = null) {
+    public function handleKeywordAction($id = null) {
         $R = $this->get('request');
         if (empty($id)) {
-            $tag = new Tag();
-            $tagLocalizationFI = new TagLocalization();
-            $tagLocalizationFI->setLanguage('fi');
-            $tagLocalizationFI->setTag($tag);
-            $tagLocalizationEN = new TagLocalization();
-            $tagLocalizationEN->setLanguage('en');
-            $tagLocalizationEN->setTag($tag);
-            $tag->getLocalizations()->add($tagLocalizationFI);
-            $tag->getLocalizations()->add($tagLocalizationEN);
+            $keyword = new Keyword();
+            $keywordLocalizationFI = new KeywordLocalization();
+            $keywordLocalizationFI->setLanguage('fi');
+            $keywordLocalizationFI->setKeyword($keyword);
+            $keywordLocalizationEN = new KeywordLocalization();
+            $keywordLocalizationEN->setLanguage('en');
+            $keywordLocalizationEN->setKeyword($keyword);
+            $keyword->getLocalizations()->add($keywordLocalizationFI);
+            $keyword->getLocalizations()->add($keywordLocalizationEN);
         } else {
-            $tag = $this->getDoctrine()->getRepository('PuluPalstaBundle:Tag')->find($id);
+            $keyword = $this->getDoctrine()->getRepository('PuluPalstaBundle:Keyword')->find($id);
         }
-        $form = $this->createForm(new TagType(), $tag);
+        $form = $this->createForm(new KeywordType(), $keyword);
 
         if ($R->isMethod('POST')) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($tag);
+            $em->persist($keyword);
             $delete = $R->get('delete');
             if ($delete) {
-                $tagLocalizations = $tag->getLocalizations();
-                foreach ($tagLocalizations as $tagLocalization) {
-                    $em->remove($tagLocalization);
+                $keywordLocalizations = $keyword->getLocalizations();
+                foreach ($keywordLocalizations as $keywordLocalization) {
+                    $em->remove($keywordLocalization);
                 }
-                $em->remove($tag);
+                $em->remove($keyword);
                 $em->flush();
-                $this->get('session')->getFlashBag()->add('notice', 'Asiasana poistettu');
-                return $this->redirect($this->generateUrl('pulu_palsta_admin_tag'));
+                $this->get('session')->getFlashBag()->add('notice', 'Avainsana poistettu');
+                return $this->redirect($this->generateUrl('pulu_palsta_admin_keyword'));
             }
             $form->bind($R);
             if ($form->isValid()) {                
                 $em->flush();
-                $this->get('session')->getFlashBag()->add('notice', 'Asiasana tallennettu');
+                $this->get('session')->getFlashBag()->add('notice', 'Avainsana tallennettu');
             } else {
-                $this->get('session')->getFlashBag()->add('error', 'Asiasanan tallennus epäonnistui');
+                $this->get('session')->getFlashBag()->add('error', 'Avainsanan tallennus epäonnistui');
             }
 
             if (! $id > 0) {
-                return $this->redirect($this->generateUrl('pulu_palsta_admin_tag_edit', array('id' => $tag->getId())));
+                return $this->redirect($this->generateUrl('pulu_palsta_admin_keyword_edit', array('id' => $keyword->getId())));
             }
         }
 
-        return $this->render('PuluPalstaBundle:Admin:handleTag.html.php', array(
+        return $this->render('PuluPalstaBundle:Admin:handleKeyword.html.php', array(
             'form' => $form->createView(),
-            'tag' => $tag
+            'keyword' => $keyword
         ));
     }
 

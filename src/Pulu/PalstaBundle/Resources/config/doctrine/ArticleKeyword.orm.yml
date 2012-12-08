@@ -1,6 +1,6 @@
-Pulu\PalstaBundle\Entity\ArticleTag:
+Pulu\PalstaBundle\Entity\ArticleKeyword:
     type: entity
-    table: article_tag
+    table: article_keyword
     #repositoryClass: Pulu\PalstaBundle\Entity\TagRepository
     id:
         id:
@@ -8,7 +8,7 @@ Pulu\PalstaBundle\Entity\ArticleTag:
             generator:
                 strategy: sequence
             sequenceGenerator:
-                sequenceName: article_tag_id_seq
+                sequenceName: article_keyword_id_seq
                 allocationSize: 10
                 initialValue: 1
     fields:
@@ -20,9 +20,7 @@ Pulu\PalstaBundle\Entity\ArticleTag:
     manyToOne:
         article:
             targetEntity: Article
-            inversedBy: tags
-            #associationKey: true
-        tag:
-            targetEntity: Tag
+            inversedBy: keywords
+        keyword:
+            targetEntity: Keyword
             inversedBy: articles
-            #associationKey: true

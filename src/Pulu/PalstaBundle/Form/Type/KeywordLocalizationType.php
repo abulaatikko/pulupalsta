@@ -4,9 +4,9 @@ namespace Pulu\PalstaBundle\Form\Type;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Pulu\PalstaBundle\Entity\TagRepository;
+use Pulu\PalstaBundle\Entity\KeywordRepository;
 
-class TagLocalizationType extends AbstractType
+class KeywordLocalizationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
@@ -16,7 +16,7 @@ class TagLocalizationType extends AbstractType
 
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
-            'data_class' => 'Pulu\PalstaBundle\Entity\TagLocalization'
+            'data_class' => 'Pulu\PalstaBundle\Entity\KeywordLocalization'
         ));
     }
 

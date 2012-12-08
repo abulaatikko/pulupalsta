@@ -1,14 +1,14 @@
-Pulu\PalstaBundle\Entity\Tag:
+Pulu\PalstaBundle\Entity\Keyword:
     type: entity
-    table: tag
-    repositoryClass: Pulu\PalstaBundle\Entity\TagRepository
+    table: keyword
+    repositoryClass: Pulu\PalstaBundle\Entity\KeywordRepository
     id:
         id:
             type: integer
             generator:
                 strategy: sequence
             sequenceGenerator:
-                sequenceName: tag_id_seq
+                sequenceName: keyword_id_seq
                 allocationSize: 10
                 initialValue: 1
     fields:
@@ -29,10 +29,10 @@ Pulu\PalstaBundle\Entity\Tag:
         preUpdate: [ setModified ]
     oneToMany:
         localizations:
-            targetEntity: TagLocalization
-            mappedBy: tag
+            targetEntity: KeywordLocalization
+            mappedBy: keyword
             cascade: ["persist"]
         articles:
-            targetEntity: ArticleTag
-            mappedBy: tag
+            targetEntity: ArticleKeyword
+            mappedBy: keyword
             cascade: ["persist"]

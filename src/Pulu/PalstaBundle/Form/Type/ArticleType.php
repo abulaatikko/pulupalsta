@@ -11,17 +11,12 @@ class ArticleType extends AbstractType {
         $points = null;
         $visits = null;
         $articleNumber = null;
-        $tags = array();
+        $currentKeywords = array();
         if (isset($options['data'])) {
             $points = $options['data']->getPoints();
             $visits = $options['data']->getVisits();
             $articleNumber = $options['data']->getArticleNumber();
-            $currentTags = $options['data']->getTags();
-            if (! empty($currentTags)) {
-                foreach ($currentTags as $currentTag) {
-                    $tags[] = $currentTag->getTag()->getId();
-                }
-            }
+            $currentKeywords = $options['data']->getKeywords();
         }        
         $defaultPoints = empty($points) ? $options['default_points'] : $points;
         $defaultVisits = empty($visits) ? $options['default_visits'] : $visits;
@@ -42,13 +37,46 @@ class ArticleType extends AbstractType {
             ->add('is_public', 'checkbox', array(
                 'label' => 'Julkinen',
                 'required' => false))
-            ->add('tag_list', 'text', array(
-                'label' => 'Asiasanat',
-                'required' => false,
-                'property_path' => false,
-                'data' => implode(';', $tags)
-            ))
             ->add('localizations', 'collection',  array('type' => new ArticleLocalizationType()));
+        
+        $availableKeywords = $options['available_keywords'];
+
+        $choices = array();
+        foreach ($availableKeywords as $availableKeyword) {
+            $choices[$availableKeyword->getId()] = $availableKeyword->getName();
+        }
+
+        $i = 0;
+        foreach ($currentKeywords as $currentKeyword) {
+            $builder
+                ->add('keyword_' . $i . '_id', 'choice', array(
+                    'choices' => $choices,
+                    'data' => $currentKeyword->getKeyword()->getId(),
+                    'property_path' => false,
+                    'required' => false,
+                    'label' => ' '
+                ))
+                ->add('keyword_' . $i . '_weight', 'number', array(
+                    'data' => $currentKeyword->getWeight(),
+                    'property_path' => false,
+                    'required' => false,
+                    'label' => ' '
+                ));
+            $i++;
+        }
+        // Add one empty keyword
+        $builder
+            ->add('keyword_' . $i . '_id', 'choice', array(
+                'choices' => $choices,
+                'property_path' => false,
+                'required' => false,
+                'label' => ' '
+            ))
+            ->add('keyword_' . $i . '_weight', 'text', array(
+                'property_path' => false,
+                'required' => false,
+                'label' => ' '
+            ));
     }
 
     public function getName() {
@@ -61,7 +89,9 @@ class ArticleType extends AbstractType {
             'cascade_validation' => true,
             'default_article_number' => '1',
             'default_points' => '1',
-            'default_visits' => '1'
+            'default_visits' => '1',
+            'available_keywords' => null,
+            'precision' => 3
         ));
     }
 

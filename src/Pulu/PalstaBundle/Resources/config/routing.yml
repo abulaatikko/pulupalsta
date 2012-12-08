@@ -63,23 +63,23 @@ pulu_palsta_admin_article_delete:
     requirements:
         id: \d+
 
-pulu_palsta_admin_tag:
-    pattern: /admin/tag
-    defaults: { _controller: PuluPalstaBundle:Admin:listTag }
+pulu_palsta_admin_keyword:
+    pattern: /admin/keyword
+    defaults: { _controller: PuluPalstaBundle:Admin:listKeyword }
 
-pulu_palsta_admin_tag_create:
-    pattern: /admin/tag/create
-    defaults: { _controller: PuluPalstaBundle:Admin:handleTag }
+pulu_palsta_admin_keyword_create:
+    pattern: /admin/keyword/create
+    defaults: { _controller: PuluPalstaBundle:Admin:handleKeyword }
 
-pulu_palsta_admin_tag_edit:
-    pattern: /admin/tag/edit/{id}
-    defaults: { _controller: PuluPalstaBundle:Admin:handleTag }
+pulu_palsta_admin_keyword_edit:
+    pattern: /admin/keyword/edit/{id}
+    defaults: { _controller: PuluPalstaBundle:Admin:handleKeyword }
     requirements:
         id: \d+
 
-pulu_palsta_admin_tag_delete:
-    pattern: /admin/tag/delete/{id}
-    defaults: { _controller: PuluPalstaBundle:Admin:handleTag }
+pulu_palsta_admin_keyword_delete:
+    pattern: /admin/keyword/delete/{id}
+    defaults: { _controller: PuluPalstaBundle:Admin:handleKeyword }
     requirements:
         id: \d+
 

@@ -4,10 +4,20 @@
 
 <?php $view['slots']->start('body') ?>
 
-<h1><?php echo $article->getName($app->getRequest()->getLocale()) ?></h1>
+<?php $currentLocale = $app->getRequest()->getLocale(); ?>
 
-<?php $body = $article->getBody($app->getRequest()->getLocale()); ?>
-<?php $locale = $app->getRequest()->getLocale(); ?>
+<h1><?php echo $article->getName($currentLocale) ?></h1>
+
+<p><strong><?php echo $view['translator']->trans('Avainsanat') ?></strong>:
+<?php $keywords = $article->getKeywords(); ?>
+<?php $printKeywords = array(); ?>
+<? foreach ($keywords as $keyword): ?>
+    <?php $printKeywords[] = '<em>' . $keyword->getKeyword()->getName($currentLocale) . '</em>'; ?>
+<? endforeach ?>
+<?php echo implode(', ', $printKeywords) ?></p>
+
+<?php $body = $article->getBody($currentLocale); ?>
+
 <? if (empty($body)): ?>
     <? if ($locale == 'fi'): ?>
         <? $body = $article->getBody('en'); ?>

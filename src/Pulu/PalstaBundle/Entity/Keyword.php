@@ -4,7 +4,7 @@ namespace Pulu\PalstaBundle\Entity;
 use \Doctrine\Common\Collections\ArrayCollection;
 use \Pulu\PalstaBundle\Entity\ArticleLocalization;
 
-class Tag {
+class Keyword {
 
     protected $id;
     protected $weight;
@@ -25,7 +25,7 @@ class Tag {
     }
 
     public function getWeight() {
-        return empty($this->weight) ? 1.0 : $this->weight;
+        return $this->weight;
     }
 
     public function setWeight($weight) {
@@ -74,11 +74,11 @@ class Tag {
                 return $trans;
             }
         }
-        return new TagLocalization();
+        return new KeywordLocalization();
     }
 
-    public function setLocalization(TagLocalization $localization) {
-        $a->setTag($this);
+    public function setLocalization(KeywordLocalization $localization) {
+        $a->setKeyword($this);
         $this->localizations[] = $localization;
     }
 

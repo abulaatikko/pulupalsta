@@ -67,6 +67,25 @@
     </div>
     </div>
 
+    <label>Avainsanat</label>
+    <?php for($i = 0; $i <= 100; $i++): ?>
+        <?php if (! isset($form['keyword_' . $i . '_id'])): ?>
+            <?php break; ?>
+        <? endif ?>
+    <div class="row">
+    <div class="three columns">
+    <?php echo $view['form']->row($form['keyword_' . $i . '_id']) ?>
+    </div>
+    <div class="three columns">
+    <?php echo $view['form']->row($form['keyword_' . $i . '_weight']) ?>
+    </div>
+    <div class="three columns">
+    </div>
+    <div class="three columns">
+    </div>
+    </div>
+    <? endfor ?>
+
 
     <?php echo $view['form']->rest($form) ?>
     <?php if ($article->getId() > 0): ?>

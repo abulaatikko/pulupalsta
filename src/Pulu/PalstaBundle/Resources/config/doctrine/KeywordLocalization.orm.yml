@@ -1,8 +1,8 @@
-Pulu\PalstaBundle\Entity\TagLocalization:
+Pulu\PalstaBundle\Entity\KeywordLocalization:
     type: entity
-    table: tag_localization
+    table: keyword_localization
     id:
-        tag:
+        keyword:
             type: integer
             associationKey: true
         language:
@@ -13,6 +13,6 @@ Pulu\PalstaBundle\Entity\TagLocalization:
             type: string
             length: 256
     manyToOne:
-        tag:
-            targetEntity: Tag
+        keyword:
+            targetEntity: Keyword
             inversedBy: localizations

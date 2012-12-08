@@ -46,7 +46,7 @@ Pulu\PalstaBundle\Entity\Article:
             targetEntity: Comment
             mappedBy: article
             cascade: ["persist"]
-        tags:
-            targetEntity: ArticleTag
+        keywords:
+            targetEntity: ArticleKeyword
             mappedBy: article
             cascade: ["persist"]

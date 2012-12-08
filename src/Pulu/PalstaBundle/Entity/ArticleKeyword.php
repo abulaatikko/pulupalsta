@@ -2,18 +2,13 @@
 namespace Pulu\PalstaBundle\Entity;
 
 use \Doctrine\Common\Collections\ArrayCollection;
-#use \Pulu\PalstaBundle\Entity\ArticleLocalization;
-#use \Pulu\PalstaBundle\Entity\Comment;
 
-class ArticleTag {
+class ArticleKeyword {
 
     protected $id;
     protected $weight;
-    protected $tag;
+    protected $keyword;
     protected $article;
-
-    //protected $tags;
-    //protected $articles;    
 
     public function getId() {
         return $this->id;
@@ -23,12 +18,17 @@ class ArticleTag {
         return $this->weight;
     }
 
-    public function getTag() {
-        return $this->tag;
+    public function setWeight($weight) {
+        $this->weight = (float) str_replace(',', '.', $weight);
+        return $this;
     }
 
-    public function setTag(Tag $tag) {
-        $this->tag = $tag;    
+    public function getKeyword() {
+        return $this->keyword;
+    }
+
+    public function setKeyword(Keyword $keyword) {
+        $this->keyword = $keyword;    
         return $this;
     }
 
@@ -41,16 +41,8 @@ class ArticleTag {
         return $this;
     }
 
-    /*public function getTags() {
-        return $this->tags;
-    }
-
-    public function getArticles() {
-        return $this->articles;
-    }*/
-
     public function getName() {
-        return $this->getTag()->getName();
+        return $this->getKeyword()->getName();
     }
 
 }
