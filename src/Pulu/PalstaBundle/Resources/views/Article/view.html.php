@@ -62,7 +62,7 @@
     <?php echo $view['form']->row($form['author_name']) ?>
     <?php echo $view['form']->row($form['safety_question']) ?>
     <?php echo $view['form']->rest($form) ?>
-    <p><input class="button success" type="submit" value="<?php echo $view['translator']->trans('Lähetä') ?>" /></p>
+    <p><input class="button" type="submit" value="<?php echo $view['translator']->trans('Lähetä') ?>" /></p>
     </div>
     </div>
 </form>

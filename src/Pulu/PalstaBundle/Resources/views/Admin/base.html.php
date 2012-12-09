@@ -52,11 +52,14 @@
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article') ?>">Artikkelit</a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_comment') ?>">Kommentit</a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_keyword') ?>">Avainsanat</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_account') ?>">Käyttäjät</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_setting') ?>">Asetukset</a></li>
+    <!--<li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_account') ?>">Käyttäjät</a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_setting') ?>">Asetukset</a></li>-->
 </ul>
 
-<p><a href="<?php echo $view['router']->generate('pulu_palsta_front', array('_locale' => 'fi')) ?>">Avaa sivusto</a></p>
+<ul>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_front', array('_locale' => 'fi')) ?>">Avaa sivusto</a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_logout') ?>">Kirjaudu ulos</a></li>
+</ul>
 
     </div><!-- Navigation area ends -->
     <!-- Body -->

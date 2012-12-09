@@ -56,13 +56,13 @@
     <?php if ($keyword->getId() > 0): ?>
     <input type="hidden" name="id" value="<?php echo $keyword->getId() ?>" />
     <?php endif ?>
-    <input class="button success" type="submit" value="Tallenna" />
+    <input class="button" type="submit" value="Tallenna" />
     <?php if ($keyword->getId() > 0): ?>
     <input class="alert button right" id="deleteConfirmation" type="submit" value="Poista" />
     <?php endif ?>
 </form>
 
-<?php $view['slots']->stop('stop') ?>
+<?php $view['slots']->stop('body') ?>
 
 <?php $view['slots']->start('reveal') ?>
 

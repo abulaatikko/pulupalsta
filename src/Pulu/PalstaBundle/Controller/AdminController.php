@@ -7,6 +7,7 @@ use Pulu\PalstaBundle\Form\Type\ArticleType;
 use Pulu\PalstaBundle\Entity\Keyword;
 use Pulu\PalstaBundle\Entity\KeywordLocalization;
 use Pulu\PalstaBundle\Entity\ArticleKeyword;
+use Pulu\PalstaBundle\Form\Type\AdminCommentType;
 use Pulu\PalstaBundle\Form\Type\KeywordType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -106,6 +107,44 @@ class AdminController extends Controller {
 
         return $this->render('PuluPalstaBundle:Admin:comment.html.php', array(
             'comments' => $comments
+        ));
+    }
+
+    public function handleCommentAction($id = null) {
+        $R = $this->get('request');
+        if (empty($id)) {
+            $comment = new Comment();
+        } else {
+            $comment = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->find($id);
+        }
+        $form = $this->createForm(new AdminCommentType(), $comment);
+
+        if ($R->isMethod('POST')) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($comment);
+            $delete = $R->get('delete');
+            if ($delete) {
+                $article->setDeleted();
+                $em->flush();
+                $this->get('session')->getFlashBag()->add('notice', 'Kommentti poistettu');
+                return $this->redirect($this->generateUrl('pulu_palsta_admin_comment'));
+            }
+            $form->bind($R);
+            if ($form->isValid()) {                
+                $em->flush();
+                $this->get('session')->getFlashBag()->add('notice', 'Kommentti tallennettu');
+            } else {
+                $this->get('session')->getFlashBag()->add('error', 'Kommentin tallennus epäonnistui');
+            }
+
+            if (! $id > 0) {
+                return $this->redirect($this->generateUrl('pulu_palsta_admin_comment_edit', array('id' => $comment->getId())));
+            }
+        }
+
+        return $this->render('PuluPalstaBundle:Admin:handleComment.html.php', array(
+            'form' => $form->createView(),
+            'comment' => $comment
         ));
     }
 

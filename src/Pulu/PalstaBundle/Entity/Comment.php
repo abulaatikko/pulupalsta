@@ -47,12 +47,12 @@ class Comment {
         return $this;
     }
 
-    public function getAuthorId() {
-        return $this->author_id;
+    public function getAccountId() {
+        return $this->account_id;
     }
 
-    public function setAuthorId($author_id) {
-        $this->author_id = $author_id;
+    public function setAccountId($account_id) {
+        $this->account_id = $account_id;
         return $this;
     }
 

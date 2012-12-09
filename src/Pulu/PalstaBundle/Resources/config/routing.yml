@@ -5,6 +5,17 @@ pulu_palsta_root:
         path: /fi
         permanent: true
 
+pulu_palsta_login:
+    pattern: /login
+    defaults: {_controller: PuluPalstaBundle:Login:login}
+
+pulu_palsta_login_check:
+    pattern: /login_check
+    #defaults: {_controller: PuluPalstaBundle:Login:login_check}
+
+pulu_palsta_logout:
+    pattern: /logout
+
 pulu_palsta_front:
     pattern: /{_locale}
     defaults: { _controller: PuluPalstaBundle:Front:index}
@@ -86,6 +97,10 @@ pulu_palsta_admin_keyword_delete:
 pulu_palsta_admin_comment:
     pattern: /admin/comment
     defaults: { _controller: PuluPalstaBundle:Admin:listComment }
+
+pulu_palsta_admin_comment_edit:
+    pattern: /admin/comment/edit/{id}
+    defaults: { _controller: PuluPalstaBundle:Admin:handleComment }
 
 pulu_palsta_admin_account:
     pattern: /admin/account

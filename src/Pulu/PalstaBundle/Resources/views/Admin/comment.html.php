@@ -15,25 +15,19 @@
 <thead>
 <tr>
     <th>Artikkeli</th>
-    <th>Kirjoittaja</th>
-    <th>Sisältö</th>
+    <th>Kommentti</th>
+    <th>Kirjoittaja</th>    
     <th>Kirjoitettu</th>
-    <th>Muokattu</th>
 </tr>
 </thead>
 
 <tbody>
 <? foreach ($comments as $comment): ?>
 <tr>
-    <td class="nowrap"><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_edit', array('id' => $comment->getArticle()->getId())) ?>"><?php echo $comment->getArticle()->getName() ?></a></td>
-    <td class="nowrap">
-        <?php echo $comment->getAuthorName() ?><br />
-        <?php echo $comment->getAuthorIpAddress() ?><br />
-        <?php echo $comment->getAuthorUserAgent() ?>
-    </td>
-    <td><?php echo $comment->getBody() ?></td>
+    <td class="nowrap"><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_edit', array('id' => $comment->getArticle()->getId())) ?>">#<?php echo $comment->getArticle()->getId() ?></a></td>
+    <td><a href="<?php echo $view['router']->generate('pulu_palsta_admin_comment_edit', array('id' => $comment->getId())) ?>"><?php echo(mb_substr(htmlspecialchars($comment->getBody()), 0, 100)) ?></a></td>
+    <td class="nowrap"><?php echo(htmlspecialchars($comment->getAuthorName())) ?></td>
     <td class="nowrap"><?php echo $comment->getCreated()->format('Y-m-d') ?></td>
-    <td class="nowrap"><?php echo $comment->getModified()->format('Y-m-d') ?></td>
 </tr>
 <? endforeach ?>
 
