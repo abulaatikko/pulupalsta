@@ -11,7 +11,6 @@ pulu_palsta_login:
 
 pulu_palsta_login_check:
     pattern: /login_check
-    #defaults: {_controller: PuluPalstaBundle:Login:login_check}
 
 pulu_palsta_logout:
     pattern: /logout

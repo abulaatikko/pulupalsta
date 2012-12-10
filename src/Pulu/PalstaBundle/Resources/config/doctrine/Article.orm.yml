@@ -41,12 +41,20 @@ Pulu\PalstaBundle\Entity\Article:
         localizations:
             targetEntity: ArticleLocalization
             mappedBy: article
-            cascade: ["persist"]
+            cascade: [ persist ]
         comments:
             targetEntity: Comment
             mappedBy: article
-            cascade: ["persist"]
+            cascade: [ persist ]
         keywords:
             targetEntity: ArticleKeyword
             mappedBy: article
-            cascade: ["persist"]
+            cascade: [ persist ]
+        raw_visits:
+            targetEntity: Visit
+            mappedBy: article
+            cascade: [ persist ]
+        raw_ratings:
+            targetEntity: Rating
+            mappedBy: article
+            cascade: [ persist ]

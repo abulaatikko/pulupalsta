@@ -4,6 +4,7 @@ namespace Pulu\PalstaBundle\Entity;
 use \Doctrine\Common\Collections\ArrayCollection;
 use \Pulu\PalstaBundle\Entity\ArticleLocalization;
 use \Pulu\PalstaBundle\Entity\Comment;
+use \Pulu\PalstaBundle\Entity\Visit;
 
 class Article {
 
@@ -20,11 +21,15 @@ class Article {
     protected $localizations;
     protected $comments;
     protected $keywords;
+    protected $raw_visits;
+    protected $raw_ratings;
 
     public function __construct() {
         $this->localizations = new ArrayCollection();
         $this->comments = new ArrayCollection();
         $this->keywords = new ArrayCollection();
+        $this->raw_visits = new ArrayCollection();
+        $this->raw_ratings = new ArrayCollection();
     }
 
     public function getId() {
@@ -91,13 +96,22 @@ class Article {
         return $this->points;
     }
 
-    public function setVisits($visits) {
-        $this->visits = $visits;
+    public function setRawVisits($raw_visits) {
+        $this->raw_visits = $raw_visits;
         return $this;
     }
 
-    public function getVisits() {
-        return $this->visits;
+    public function getRawVisits() {
+        return $this->raw_visits;
+    }
+
+    public function setRawRatings($raw_ratings) {
+        $this->raw_ratings = $raw_ratings;
+        return $this;
+    }
+
+    public function getRawRatings() {
+        return $this->raw_ratings;
     }
 
     public function getLocalizations() {
@@ -114,6 +128,14 @@ class Article {
 
     public function setComments(ArrayCollection $comments) {
         $this->comments = $comments;
+    }
+
+    public function getVisits() {
+        return $this->visits;
+    }
+
+    public function setVisits(ArrayCollection $visits) {
+        $this->visits = $visits;
     }
 
     public function getLocalization($lang = 'fi') {

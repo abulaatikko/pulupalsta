@@ -1,0 +1,43 @@
+Pulu\PalstaBundle\Entity\Visit:
+    type: entity
+    table: visit
+    repositoryClass: Pulu\PalstaBundle\Entity\VisitRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: sequence
+            sequenceGenerator:
+                sequenceName: visit_id_seq
+                allocationSize: 10
+                initialValue: 1
+    fields:
+        account_id:
+            type: integer
+            nullable: true
+        author_ip_address:
+            type: string
+            length: 64
+            nullable: true
+        author_useragent:
+            type: string
+            length: 256
+            nullable: true
+        author_hash:
+            type: string
+            lenght: 40
+        created:
+            type: datetime
+    indexes:
+        visit_author_hash_idx:
+            columns: [ article_id, author_hash ]
+    lifecycleCallbacks:
+        prePersist: [ setCreated ]
+    manyToOne:
+        article:
+            targetEntity: Article
+            inversedBy: raw_visits
+            joinColumn:
+                name: article_id
+                referencedColumnName: id
+                nullable: false

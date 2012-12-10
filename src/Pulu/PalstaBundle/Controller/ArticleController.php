@@ -3,6 +3,7 @@ namespace Pulu\PalstaBundle\Controller;
 
 use Pulu\PalstaBundle\Entity\Article;
 use Pulu\PalstaBundle\Entity\Comment;
+use Pulu\PalstaBundle\Entity\Visit;
 use Pulu\PalstaBundle\Form\Type\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -61,6 +62,22 @@ class ArticleController extends Controller {
             } else {
                 return $this->redirect($this->generateUrl('pulu_palsta_article', array('id' => $article->getId())));
             }
+        }
+
+        // Register visit
+        $ip_address = $R->getClientIp();
+        $user_agent = $R->server->get('HTTP_USER_AGENT');
+        $author_hash = md5($ip_address . $user_agent);
+        $isRegistered = $this->getDoctrine()->getRepository('PuluPalstaBundle:Visit')->isRegistered($article->getId(), $author_hash);
+        if (! $isRegistered) {
+            $em = $this->getDoctrine()->getManager();
+            $visit = new Visit();
+            $visit->setArticle($article);
+            $visit->setAuthorIpAddress($ip_address);
+            $visit->setAuthorUserAgent($user_agent);
+            $visit->setAuthorHash($author_hash);
+            $em->persist($visit);
+            $em->flush();
         }
 
         $articleKeywords = $this->getDoctrine()->getRepository('PuluPalstaBundle:Keyword')->findByArticleOrderedByWeight($article);
