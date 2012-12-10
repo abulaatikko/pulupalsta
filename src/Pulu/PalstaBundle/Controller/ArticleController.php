@@ -10,7 +10,10 @@ class ArticleController extends Controller {
 
     public function viewAction($id, $name) {
         $R = $this->get('request');
-        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find($id);
+        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('id' => $id, 'is_public' => true, 'deleted' => null));
+        if (! $article instanceof Article) {
+            throw $this->createNotFoundException();
+        }
         $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment');
         $comments = $repository->findByCreated(null, $article->getId(), $R->getLocale());
 
@@ -71,7 +74,10 @@ class ArticleController extends Controller {
     }
 
     public function redirectAction($id) {
-        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find($id);
+        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('id' => $id, 'is_public' => true, 'deleted' => null));
+        if (! $article instanceof Article) {
+            throw $this->createNotFoundException();
+        }
         $name = $article->getName($this->getRequest()->getLocale());
         $name = $this->get('helper')->toFilename($name);
 

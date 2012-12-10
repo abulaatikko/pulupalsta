@@ -7,8 +7,8 @@ use Pulu\PalstaBundle\Form\Type\ArticleType;
 use Pulu\PalstaBundle\Entity\Keyword;
 use Pulu\PalstaBundle\Entity\KeywordLocalization;
 use Pulu\PalstaBundle\Entity\ArticleKeyword;
-use Pulu\PalstaBundle\Form\Type\AdminCommentType;
 use Pulu\PalstaBundle\Form\Type\KeywordType;
+use Pulu\PalstaBundle\Form\Type\AdminCommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Form;
@@ -41,7 +41,7 @@ class AdminController extends Controller {
             $article->getLocalizations()->add($articleLocalizationFI);
             $article->getLocalizations()->add($articleLocalizationEN);
         } else {
-            $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find($id);
+            $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('id' => $id, 'deleted' => null));
         }
 
         $defaultArticleNumber = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findNextArticleNumber();
@@ -115,7 +115,7 @@ class AdminController extends Controller {
         if (empty($id)) {
             $comment = new Comment();
         } else {
-            $comment = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->find($id);
+            $comment = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->findOneBy(array('id' => $id, 'deleted' => null));
         }
         $form = $this->createForm(new AdminCommentType(), $comment);
 

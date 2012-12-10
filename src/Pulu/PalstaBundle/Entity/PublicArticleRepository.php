@@ -1,5 +1,5 @@
 <?php
-namespace Pulu\PalstaBundle\Entity;
+/*namespace Pulu\PalstaBundle\Entity;
 
 use Doctrine\ORM\EntityRepository;
 use Pulu\PalstaBundle\Entity\ArticleRepository;
@@ -41,4 +41,4 @@ class PublicArticleRepository extends ArticleRepository {
         return self::$language;
     }
 
-}
+}*/

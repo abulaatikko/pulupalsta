@@ -1,18 +1,14 @@
 <?php
-// src/Acme/SecurityBundle/Controller/SecurityController.php;
 namespace Pulu\PalstaBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 
-class LoginController extends Controller
-{
-    public function loginAction()
-    {
+class LoginController extends Controller {
+    public function loginAction() {
         $request = $this->getRequest();
         $session = $request->getSession();
 
-        // get the login error if there is one
         if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
             $error = $request->attributes->get(
                 SecurityContext::AUTHENTICATION_ERROR
@@ -25,7 +21,6 @@ class LoginController extends Controller
         return $this->render(
             'PuluPalstaBundle:Login:index.html.php',
             array(
-                // last username entered by the user
                 'last_username' => $session->get(SecurityContext::LAST_USERNAME),
                 'error'         => $error,
             )

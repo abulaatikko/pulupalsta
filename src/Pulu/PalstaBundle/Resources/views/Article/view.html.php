@@ -1,10 +1,10 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', $view['translator']->trans('Luettelo') . ' - Pulupalsta') ?>
+<?php $currentLocale = $app->getRequest()->getLocale(); ?>
+
+<?php $view['slots']->set('title', $article->getName($currentLocale) . ' - Pulupalsta') ?>
 
 <?php $view['slots']->start('body') ?>
-
-<?php $currentLocale = $app->getRequest()->getLocale(); ?>
 
 <h1><?php echo $article->getName($currentLocale) ?></h1>
 

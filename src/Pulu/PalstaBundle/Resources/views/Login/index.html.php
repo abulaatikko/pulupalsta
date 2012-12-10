@@ -6,9 +6,9 @@
 
 <h1>Kirjautuminen</h1>
 
-<?php if ($error): ?>
+<?php /*if ($error): ?>
     <div><?php echo $error->getMessage() ?></div>
-<?php endif; ?>
+<?php endif; */ ?>
 
 <form action="<?php echo $view['router']->generate('pulu_palsta_login_check') ?>" method="post">
     <label for="username">Käyttäjä:</label>
