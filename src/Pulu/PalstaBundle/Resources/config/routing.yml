@@ -48,6 +48,12 @@ pulu_palsta_article:
         name: ([A-Za-z0-9-]+)
         _locale: fi|en
 
+pulu_palsta_article_rating:
+    pattern: /ajax/rating
+    defaults: { _controller: PuluPalstaBundle:Ajax:articleRating }
+    options:
+        expose: true
+
 ##### ADMIN #####
 pulu_palsta_admin:
     pattern: /admin

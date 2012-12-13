@@ -79,7 +79,11 @@ div.alert-box, div.notice-box   { padding: 16px; font-size: 22px; line-height: 1
 #recent-articles table	{margin-bottom: 0px;}
 
 /* -----------------------------------------
-   Page Name 2
+   Article page
 ----------------------------------------- */
 
+#rating { display:inline-block; padding:0px; }
+#rating div { display:inline-block; width:48px; height:48px; margin:0px; background-image: url('../images/icons/48_star_off.jpg');}
 
+#rating .selected { background-image: url('../images/icons/48_star_on.jpg') !important; }
+#rating .highlighted { background-image: url('../images/icons/48_star_on.jpg') !important; }

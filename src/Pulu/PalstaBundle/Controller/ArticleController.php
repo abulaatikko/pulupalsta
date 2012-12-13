@@ -4,6 +4,7 @@ namespace Pulu\PalstaBundle\Controller;
 use Pulu\PalstaBundle\Entity\Article;
 use Pulu\PalstaBundle\Entity\Comment;
 use Pulu\PalstaBundle\Entity\Visit;
+use Pulu\PalstaBundle\Entity\Rating;
 use Pulu\PalstaBundle\Form\Type\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -15,8 +16,7 @@ class ArticleController extends Controller {
         if (! $article instanceof Article) {
             throw $this->createNotFoundException();
         }
-        $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment');
-        $comments = $repository->findByCreated(null, $article->getId(), $R->getLocale());
+        $comments = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->findByCreated(null, $article->getId(), $R->getLocale(), 'ASC');;
 
         $comment = new Comment();
         $form = $this->createForm(new CommentType(), $comment);
@@ -82,11 +82,19 @@ class ArticleController extends Controller {
 
         $articleKeywords = $this->getDoctrine()->getRepository('PuluPalstaBundle:Keyword')->findByArticleOrderedByWeight($article);
 
+        // Find rating by current user
+        $rating = 0;
+        $ratingEntity = $this->getDoctrine()->getRepository('PuluPalstaBundle:Rating')->findOneBy(array('article' => $article->getId(), 'author_hash' => $author_hash));
+        if ($ratingEntity instanceof Rating) {
+            $rating = $ratingEntity->getRating();
+        }
+
         return $this->render('PuluPalstaBundle:Article:view.html.php', array(
             'article' => $article,
             'comments' => $comments,
             'form' => $form->createView(),
-            'article_keywords' => $articleKeywords
+            'article_keywords' => $articleKeywords,
+            'rating' => $rating
         ));
     }
 

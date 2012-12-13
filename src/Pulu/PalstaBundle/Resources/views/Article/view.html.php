@@ -8,12 +8,15 @@
 
 <h1><?php echo $article->getName($currentLocale) ?></h1>
 
-<p><strong><?php echo $view['translator']->trans('Avainsanat') ?></strong>:
+<p><strong><?php echo $view['translator']->trans('Avainsanat') ?>:</strong>
 <?php $printKeywords = array(); ?>
 <?php foreach ($article_keywords as $article_keyword): ?>
-    <?php $printKeywords[] = '<em>' . $article_keyword->getName($currentLocale) . '</em>'; ?>
+    <?php $printKeywords[] = '<a href=""><em>' . $article_keyword->getName($currentLocale) . '</em></a>'; ?>
 <?php endforeach ?>
-<?php echo implode(', ', $printKeywords) ?></p>
+<?php echo implode(', ', $printKeywords) ?>
+&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Arvosana') ?>:</strong> 3.46/5
+&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Vierailuja') ?>:</strong> 2773</p>
+
 
 <?php $body = $article->getBody($currentLocale); ?>
 
@@ -28,6 +31,14 @@
 <? endif ?>
 <?php echo $body ?>
 
+<h2 style="margin-bottom: 5px"><?php echo $view['translator']->trans('Anna arvio lukemastasi') ?></h2>
+
+<div id="rating" data-rating="<?php echo $rating ?>">
+    <div></div><div></div><div></div><div></div><div></div>
+</div>
+<div id='info'></div>
+<div id="article_id" data-id="<?php echo $article->getId() ?>"></div>
+
 <h2><?php echo $view['translator']->trans('Kommentit') ?></h2>
 
 <?php if (! empty($comments)): ?>
@@ -41,7 +52,7 @@
 <tbody>
 <? foreach ($comments as $comment): ?>
 <tr>
-    <td style="width: 12%"><strong><?php echo $comment->getAuthorName() ?></strong><br /><small><?php echo $comment->getCreated()->format('Y-m-d H:i') ?></small></td>
+    <td><strong><?php echo $comment->getAuthorName() ?></strong><br /><small style="white-space: nowrap"><?php echo $comment->getCreated()->format('Y-m-d H:i') ?></small></td>
     <td><?php echo(nl2br($view['helper']->convertUrlsToLinks(htmlspecialchars($comment->getBody())))) ?></td>
 </tr>
 <? endforeach ?>

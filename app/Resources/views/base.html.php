@@ -12,9 +12,16 @@
     <title><?php $view['slots']->output('title', 'Pulupalsta') ?></title>
     <?php foreach ($view['assetic']->stylesheets(
         array(
-            '@PuluPalstaBundle/Resources/public/css/foundation.css',
-            '@PuluPalstaBundle/Resources/public/css/app.css'
+            // https://github.com/kriswallsmith/assetic/issues/53
+            //'@PuluPalstaBundle/Resources/public/css/foundation.css',
+            //'@PuluPalstaBundle/Resources/public/css/app.css'
+            'bundles/pulupalsta/css/foundation.css',
+            'bundles/pulupalsta/css/app.css',
+            'bundles/pulupalsta/css/alertify.core.css',
+            'bundles/pulupalsta/css/alertify.default.css'
             )
+        ,
+        array('cssrewrite')
         ) as $url): ?>
     <link rel="stylesheet" href="<?php echo $view->escape($url) ?>" />
     <?php endforeach; ?>
@@ -43,9 +50,9 @@
         <dl class="tabs pill">
 <?php $route_params = $app->getRequest()->get('_route_params'); ?>
 <?php if ($app->getRequest()->getLocale() == 'fi'): ?>
-        <dd class="active" class="switch-language" data-to="fi"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'en'))) ?>">in English</a></dd>
+        <dd class="active switch-language" data-to="fi"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'en'))) ?>">in English</a></dd>
 <? else: ?>
-        <dd class="active" class="switch-language" data-to="en"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'fi'))) ?>">suomeksi</a></dd>
+        <dd class="active switch-language" data-to="en"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'fi'))) ?>">suomeksi</a></dd>
 <? endif ?>
         </dl>
     </li>
@@ -120,15 +127,28 @@
 <script src="javascripts/jquery.foundation.alerts.js"></script>
 <script src="javascripts/jquery.foundation.topbar.js"></script>
 -->
+
+<script type="text/javascript">
+var translations = {
+    "your_rating_failed": "<?php echo $view['translator']->trans('Arvosanasi hylättiin') ?>",
+    "your_rating_succeed": "<?php echo $view['translator']->trans('Arvosanasi rekisteröitiin') ?>",
+    "stars": "<?php echo $view['translator']->trans('tähteä') ?>",
+    "star": "<?php echo $view['translator']->trans('tähti') ?>"
+}
+</script>
   
 <!-- Included JS Files (Compressed) -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <?php foreach ($view['assetic']->javascripts(array(
     '@PuluPalstaBundle/Resources/public/js/foundation.min.js',
-    '@PuluPalstaBundle/Resources/public/js/app.js'
+    '@PuluPalstaBundle/Resources/public/js/alertify.min.js',
+    '@FOSJsRoutingBundle/Resources/public/js/router.js',
+    '@PuluPalstaBundle/Resources/public/js/app.js'    
     )) as $url): ?>
     <script src="<?php echo $view->escape($url) ?>"></script>
     <?php endforeach; ?>
+<script type="text/javascript" src="<?php echo $view['router']->generate('fos_js_routing_js', array('callback' => 'fos.Router.setData')) ?>"></script>
+
 <!--<script src="javascripts/foundation.min.js"></script>
 <script src="javascripts/app.js"></script>-->
 

@@ -13,7 +13,7 @@
 <? else: ?>
 <p>Pulupalsta is a collection of articles which discuss topics ranging different aspects of life in different eras. At the moment the articles mainly discuss my personal life but the humble goal is to achieve more relevancy for other people as well. If you are a new visitor I recommend you to use your freedom to pick up an interesting topic in the tag cloud below or read some of <a href="">the most popular articles</a>.</p>
 
-<p>Unfortunately most of the articles are only in Finnish so you need to rely on automatic translation or just view the pictures.</p>
+<p>Unfortunately most of the articles are only in Finnish so you need to rely on automatic translation or just look at the images.</p>
 
 <p>I appreciate your interest and especially if you rate the article after reading it.</p>
 <? endif; ?>
