@@ -70,7 +70,7 @@
     </div>
     <div class="six columns" id="tag-results">
 
-<table id="table1" class="by-tag hide">
+<table id="table1" class="by-tag hide wide">
 <thead>
 <tr><th>#</th><th>Kirjoitus</th><th>Pojot</th></tr>
 </thead>
@@ -80,7 +80,7 @@
 </tbody>
 </table>
 
-<table id="table2" class="by-tag hide">
+<table id="table2" class="by-tag hide wide">
 <thead>
 <tr><th>#</th><th>Kirjoitus</th><th>Pojot</th></tr>
 </thead>

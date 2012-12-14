@@ -1,6 +1,6 @@
 <?php $view->extend('PuluPalstaBundle:Admin:base.html.php') ?>
 
-<?php $view['slots']->set('title', 'Asiasanat - Ylläpito - Pulupalsta') ?>
+<?php $view['slots']->set('title', 'Avainsanat - Ylläpito - Pulupalsta') ?>
 
 <?php $view['slots']->start('body') ?>
 
@@ -9,7 +9,7 @@
   <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_keyword') ?>" class="current">Avainsanat</a></li>
 </ul>
 
-<h1>Asiasanat</h1>
+<h1>Avainsanat</h1>
 
 <p><a href="<?php echo $view['router']->generate('pulu_palsta_admin_keyword_create') ?>">Luo uusi avainsana</a></p>
 

@@ -31,7 +31,7 @@
 <? endif ?>
 <?php echo $body ?>
 
-<h2 style="margin-bottom: 5px"><?php echo $view['translator']->trans('Anna arvio lukemastasi') ?></h2>
+<h2 style="margin-bottom: 5px"><?php echo $view['translator']->trans('Arvioi lukemasi') ?></h2>
 
 <div id="rating" data-rating="<?php echo $rating ?>">
     <div></div><div></div><div></div><div></div><div></div>
@@ -52,7 +52,7 @@
 <tbody>
 <? foreach ($comments as $comment): ?>
 <tr>
-    <td><strong><?php echo $comment->getAuthorName() ?></strong><br /><small style="white-space: nowrap"><?php echo $comment->getCreated()->format('Y-m-d H:i') ?></small></td>
+    <td style="width: 12%"><strong><?php echo $comment->getAuthorName() ?></strong><br /><small style="white-space: nowrap"><?php echo $comment->getCreated()->format('Y-m-d H:i') ?></small></td>
     <td><?php echo(nl2br($view['helper']->convertUrlsToLinks(htmlspecialchars($comment->getBody())))) ?></td>
 </tr>
 <? endforeach ?>

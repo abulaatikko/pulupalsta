@@ -124,7 +124,7 @@ class AdminController extends Controller {
             $em->persist($comment);
             $delete = $R->get('delete');
             if ($delete) {
-                $article->setDeleted();
+                $comment->setDeleted();
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('notice', 'Kommentti poistettu');
                 return $this->redirect($this->generateUrl('pulu_palsta_admin_comment'));
