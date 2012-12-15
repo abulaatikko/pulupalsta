@@ -81,7 +81,7 @@ h6 {font-size: 16px;}
 .tag5			{font-size:96%; font-weight: normal;}
 .tag6			{font-size:80%; font-weight: lighter;}
 #select-tag		{text-align: center; margin-top: 10%; color: #285EAE; font-size: 3em; font-weight: bold; line-height: 1.5em;}
-#select-tag span	{font-size: 500%;}
+#select-tag span	{font-size: 500%; line-height: 0.1em;}
 
 #popular-articles table	{margin-bottom: 0px;}
 #recent-articles table	{margin-bottom: 0px;}
@@ -94,3 +94,5 @@ h6 {font-size: 16px;}
 
 #rating .selected {background-image: url('../images/icons/48_star_on.jpg') !important;}
 #rating .highlighted {background-image: url('../images/icons/48_star_on.jpg') !important;}
+
+table#comments td small {white-space: nowrap;}

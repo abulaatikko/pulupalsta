@@ -21,7 +21,7 @@
 <?php $body = $article->getBody($currentLocale); ?>
 
 <? if (empty($body)): ?>
-    <? if ($locale == 'fi'): ?>
+    <? if ($currentLocale == 'fi'): ?>
         <? $body = $article->getBody('en'); ?>
 <div class="alert-box">Valitettavasti artikkelista ei löydy suomenkielistä käännöstä<?php if ($article->getUseTranslator() === true): ?>, mutta ainahan voit avata sivun <a href="http://translate.google.com/translate?sl=en&tl=fi&ie=UTF-8&u=<?php echo urlencode($view['router']->generate($app->getRequest()->get('_route'), array('_locale'=> 'en'), true)) ?>">Google Translatorin</a> kautta<? endif ?>.</div>
     <? else: ?>
@@ -38,11 +38,11 @@
 </div>
 <div id='info'></div>
 <div id="article_id" data-id="<?php echo $article->getId() ?>"></div>
+<div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
+<div <?php echo empty($comments) ? 'style="display: none"' : '' ?>>
 <h2><?php echo $view['translator']->trans('Kommentit') ?></h2>
-
-<?php if (! empty($comments)): ?>
-<table class="wide">
+<table class="wide" id="comments">
 <thead>
 <tr>
     <th><?php echo $view['translator']->trans('Kirjoittaja') ?></th>
@@ -52,18 +52,20 @@
 <tbody>
 <? foreach ($comments as $comment): ?>
 <tr>
-    <td style="width: 12%"><strong><?php echo $comment->getAuthorName() ?></strong><br /><small style="white-space: nowrap"><?php echo $comment->getCreated()->format('Y-m-d H:i') ?></small></td>
+    <td style="width: 12%"><strong><?php echo $comment->getAuthorName() ?></strong><br /><small><?php echo $comment->getCreated()->format('Y-m-d H:i') ?></small></td>
     <td><?php echo(nl2br($view['helper']->convertUrlsToLinks(htmlspecialchars($comment->getBody())))) ?></td>
 </tr>
 <? endforeach ?>
 
 </tbody>
 </table>
-<? endif ?>
+</div>
+<? //endif ?>
 
 <h3><?php echo $view['translator']->trans('Kirjoita uusi kommentti') ?></h3>
 
-<form action="<?php echo $view['router']->generate($app->getRequest()->get('_route'), $app->getRequest()->get('_route_params')) ?>" method="post" <?php echo $view['form']->enctype($form) ?> >
+<!--<form action="<?php echo $view['router']->generate($app->getRequest()->get('_route'), $app->getRequest()->get('_route_params')) ?>" method="post" <?php echo $view['form']->enctype($form) ?> >-->
+<form id="articleComment" action="<?php echo $view['router']->generate('pulu_palsta_article_comment') ?>" method="post" <?php echo $view['form']->enctype($form) ?> >
     <?php $view['form']->setTheme($form, array('PuluPalstaBundle:Form')) ;?>
     <div class="row">
     <div class="six columns">
@@ -73,6 +75,7 @@
     <?php echo $view['form']->row($form['author_name']) ?>
     <?php echo $view['form']->row($form['safety_question']) ?>
     <?php echo $view['form']->rest($form) ?>
+    <input type="hidden" name="article_id" value="<?php echo $article->getId() ?>" />
     <p><input class="button" type="submit" value="<?php echo $view['translator']->trans('Lähetä') ?>" /></p>
     </div>
     </div>

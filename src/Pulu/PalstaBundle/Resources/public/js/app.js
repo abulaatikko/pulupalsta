@@ -80,6 +80,36 @@ function ShowRating (element, rating) {
 
 $(document).ready(function() {
 
+    var locale = $('#locale').attr('data-locale');
+
+    // Add comment
+    $('form#articleComment').submit(function() {
+        var $form = $(this);
+        $.ajax({
+            type: "POST",
+            url: Routing.generate('pulu_palsta_article_comment', {'_locale': locale}),
+            data: $(this).serialize(),
+            success: function(data) {
+                if (data['success'] == true) {
+                    alertify.success(data['message']);
+                    $('table#comments').closest('div').fadeIn(2000);
+                    $('table#comments').find('tbody:last').append('<tr style="display: none"><td style="width: 12%"><strong>' + data['data']['author_name'] + '</strong><br /><small>' + data['data']['created'] + '</small></td><td>' + data['data']['comment'] + '</td></tr>');
+                    $('table#comments').find('tr:last').fadeIn(2000);
+                    $form[0].reset();
+                } else {
+                    alertify.error(data['message']);
+                }
+            },
+            error: function(data) {
+                alertify.error(translations['failed_to_send_your_comment']);
+            },
+            dataType: "json"
+        });
+        return false;
+
+    });
+
+    // Rating
     $('#rating').each(function() {
         var $this = $(this);
         ShowRating($this, $this.data('rating'));
@@ -109,21 +139,16 @@ $(document).ready(function() {
             }
             $.ajax({
                 type: "POST",
-                url: Routing.generate('pulu_palsta_article_rating'),
+                url: Routing.generate('pulu_palsta_article_rating', {'_locale': locale}),
                 data: {
                     rating: $parent.data('rating'),
                     article_id: article_id
                 },
                 success: function(data) {
                     if (data['success'] == true) {
-                        if ($parent.data('rating') == 1) {
-                            var stars_text = translations['star'];
-                        } else {
-                            var stars_text = translations['stars'];
-                        }
-                        alertify.success(translations['your_rating_succeed'] + ": " + $parent.data('rating') + " " + stars_text);
+                        alertify.success(data['message']);
                     } else {
-                        alertify.error(translations['your_rating_failed']);
+                        alertify.error(data['message']);
                     }
                 },
                 error: function(data) {
@@ -135,7 +160,6 @@ $(document).ready(function() {
     });
 
 });
-
 
 
 /* -----------------------------------------

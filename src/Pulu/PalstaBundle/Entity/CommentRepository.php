@@ -22,4 +22,14 @@ class CommentRepository extends EntityRepository {
         return $a->getQuery()->getResult();
     }
 
+    public function tooFast($article_id, $ip_address, $user_agent, $delay = '2 mins') {
+        return (bool) $this->createQueryBuilder('A')
+            ->where("A.article = :article_id AND A.author_ip_address = :author_ip_address AND A.author_useragent = :author_useragent AND A.created > :interval")
+            ->setParameter('article_id', $article_id)
+            ->setParameter('author_ip_address', $ip_address)
+            ->setParameter('author_useragent', $user_agent)
+            ->setParameter('interval', new \DateTime('- ' . $delay))
+            ->getQuery()->getResult();
+    }
+
 }

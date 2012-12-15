@@ -131,9 +131,7 @@
 <script type="text/javascript">
 var translations = {
     "your_rating_failed": "<?php echo $view['translator']->trans('Arvosanasi hylättiin') ?>",
-    "your_rating_succeed": "<?php echo $view['translator']->trans('Arvosanasi rekisteröitiin') ?>",
-    "stars": "<?php echo $view['translator']->trans('tähteä') ?>",
-    "star": "<?php echo $view['translator']->trans('tähti') ?>"
+    "failed_to_send_your_comment": "<?php echo $view['translator']->trans('Kommentin lähetys epäonnistui') ?>"
 }
 </script>
   

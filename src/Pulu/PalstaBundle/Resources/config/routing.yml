@@ -49,10 +49,20 @@ pulu_palsta_article:
         _locale: fi|en
 
 pulu_palsta_article_rating:
-    pattern: /ajax/rating
+    pattern: /{_locale}/ajax/rating
     defaults: { _controller: PuluPalstaBundle:Ajax:articleRating }
     options:
         expose: true
+    requirements:
+        _locale: fi|en
+
+pulu_palsta_article_comment:
+    pattern: /{_locale}/ajax/comment
+    defaults: { _controller: PuluPalstaBundle:Ajax:articleComment }
+    options:
+        expose: true
+    requirements:
+        _locale: fi|en
 
 ##### ADMIN #####
 pulu_palsta_admin:
