@@ -10,7 +10,7 @@ class Article {
 
     protected $id;
     protected $article_number;
-    protected $points;
+    protected $rating;
     protected $visits;
     protected $use_translator;
     protected $is_public;
@@ -87,16 +87,16 @@ class Article {
         return $this->deleted;
     }
 
-    public function setPoints($points) {
-        $this->points = $points;
+    public function setRating($rating) {
+        $this->rating = $rating;
         return $this;
     }
 
-    public function getPoints() {
-        return $this->points;
+    public function getRating() {
+        return $this->rating;
     }
 
-    public function setRawVisits($raw_visits) {
+    public function setRawVisits(ArrayCollection $raw_visits) {
         $this->raw_visits = $raw_visits;
         return $this;
     }
@@ -105,7 +105,7 @@ class Article {
         return $this->raw_visits;
     }
 
-    public function setRawRatings($raw_ratings) {
+    public function setRawRatings(ArrayCollection $raw_ratings) {
         $this->raw_ratings = $raw_ratings;
         return $this;
     }
@@ -134,7 +134,7 @@ class Article {
         return $this->visits;
     }
 
-    public function setVisits(ArrayCollection $visits) {
+    public function setVisits($visits) {
         $this->visits = $visits;
     }
 

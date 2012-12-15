@@ -4,7 +4,7 @@ Pulu\PalstaBundle\Entity\Article:
             - Min: 0
             - Max: 1000000000
 
-        points:
+        rating:
             - Min: 0
             - Max: 1000
 

@@ -14,8 +14,8 @@
     <?php $printKeywords[] = '<a href=""><em>' . $article_keyword->getName($currentLocale) . '</em></a>'; ?>
 <?php endforeach ?>
 <?php echo implode(', ', $printKeywords) ?>
-&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Arvosana') ?>:</strong> 3.46/5
-&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Vierailuja') ?>:</strong> 2773</p>
+&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Arvosana') ?>:</strong> <?php echo $article->getRating() ?>/5
+&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Vierailuja') ?>:</strong> <?php echo $article->getVisits() ?></p>
 
 
 <?php $body = $article->getBody($currentLocale); ?>

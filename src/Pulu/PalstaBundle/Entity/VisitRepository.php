@@ -1,6 +1,7 @@
 <?php
 namespace Pulu\PalstaBundle\Entity;
 
+use Pulu\PalstaBundle\Entity\Article;
 use Doctrine\ORM\EntityRepository;
 
 class VisitRepository extends EntityRepository {
@@ -12,6 +13,15 @@ class VisitRepository extends EntityRepository {
             ->setParameter('author_hash', $author_hash)
             ->setParameter('interval', new \DateTime('-15 minutes'))
             ->getQuery()->getResult();
+    }
+
+    public function getArticleVisitCount(Article $article) {
+        return $this->createQueryBuilder('A')
+            ->select("COUNT(A)")
+            ->where("A.article = :article_id")
+            ->setParameter(':article_id', $article->getId())
+            ->setMaxResults(1)
+            ->getQuery()->getSingleScalarResult();
     }
 
 }

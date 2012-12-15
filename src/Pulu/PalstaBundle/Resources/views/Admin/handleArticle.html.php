@@ -57,7 +57,7 @@
     <?php echo $view['form']->row($form['visits']) ?>
     </div>
     <div class="three columns">
-    <?php echo $view['form']->row($form['points']) ?>
+    <?php echo $view['form']->row($form['rating']) ?>
     </div>
     <div class="two columns">
     <?php echo $view['form']->row($form['use_translator']) ?>

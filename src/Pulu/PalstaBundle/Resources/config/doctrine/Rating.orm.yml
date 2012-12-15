@@ -1,7 +1,7 @@
 Pulu\PalstaBundle\Entity\Rating:
     type: entity
     table: rating
-    #repositoryClass: Pulu\PalstaBundle\Entity\VisitRepository
+    repositoryClass: Pulu\PalstaBundle\Entity\RatingRepository
     id:
         id:
             type: integer

@@ -22,8 +22,11 @@ Pulu\PalstaBundle\Entity\Article:
         deleted:
             type: datetime
             nullable: true
-        points:
-            type: integer
+        rating:
+            type: decimal
+            precision: 10
+            scale: 2
+            nullable: true
         visits:
             type: integer
         use_translator:

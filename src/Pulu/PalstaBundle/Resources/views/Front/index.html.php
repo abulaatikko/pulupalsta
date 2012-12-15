@@ -4,9 +4,11 @@
 
 <?php $view['slots']->start('body') ?>
 
+<?php $currentLocale = $app->getRequest()->getLocale(); ?>
+
 <h1><?php echo $view['translator']->trans('Tervetuloa') ?>!</h1>
 
-<?php if ($app->getRequest()->getLocale() == 'fi'): ?>
+<?php if ($currentLocale == 'fi'): ?>
 <p>Pulupalsta on kokoelma allekirjoittaneen eri aiheisia kirjoituksia eri elämänalueilta ja aikakausilta. Kirjoituksissa käsitellään pääasiassa henkilökohtaisia asioita, mutta tavoite on saada aikaiseksi myös laajempaa merkittävyyttä. Uudelle lukijalle suosittelen valitsemaan alla olevasta pilvestä kiinnostavan asiasanan tai lukemaan jonkin <a href="">suosituimmista kirjoituksista</a>.</p>
 
 <p>Kiitän mielenkiinnosta, ja erityisesti jos heität arvosanan kirjoituksen luettuasi.</p>
@@ -24,7 +26,10 @@
 
 <div id="tag-cloud">
 <ul>
-<li class="tag6"><a href="" data-tag_id="1">auto</a></li>
+<?php foreach ($keywords as $keyword): ?>
+    <li class="tag<?php echo $keyword['normalized_weight'] ?>"><a href="" data-tag_id="<?php echo $keyword['id'] ?>"><?php echo $keyword['name'] ?></a></li>
+<?php endforeach ?>
+<!--<li class="tag6"><a href="" data-tag_id="1">auto</a></li>
 <li class="tag6"><a href="" data-tag_id="2">Budabest</a></li>
 <li class="tag5"><a href="" data-tag_id="2">juustohampurilainen</a></li>
 <li class="tag4"><a href="" data-tag_id="1">Espoo</a></li>
@@ -62,7 +67,7 @@
 <li class="tag4"><a href="" data-tag_id="2">matkustaminen</a></li>
 <li class="tag3"><a href="" data-tag_id="1">vaeltaminen</a></li>
 <li class="tag2"><a href="" data-tag_id="1">kunnantalo</a></li>
-<li class="tag1"><a href="" data-tag_id="2">kunnantalo</a></li>
+<li class="tag1"><a href="" data-tag_id="2">kunnantalo</a></li>-->
 </ul>
 <p><a href=""><?php echo $view['translator']->trans('Lisää') ?></a></p>
 </div>
@@ -119,7 +124,7 @@
 <tr>
     <td><?php echo $i++ ?>.</td>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getId(), 'name' => $view['helper']->toFilename($article->getName($app->getRequest()->getLocale())))) ?>'><?php echo $article->getName($app->getRequest()->getLocale()); ?></a></td>
-    <td class="nowrap"><?php echo $article->getPoints(); ?></td>
+    <td class="nowrap"><?php echo $article->getRating(); ?></td>
 </tr>
 <? endforeach ?>
 </tbody>

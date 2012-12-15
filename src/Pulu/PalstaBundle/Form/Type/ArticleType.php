@@ -8,17 +8,17 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class ArticleType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $points = null;
+        $rating = null;
         $visits = null;
         $articleNumber = null;
         $currentKeywords = array();
         if (isset($options['data'])) {
-            $points = $options['data']->getPoints();
+            $rating = $options['data']->getRating();
             $visits = $options['data']->getVisits();
             $articleNumber = $options['data']->getArticleNumber();
             $currentKeywords = $options['data']->getKeywords();
         }        
-        $defaultPoints = empty($points) ? $options['default_points'] : $points;
+        $defaultRating = empty($rating) ? $options['default_rating'] : $rating;
         $defaultVisits = empty($visits) ? $options['default_visits'] : $visits;
         $defaultArticleNumber = empty($articleNumber) ? $options['default_article_number'] : $articleNumber;
         $builder
@@ -28,9 +28,9 @@ class ArticleType extends AbstractType {
             ->add('visits', 'integer', array(
                 'label' => 'Vierailuja',
                 'data' => $defaultVisits))
-            ->add('points', 'integer', array(
+            ->add('rating', 'integer', array(
                 'label' => 'Pojoja', 
-                'data' => $defaultPoints))
+                'data' => $defaultRating))
             ->add('use_translator', 'checkbox', array(
                 'label' => 'Käytä automaattista käännöstä',
                 'required' => false))
@@ -88,7 +88,7 @@ class ArticleType extends AbstractType {
             'data_class' => 'Pulu\PalstaBundle\Entity\Article',
             'cascade_validation' => true,
             'default_article_number' => '1',
-            'default_points' => '1',
+            'default_rating' => '1',
             'default_visits' => '1',
             'available_keywords' => null,
             'precision' => 3

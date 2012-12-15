@@ -74,12 +74,12 @@ h6 {font-size: 16px;}
 #tag-cloud ul li	{margin: 0; padding: 0; list-style: none; display: inline;}
 #tag-cloud ul li a	{text-decoration: none; color: #fff; padding: 0 2px;}
 #tag-cloud ul li a:hover {color: #fbfd54;}
-.tag1			{font-size:199%; font-weight: bolder;}
-.tag2			{font-size:166%; font-weight: normal;}
-.tag3			{font-size:138%; font-weight: normal;}
-.tag4			{font-size:115%; font-weight: normal;}
-.tag5			{font-size:96%; font-weight: normal;}
-.tag6			{font-size:80%; font-weight: lighter;}
+.tag6			{font-size:199%; font-weight: bolder;}
+.tag5			{font-size:166%; font-weight: normal;}
+.tag4			{font-size:138%; font-weight: normal;}
+.tag3			{font-size:115%; font-weight: normal;}
+.tag2			{font-size:96%; font-weight: normal;}
+.tag1			{font-size:80%; font-weight: lighter;}
 #select-tag		{text-align: center; margin-top: 10%; color: #285EAE; font-size: 3em; font-weight: bold; line-height: 1.5em;}
 #select-tag span	{font-size: 500%; line-height: 0.1em;}
 
