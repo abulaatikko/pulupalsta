@@ -1,7 +1,6 @@
 Pulu\PalstaBundle\Entity\ArticleKeyword:
     type: entity
     table: article_keyword
-    #repositoryClass: Pulu\PalstaBundle\Entity\TagRepository
     id:
         id:
             type: integer

@@ -48,7 +48,9 @@ class AdminController extends Controller {
         $availableKeywords = $this->getDoctrine()->getRepository('PuluPalstaBundle:Keyword')->findAllOrderedByName();
         $form = $this->createForm(new ArticleType(), $article, array(
             'default_article_number' => $defaultArticleNumber,
-            'available_keywords' => $availableKeywords
+            'available_keywords' => $availableKeywords,
+            'default_rating' => 0,
+            'default_visits' => 1
         ));
 
         if ($R->isMethod('POST')) {

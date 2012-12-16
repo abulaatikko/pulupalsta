@@ -34,9 +34,6 @@ class CalculateKeywordWeightCommand extends ContainerAwareCommand {
             $keyword->setWeight($keywordWeight);
         }
         $em->flush();
-
-        $text = "Done!";
-        $output->writeln($text);
     }
 
 }

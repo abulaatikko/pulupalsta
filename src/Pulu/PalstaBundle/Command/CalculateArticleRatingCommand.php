@@ -39,9 +39,6 @@ class CalculateArticleRatingCommand extends ContainerAwareCommand {
             }
         }
         $em->flush();
-
-        $text = "Done!";
-        $output->writeln($text);
     }
 
 }

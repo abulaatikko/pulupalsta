@@ -27,9 +27,6 @@ class CalculateArticleVisitCommand extends ContainerAwareCommand {
             $article->setVisits($visits);
         }
         $EM->flush();
-
-        $text = "Done!";
-        $output->writeln($text);
     }
 
 }

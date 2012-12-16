@@ -29,7 +29,7 @@ class ArticleType extends AbstractType {
                 'label' => 'Vierailuja',
                 'data' => $defaultVisits))
             ->add('rating', 'integer', array(
-                'label' => 'Pojoja', 
+                'label' => 'Arvosana', 
                 'data' => $defaultRating))
             ->add('use_translator', 'checkbox', array(
                 'label' => 'Käytä automaattista käännöstä',
