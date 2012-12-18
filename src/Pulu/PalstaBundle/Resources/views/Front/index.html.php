@@ -29,45 +29,6 @@
 <?php foreach ($keywords as $keyword): ?>
     <li class="tag<?php echo $keyword['normalized_weight'] ?>"><a href="" data-tag_id="<?php echo $keyword['id'] ?>"><?php echo $keyword['name'] ?></a></li>
 <?php endforeach ?>
-<!--<li class="tag6"><a href="" data-tag_id="1">auto</a></li>
-<li class="tag6"><a href="" data-tag_id="2">Budabest</a></li>
-<li class="tag5"><a href="" data-tag_id="2">juustohampurilainen</a></li>
-<li class="tag4"><a href="" data-tag_id="1">Espoo</a></li>
-<li class="tag3"><a href="" data-tag_id="2">pyöräily</a></li>
-<li class="tag2"><a href="" data-tag_id="2">kuntarajakilpi</a></li>
-<li class="tag1"><a href="" data-tag_id="2">alkoholi</a></li>
-<li class="tag6"><a href="" data-tag_id="1">Lontoo</a></li>
-<li class="tag5"><a href="" data-tag_id="1">Praha</a></li>
-<li class="tag4"><a href="" data-tag_id="2">matkustaminen</a></li>
-<li class="tag3"><a href="" data-tag_id="1">vaeltaminen</a></li>
-<li class="tag2"><a href="" data-tag_id="1">kunnantalo</a></li>
-<li class="tag1"><a href="" data-tag_id="2">kunnantalo</a></li>
-<li class="tag6"><a href="" data-tag_id="1">auto</a></li>
-<li class="tag6"><a href="" data-tag_id="2">Budabest</a></li>
-<li class="tag5"><a href="" data-tag_id="2">juustohampurilainen</a></li>
-<li class="tag4"><a href="" data-tag_id="1">Espoo</a></li>
-<li class="tag3"><a href="" data-tag_id="2">pyöräily</a></li>
-<li class="tag2"><a href="" data-tag_id="2">kuntarajakilpi</a></li>
-<li class="tag1"><a href="" data-tag_id="2">alkoholi</a></li>
-<li class="tag6"><a href="" data-tag_id="1">Lontoo</a></li>
-<li class="tag5"><a href="" data-tag_id="1">Praha</a></li>
-<li class="tag4"><a href="" data-tag_id="2">matkustaminen</a></li>
-<li class="tag3"><a href="" data-tag_id="1">vaeltaminen</a></li>
-<li class="tag2"><a href="" data-tag_id="1">kunnantalo</a></li>
-<li class="tag1"><a href="" data-tag_id="2">kunnantalo</a></li>
-<li class="tag6"><a href="" data-tag_id="1">auto</a></li>
-<li class="tag6"><a href="" data-tag_id="2">Budabest</a></li>
-<li class="tag5"><a href="" data-tag_id="2">juustohampurilainen</a></li>
-<li class="tag4"><a href="" data-tag_id="1">Espoo</a></li>
-<li class="tag3"><a href="" data-tag_id="2">pyöräily</a></li>
-<li class="tag2"><a href="" data-tag_id="2">kuntarajakilpi</a></li>
-<li class="tag1"><a href="" data-tag_id="2">alkoholi</a></li>
-<li class="tag6"><a href="" data-tag_id="1">Lontoo</a></li>
-<li class="tag5"><a href="" data-tag_id="1">Praha</a></li>
-<li class="tag4"><a href="" data-tag_id="2">matkustaminen</a></li>
-<li class="tag3"><a href="" data-tag_id="1">vaeltaminen</a></li>
-<li class="tag2"><a href="" data-tag_id="1">kunnantalo</a></li>
-<li class="tag1"><a href="" data-tag_id="2">kunnantalo</a></li>-->
 </ul>
 <p><a href=""><?php echo $view['translator']->trans('Lisää') ?></a></p>
 </div>
@@ -105,31 +66,31 @@
 
 <!-- Popular/Recent articles -->
 <div class="row">
-    <div class="six columns" id="popular-articles">
+    <div class="six columns" id="visited-articles">
 
-<h3><?php echo $view['translator']->trans('Suosituimpia') ?></h3>
+<h3><?php echo $view['translator']->trans('Vierailluimpia') ?></h3>
 
 <table class="wide">
 <thead>
 <tr>
     <th>#</th>
     <th><?php echo $view['translator']->trans('Kirjoitus') ?></th>
-    <th><?php echo $view['translator']->trans('Pisteet') ?></th>
+    <th><?php echo $view['translator']->trans('Vierailuja') ?></th>
 </tr>
 </thead>
 
 <tbody>
 <? $i = 1; ?>
-<? foreach ($popularArticles as $article): ?>
+<? foreach ($visitedArticles as $article): ?>
 <tr>
     <td><?php echo $i++ ?>.</td>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getId(), 'name' => $view['helper']->toFilename($article->getName($app->getRequest()->getLocale())))) ?>'><?php echo $article->getName($app->getRequest()->getLocale()); ?></a></td>
-    <td class="nowrap"><?php echo $article->getRating(); ?></td>
+    <td class="nowrap"><?php echo $article->getVisits(); ?></td>
 </tr>
 <? endforeach ?>
 </tbody>
 </table>
-<p><a href=""><?php echo $view['translator']->trans('Lisää') ?></a></p>
+<p><a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'visit')) ?>"><?php echo $view['translator']->trans('Lisää') ?></a></p>
 
     </div>
     <div class="six columns" id="recent-articles">
@@ -155,8 +116,8 @@
 <? endforeach ?>
 </tbody>
 </table>
-<p><a href=""><?php echo $view['translator']->trans('Lisää') ?></a></p>
+<p><a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'created')) ?>"><?php echo $view['translator']->trans('Lisää') ?></a></p>
 
     </div>
-</div><!-- Tag cloud row ends -->
+</div><!-- Popular/Recent articles ends -->
 <?php $view['slots']->stop() ?>

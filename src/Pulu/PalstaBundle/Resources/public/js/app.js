@@ -66,12 +66,45 @@ $(document).ready(function() {
 /* -----------------------------------------
 Contents
 ----------------------------------------- */
+function getParameterByName(name) {
+    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+}
+
 $(document).ready(function() {
-    $('table#contents').dataTable({
+    var contentsTable = $('table#contents').dataTable({
         'bFilter': false,
         'bInfo': false,
-        'bPaginate': false
+        'bPaginate': false,
+        "aoColumnDefs": [
+            { "asSorting": [ "asc", "desc" ], "aTargets": [ 0 ] },
+            { "asSorting": [ "desc", "asc" ], "aTargets": [ 1 ] },
+            { "asSorting": [ "desc", "asc" ], "aTargets": [ 2 ] },
+            { "asSorting": [ "desc", "asc" ], "aTargets": [ 3 ] },
+            { "asSorting": [ "desc", "asc" ], "aTargets": [ 4 ] },
+            { "asSorting": [ "desc", "asc" ], "aTargets": [ 5 ] },
+            { "asSorting": [ "desc", "asc" ], "aTargets": [ 6 ] }
+        ]
     });
+
+    var sort = getParameterByName('sort');
+    if (sort != null) {
+        if (sort == 'name') {
+            contentsTable.fnSort([[0, 'asc']]);
+        } else if (sort == 'visit') {
+            contentsTable.fnSort([[1, 'desc']]);
+        } else if (sort == 'rating') {
+            contentsTable.fnSort([[2, 'desc']]);
+        } else if (sort == 'comments') {
+            contentsTable.fnSort([[3, 'desc']]);
+        } else if (sort == 'commented') {
+            contentsTable.fnSort([[4, 'desc']]);
+        } else if (sort == 'modified') {
+            contentsTable.fnSort([[5, 'desc']]);
+        } else if (sort == 'created') {
+            contentsTable.fnSort([[6, 'desc']]);
+        }        
+    }
 
 });
 

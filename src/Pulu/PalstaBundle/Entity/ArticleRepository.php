@@ -78,6 +78,17 @@ class ArticleRepository extends EntityRepository {
             ->getQuery()->getResult();
     }
 
+    public function findOrderedByVisitsForPublic($max = 10) {
+        $lang = $this->getLanguage();
+        return $this->createQueryBuilder('A')
+            ->innerJoin('A.localizations', 'B')
+            ->where("A.is_public = TRUE AND A.deleted IS NULL AND B.language = :language AND A.visits IS NOT NULL")
+            ->setParameter("language", $lang)
+            ->orderBy('A.visits', 'DESC')
+            ->setMaxResults($max)
+            ->getQuery()->getResult();
+    }
+
     public function setLanguage($lang = 'fi') {
     	self::$language = $lang;
     }
