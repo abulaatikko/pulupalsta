@@ -9,13 +9,23 @@
 <h1><?php echo $view['translator']->trans('Tervetuloa') ?>!</h1>
 
 <?php if ($currentLocale == 'fi'): ?>
-<p>Pulupalsta on kokoelma allekirjoittaneen eri aiheisia kirjoituksia eri elämänalueilta ja aikakausilta. Kirjoituksissa käsitellään pääasiassa henkilökohtaisia asioita, mutta tavoite on saada aikaiseksi myös laajempaa merkittävyyttä. Uudelle lukijalle suosittelen valitsemaan alla olevasta pilvestä kiinnostavan asiasanan tai lukemaan jonkin <a href="">suosituimmista kirjoituksista</a>.</p>
+<p>Pulupalsta on kokoelma allekirjoittaneen eri aiheisia kirjoituksia eri elämänalueilta ja 
+aikakausilta. Kirjoituksissa käsitellään pääasiassa henkilökohtaisia asioita, mutta tavoite 
+on saada aikaiseksi myös laajempaa merkittävyyttä. Uudelle lukijalle suosittelen valitsemaan 
+alla olevasta pilvestä kiinnostavan asiasanan tai lukemaan jonkin
+<a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'visit')) ?>">suosituimmista kirjoituksista</a>.</p>
 
 <p>Kiitän mielenkiinnosta, ja erityisesti jos heität arvosanan kirjoituksen luettuasi.</p>
 <? else: ?>
-<p>Pulupalsta is a collection of articles which discuss topics ranging different aspects of life in different eras. At the moment the articles mainly discuss my personal life but the humble goal is to achieve more relevancy for other people as well. If you are a new visitor I recommend you to use your freedom to pick up an interesting topic in the tag cloud below or read some of <a href="">the most popular articles</a>.</p>
+<p>Pulupalsta is a collection of articles which discuss topics ranging different aspects 
+of life in different eras. At the moment the articles mainly discuss my personal life but 
+the humble goal is to achieve more relevancy for other people as well. If you are a new 
+visitor I recommend you to use your freedom to pick up an interesting topic in the tag 
+cloud below or read some of 
+<a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'visit')) ?>">the most popular articles</a>.</p>
 
-<p>Unfortunately most of the articles are only in Finnish so you need to rely on automatic translation or just look at the images.</p>
+<p>Unfortunately most of the articles are only in Finnish so you need to rely on automatic 
+translation or just look at the images.</p>
 
 <p>I appreciate your interest and especially if you rate the article after reading it.</p>
 <? endif; ?>

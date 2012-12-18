@@ -21,8 +21,9 @@ sivustoa, milloin huvittaa ja kuten haluan.</p>
 <p>Kirjoitin ensimmäisen artikkelini
 (<a href="http://pulu.org/pro/1-1500-litraa-pepsia-ja-sony-vaio-s5">1500 litraa Pepsiä ja Sony Vaio S5</a>) 
 tammikuussa 2006. Projekti, jota artikkeli käsittelee, oli pääasiallinen syy silloin
-Puluprojects-nimellä kulkeneen sivuston tekemiselle. <a href="">Myöhemmin</a> aloin kirjoitella 
-artikkeleita myös muista aiheista. Halusin siis saada oman julkaisualustan 
+Puluprojects-nimellä kulkeneen sivuston tekemiselle. 
+<a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'created')) ?>">Myöhemmin</a>
+aloin kirjoitella artikkeleita myös muista aiheista. Halusin siis saada oman julkaisualustan 
 projekteilleni.</p>
 
 <p>Seuraavien vuosien aikana valmistuin, sain töitä web-alan ohjelmistosuunnittelijana
@@ -39,10 +40,11 @@ nimeksi vaihtui Pulupalsta.</p>
     <li><a href="http://www.debian.org/">Debian</a></li>
     <li><a href="http://www.apache.org/">Apache</a></li>
     <li><a href="http://php.net/">PHP</a>: <a href="http://symfony.com/">Symfony</a></li>
-    <li><a href="http://www.postgresql.org/">Postgres</a></li>
+    <li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
     <li><a href="http://en.wikipedia.org/wiki/HTML">HTML</a>: <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></li>
     <li><a href="http://en.wikipedia.org/wiki/CSS">CSS</a>: <a href="http://foundation.zurb.com/">Foundation</a></li>
-    <li><a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>: <a href="http://jquery.com/">JQuery</a></li>
+    <li><a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>: <a href="http://jquery.com/">JQuery</a>, 
+        <a href="http://fabien-d.github.com/alertify.js/">Alertify</a>, <a href="http://datatables.net/">DataTables</a></li>
 </ul>
 
 <p>Suosin siis avoimen lähdekoodin ohjelmistoja, koska ne ovat ilmaisia ja edustavat 
