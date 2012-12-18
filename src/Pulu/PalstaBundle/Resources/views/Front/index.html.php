@@ -78,7 +78,7 @@ translation or just look at the images.</p>
 <div class="row">
     <div class="six columns" id="visited-articles">
 
-<h3><?php echo $view['translator']->trans('Vierailluimpia') ?></h3>
+<h3><?php echo $view['translator']->trans('Suosituimpia') ?></h3>
 
 <table class="wide">
 <thead>
