@@ -28,8 +28,14 @@ pulu_palsta_about:
         _locale: fi|en
 
 pulu_palsta_list:
-    pattern: /{_locale}/luettelo
+    pattern: /{_locale}/sisallys
     defaults: { _controller: PuluPalstaBundle:List:index }
+    requirements:
+        _locale: fi|en
+
+pulu_palsta_index:
+    pattern: /{_locale}/hakemisto
+    defaults: { _controller: PuluPalstaBundle:Index:index }
     requirements:
         _locale: fi|en
 

@@ -43,6 +43,14 @@ ul#about li                 {float: right;}
 /* Notice/alert message */
 div.alert-box, div.notice-box   {padding: 16px; font-size: 22px; line-height: 1.5; text-shadow: none;}
 
+/* Datatables JS */
+.dataTable th                           {cursor: pointer;}
+.dataTable tr.even .sorting_1           {background-color: #e3d7e3;}
+.dataTable tr.odd .sorting_1            {background-color: #f5eff5;}
+.dataTable th.sorting                   {background: url('../images/icons/14_sort_updown.png') no-repeat scroll right center #E2B2E4;}
+.dataTable th.sorting_asc               {background: url('../images/icons/14_sort_up.png') no-repeat scroll right center #E2B2E4;}
+.dataTable th.sorting_desc              {background: url('../images/icons/14_sort_down.png') no-repeat scroll right center #E2B2E4;}
+
 /* -----------------------------------------
    Shared Styles (overdriven)
 ----------------------------------------- */
@@ -96,3 +104,9 @@ h6 {font-size: 16px;}
 #rating .highlighted {background-image: url('../images/icons/48_star_on.jpg') !important;}
 
 table#comments td small {white-space: nowrap;}
+
+/* -----------------------------------------
+   Contents page
+----------------------------------------- */
+
+

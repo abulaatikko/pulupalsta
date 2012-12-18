@@ -64,6 +64,18 @@ $(document).ready(function() {
 });
 
 /* -----------------------------------------
+Contents
+----------------------------------------- */
+$(document).ready(function() {
+    $('table#contents').dataTable({
+        'bFilter': false,
+        'bInfo': false,
+        'bPaginate': false
+    });
+
+});
+
+/* -----------------------------------------
 Article
 ----------------------------------------- */
 

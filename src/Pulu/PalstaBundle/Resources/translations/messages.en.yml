@@ -1,7 +1,8 @@
 # Front
 Palstan hoitoa jo vuodesta 2006: Filling the field since 2006
 Kansi: Cover
-Luettelo: Directory
+Sisällys: Contents
+Hakemisto: Index
 Hä: Wut
 Tervetuloa: Welcome
 VALITSE: USE YOUR
@@ -13,7 +14,16 @@ Julkaistu: Published
 Pisteet: Points
 Lisää: More
 
-# Directory
+# Contents
+"Vier.": "Vis."
+"Arv.": "Rat."
+"Kom.": "Com."
+Kommentoitu: Commented
+Muokattu: Modified
+Vierailujen lukumäärä: Number of visits
+Kommenttien lukumäärä: Number of comments
+
+# Index
 
 # About
 Tietoa sivustosta: About the site
@@ -35,6 +45,8 @@ Kommentointi onnistui: Commeting succeeded
 Kommentointi epäonnistui: Commenting failed
 Nimesi on liian pitkä: Your name is too long
 Liian nopeaa kommentointia, odota muutama minuutti: You are commeting too fast, wait a few minutes
+Arviointi epäonnistui: Your rating failed
+"{1}Arviointi onnistui: %stars% tähti|{0,2,3,4,5}Arviointi onnistui: %stars% tähteä": "{1}Your rating succeeded: %stars% star|{0,2,3,4,5}Your rating succeeded: %stars% stars"
 Arvosana: Rating
 Vierailuja: Visits
 Arvioi lukemasi: Give your rating
@@ -48,7 +60,3 @@ Avainsanat: Keywords
 "Turvakysymys: Mikä on aakkosten ensimmäinen kirjain?": "Safety question: What's the first letter of the alphabet?"
 "Turvakysymys: Mikä on tämän sivuston tekijän etunimi?": "Safety question: What's the first name of the creator of this site?"
 "Turvakysymys: Paljonko on kuusi kertaa kuusi?": "Safety question: How much is six multiplied by six?"
-
-# JavaScript
-Arviointi epäonnistui: Your rating failed
-"{1}Arviointi onnistui: %stars% tähti|{0,2,3,4,5}Arviointi onnistui: %stars% tähteä": "{1}Your rating succeeded: %stars% star|{0,2,3,4,5}Your rating succeeded: %stars% stars"

@@ -175,4 +175,21 @@ class Article {
         return $this->keywords;
     }
 
+    public function getCommentsCount() {
+        $comments = $this->getComments();
+        return count($comments);
+    }
+
+    public function getLastCommented() {
+        $comments = $this->getComments();
+        $return = null;
+        foreach ($comments as $comment) {
+            $created = $comment->getCreated();
+            if ($created > $return) {
+                $return = $created;
+            }
+        }
+        return $return;
+    }
+
 }

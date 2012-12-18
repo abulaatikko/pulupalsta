@@ -71,7 +71,8 @@
 
 <ul id="navigation">
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_front') ?>"><?php echo $view['translator']->trans('Kansi') ?></a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_list') ?>"><?php echo $view['translator']->trans('Luettelo') ?></a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_list') ?>"><?php echo $view['translator']->trans('Sisällys') ?></a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_index') ?>"><?php echo $view['translator']->trans('Hakemisto') ?></a></li>
 </ul>
 <ul id="about">
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_about') ?>"><?php echo $view['translator']->trans('Hä') ?>?</a></li>
@@ -141,7 +142,8 @@ var translations = {
     '@PuluPalstaBundle/Resources/public/js/foundation.min.js',
     '@PuluPalstaBundle/Resources/public/js/alertify.min.js',
     '@FOSJsRoutingBundle/Resources/public/js/router.js',
-    '@PuluPalstaBundle/Resources/public/js/app.js'    
+    '@PuluPalstaBundle/Resources/public/js/jquery.dataTables.js',
+    '@PuluPalstaBundle/Resources/public/js/app.js'
     )) as $url): ?>
     <script src="<?php echo $view->escape($url) ?>"></script>
     <?php endforeach; ?>
