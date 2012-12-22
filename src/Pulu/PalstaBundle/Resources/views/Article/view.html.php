@@ -11,12 +11,14 @@
 <p><strong><?php echo $view['translator']->trans('Avainsanat') ?>:</strong>
 <?php $printKeywords = array(); ?>
 <?php foreach ($article_keywords as $article_keyword): ?>
-    <?php $printKeywords[] = '<a href=""><em>' . $article_keyword->getName($currentLocale) . '</em></a>'; ?>
+    <?php $printKeywords[] = '<a href="' . $view['router']->generate('pulu_palsta_index') . '#' . $article_keyword->getName() . '"><em>' . $article_keyword->getName($currentLocale) . '</em></a>'; ?>
 <?php endforeach ?>
 <?php echo implode(', ', $printKeywords) ?>
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Arvosana') ?>:</strong> <?php echo $article->getRating() ?>/5
-&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Vierailuja') ?>:</strong> <?php echo $article->getVisits() ?></p>
-
+&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Vierailuja') ?>:</strong> <?php echo $article->getVisits() ?>
+&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Julkaistu') ?>:</strong> <?php echo $article->getCreated()->format('Y-m-d') ?>
+&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Muokattu') ?>:</strong> <?php echo $article->getModified()->format('Y-m-d') ?>
+</p>
 
 <?php $body = $article->getBody($currentLocale); ?>
 
@@ -64,7 +66,6 @@
 
 <h3><?php echo $view['translator']->trans('Kirjoita uusi kommentti') ?></h3>
 
-<!--<form action="<?php echo $view['router']->generate($app->getRequest()->get('_route'), $app->getRequest()->get('_route_params')) ?>" method="post" <?php echo $view['form']->enctype($form) ?> >-->
 <form id="articleComment" action="<?php echo $view['router']->generate('pulu_palsta_article_comment') ?>" method="post" <?php echo $view['form']->enctype($form) ?> >
     <?php $view['form']->setTheme($form, array('PuluPalstaBundle:Form')) ;?>
     <div class="row">

@@ -50,15 +50,36 @@ Main page
 ----------------------------------------- */
 $(document).ready(function() {
 
-    $('#tag-cloud ul').find('a').live('click', function() {
-        var tag_id = $(this).attr('data-tag_id');
-        var heading = $(this).html();
-        $('table.by-tag').hide();
-        $('#select-tag').hide();
-        $('#tag-results').find('h3').remove();
-        $('#tag-results').prepend('<h3 style="margin-top: 0">' + heading + '</h3>');
-        $('#table' + tag_id).fadeIn('slow');
+    var locale = $('#locale').attr('data-locale');
+
+    $('#keyword-cloud .keyword').live('click', function() {
+        var $this = $(this);
+        var keyword_id = $this.attr('data-keyword_id');
+        $.ajax({
+            type: "POST",
+            url: Routing.generate('pulu_palsta_keyword', {'_locale': locale}),
+            data: {
+                keyword_id: keyword_id,
+                locale: locale
+            },
+            success: function(data) {
+                var keyword_results = $('#keyword-results');
+                keyword_results.empty();
+
+                var table = '<table class="by-keyword wide hide"><thead><tr><th>#</th><th>Kirjoitus</th><th>Vierailuja</th></tr></thead><tbody>';
+                $.each(data['data'], function(index, element) {
+                    var link = Routing.generate('pulu_palsta_article', {'id': element.id, 'name': element.link_name, '_locale': locale});
+                    table = table + '<tr><td>' + (index + 1) + '.</td><td><a href="' + link + '">' + element.name + '</a></td><td>' + element.visits + '</td></tr>';
+                });
+                table = table + '</tbody></table>';
+
+                keyword_results.append(table);
+                $('table.by-keyword').fadeIn(1000);
+            },
+            dataType: "json"
+        });
         return false;
+
     });
     
 });

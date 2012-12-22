@@ -49,6 +49,8 @@ pulu_palsta_article_without_name:
 pulu_palsta_article:
     pattern: /{_locale}/{id}-{name}
     defaults: { _controller: PuluPalstaBundle:Article:view, id: 1, name: default }
+    options:
+        expose: true
     requirements:
         id: \d+
         name: ([A-Za-z0-9-]+)
@@ -65,6 +67,14 @@ pulu_palsta_article_rating:
 pulu_palsta_article_comment:
     pattern: /{_locale}/ajax/comment
     defaults: { _controller: PuluPalstaBundle:Ajax:articleComment }
+    options:
+        expose: true
+    requirements:
+        _locale: fi|en
+
+pulu_palsta_keyword:
+    pattern: /{_locale}/ajax/keyword
+    defaults: { _controller: PuluPalstaBundle:Ajax:keyword }
     options:
         expose: true
     requirements:

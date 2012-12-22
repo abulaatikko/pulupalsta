@@ -4,6 +4,8 @@
 
 <?php $view['slots']->start('body') ?>
 
+<?php $currentLocale = $app->getRequest()->getLocale(); ?>
+
 <h1><?php echo $view['translator']->trans('Sisällys') ?></h1>
 
 <table class="wide" id="contents">
@@ -21,7 +23,7 @@
 <tbody>
 <? foreach ($articles as $article): ?>
 <tr>
-    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getId(), 'name' => $view['helper']->toFilename($article->getName($app->getRequest()->getLocale())))) ?>'><?php echo $article->getName($app->getRequest()->getLocale()); ?></a></td>
+    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getId(), 'name' => $view['helper']->toFilename($article->getName($app->getRequest()->getLocale())))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
     <td><?php echo $article->getVisits() ?></td>
     <td><?php echo $article->getRating() ?></td>
     <td><?php echo $article->getCommentsCount() ?></td>

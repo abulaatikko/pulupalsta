@@ -6,6 +6,8 @@
 
 <?php $currentLocale = $app->getRequest()->getLocale(); ?>
 
+<div id="locale" data-locale="<?php echo $currentLocale ?>" /></div>
+
 <h1><?php echo $view['translator']->trans('Tervetuloa') ?>!</h1>
 
 <?php if ($currentLocale == 'fi'): ?>
@@ -20,7 +22,7 @@ alla olevasta pilvestä kiinnostavan asiasanan tai lukemaan jonkin
 <p>Pulupalsta is a collection of articles which discuss topics ranging different aspects 
 of life in different eras. At the moment the articles mainly discuss my personal life but 
 the humble goal is to achieve more relevancy for other people as well. If you are a new 
-visitor I recommend you to use your freedom to pick up an interesting topic in the tag 
+visitor I recommend you to use your freedom to pick up an interesting topic in the keyword 
 cloud below or read some of 
 <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'visit')) ?>">the most popular articles</a>.</p>
 
@@ -30,46 +32,25 @@ translation or just look at the images.</p>
 <p>I appreciate your interest and especially if you rate the article after reading it.</p>
 <? endif; ?>
 
-<!-- Tag cloud row -->
+<!-- Keyword cloud row -->
 <div class="row">
     <div class="six columns">
 
-<div id="tag-cloud">
+<div id="keyword-cloud">
 <ul>
 <?php foreach ($keywords as $keyword): ?>
-    <li class="tag<?php echo $keyword['normalized_weight'] ?>"><a href="" data-tag_id="<?php echo $keyword['id'] ?>"><?php echo $keyword['name'] ?></a></li>
+    <li class="keyword<?php echo $keyword['normalized_weight'] ?>"><a href="javascript:void(0);" class="keyword" data-keyword_id="<?php echo $keyword['id'] ?>"><?php echo $keyword['name'] ?></a></li>
 <?php endforeach ?>
 </ul>
-<p><a href=""><?php echo $view['translator']->trans('Lisää') ?></a></p>
+<p><a href="<?php echo $view['router']->generate('pulu_palsta_index') ?>"><?php echo $view['translator']->trans('Lisää') ?></a></p>
 </div>
 
     </div>
-    <div class="six columns" id="tag-results">
+    <div class="six columns" id="keyword-results">
 
-<table id="table1" class="by-tag hide wide">
-<thead>
-<tr><th>#</th><th>Kirjoitus</th><th>Pojot</th></tr>
-</thead>
-<tbody>
-<tr><td>1.</td><td><a href="">100 punnerrusta</a></td><td>95 %</td></tr>
-<tr><td>2.</td><td><a href="">1500 litraa Pepsiä litraa litraa litraa litraa ja Sony litraa Vaio litraa S5 litraa</a></td><td>34 %</td></tr>
-</tbody>
-</table>
 
-<table id="table2" class="by-tag hide wide">
-<thead>
-<tr><th>#</th><th>Kirjoitus</th><th>Pojot</th></tr>
-</thead>
-<tbody>
-<tr><td>1.</td><td><a href="">Malyksen muutto Kemistä Kuopioon</a></td><td>95 %</td></tr>
-<tr><td>2.</td><td><a href="">McDonald's Juustohampurilaisten syöntikilpailu</a></td><td>91 %</td></tr>
-<tr><td>3.</td><td><a href="">Asuntoani ympäri -kisa</a></td><td>65 %</td></tr>
-<tr><td>4.</td><td><a href="">Kokkikerho 2 - Kiinalaista</a></td><td>55 %</td></tr>
-<tr><td>5.</td><td><a href="">Karhunkierros 70km</a></td><td>51 %</td></tr>
-</tbody>
-</table>
 
-<p id="select-tag"><?php echo $view['translator']->trans('VALITSE') ?><br /><?php echo $view['translator']->trans('VAPAASTI') ?><br /><span>&#8592;</span></p>
+<p id="select-keyword"><?php echo $view['translator']->trans('VALITSE') ?><br /><?php echo $view['translator']->trans('VAPAASTI') ?><br /><span>&#8592;</span></p>
 
     </div>
 </div>
@@ -94,7 +75,7 @@ translation or just look at the images.</p>
 <? foreach ($visitedArticles as $article): ?>
 <tr>
     <td><?php echo $i++ ?>.</td>
-    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getId(), 'name' => $view['helper']->toFilename($article->getName($app->getRequest()->getLocale())))) ?>'><?php echo $article->getName($app->getRequest()->getLocale()); ?></a></td>
+    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getId(), 'name' => $view['helper']->toFilename($article->getName($currentLocale)))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
     <td class="nowrap"><?php echo $article->getVisits(); ?></td>
 </tr>
 <? endforeach ?>
@@ -120,7 +101,7 @@ translation or just look at the images.</p>
 <? foreach ($recentArticles as $article): ?>
 <tr>
     <td><?php echo $i++ ?>.</td>
-    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getId(), 'name' => $view['helper']->toFilename($article->getName($app->getRequest()->getLocale())))) ?>'><?php echo $article->getName($app->getRequest()->getLocale()); ?></a></td>
+    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getId(), 'name' => $view['helper']->toFilename($article->getName($currentLocale)))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
     <td class="nowrap"><?php echo $article->getCreated()->format('Y-m-d'); ?></td>
 </tr>
 <? endforeach ?>

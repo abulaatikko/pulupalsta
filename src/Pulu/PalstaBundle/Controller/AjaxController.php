@@ -103,4 +103,32 @@ class AjaxController extends Controller {
         return $response;
     }
 
+    public function keywordAction() {
+        $R = $this->get('request');
+        $translator = $this->get('translator');
+
+        $success = false;
+        $data = array();
+        if ($R->isMethod('POST')) {
+            $success = true;
+            $keyword_id = $R->get('keyword_id');
+            $locale = $R->get('locale');
+            $keyword = $this->getDoctrine()->getRepository('PuluPalstaBundle:Keyword')->find($keyword_id);
+            $articles = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOrderedByVisitsForPublic(10, $keyword_id);
+            foreach ($articles as $article) {
+                $name = $article->getName($locale);
+                $data[] = array(
+                    'id' => $article->getId(),
+                    'name' => $name,
+                    'visits' => $article->getVisits(),
+                    'link_name' => $this->get('helper')->toFilename($name)
+                );
+            }
+        }
+
+        $response = new Response(json_encode(array('success' => $success, 'data' => $data)));
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
+    }
+
 }

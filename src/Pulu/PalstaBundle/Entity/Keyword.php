@@ -87,7 +87,7 @@ class Keyword {
     }
 
     public function getArticles() {
-        return $this->articles->toArray();
+        return $this->articles;
     }
 
 }
