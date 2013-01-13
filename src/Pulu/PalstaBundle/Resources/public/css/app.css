@@ -35,7 +35,7 @@ ul#about li                 {float: right;}
 #switch-language dd a       {cursor: pointer;}
 
 .feed-icon                  {text-align: right; float: right;}
-.feed-icon img              {position: relative; top: 2px;}
+.feed-icon img              {position: relative; top: 2px; border: none}
 
 /* -----------------------------------------
    General styles

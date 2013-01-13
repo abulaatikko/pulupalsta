@@ -6,7 +6,7 @@
 
 <?php $currentLocale = $app->getRequest()->getLocale(); ?>
 
-<div id="locale" data-locale="<?php echo $currentLocale ?>" /></div>
+<div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
 <h1><?php echo $view['translator']->trans('Tervetuloa') ?>!</h1>
 
