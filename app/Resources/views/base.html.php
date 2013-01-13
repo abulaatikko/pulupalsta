@@ -10,6 +10,9 @@
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width" />
     <title><?php $view['slots']->output('title', 'Pulupalsta') ?></title>
+    <link rel="icon" type="image/png" href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/favicon.png') ?>" />
+    <link rel="alternate" title="<?php echo $view['translator']->trans('Pulupalstan kirjoitukset') ?>" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_articles') ?>" type="application/rss+xml" />
+    <link rel="alternate" title="<?php echo $view['translator']->trans('Pulupalstan kommentit') ?>" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_comments') ?>" type="application/rss+xml" />
     <?php foreach ($view['assetic']->stylesheets(
         array(
             // https://github.com/kriswallsmith/assetic/issues/53

@@ -12,6 +12,7 @@ class Rating {
     protected $author_useragent;
     protected $author_hash;
     protected $created;
+    protected $modified;
     
     public function getId() {
         return $this->id;
@@ -76,6 +77,15 @@ class Rating {
 
     public function setCreated() {
         $this->created = new \DateTime('now');
+        return $this;
+    }
+
+    public function getModified() {
+        return $this->modified;
+    }
+
+    public function setModified() {
+        $this->modified = new \DateTime('now');
         return $this;
     }
 

@@ -28,7 +28,7 @@ class ArticleType extends AbstractType {
             ->add('visits', 'integer', array(
                 'label' => 'Vierailuja',
                 'data' => $defaultVisits))
-            ->add('rating', 'integer', array(
+            ->add('rating', 'text', array(
                 'label' => 'Arvosana', 
                 'data' => $defaultRating))
             ->add('use_translator', 'checkbox', array(

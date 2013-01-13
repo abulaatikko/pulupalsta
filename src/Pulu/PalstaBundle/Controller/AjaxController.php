@@ -38,7 +38,8 @@ class AjaxController extends Controller {
                 $em->persist($ratingEntity);
                 $em->flush();
                 $success = true;
-                $message = $translator->transChoice('{1}Arviointi onnistui: %stars% tähti|{0,2,3,4,5}Arviointi onnistui: %stars% tähteä', $rating, array('%stars%' => $rating));
+                $message = $translator->transChoice('{1}Arviointi onnistui: annoit %stars% tähden.|{0,2,3,4,5}Arviointi onnistui: annoit %stars% tähteä.', $rating, array('%stars%' => $rating));
+                $message .= ' ' . $translator->trans('Voit vaihtaa antamaasi arvosanaa.');
             }            
         }
 

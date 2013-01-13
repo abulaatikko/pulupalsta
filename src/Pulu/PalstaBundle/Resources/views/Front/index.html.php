@@ -59,7 +59,7 @@ translation or just look at the images.</p>
 <div class="row">
     <div class="six columns" id="visited-articles">
 
-<h3><?php echo $view['translator']->trans('Suosituimpia') ?></h3>
+<h3><?php echo $view['translator']->trans('Suosituimmat kirjoitukset') ?></h3>
 
 <table class="wide">
 <thead>
@@ -86,7 +86,7 @@ translation or just look at the images.</p>
     </div>
     <div class="six columns" id="recent-articles">
 
-<h3><?php echo $view['translator']->trans('Tuoreimpia') ?></h3> 
+<h3><?php echo $view['translator']->trans('Uusimmat kirjoitukset') ?></h3> 
 
 <table class="wide">
 <thead>
@@ -107,7 +107,10 @@ translation or just look at the images.</p>
 <? endforeach ?>
 </tbody>
 </table>
-<p><a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'created')) ?>"><?php echo $view['translator']->trans('Lisää') ?></a></p>
+<p>
+    <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'created')) ?>"><?php echo $view['translator']->trans('Lisää') ?></a>
+    <span class="feed-icon"><a title="<?php echo $view['translator']->trans('Pulupalstan uusimmat kirjoitukset') ?>" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_articles') ?>"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/16_feed.png') ?>" alt="<?php echo $view['translator']->trans('Pulupalstan uusimmat kirjoitukset') ?>" /></a></span>
+</p>
 
     </div>
 </div><!-- Popular/Recent articles ends -->

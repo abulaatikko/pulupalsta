@@ -115,7 +115,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <?php foreach ($view['assetic']->javascripts(array(
     '@PuluPalstaBundle/Resources/public/js/foundation.min.js',
-    '@PuluPalstaBundle/Resources/public/js/app.js'
+    '@PuluPalstaBundle/Resources/public/js/admin.js'
     )) as $url): ?>
     <script src="<?php echo $view->escape($url) ?>"></script>
     <?php endforeach; ?>

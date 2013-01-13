@@ -7,8 +7,8 @@ Hä: Wut
 Tervetuloa: Welcome
 VALITSE: USE YOUR
 VAPAASTI: FREEDOM
-Suosituimpia: The most popular
-Tuoreimpia: The most recent
+Suosituimmat kirjoitukset: The most popular articles
+Uusimmat kirjoitukset: The most recent articles
 Kirjoitus: Article
 Julkaistu: Published
 Lisää: More
@@ -46,7 +46,8 @@ Kommentointi epäonnistui: Commenting failed
 Nimesi on liian pitkä: Your name is too long
 Liian nopeaa kommentointia, odota muutama minuutti: You are commeting too fast, wait a few minutes
 Arviointi epäonnistui: Your rating failed
-"{1}Arviointi onnistui: %stars% tähti|{0,2,3,4,5}Arviointi onnistui: %stars% tähteä": "{1}Your rating succeeded: %stars% star|{0,2,3,4,5}Your rating succeeded: %stars% stars"
+"{1}Arviointi onnistui: annoit %stars% tähden.|{0,2,3,4,5}Arviointi onnistui: annoit %stars% tähteä.": "{1}Your rating succeeded: %stars% star given.|{0,2,3,4,5}Your rating succeeded: %stars% stars given."
+"Voit vaihtaa antamaasi arvosanaa.": "You can change the rating."
 Arvosana: Rating
 Vierailuja: Visits
 Arvioi lukemasi: Give your rating
@@ -60,3 +61,9 @@ Avainsanat: Keywords
 "Turvakysymys: Mikä on aakkosten ensimmäinen kirjain?": "Safety question: What's the first letter of the alphabet?"
 "Turvakysymys: Mikä on tämän sivuston tekijän etunimi?": "Safety question: What's the first name of the creator of this site?"
 "Turvakysymys: Paljonko on kuusi kertaa kuusi?": "Safety question: How much is six multiplied by six?"
+
+# Feed
+Pulupalstan uusimmat kirjoitukset: The most recent articles of Pulupalsta
+Pulupalstan kirjoitukset: Pulupalsta articles
+Pulupalstan uusimmat kommentit: The most recent comments of Pulupalsta
+Pulupalstan kommentit: Pulupalsta comments

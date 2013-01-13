@@ -30,11 +30,15 @@ Pulu\PalstaBundle\Entity\Rating:
             lenght: 40
         created:
             type: datetime
+        modified:
+            type: datetime
+            nullable: true
     indexes:
         rating_article_author_hash_idx:
             columns: [ article_id, author_hash ]
     lifecycleCallbacks:
-        prePersist: [ setCreated ]
+        prePersist: [ setCreated, setModified ]
+        preUpdate: [ setModified ]
     manyToOne:
         article:
             targetEntity: Article

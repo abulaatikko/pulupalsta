@@ -80,6 +80,18 @@ pulu_palsta_keyword:
     requirements:
         _locale: fi|en
 
+pulu_palsta_feed_recent_articles:
+    pattern: /{_locale}/feed/recent_articles
+    defaults: { _controller: PuluPalstaBundle:Feed:recentArticles }
+    requirements:
+        _locale: fi|en
+
+pulu_palsta_feed_recent_comments:
+    pattern: /{_locale}/feed/recent_comments
+    defaults: { _controller: PuluPalstaBundle:Feed:recentComments }
+    requirements:
+        _locale: fi|en
+
 ##### ADMIN #####
 pulu_palsta_admin:
     pattern: /admin
