@@ -51,7 +51,8 @@ class ArticleController extends Controller {
             'comments' => $comments,
             'form' => $form->createView(),
             'article_keywords' => $articleKeywords,
-            'rating' => $rating
+            'rating' => $rating,
+            'doctrine' => $this->getDoctrine()
         ));
     }
 

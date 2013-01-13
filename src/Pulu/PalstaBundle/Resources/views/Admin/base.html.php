@@ -13,7 +13,8 @@
     <?php foreach ($view['assetic']->stylesheets(
         array(
             '@PuluPalstaBundle/Resources/public/css/foundation.css',
-            '@PuluPalstaBundle/Resources/public/css/app.css'
+            '@PuluPalstaBundle/Resources/public/css/codemirror.css',
+            '@PuluPalstaBundle/Resources/public/css/app.css'            
             )
         ) as $url): ?>
     <link rel="stylesheet" href="<?php echo $view->escape($url) ?>" />
@@ -35,6 +36,21 @@
     #contents { border-top: 4px solid #285EAE; border-bottom: 4px solid #285EAE; background: #fff; }
     #notice { padding-top: 20px; }
     #notice .alert-box { margin: 0px; }
+
+    .CodeMirror {
+        border: 1px solid #CCCCCC;
+        border-radius: 2px 2px 2px 2px;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) inset;
+        color: rgba(0, 0, 0, 0.75);
+        margin: 0 0 12px;
+        height: 500px;
+        transition: all 0.15s linear 0s;
+    }
+    .CodeMirror * {
+        -moz-box-sizing: content-box;   /* Removes empty space in bottom of the editor */
+    }
+    .CodeMirror pre {font-size: 12px;}
+    .CodeMirror-linenumber {font-size: 12px;}
     </style>
 </head>
 <body>
@@ -115,12 +131,14 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <?php foreach ($view['assetic']->javascripts(array(
     '@PuluPalstaBundle/Resources/public/js/foundation.min.js',
+    '@PuluPalstaBundle/Resources/public/js/codemirror.js',
+    '@PuluPalstaBundle/Resources/public/js/codemirror_xml.js',
+    '@PuluPalstaBundle/Resources/public/js/codemirror_htmlmixed.js',
+    '@PuluPalstaBundle/Resources/public/js/codemirror_clike.js',    
+    '@PuluPalstaBundle/Resources/public/js/codemirror_php.js',
     '@PuluPalstaBundle/Resources/public/js/admin.js'
     )) as $url): ?>
     <script src="<?php echo $view->escape($url) ?>"></script>
-    <?php endforeach; ?>
-<!--<script src="javascripts/foundation.min.js"></script>
-<script src="javascripts/app.js"></script>-->
-
+<?php endforeach; ?>
 </body>
 </html>

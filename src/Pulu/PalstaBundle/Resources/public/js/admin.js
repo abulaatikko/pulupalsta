@@ -73,10 +73,36 @@ $(document).ready(function() {
         if (to == 'en') {
             $('#language-fi').hide();    
             $('a.switch-language[data-to="fi"]').css("font-weight", "normal");
+            CM1.refresh();
+            CM2.refresh();
         } else {
             $('#language-en').hide();
             $('a.switch-language[data-to="en"]').css("font-weight", "normal");
+            CM1.refresh();
+            CM2.refresh();
         }
+
+    });
+
+    // Article body codemirror
+    var CM1 = CodeMirror.fromTextArea($('#article_localizations_0_body').get(0), {
+        mode: "application/x-httpd-php",
+        indentUnit: 4,
+        indentWithTabs: true,
+        lineWrapping: true,
+        lineNumbers: true
+    });
+    var CM2 = CodeMirror.fromTextArea($('#article_localizations_1_body').get(0), {
+        mode: "application/x-httpd-php",
+        indentUnit: 4,
+        indentWithTabs: true,
+        lineWrapping: true,
+        lineNumbers: true
+    });
+
+    CodeMirror.fromTextArea($('#test').get(0), {
+        lineNumbers: true
+
     });
 
 });

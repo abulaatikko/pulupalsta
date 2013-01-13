@@ -31,7 +31,14 @@
 <div class="alert-box">Unfortunately an English translation doesn't exist<?php if ($article->getUseTranslator() === true): ?> but you can probably get a clue from looking at the <a href="http://translate.google.com/translate?sl=fi&tl=en&ie=UTF-8&u=<?php echo urlencode($view['router']->generate($app->getRequest()->get('_route'), array('_locale'=> 'fi'), true)) ?>">Google Translator</a> version<? endif ?>.</div>
     <? endif ?>
 <? endif ?>
-<?php echo $body ?>
+
+<? if (mb_strpos($body, '<?php') === 0): ?>
+    <?php $body = str_replace('<?php', '', $body); ?>
+    <?php eval($body) ?>
+<? else: ?>
+    <?php echo $body; ?>
+<? endif ?>
+
 
 <h2 style="margin-bottom: 5px"><?php echo $view['translator']->trans('Arvioi lukemasi') ?></h2>
 

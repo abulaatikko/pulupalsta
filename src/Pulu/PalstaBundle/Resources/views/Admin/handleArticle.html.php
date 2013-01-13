@@ -38,7 +38,7 @@
 <form action="<?php echo $view['router']->generate($formUrl, array('id' => $article->getId())) ?>" method="post" <?php echo $view['form']->enctype($form) ?> >
     <?php $view['form']->setTheme($form, array('PuluPalstaBundle:Form')) ;?>
 
-<?php if (! empty($form['localizations'])): ?>
+    <?php if (! empty($form['localizations'])): ?>
         <?php foreach ($form['localizations'] as $row): ?>
             <div id="language-<?php echo $row['language']->vars['value'] ?>">
             <?php echo $view['form']->row($row['language']) // skip printing ?>
