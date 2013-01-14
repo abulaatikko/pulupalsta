@@ -102,7 +102,7 @@ $age = DateTime::createFromFormat('Y-m-d', '1983-02-25', $tz)
 <h2><?php echo $view['translator']->trans('Kuka') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
 <p>Nimeni on Lassi Heikkinen ja internet-maailmassa minut tunnetaan nimimerkillä Abula.
-Olen <?php echo $age ?> vuotta vanha ja asun Kuopiossa yhdessä valittuni kanssa. Enemmän tietoa minusta
+Olen <?php echo $age ?> vuotta vanha ja asun Kuopiossa yhdessä rakkaani kanssa. Enemmän tietoa minusta
 löytyy <a href="http://www.pulu.org/lassi">henkilökohtaisilta sivuiltani</a>.</p>
 <?php else: ?>
 <p>My name is Lassi Heikkinen and I'm known as Abula in the internet. I'm <?php echo $age ?> years 
