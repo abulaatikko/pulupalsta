@@ -10,18 +10,18 @@
 
 <h2><?php echo $view['translator']->trans('Mitä ja miksi') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
-<p>Pulupalsta on kokoelma tarinoita elämästäni, joita mielelläni muistelen. Parhaimmassa
+<p><em>Pulupalsta</em> sisältää tarinoita elämästäni, joita mielelläni muistelen. Parhaimmassa
 tapauksessa tarinat kiinnostavat myös muita ihmisiä ja sen takia olen kirjoituksiani
 julkaissut. Haaveilen, että kirjoituksillani olisi joskus laajempaakin merkittävyyttä, 
 mutta nykymaailman informaatiotulvassa ei ole sijaa keskinkertaisille kirjoituksille. 
 Pitää siis tavoitella priimaa!</p>
 <?php else: ?>
-<p>Pulupalsta (literally <em>column of the dove</em>) is a collection of stories
-of my life which are, in my opionion, worth remembering. The reason to publish them
+<p><em>Pulupalsta</em> (literally <em>column of the dove</em>) contains stories
+of my life which are, in my opinion, worth remembering. The reason to publish them
 is my humble wish that the stories might interest other people too. My goal is to 
-write something more relevant in the future but because the world is extremely
+write something more remarkable in the future but because the world is extremely
 overfilled by very interesting information, there is no room for second rate stories.
-So let's reach the top!</p>
+So let's go for the top!</p>
 <?php endif ?>
 
 <?php if ($currentLocale == 'fi'): ?>
@@ -49,7 +49,7 @@ projekteilleni.</p>
 in January 2006. The project, which the article is discussing, was the primary reason to 
 create this site. It was called <em>Puluprojects</em> back then.
 <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>">Later</a>
-I've written texts about other subjects too. So I wanted to have own platform to publish 
+I've written texts about other subjects too. So basically I wanted to have own platform to publish 
 my writings.</p>
 <?php endif ?>
 
@@ -57,16 +57,16 @@ my writings.</p>
 <p>Seuraavien vuosien aikana valmistuin, sain töitä web-alan ohjelmistosuunnittelijana
 ja kirjoittelin noin neljän artikkelin vuosivauhdilla uusia tekstejä. Julkaisualusta oli
 ollut alusta asti turhan kömpelö, mutta vasta vuoden 2012 jälkimmäisellä puoliskolla löysin
-viimein aikaa alkaa uudistaa sivustoa. Oikeastaan halusin kokeilla 
-<a href="http://symfony.com/">Symfony2 PHP Frameworkia</a> käytännössä ja valitsin ensimmäiseksi
-testiprojektiksi tämän sivuston siirtämisen uudelle alustalle. Samalla sivuston uudeksi 
-nimeksi vaihtui <em>Pulupalsta</em>.</p>
+viimein aikaa alkaa uudistaa sivustoa. Ja oikeastaan silloinkin ensisijainen syy oli halu kokeilla 
+<a href="http://symfony.com/">Symfony2 PHP Frameworkia</a> käytännössä, jonka ensimmäiseksi
+testiprojektiksi valitsin tämän sivuston siirtämisen uudelle alustalle. Samalla sivuston uudeksi 
+nimeksi vaihtui Pulupalsta.</p>
 <?php else: ?>
-<p>During the next years I graduated, got a full-time web developer job and wrote about
-four articles each year. The platform wasn't great when I created it first time but it took
+<p>During the next years I graduated, got a full-time web developer job and wrote circa
+four articles each year. The platform wasn't great when I created it first time but it still took
 six years to finally improve the system. And actually even then the main reason was to try out
 <a href="http://symfony.com/">Symfony2 PHP Framework</a> in practice. Upgrading Puluprojects
-was a good test project. Then the name was also changed to <em>Pulupalsta</em>.</p>
+was a good test project. Then the name was also changed to Pulupalsta.</p>
 <?php endif ?>
 
 <h2><?php echo $view['translator']->trans('Miten') ?>?</h2>
