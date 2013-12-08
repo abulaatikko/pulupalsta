@@ -66,9 +66,9 @@ $(document).ready(function() {
                 var keyword_results = $('#keyword-results');
                 keyword_results.empty();
 
-                var table = '<table class="by-keyword wide hide"><thead><tr><th>#</th><th>Kirjoitus</th><th>Vierailuja</th></tr></thead><tbody>';
+                var table = '<table class="by-keyword wide hide"><thead><tr><th>#</th><th>'+translations['article']+'</th><th>'+translations['visits']+'</th></tr></thead><tbody>';
                 $.each(data['data'], function(index, element) {
-                    var link = Routing.generate('pulu_palsta_article', {'id': element.id, 'name': element.link_name, '_locale': locale});
+                    var link = Routing.generate('pulu_palsta_article', {'article_number': element.article_number, 'name': element.link_name, '_locale': locale});
                     table = table + '<tr><td>' + (index + 1) + '.</td><td><a href="' + link + '">' + element.name + '</a></td><td>' + element.visits + '</td></tr>';
                 });
                 table = table + '</tbody></table>';
@@ -122,7 +122,7 @@ $(document).ready(function() {
             contentsTable.fnSort([[4, 'desc']]);
         } else if (sort == 'modified') {
             contentsTable.fnSort([[5, 'desc']]);
-        } else if (sort == 'created') {
+        } else if (sort == 'published') {
             contentsTable.fnSort([[6, 'desc']]);
         }        
     }

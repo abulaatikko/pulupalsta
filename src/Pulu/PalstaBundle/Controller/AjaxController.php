@@ -119,7 +119,7 @@ class AjaxController extends Controller {
             foreach ($articles as $article) {
                 $name = $article->getName($locale);
                 $data[] = array(
-                    'id' => $article->getId(),
+                    'article_number' => $article->getArticleNumber(),
                     'name' => $name,
                     'visits' => $article->getVisits(),
                     'link_name' => $this->get('helper')->toFilename($name)

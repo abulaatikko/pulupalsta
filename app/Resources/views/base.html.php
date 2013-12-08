@@ -73,12 +73,12 @@
     <div class="twelve columns">
 
 <ul id="navigation">
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_front') ?>"><?php echo $view['translator']->trans('Kansi') ?></a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_list') ?>"><?php echo $view['translator']->trans('Sisällys') ?></a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_index') ?>"><?php echo $view['translator']->trans('Hakemisto') ?></a></li>
+    <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_front' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_front') ?>"><?php echo $view['translator']->trans('Etusivu') ?></a></li>
+    <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_list' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_list') ?>"><?php echo $view['translator']->trans('Sisällysluettelo') ?></a></li>
+    <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_index' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_index') ?>"><?php echo $view['translator']->trans('Avainsanahakemisto') ?></a></li>
 </ul>
 <ul id="about">
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_about') ?>"><?php echo $view['translator']->trans('Hä') ?>?</a></li>
+    <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_about' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_about') ?>"><?php echo $view['translator']->trans('Hä') ?>?</a></li>
 </ul>
 
     </div>
@@ -135,7 +135,9 @@
 <script type="text/javascript">
 var translations = {
     "your_rating_failed": "<?php echo $view['translator']->trans('Arvosanasi hylättiin') ?>",
-    "failed_to_send_your_comment": "<?php echo $view['translator']->trans('Kommentin lähetys epäonnistui') ?>"
+    "failed_to_send_your_comment": "<?php echo $view['translator']->trans('Kommentin lähetys epäonnistui') ?>",
+    "article": "<?php echo $view['translator']->trans('Kirjoitus') ?>",
+    "visits": "<?php echo $view['translator']->trans('Vierailuja') ?>"
 }
 </script>
   

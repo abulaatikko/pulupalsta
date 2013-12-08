@@ -32,13 +32,7 @@
     <? endif ?>
 <? endif ?>
 
-<? if (mb_strpos($body, '<?php') === 0): ?>
-    <?php $body = str_replace('<?php', '', $body); ?>
-    <?php eval($body) ?>
-<? else: ?>
-    <?php echo $body; ?>
-<? endif ?>
-
+<? eval('?>' . $body . '<?php '); ?>
 
 <h2 style="margin-bottom: 5px"><?php echo $view['translator']->trans('Arvioi lukemasi') ?></h2>
 

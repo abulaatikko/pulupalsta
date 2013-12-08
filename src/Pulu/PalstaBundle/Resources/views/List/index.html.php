@@ -1,12 +1,12 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', $view['translator']->trans('Sisällys') . ' - Pulupalsta') ?>
+<?php $view['slots']->set('title', $view['translator']->trans('Sisällysluettelo') . ' - Pulupalsta') ?>
 
 <?php $view['slots']->start('body') ?>
 
 <?php $currentLocale = $app->getRequest()->getLocale(); ?>
 
-<h1><?php echo $view['translator']->trans('Sisällys') ?></h1>
+<h1><?php echo $view['translator']->trans('Sisällysluettelo') ?></h1>
 
 <table class="wide" id="contents">
 <thead>
@@ -23,7 +23,7 @@
 <tbody>
 <? foreach ($articles as $article): ?>
 <tr>
-    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getId(), 'name' => $view['helper']->toFilename($article->getName($app->getRequest()->getLocale())))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
+    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($app->getRequest()->getLocale())))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
     <td><?php echo $article->getVisits() ?></td>
     <td><?php echo $article->getRating() ?></td>
     <td><?php echo $article->getCommentsCount() ?></td>

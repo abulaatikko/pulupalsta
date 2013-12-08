@@ -10,9 +10,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class ArticleController extends Controller {
 
-    public function viewAction($id, $name) {
+    public function viewAction($article_number, $name) {
         $R = $this->get('request');
-        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('id' => $id, 'is_public' => true, 'deleted' => null));
+        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('article_number' => $article_number, 'is_public' => true, 'deleted' => null));
         if (! $article instanceof Article) {
             throw $this->createNotFoundException();
         }
@@ -56,15 +56,15 @@ class ArticleController extends Controller {
         ));
     }
 
-    public function redirectAction($id) {
-        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('id' => $id, 'is_public' => true, 'deleted' => null));
+    public function redirectAction($article_number) {
+        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('article_number' => $article_number, 'is_public' => true, 'deleted' => null));
         if (! $article instanceof Article) {
             throw $this->createNotFoundException();
         }
         $name = $article->getName($this->getRequest()->getLocale());
         $name = $this->get('helper')->toFilename($name);
 
-        return $this->redirect($this->generateUrl('pulu_palsta_article', array('id' => $id, 'name' => $name)), 301);
+        return $this->redirect($this->generateUrl('pulu_palsta_article', array('article_number' => $article_number, 'name' => $name)), 301);
     }
 
 

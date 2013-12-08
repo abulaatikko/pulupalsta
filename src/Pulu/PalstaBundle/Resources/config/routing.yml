@@ -47,12 +47,12 @@ pulu_palsta_article_without_name:
         _locale: fi|en
 
 pulu_palsta_article:
-    pattern: /{_locale}/{id}-{name}
-    defaults: { _controller: PuluPalstaBundle:Article:view, id: 1, name: default }
+    pattern: /{_locale}/{article_number}-{name}
+    defaults: { _controller: PuluPalstaBundle:Article:view, article_number: 1, name: default }
     options:
         expose: true
     requirements:
-        id: \d+
+        article_number: \d+
         name: ([A-Za-z0-9-]+)
         _locale: fi|en
 

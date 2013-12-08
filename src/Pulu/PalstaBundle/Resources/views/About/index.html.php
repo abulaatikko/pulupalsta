@@ -27,7 +27,7 @@ So let's reach the top!</p>
 <?php if ($currentLocale == 'fi'): ?>
 <p>Pidän web-sivujen tekemisestä, jota tämä projekti myös palvelee. Teen Pulupalstaa yksin ja
 vain yksin, joten kukaan muu ei ole asettamassa projektille reunaehtoja. Voin siis tehdä 
-sivustoa, milloin huvittaa ja kuten haluan.</p>
+sivustoa milloin huvittaa ja kuten haluan.</p>
 <?php else: ?>
 <p>I like creating web sites which is the main reason for this site, if being honest. I'm 
 making Pulupalsta alone and only alone and therefore no one else is setting limits or 
@@ -39,16 +39,16 @@ giving me deadlines. This is usually not the case.</p>
 <p>Kirjoitin ensimmäisen artikkelini
 (<a href="http://pulu.org/pro/1-1500-litraa-pepsia-ja-sony-vaio-s5">1500 litraa Pepsiä ja Sony Vaio S5</a>) 
 tammikuussa 2006. Projekti, jota artikkeli käsittelee, oli pääasiallinen syy silloin
-Puluprojects-nimellä kulkeneen sivuston tekemiselle. 
-<a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'created')) ?>">Myöhemmin</a>
+<em>Puluprojects</em>-nimellä kulkeneen sivuston tekemiselle. 
+<a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>">Myöhemmin</a>
 aloin kirjoitella artikkeleita myös muista aiheista. Halusin siis saada oman julkaisualustan 
 projekteilleni.</p>
 <?php else: ?>
 <p>My first article was
 (<a href="http://pulu.org/pro/1-1500-litraa-pepsia-ja-sony-vaio-s5">1500 litres of Pepsi and Sony Vaio S5</a>)
 in January 2006. The project, which the article is discussing, was the primary reason to 
-create this site. It was called Puluprojects back then.
-<a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'created')) ?>">Later</a>
+create this site. It was called <em>Puluprojects</em> back then.
+<a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>">Later</a>
 I've written texts about other subjects too. So I wanted to have own platform to publish 
 my writings.</p>
 <?php endif ?>
@@ -60,13 +60,13 @@ ollut alusta asti turhan kömpelö, mutta vasta vuoden 2012 jälkimmäisellä pu
 viimein aikaa alkaa uudistaa sivustoa. Oikeastaan halusin kokeilla 
 <a href="http://symfony.com/">Symfony2 PHP Frameworkia</a> käytännössä ja valitsin ensimmäiseksi
 testiprojektiksi tämän sivuston siirtämisen uudelle alustalle. Samalla sivuston uudeksi 
-nimeksi vaihtui Pulupalsta.</p>
+nimeksi vaihtui <em>Pulupalsta</em>.</p>
 <?php else: ?>
 <p>During the next years I graduated, got a full-time web developer job and wrote about
 four articles each year. The platform wasn't great when I created it first time but it took
 six years to finally improve the system. And actually even then the main reason was to try out
 <a href="http://symfony.com/">Symfony2 PHP Framework</a> in practice. Upgrading Puluprojects
-was a good test project. Then the name was also changed.</p>
+was a good test project. Then the name was also changed to <em>Pulupalsta</em>.</p>
 <?php endif ?>
 
 <h2><?php echo $view['translator']->trans('Miten') ?>?</h2>

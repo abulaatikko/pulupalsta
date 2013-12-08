@@ -14,10 +14,11 @@
 <p>Pulupalsta on kokoelma allekirjoittaneen eri aiheisia kirjoituksia eri elämänalueilta ja 
 aikakausilta. Kirjoituksissa käsitellään pääasiassa henkilökohtaisia asioita, mutta tavoite 
 on saada aikaiseksi myös laajempaa merkittävyyttä. Uudelle lukijalle suosittelen valitsemaan 
-alla olevasta pilvestä kiinnostavan asiasanan tai lukemaan jonkin
+alla olevasta pilvestä kiinnostavan avainsanan tai lukemaan jonkin
 <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'visit')) ?>">suosituimmista kirjoituksista</a>.</p>
 
-<p>Kiitän mielenkiinnosta, ja erityisesti jos heität arvosanan kirjoituksen luettuasi.</p>
+<p>Kiitän mielenkiinnosta, ja erityisesti jos heität arvosanan tai kommentin kirjoituksen 
+luettuasi.</p>
 <? else: ?>
 <p>Pulupalsta is a collection of articles which discuss topics ranging different aspects 
 of life in different eras. At the moment the articles mainly discuss my personal life but 
@@ -29,7 +30,7 @@ cloud below or read some of
 <p>Unfortunately most of the articles are only in Finnish so you need to rely on automatic 
 translation or just look at the images.</p>
 
-<p>I appreciate your interest and especially if you rate the article after reading it.</p>
+<p>I appreciate your interest and especially if you rate or comment the article after reading it.</p>
 <? endif; ?>
 
 <!-- Keyword cloud row -->
@@ -47,8 +48,6 @@ translation or just look at the images.</p>
 
     </div>
     <div class="six columns" id="keyword-results">
-
-
 
 <p id="select-keyword"><?php echo $view['translator']->trans('VALITSE') ?><br /><?php echo $view['translator']->trans('VAPAASTI') ?><br /><span>&#8592;</span></p>
 
@@ -75,7 +74,7 @@ translation or just look at the images.</p>
 <? foreach ($visitedArticles as $article): ?>
 <tr>
     <td><?php echo $i++ ?>.</td>
-    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getId(), 'name' => $view['helper']->toFilename($article->getName($currentLocale)))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
+    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($currentLocale)))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
     <td class="nowrap"><?php echo $article->getVisits(); ?></td>
 </tr>
 <? endforeach ?>
@@ -101,7 +100,7 @@ translation or just look at the images.</p>
 <? foreach ($recentArticles as $article): ?>
 <tr>
     <td><?php echo $i++ ?>.</td>
-    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getId(), 'name' => $view['helper']->toFilename($article->getName($currentLocale)))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
+    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($currentLocale)))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
     <td class="nowrap"><?php echo $article->getCreated()->format('Y-m-d'); ?></td>
 </tr>
 <? endforeach ?>

@@ -1,12 +1,12 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', $view['translator']->trans('Hakemisto') . ' - Pulupalsta') ?>
+<?php $view['slots']->set('title', $view['translator']->trans('Avainsanahakemisto') . ' - Pulupalsta') ?>
 
 <?php $view['slots']->start('body') ?>
 
 <?php $currentLocale = $app->getRequest()->getLocale(); ?>
 
-<h1><?php echo $view['translator']->trans('Hakemisto') ?></h1>
+<h1><?php echo $view['translator']->trans('Avainsanahakemisto') ?></h1>
 
 <p><?php echo $view['translator']->trans('Lista artikkeleissa käytetyistä avainsanoista') ?>:</p>
 
@@ -23,7 +23,7 @@
 
 <ul class="square">
 <? foreach ($articles as $article): ?>
-<li><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getArticle()->getId(), 'name' => $view['helper']->toFilename($article->getArticle()->getName($currentLocale)))) ?>'><?php echo $article->getArticle()->getName($currentLocale); ?></a></li>
+<li><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticle()->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getArticle()->getName($currentLocale)))) ?>'><?php echo $article->getArticle()->getName($currentLocale); ?></a></li>
 <? endforeach ?>
 </ul>
 
