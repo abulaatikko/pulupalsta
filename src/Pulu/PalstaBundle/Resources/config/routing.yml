@@ -158,3 +158,7 @@ pulu_palsta_admin_account:
 pulu_palsta_admin_setting:
     pattern: /admin/setting
     defaults: { _controller: PuluPalstaBundle:Admin:setting }
+
+pulu_palsta_admin_guide:
+    pattern: /admin/guide
+    defaults: { _controller: PuluPalstaBundle:Admin:guide }

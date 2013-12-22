@@ -78,6 +78,7 @@
 
 <ul>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_front', array('_locale' => 'fi')) ?>">Avaa sivusto</a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_guide') ?>">Ohjeet</a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_logout') ?>">Kirjaudu ulos</a></li>
 </ul>
 

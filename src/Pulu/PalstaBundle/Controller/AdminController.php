@@ -255,4 +255,9 @@ class AdminController extends Controller {
         ));
     }
 
+    public function guideAction() {
+        return $this->render('PuluPalstaBundle:Admin:guide.html.php');
+    }
+
+
 }
