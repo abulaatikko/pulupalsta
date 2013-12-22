@@ -117,6 +117,12 @@ pulu_palsta_admin_article_delete:
     requirements:
         id: \d+
 
+pulu_palsta_admin_article_history:
+    pattern: /admin/article/history/{id}
+    defaults: { _controller: PuluPalstaBundle:Admin:historyArticle }
+    requirements:
+        id: \d+
+
 pulu_palsta_admin_keyword:
     pattern: /admin/keyword
     defaults: { _controller: PuluPalstaBundle:Admin:listKeyword }

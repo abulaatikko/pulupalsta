@@ -115,6 +115,7 @@
     </div><!-- twelve columns ends -->
 </div><!-- Main row ends -->
 
+<?php /*
 <!-- Included JS Files (Uncompressed) -->
 <!--
 <script src="javascripts/jquery.js"></script>
@@ -131,6 +132,7 @@
 <script src="javascripts/jquery.foundation.alerts.js"></script>
 <script src="javascripts/jquery.foundation.topbar.js"></script>
 -->
+*/ ?>
 
 <script type="text/javascript">
 var translations = {
@@ -154,8 +156,8 @@ var translations = {
     <?php endforeach; ?>
 <script type="text/javascript" src="<?php echo $view['router']->generate('fos_js_routing_js', array('callback' => 'fos.Router.setData')) ?>"></script>
 
-<!--<script src="javascripts/foundation.min.js"></script>
-<script src="javascripts/app.js"></script>-->
+<?php /*<!--<script src="javascripts/foundation.min.js"></script>
+<script src="javascripts/app.js"></script>-->*/ ?>
 
 <script type="text/javascript">
 var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];

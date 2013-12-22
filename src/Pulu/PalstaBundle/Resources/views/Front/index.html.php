@@ -11,7 +11,7 @@
 <h1><?php echo $view['translator']->trans('Tervetuloa') ?>!</h1>
 
 <?php if ($currentLocale == 'fi'): ?>
-<p>Pulupalsta on kokoelma allekirjoittaneen eri aiheisia kirjoituksia eri elämänalueilta ja 
+<p><em>Pulupalsta</em> on kokoelma allekirjoittaneen eri aiheisia kirjoituksia eri elämänalueilta ja 
 aikakausilta. Kirjoituksissa käsitellään pääasiassa henkilökohtaisia asioita, mutta tavoite 
 on saada aikaiseksi myös laajempaa merkittävyyttä. Uudelle lukijalle suosittelen valitsemaan 
 alla olevasta pilvestä kiinnostavan avainsanan tai lukemaan jonkin
@@ -20,7 +20,7 @@ alla olevasta pilvestä kiinnostavan avainsanan tai lukemaan jonkin
 <p>Kiitän mielenkiinnosta, ja erityisesti jos heität arvosanan tai kommentin kirjoituksen 
 luettuasi.</p>
 <? else: ?>
-<p>Pulupalsta is a collection of articles which discuss topics ranging different aspects 
+<p><em>Pulupalsta</em> is a collection of articles which discuss topics ranging different aspects 
 of life in different eras. At the moment the articles mainly discuss my personal life but 
 the humble goal is to achieve more relevancy for other people as well. If you are a new 
 visitor I recommend you to use your freedom to pick up an interesting topic in the keyword 

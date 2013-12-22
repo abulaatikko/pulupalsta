@@ -105,7 +105,7 @@ class ArticleManager {
         return $this->getPropertyByRevision('getBody', $lang, $revision);
     }
 
-    protected function getPropertyByRevision($method, $lang, $revision) {
+    public function getPropertyByRevision($method, $lang, $revision) {
         $returnFile = '/tmp/PuluPalstaArticleRevisionReturn.diff';        
         $tempFile = '/tmp/PuluPalstaArticleRevisionTemp.diff';
         file_put_contents($returnFile, '');
@@ -130,17 +130,29 @@ class ArticleManager {
         return $return;
     }
 
-    protected function getRevisionsByRevision() {
+    public function getRevisionsByRevision($order = 'asc') {
         $revisions = $this->getArticle()->getRevisions();
         $iterator = $revisions->getIterator();
-        $iterator->uasort(function($a, $b) {
-            if ($a->getRevision() < $b->getRevision()) {
-                return -1;
-            } elseif ($a->getRevision() > $b->getRevision()) {
-                return 1;
-            }
-            return 0;
-        });
+
+        if ($order == 'asc') {
+            $iterator->uasort(function($a, $b) {
+                if ($a->getRevision() < $b->getRevision()) {
+                    return -1;
+                } elseif ($a->getRevision() > $b->getRevision()) {
+                    return 1;
+                }
+                return 0;
+            });
+        } else {
+            $iterator->uasort(function($a, $b) {
+                if ($a->getRevision() < $b->getRevision()) {
+                    return 1;
+                } elseif ($a->getRevision() > $b->getRevision()) {
+                    return -1;
+                }
+                return 0;
+            });
+        }
         return $iterator;
     }
 

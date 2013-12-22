@@ -109,6 +109,46 @@ class AdminController extends Controller {
         ));
     }
 
+    public function historyArticleAction($id) {
+        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('id' => $id, 'deleted' => null));
+        $articleManager = new ArticleManager($article);
+        $revisions = $articleManager->getRevisionsByRevision('desc');
+
+        $R = $this->get('request');
+        $requestRevision = $R->get('revision');
+        $revisionsData = array();
+        if (! empty($requestRevision)) {            
+            $nameFI = $articleManager->getPropertyByRevision('getName', 'fi', $requestRevision);
+            $teaserFI = $articleManager->getPropertyByRevision('getTeaser', 'fi', $requestRevision);
+            $bodyFI = $articleManager->getPropertyByRevision('getBody', 'fi', $requestRevision);
+            $nameEN = $articleManager->getPropertyByRevision('getName', 'en', $requestRevision);
+            $teaserEN = $articleManager->getPropertyByRevision('getTeaser', 'en', $requestRevision);
+            $bodyEN = $articleManager->getPropertyByRevision('getBody', 'en', $requestRevision);
+            $revisionsData = array(
+                'name' => array(
+                    'fi' => $nameFI,
+                    'en' => $nameEN
+                ),
+                'teaser' => array(
+                    'fi' => $teaserFI,
+                    'en' => $teaserEN
+                ),
+                'body' => array(
+                    'fi' => $bodyFI,
+                    'en' => $bodyEN
+                ),
+                'revision' => $requestRevision,
+                'created' 
+            );
+        }
+
+        return $this->render('PuluPalstaBundle:Admin:historyArticle.html.php', array(
+            'article' => $article,
+            'revisions' => $revisions,
+            'revision' => $revisionsData
+        ));
+    }
+
     public function listCommentAction() {
         $repository = $this->getDoctrine()->getManager()->getRepository('PuluPalstaBundle:Comment');
         $comments = $repository->findByCreated();

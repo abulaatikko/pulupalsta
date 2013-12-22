@@ -132,16 +132,4 @@ class ArticleRepository extends EntityRepository {
             ->getQuery()->getSingleResult();
     }
 
-    // public function findRevisionsOrderedByRevision() {
-    //     $article = $this->getArticle();
-    //     $lang = $this->getLanguage();
-    //     return $this->createQueryBuilder('A')
-    //         ->innerJoin('A.revisions', 'B')
-    //         ->where('B.article = :article AND B.language = :language')
-    //         ->setParameter('article', $article->getId())
-    //         ->setParameter("language", $lang)
-    //         ->orderBy('B.revision', 'ASC')
-    //         ->getQuery()->getResult();
-    // }
-
 }

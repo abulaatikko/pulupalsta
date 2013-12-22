@@ -100,9 +100,4 @@ $(document).ready(function() {
         lineNumbers: true
     });
 
-    CodeMirror.fromTextArea($('#test').get(0), {
-        lineNumbers: true
-
-    });
-
 });

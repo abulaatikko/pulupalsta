@@ -86,7 +86,6 @@
     </div>
     <? endfor ?>
 
-
     <?php echo $view['form']->rest($form) ?>
     <?php if ($article->getId() > 0): ?>
     <input type="hidden" name="id" value="<?php echo $article->getId() ?>" />
@@ -96,6 +95,11 @@
     <input class="alert button right" id="deleteConfirmation" type="submit" value="Poista" />
     <?php endif ?>
 </form>
+
+<h2>Toiminnot</h2>
+<ul>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_history', array('id' => $article->getId())) ?>">Historia</a></li>
+</ul>
 
 <?php $view['slots']->stop('body') ?>
 
