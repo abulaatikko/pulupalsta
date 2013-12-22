@@ -32,7 +32,7 @@
         <dd class="active"><a href="javascript:void(0);" class="switch-language" data-to="fi">suomeksi</a></dd>
         <dd><a href="javascript:void(0);" class="switch-language" data-to="en">englanniksi</a></dd>
     </dl>
-</li>
+    </li>
 </ul>
 
 <form action="<?php echo $view['router']->generate($formUrl, array('id' => $article->getId())) ?>" method="post" <?php echo $view['form']->enctype($form) ?> >
@@ -98,6 +98,7 @@
 
 <h2>Toiminnot</h2>
 <ul>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber())) ?>">Artikkelisivu (julkinen)</a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_history', array('id' => $article->getId())) ?>">Historia</a></li>
 </ul>
 
