@@ -40,10 +40,10 @@ pulu_palsta_index:
         _locale: fi|en
 
 pulu_palsta_article_without_name:
-    pattern: /{_locale}/{id}
+    pattern: /{_locale}/{article_number}
     defaults: { _controller: PuluPalstaBundle:Article:redirect }
     requirements:
-        id: \d+
+        article_number: \d+
         _locale: fi|en
 
 pulu_palsta_article:
