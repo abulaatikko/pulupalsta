@@ -45,6 +45,10 @@ Pulu\PalstaBundle\Entity\Article:
             targetEntity: ArticleLocalization
             mappedBy: article
             cascade: [ persist ]
+        revisions:
+            targetEntity: ArticleRevision
+            mappedBy: article
+            cascade: [ persist ]
         comments:
             targetEntity: Comment
             mappedBy: article

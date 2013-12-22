@@ -6,7 +6,26 @@ use Doctrine\ORM\EntityRepository;
 
 class ArticleRepository extends EntityRepository {
 
-	protected static $language = 'fi';
+	protected $language = 'fi';
+    protected $article;
+
+    public function setLanguage($lang = 'fi') {
+        $this->language = $lang;
+        return $this;
+    }
+
+    protected function getLanguage() {
+        return $this->language;
+    }
+
+    public function setArticle(Article $article) {
+        $this->article = $article;
+        return $this;
+    }
+
+    protected function getArticle() {
+        return $this->article;
+    }
 
     public function findAllOrderedByName() {
     	$lang = $this->getLanguage();
@@ -102,12 +121,27 @@ class ArticleRepository extends EntityRepository {
         return $query->getResult();
     }
 
-    public function setLanguage($lang = 'fi') {
-    	self::$language = $lang;
+    public function findPreviousArticleRevision() {
+        $article = $this->getArticle();
+        return $this->createQueryBuilder('A')
+            ->innerJoin('A.revisions', 'B')
+            ->where('B.article = :article')
+            ->setParameter('article', $article->getId())
+            ->orderBy('B.revision', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()->getSingleResult();
     }
 
-    protected function getLanguage() {
-    	return self::$language;
-    }
+    // public function findRevisionsOrderedByRevision() {
+    //     $article = $this->getArticle();
+    //     $lang = $this->getLanguage();
+    //     return $this->createQueryBuilder('A')
+    //         ->innerJoin('A.revisions', 'B')
+    //         ->where('B.article = :article AND B.language = :language')
+    //         ->setParameter('article', $article->getId())
+    //         ->setParameter("language", $lang)
+    //         ->orderBy('B.revision', 'ASC')
+    //         ->getQuery()->getResult();
+    // }
 
 }

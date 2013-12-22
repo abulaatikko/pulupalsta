@@ -3,6 +3,7 @@ namespace Pulu\PalstaBundle\Controller;
 
 use Pulu\PalstaBundle\Entity\Article;
 use Pulu\PalstaBundle\Entity\ArticleLocalization;
+use Pulu\PalstaBundle\Manager\ArticleManager;
 use Pulu\PalstaBundle\Form\Type\ArticleType;
 use Pulu\PalstaBundle\Entity\Keyword;
 use Pulu\PalstaBundle\Entity\KeywordLocalization;
@@ -89,6 +90,11 @@ class AdminController extends Controller {
                     }
                 }
                 $em->flush();
+
+                $articleManager = new ArticleManager($article);
+                $articleManager->setEntityManager($em);
+                $articleManager->saveRevision();
+
                 $this->get('session')->getFlashBag()->add('notice', 'Artikkeli tallennettu');
             } else {
                 $this->get('session')->getFlashBag()->add('error', 'Artikkelin tallennus epäonnistui');

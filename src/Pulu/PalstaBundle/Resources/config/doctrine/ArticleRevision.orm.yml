@@ -1,0 +1,31 @@
+Pulu\PalstaBundle\Entity\ArticleRevision:
+    type: entity
+    table: article_revision
+    id:
+        article:
+            type: integer
+            associationKey: true
+        language:
+            type: string
+            length: 2
+        revision:
+            type: integer
+    fields:
+        name:
+            type: string
+            length: 512
+        teaser:
+            type: text
+            length: 2048
+            nullable: true
+        body:
+            type: text
+            nullable: true
+        created:
+            type: datetime
+    lifecycleCallbacks:
+        prePersist: [ setCreated ]
+    manyToOne:
+        article:
+            targetEntity: Article
+            inversedBy: revisions

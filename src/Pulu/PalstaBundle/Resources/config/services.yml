@@ -3,3 +3,6 @@ services:
         class: Pulu\PalstaBundle\DependencyInjection\Helper
         tags:
                 - { name: templating.helper, alias: helper }
+    article_manager:
+        class: Pulu\PalstaBundle\Manager\ArticleManager
+        arguments: ["article"]
