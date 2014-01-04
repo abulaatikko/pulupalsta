@@ -85,19 +85,25 @@ $(document).ready(function() {
     });
 
     // Article body codemirror
-    var CM1 = CodeMirror.fromTextArea($('#article_localizations_0_body').get(0), {
-        mode: "application/x-httpd-php",
-        indentUnit: 4,
-        indentWithTabs: true,
-        lineWrapping: true,
-        lineNumbers: true
-    });
-    var CM2 = CodeMirror.fromTextArea($('#article_localizations_1_body').get(0), {
-        mode: "application/x-httpd-php",
-        indentUnit: 4,
-        indentWithTabs: true,
-        lineWrapping: true,
-        lineNumbers: true
-    });
+    var textarea1 = $('#article_localizations_0_body').get(0);
+    if (typeof textarea1 != "undefined") {
+        var CM1 = CodeMirror.fromTextArea(textarea1, {
+            mode: "application/x-httpd-php",
+            indentUnit: 4,
+            indentWithTabs: true,
+            lineWrapping: true,
+            lineNumbers: true
+        });
+    }
+    var textarea2 = $('#article_localizations_1_body').get(0);
+        if (typeof textarea2 != "undefined") {
+        var CM2 = CodeMirror.fromTextArea(textarea2, {
+            mode: "application/x-httpd-php",
+            indentUnit: 4,
+            indentWithTabs: true,
+            lineWrapping: true,
+            lineNumbers: true
+        });
+    }
 
 });

@@ -25,6 +25,7 @@ if (isset($_SERVER['HTTP_CLIENT_IP']) || isset($_SERVER['HTTP_X_FORWARDED_FOR'])
         exit;
     }
 }
+$ok = true;
 
 if (! $ok) {
     header('HTTP/1.0 403 Forbidden');
