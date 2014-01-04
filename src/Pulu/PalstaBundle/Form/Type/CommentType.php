@@ -36,11 +36,11 @@ class CommentType extends AbstractType {
                 'data' => $options['default_body']))
             ->add('safety_question', 'text', array(
                 'label' => $safety_questions[0]['question'],
-                'property_path' => false,
+                'mapped' => false,
                 'data' => $options['default_safety_question']))
             ->add('safety_answer', 'hidden', array(
                 'data' => base64_encode(serialize($safety_questions[0]['answers'])),
-                'property_path' => false));
+                'mapped' => false));
     }
 
     public function getName() {

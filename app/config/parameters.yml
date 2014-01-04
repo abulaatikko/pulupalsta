@@ -1,15 +1,14 @@
+# This file is auto-generated during the composer install
 parameters:
-    database_driver:   pdo_pgsql
-    database_host:     localhost
-    database_port:     ~
-    database_name:     palsta_dev
-    database_user:     www-data
-    database_password: ~
-
-    mailer_transport:  smtp
-    mailer_host:       localhost
-    mailer_user:       ~
-    mailer_password:   ~
-
-    locale:            en
-    secret:            345k34y5783u3487345348hf345g46g46346jk45k8g35nmjj346j7n
+    database_driver: pdo_pgsql
+    database_host: localhost
+    database_port: null
+    database_name: palsta_dev
+    database_user: www-data
+    database_password: null
+    mailer_transport: smtp
+    mailer_host: localhost
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: 345k34y5783u3487345348hf345g46g46346jk45k8g35nmjj346j7n

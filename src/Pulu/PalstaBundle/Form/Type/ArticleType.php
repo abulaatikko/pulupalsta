@@ -52,13 +52,13 @@ class ArticleType extends AbstractType {
                 ->add('keyword_' . $i . '_id', 'choice', array(
                     'choices' => $choices,
                     'data' => $currentKeyword->getKeyword()->getId(),
-                    'property_path' => false,
+                    'mapped' => false,
                     'required' => false,
                     'label' => ' '
                 ))
                 ->add('keyword_' . $i . '_weight', 'number', array(
                     'data' => $currentKeyword->getWeight(),
-                    'property_path' => false,
+                    'mapped' => false,
                     'required' => false,
                     'label' => ' '
                 ));
@@ -68,12 +68,12 @@ class ArticleType extends AbstractType {
         $builder
             ->add('keyword_' . $i . '_id', 'choice', array(
                 'choices' => $choices,
-                'property_path' => false,
+                'mapped' => false,
                 'required' => false,
                 'label' => ' '
             ))
             ->add('keyword_' . $i . '_weight', 'text', array(
-                'property_path' => false,
+                'mapped' => false,
                 'required' => false,
                 'label' => ' '
             ));
