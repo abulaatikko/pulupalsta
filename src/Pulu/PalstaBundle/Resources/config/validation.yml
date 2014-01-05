@@ -1,12 +1,14 @@
 Pulu\PalstaBundle\Entity\Article:
     properties:
         visits:
-            - Min: 0
-            - Max: 1000000000
+            - Range:
+                min: 0
+                max: 1000000000
 
         rating:
-            - Min: 0
-            - Max: 1000
+            - Range:
+                min: 0
+                max: 5
 
 Pulu\PalstaBundle\Entity\ArticleLocalization:
     properties:

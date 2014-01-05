@@ -64,7 +64,7 @@ class AdminController extends Controller {
                 $this->get('session')->getFlashBag()->add('notice', 'Artikkeli poistettu');
                 return $this->redirect($this->generateUrl('pulu_palsta_admin_article'));
             }
-            $form->bind($R);
+            $form->handleRequest($R);
             if ($form->isValid()) {
                 $requestData = $R->get('article');
                 // Article keywords
@@ -177,7 +177,7 @@ class AdminController extends Controller {
                 $this->get('session')->getFlashBag()->add('notice', 'Kommentti poistettu');
                 return $this->redirect($this->generateUrl('pulu_palsta_admin_comment'));
             }
-            $form->bind($R);
+            $form->handleRequest($R);
             if ($form->isValid()) {                
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('notice', 'Kommentti tallennettu');
@@ -236,7 +236,7 @@ class AdminController extends Controller {
                 $this->get('session')->getFlashBag()->add('notice', 'Avainsana poistettu');
                 return $this->redirect($this->generateUrl('pulu_palsta_admin_keyword'));
             }
-            $form->bind($R);
+            $form->handleRequest($R);
             if ($form->isValid()) {                
                 $em->flush();
                 $this->get('session')->getFlashBag()->add('notice', 'Avainsana tallennettu');

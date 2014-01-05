@@ -74,7 +74,7 @@ class AjaxController extends Controller {
                             $commenting_delay = '2';    // minutes
                             $tooFast = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->tooFast($article->getId(), $ip_address, $user_agent, $commenting_delay . ' mins');
                             if (! $tooFast) {
-                                $form->bind($R);
+                                $form->handleRequest($R);
                                 $em = $this->getDoctrine()->getManager();
                                 $em->persist($comment);
                                 if ($form->isValid()) {
