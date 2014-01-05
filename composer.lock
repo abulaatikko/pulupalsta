@@ -617,17 +617,17 @@
         },
         {
             "name": "friendsofsymfony/jsrouting-bundle",
-            "version": "1.5.1",
+            "version": "1.5.2",
             "target-dir": "FOS/JsRoutingBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSJsRoutingBundle.git",
-                "reference": "674fafd9caa5b9b2aed59ff4458e953e4fc04d34"
+                "reference": "4ae129b7fbb073c6a22d56d0ff2e971e0326512e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/674fafd9caa5b9b2aed59ff4458e953e4fc04d34",
-                "reference": "674fafd9caa5b9b2aed59ff4458e953e4fc04d34",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSJsRoutingBundle/zipball/4ae129b7fbb073c6a22d56d0ff2e971e0326512e",
+                "reference": "4ae129b7fbb073c6a22d56d0ff2e971e0326512e",
                 "shasum": ""
             },
             "require": {
@@ -670,7 +670,7 @@
                 "javascript",
                 "routing"
             ],
-            "time": "2014-01-03 13:25:07"
+            "time": "2014-01-05 18:32:52"
         },
         {
             "name": "incenteev/composer-parameter-handler",

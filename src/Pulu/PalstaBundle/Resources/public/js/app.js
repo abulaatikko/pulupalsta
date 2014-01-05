@@ -225,4 +225,12 @@ $(document).ready(function() {
         }
     });
 
+    $(".fancybox").fancybox({
+        helpers: {
+            title: {
+                type: 'inside' // 'float', 'inside', 'outside' or 'over'
+            }
+        }
+    });
+
 });

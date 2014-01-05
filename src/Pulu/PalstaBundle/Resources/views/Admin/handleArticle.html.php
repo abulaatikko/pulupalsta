@@ -96,11 +96,13 @@
     <?php endif ?>
 </form>
 
+<?php if ($article->getId() > 0): ?>
 <h2>Toiminnot</h2>
 <ul>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber())) ?>">Artikkelisivu (julkinen)</a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_history', array('id' => $article->getId())) ?>">Historia</a></li>
 </ul>
+<? endif ?>
 
 <?php $view['slots']->stop('body') ?>
 

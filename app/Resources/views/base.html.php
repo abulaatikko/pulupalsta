@@ -21,7 +21,8 @@
             'bundles/pulupalsta/css/foundation.css',
             'bundles/pulupalsta/css/app.css',
             'bundles/pulupalsta/css/alertify.core.css',
-            'bundles/pulupalsta/css/alertify.default.css'
+            'bundles/pulupalsta/css/alertify.default.css',
+            'bundles/pulupalsta/fancybox/jquery.fancybox.css'
             )
         ,
         array('cssrewrite')
@@ -149,6 +150,7 @@ var translations = {
     '@PuluPalstaBundle/Resources/public/js/alertify.min.js',
     '@FOSJsRoutingBundle/Resources/public/js/router.js',
     '@PuluPalstaBundle/Resources/public/js/jquery.dataTables.js',
+    '@PuluPalstaBundle/Resources/public/fancybox/jquery.fancybox.pack.js',
     '@PuluPalstaBundle/Resources/public/js/app.js'
     )) as $url): ?>
     <script src="<?php echo $view->escape($url) ?>"></script>
