@@ -6,6 +6,11 @@
 
 <?php $view['slots']->start('body') ?>
 
+<style type="text/css">
+/* Old Puluprojects settings */
+ul          {list-style: square; margin: 5px 0px 0px 30px}
+</style>
+
 <h1><?php echo $article->getName($currentLocale) ?></h1>
 
 <p><strong><?php echo $view['translator']->trans('Avainsanat') ?>:</strong>
@@ -32,168 +37,63 @@
     <? endif ?>
 <? endif ?>
 
-<style type="text/css">
-/* Old Puluprojects settings */
-ul          {list-style: square; margin: 5px 0px 0px 30px}
-
-#table_of_contents ul {margin-left: 20px;}
-
-.wide                   {width: 100%;}
-.centered               {text-align: center;}
-.left               {text-align: left;}
-.u                      {text-decoration: underline;}
-.clear          {clear: both;}
-.tight                  {margin: 0px}
-.font1                  {font-size: 80%}
-.overlined      {text-decoration: line-through;}
-.negative       {color: red;}
-.ready, .positive   {color: green;}
-
-.left img       {float: left; margin-right: 10px;}
-div.imgContainer    {margin: 0 auto 20px auto;}
-.imgContainer img,
-.imgContainer iframe    {border: 2px solid #285EAE; padding: 2px; margin: 0 auto;}
-.imgContainer p     {text-align: left; font-size: 80%; margin-top: 0}
-
-#table_of_contents  {float: right; margin: 30px 0px 5px 5px;}
-
-.code                   {margin-left: 15px; margin-right: 15px; padding: 4px; background-color: #F5EFF5; border: 1px solid #E2B2E4; font-family: 'courier new';}
-
-table.norm {
-        border: 2px solid #CC8ACE;
-        background-color: #F5EFF5;
-        margin: 0px 0 5px 0;
-        font-size: 12px;
-        border-spacing: 0px;}
-
-table.norm td {
-        padding: 3px;
-        border-right: 1px solid #CC8ACE;
-        border-bottom: 1px solid #CC8ACE;
-        border-left: none;
-        border-top: none;
-        vertical-align: top;}
-
-table.norm th {
-        padding: 3px; 
-        background-color: #E2B2E4;
-        border-bottom: 1px solid #CC8ACE;
-        border-right: 1px solid #CC8ACE;
-        border-left: none; 
-        border-top: none;
-        text-align: left;}                                /* opera didnt align correctly */
-
-.tfoot {
-        border-top: 2px solid #000;
-        font-weight: bold;}
-</style>
 
 <?php
 // Old Puluprojects functions
 
-global $id;
-$id = $article->getArticleNumber();
+global $articleNumber;
+$articleNumber = $article->getArticleNumber();
 
-function toFilename($string) {
-        $conversion_array = array(
-                'ä' => 'a', 'Ä' => 'A', 'Ö' => 'O', 'ö' => 'o', 'å' => 'a', 'Å' => 'A',
-                'á' => 'a', 'Á' => 'a', 'ó' => 'o', 'Ó' => 'o', 'ñ' => 'n', 'Ñ' => 'N',
-                'š' => 's', 'Š' => 's', '€' => 'e', 'ž' => 'z', 'Ž' => 'z'
-                );
-
-        $string = strtr($string, $conversion_array);
-        $string = toWord(str_replace(' ', '-', $string));
-        $string = preg_replace('/-{2,}/', '-', strtolower($string));
-        $string = trim(str_replace('-', ' ', $string));
-        $string = str_replace(' ', '-', $string);
-        $string = urlencode($string);
-        $string = preg_replace('/%../', '', urlencode($string));
-    return $string;
-}
-
-function toWord($str) {
-        static $bad = array(
-                '\'', '"', '<', '>', '{', '}', '[', ']', '`', '!', '@', '#',
-                '$', '%', '^', '&', '*', '(', ')', '=', '+', '|', '/', '\\',
-                ';', ':', ',', '?', '/', ' '
+/*function toFilename($string) {
+    $conversion_array = array(
+        'ä' => 'a', 'Ä' => 'A', 'Ö' => 'O', 'ö' => 'o', 'å' => 'a', 'Å' => 'A',
+        'á' => 'a', 'Á' => 'a', 'ó' => 'o', 'Ó' => 'o', 'ñ' => 'n', 'Ñ' => 'N',
+        'š' => 's', 'Š' => 's', '€' => 'e', 'ž' => 'z', 'Ž' => 'z'
         );
-        return str_replace($bad, '', $str);
-}
 
-/* funktio tulostaa nimen ja siihen ig-linkin, jos sellainen löytyy
- * $nick käytä aina samaa, käyttäjän identifiointi
- * $word sana joka tulostetaan sivulle
- * $ig=1 jos halutaan irc-galleria linkki
- * esim: nick("px","pxlle",1);
- */
-function nick($nick, $word, $ig=0) {
-    
-    switch($nick) {
-        case "px":  $tmp = "px";        break;
-        case "Abula":   $tmp = "Abula";     break;
-        case "mr":  $tmp = "mr_fm";     break;
-        case "mane":    $tmp = "Rrrage";    break;
-        case "papu":    $tmp = "epätero";   break;
-        case "Emo":     $tmp = false;       break;
-        case "psy": $tmp = "psy^";      break;
-        case "vender":  $tmp = "vender";    break;
-        case "Stypid":  $tmp = "Stypid";    break;
-        case "Malys":   $tmp = "Malys";     break;
-        case "Kalle":   $tmp = "Kaaloppi";  break;
-        case "Nina":    $tmp = "Ninneli";   break;
-        case "Henga":   $tmp = "Henzhu";    break;
-        case "Tuska":   $tmp = "Tuska";     break;
-        case "Wikke":   $tmp = "_Wikke";    break;
-        case "unskilo": $tmp = "unskilo";   break;
-        case "Adamanta":$tmp = "Adamanta";  break;
-        case "Safiira": $tmp = "Safiira";   break;
-        case "Karlis":  $tmp = "Karlis";    break;
-        case "Lappen":  $tmp = "Lappen";    break;
-        case "tp8": $tmp = "tp8";       break;
-        case "Shantar": $tmp = "Shantar";   break;
-        case "emps":    $tmp = "emps";      break;
-        case "Orcc":    $tmp = "Orcc";      break;
-        case "Ismo":    $tmp = "Ismo-";     break;
-        case "kimitys": $tmp = "kimitys";   break;
-        case "skint0r": $tmp = "skint0r";   break;
-        default:    $tmp = false;
-    }
+    $string = strtr($string, $conversion_array);
+    $string = toWord(str_replace(' ', '-', $string));
+    $string = preg_replace('/-{2,}/', '-', strtolower($string));
+    $string = trim(str_replace('-', ' ', $string));
+    $string = str_replace(' ', '-', $string);
+    $string = urlencode($string);
+    $string = preg_replace('/%../', '', urlencode($string));
+    return $string;
+}*/
 
-    if($tmp != false && $ig != 0) {
-        print("<a href=\"http://irc-galleria.net/view.php?nick=".$tmp."\">");
-    }
-
-    print $word;
-
-    if($tmp != false && $ig != 0) {
-        print("</a>");
-    }
-}
+/*function toWord($str) {
+    static $bad = array(
+        '\'', '"', '<', '>', '{', '}', '[', ']', '`', '!', '@', '#',
+        '$', '%', '^', '&', '*', '(', ')', '=', '+', '|', '/', '\\',
+        ';', ':', ',', '?', '/', ' '
+    );
+    return str_replace($bad, '', $str);
+}*/
 
 function getImage($filename, $width = null, $height = null) {
-        global $id;
-        $dir = 'files/' . $id . '/img/';
+    global $articleNumber;
+    $dir = 'files/' . $articleNumber . '/img/';
 
-        // return original
-        if (empty($width) && empty($height)) {
-                return $dir . $filename;
+    // return original
+    if (empty($width) && empty($height)) {
+        return $dir . $filename;
+    }
+
+    $basepath = '/home/abula/media.pulu.org/palsta/' . $dir;
+    $dimensions = strval($width) . 'x' . strval($height);
+
+    $source = $basepath . $filename;
+    $destination = $basepath . $dimensions . '/' . $filename;
+
+    if (! file_exists($destination)) {
+        if (! file_exists(dirname($destination))) {
+            mkdir(dirname($destination), 0777, true);
         }
 
-        $basepath = '/home/abula/media.pulu.org/palsta/' . $dir;
-        $dimensions = strval($width) . 'x' . strval($height);
+        $source_handle = imagecreatefromjpeg($source);
 
-        $source = $basepath . $filename;
-        $destination = $basepath . $dimensions . '/' . $filename;
-
-        if (! file_exists($destination)) {
-                if (! file_exists(dirname($destination))) {
-                        mkdir(dirname($destination), 0777, true);
-                }
-
-                $source_handle = imagecreatefromjpeg($source);
-
-                $source_width = imageSX($source_handle);
-                $source_height = imageSY($source_handle);
+        $source_width = imageSX($source_handle);
+        $source_height = imageSY($source_handle);
         $source_ratio = $source_width / $source_height;
 
         if (! empty($width) && ! empty($height)) {                
@@ -217,14 +117,14 @@ function getImage($filename, $width = null, $height = null) {
         }
         $destination_width = max(1, $destination_width);
         $destination_height = max(1, $destination_height);
+        $destination_handle = ImageCreateTrueColor($destination_width, $destination_height);
+        imagecopyresampled($destination_handle, $source_handle, 0, 0, 0, 0, $destination_width, $destination_height, $source_width, $source_height);
+        imagejpeg($destination_handle, $destination, 90);
+        imagedestroy($destination_handle);
+        imagedestroy($source_handle);
+    }
 
-                $destination_handle = ImageCreateTrueColor($destination_width, $destination_height);
-                imagecopyresampled($destination_handle, $source_handle, 0, 0, 0, 0, $destination_width, $destination_height, $source_width, $source_height);
-                imagejpeg($destination_handle, $destination, 90);
-                imagedestroy($destination_handle);
-                imagedestroy($source_handle);
-        }
-        return $dir . $dimensions . '/' . $filename;
+    return $dir . $dimensions . '/' . $filename;
 }
 
 function displayImage($filename, $width = null, $height = null, $caption = "", $alt = "", $is_thumb = false) {
@@ -232,21 +132,21 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
     $display_url = getImage($filename, $width, $height);
     $out = '<div class="centered imgContainer" style="';
     if (! empty($width)) {
-    $out .= 'width: ' . ($width + 8). 'px;';
+        $out .= 'width: ' . ($width + 8). 'px;';
     }
     if ($is_thumb) {
-    $out .= 'float: left; margin: 0px 10px 10px 0px;';
+        $out .= 'float: left; margin: 0px 10px 10px 0px;';
     }
     $out .= '"><a href="http://media.pulu.org/palsta/' . $original_url . '" rel="gallery" class="fancybox" title="' . $caption . '"><img';
     if ($is_thumb) {
-    $out .= ' style="margin: 0px;"';
+        $out .= ' style="margin: 0px;"';
     }
     if (is_null($alt)) {
-    $alt = mb_substr($desc, 40);
+        $alt = mb_substr($desc, 40);
     }
     $out .= ' src="http://media.pulu.org/palsta/' . $display_url . '" alt="' . $alt . '" /></a>';
     if (! $is_thumb) {
-    $out .= '<p>' . $caption . '</p>';
+        $out .= '<p>' . $caption . '</p>';
     }
     $out .= '</div>';
     return $out;
@@ -255,18 +155,17 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
 function displayThumbs($images = array()) {
     $out = '<div class="thumbsContainer">';
     foreach ($images as $image) {
-    $param1 = isset($image[0]) ? $image[0] : '';
-    $param2 = isset($image[1]) ? $image[1] : '';
-    $param3 = isset($image[2]) ? $image[2] : '';
-    $param4 = isset($image[3]) ? $image[3] : '';
-    $param5 = isset($image[4]) ? $image[4] : '';
-    $out .= displayImage($param1, $param2, $param3, $param4, $param5, true);
+        $param1 = isset($image[0]) ? $image[0] : '';
+        $param2 = isset($image[1]) ? $image[1] : '';
+        $param3 = isset($image[2]) ? $image[2] : '';
+        $param4 = isset($image[3]) ? $image[3] : '';
+        $param5 = isset($image[4]) ? $image[4] : '';
+        $out .= displayImage($param1, $param2, $param3, $param4, $param5, true);
     }
     $out .= '</div><div style="clear: both"></div>';
     return $out;
 }
 ?>
-
 
 <? eval('?>' . $body . '<?php '); ?>
 
