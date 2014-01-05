@@ -60,7 +60,6 @@
         </dl>
     </li>
 </ul>
-
     </div>
 </div><!-- Language switch row ends -->
 

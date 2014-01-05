@@ -11,7 +11,7 @@
     <item>
         <title><?php echo $comment->getAuthorName() ?> (<?php echo $comment->getArticle()->getName($locale) ?>)</title>
         <description><?php echo $comment->getBody($locale) ?></description>
-        <link><?php echo $view['router']->generate('pulu_palsta_article', array('id' => $comment->getArticle()->getId(), 'name' => $view['helper']->toFilename($comment->getArticle()->getName($locale))), true) ?></link>
+        <link><?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $comment->getArticle()->getArticleNumber(), 'name' => $view['helper']->toFilename($comment->getArticle()->getName($locale))), true) ?></link>
         <author><?php echo $comment->getAuthorName() ?></author>
         <category><?php echo $comment->getArticle()->getName($locale) ?></category>
         <guid><?php echo $comment->getId() ?></guid>

@@ -9,10 +9,10 @@
 
 <? foreach ($recentArticles as $article): ?>
     <item>
-        <title><?php echo $article->getName($locale) ?> (#<?php echo $article->getId() ?>)</title>
-        <description><?php echo $article->getBody($locale) ?></description>
-        <link><?php echo $view['router']->generate('pulu_palsta_article', array('id' => $article->getId(), 'name' => $view['helper']->toFilename($article->getName($locale))), true) ?></link>
-        <guid><?php echo $article->getId() ?></guid>
+        <title><?php echo $article->getName($locale) ?> (#<?php echo $article->getArticleNumber() ?>)</title>
+        <description><?php echo $article->getTeaser($locale) ?></description>
+        <link><?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($locale))), true) ?></link>
+        <guid><?php echo $article->getArticleNumber() ?></guid>
         <pubDate><?php echo $article->getCreated()->format('D, d M Y H:i:s T') ?></pubDate>
     </item>
 <? endforeach ?>

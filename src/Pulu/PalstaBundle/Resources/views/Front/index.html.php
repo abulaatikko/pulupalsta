@@ -8,7 +8,7 @@
 
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
-<h1><?php echo $view['translator']->trans('Tervetuloa') ?>!</h1>
+<h1><?php echo $view['translator']->trans('Tervetuloa') ?>! <a style="float: right" href="<?php echo $view['router']->generate('pulu_palsta_list') ?>#feeds" title="<?php echo $view['translator']->trans('RSS-syötteet') ?>"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="<?php echo $view['translator']->trans('RSS-syötteet') ?>" /></a></h1>
 
 <?php if ($currentLocale == 'fi'): ?>
 <p><em>Pulupalsta</em> on kokoelma allekirjoittaneen eri aiheisia kirjoituksia eri elämänalueilta ja 
@@ -113,4 +113,5 @@ translation or just look at the images.</p>
 
     </div>
 </div><!-- Popular/Recent articles ends -->
+
 <?php $view['slots']->stop() ?>

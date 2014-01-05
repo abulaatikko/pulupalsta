@@ -9,9 +9,11 @@ VALITSE: USE YOUR
 VAPAASTI: FREEDOM
 Suosituimmat kirjoitukset: The most popular articles
 Uusimmat kirjoitukset: The most recent articles
+Uusimmat kommentit: The most recent comments
 Kirjoitus: Article
 Julkaistu: Published
 Lisää: More
+RSS-syötteet: RSS feeds
 
 # Contents
 "Vier.": "Vis."
@@ -21,6 +23,16 @@ Kommentoitu: Commented
 Muokattu: Modified
 Vierailujen lukumäärä: Number of visits
 Kommenttien lukumäärä: Number of comments
+Suorat linkit: Direct links
+Taulukko järjestetty: The table is ordered by the
+kirjoituksen otsikon: article name
+vieraiden lukumäärän: number of visits
+arvosanan: rating
+kommenttien lukumäärän: number of comments
+uusimman kommentin: most recent comment
+muokkauspäivämäärän: modified date
+julkaisupäivämäärän: published date
+"mukaan.": "."
 
 # Index
 Lista artikkeleissa käytetyistä avainsanoista aakkosjärjestyksessä: An alphabetic list of keywords used in articles
