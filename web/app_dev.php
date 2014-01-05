@@ -15,17 +15,14 @@ $allowed_ips = array(
 $username = 'admin';
 $password = 'kurppa6';
 $ok = false;
-if (isset($_SERVER['HTTP_CLIENT_IP']) || isset($_SERVER['HTTP_X_FORWARDED_FOR']) || ! in_array(@$_SERVER['REMOTE_ADDR'], $allowed_ips)) {
-    if ($_SERVER['PHP_AUTH_PW'] == $password && $_SERVER['PHP_AUTH_USER'] == $username) {
-        $ok = true;
-    } else {
-        header('WWW-Authenticate: Basic realm="Pulupalsta Authentication"');
-        header('HTTP/1.0 401 Unauthorized');
-        echo "You must enter a valid login ID and password to access this resource\n";
-        exit;
-    }
+if ($_SERVER['PHP_AUTH_PW'] == $password && $_SERVER['PHP_AUTH_USER'] == $username) {
+    $ok = true;
+} else {
+    header('WWW-Authenticate: Basic realm="Pulupalsta Authentication"');
+    header('HTTP/1.0 401 Unauthorized');
+    echo "You must enter a valid login ID and password to access this resource\n";
+    exit;
 }
-$ok = true;
 
 if (! $ok) {
     header('HTTP/1.0 403 Forbidden');
