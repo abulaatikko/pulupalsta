@@ -107,7 +107,7 @@ translation or just look at the images.</p>
 </tbody>
 </table>
 <p>
-    <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'created')) ?>"><?php echo $view['translator']->trans('Lisää') ?></a>
+    <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>"><?php echo $view['translator']->trans('Lisää') ?></a>
     <span class="feed-icon"><a title="<?php echo $view['translator']->trans('Pulupalstan uusimmat kirjoitukset') ?>" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_articles') ?>"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/16_feed.png') ?>" alt="<?php echo $view['translator']->trans('Pulupalstan uusimmat kirjoitukset') ?>" /></a></span>
 </p>
 

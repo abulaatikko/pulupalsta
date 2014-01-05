@@ -8,12 +8,12 @@
 
 <h1><?php echo $view['translator']->trans('Avainsanahakemisto') ?></h1>
 
-<p><?php echo $view['translator']->trans('Lista artikkeleissa käytetyistä avainsanoista') ?>:</p>
+<p><?php echo $view['translator']->trans('Lista artikkeleissa käytetyistä avainsanoista aakkosjärjestyksessä') ?>:</p>
 
 <?php foreach ($keywords as $keyword): ?>
 
 <?php $articles = $keyword->getArticles()->filter(function($article) {
-    return $article->getArticle()->getIsPublic();
+    return $article->getArticle()->getIsPublic() && ! $article->getArticle()->getDeleted();
 }); ?>
 <?php $count = $articles->count(); ?>
 <?php if ($count > 0): ?>
