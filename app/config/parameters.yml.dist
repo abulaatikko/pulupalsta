@@ -1,9 +1,9 @@
 parameters:
-    database_driver:   pdo_mysql
+    database_driver:   pdo_pgsql
     database_host:     localhost
     database_port:     ~
     database_name:     symfony
-    database_user:     root
+    database_user:     www-data
     database_password: ~
 
     mailer_transport:  smtp
