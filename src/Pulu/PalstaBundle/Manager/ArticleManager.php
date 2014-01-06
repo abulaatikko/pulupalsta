@@ -62,6 +62,7 @@ class ArticleManager {
                 )
             );
 
+            $noDiff = 0;
             foreach ($work as $type => $item) {
                 $previousFile = '/tmp/PuluPalstaArticleRevisionPrevious.diff';
                 $currentFile = '/tmp/PuluPalstaArticleRevisionCurrent.diff';
@@ -71,10 +72,17 @@ class ArticleManager {
                 file_put_contents($diffFile, '');
                 exec('diff -u ' . $previousFile . ' ' . $currentFile . ' > ' . $diffFile);
                 $method = $item['method'];
-                $articleRevision->$method(file_get_contents($diffFile));
+                $cnt = file_get_contents($diffFile);
+                if (empty($cnt)) {
+                    $noDiff++;
+                }
+                $articleRevision->$method($cnt);
                 unlink($previousFile);
                 unlink($currentFile);
                 unlink($diffFile);
+            }
+            if ($noDiff == 3) {
+                continue;
             }
 
             $articleRevision->setRevision($previousRevision + 1);

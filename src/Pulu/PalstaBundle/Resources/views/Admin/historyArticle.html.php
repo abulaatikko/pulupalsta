@@ -16,13 +16,15 @@
 <div class="six columns">
     <ul>
         <?php $selectedRevisionCreated = null ?>
+        <?php $revisionsFound = array(); ?>
         <?php foreach ($revisions as $rev): ?>
             <?php if (! empty($revision) && $rev->getRevision() == $revision['revision']): ?>
                 <?php $selectedRevisionCreated = $rev->getCreated(); ?>
             <?php endif ?>
-            <?php if ($rev->getLanguage() != 'fi'): ?>
+            <?php if (in_array($rev->getRevision(), $revisionsFound)): ?>
                 <?php continue; ?>
             <?php endif ?>
+            <?php $revisionsFound[] = $rev->getRevision(); ?>
         <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_history', array('id' => $article->getId(), 'revision' => $rev->getRevision())) ?>">r<?php echo $rev->getRevision() ?>: <?php echo $rev->getCreated()->format('Y-m-d H:i:s') ?></a></li>
         <? endforeach ?>
     </ul>
