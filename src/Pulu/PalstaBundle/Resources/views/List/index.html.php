@@ -56,7 +56,7 @@
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'comments')) ?>"><?php echo $view['translator']->trans('kommenttien lukumäärän') ?></a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'commented')) ?>"><?php echo $view['translator']->trans('uusimman kommentin') ?></a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'modified')) ?>"><?php echo $view['translator']->trans('muokkauspäivämäärän') ?></a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>"><?php echo $view['translator']->trans('julkaisupäivämäärän') ?></a><?php echo $view['translator']->trans('mukaan.') ?></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>"><?php echo $view['translator']->trans('julkaisupäivämäärän') ?></a><?php echo $view['translator']->trans(' mukaan.') ?></li>
 </ul>
 
 <a name="feeds"></a>

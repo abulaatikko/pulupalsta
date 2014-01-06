@@ -50,9 +50,6 @@ Admin
 ----------------------------------------- */
 $(document).ready(function() {
     
-    // Notice
-    $('#notice').delay(2000).slideUp(2000);
-
     // Delete confirmation
     $("#deleteConfirmation").click(function() {
         $("#deleteConfirmationModal").reveal();
