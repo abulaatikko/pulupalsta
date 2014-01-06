@@ -178,6 +178,7 @@ function displayThumbs($images = array()) {
 <div id="article_id" data-id="<?php echo $article->getId() ?>"></div>
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
+<a name="kommentointi"></a>
 <div <?php echo empty($comments) ? 'style="display: none"' : '' ?>>
 <h2><?php echo $view['translator']->trans('Kommentit') ?></h2>
 <table class="wide" id="comments">
