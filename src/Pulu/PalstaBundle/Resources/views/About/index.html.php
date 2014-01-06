@@ -37,7 +37,7 @@ giving me deadlines. This is usually not the case.</p>
 <h2><?php echo $view['translator']->trans('Milloin') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
 <p>Kirjoitin ensimmäisen artikkelini
-(<a href="http://pulu.org/pro/1-1500-litraa-pepsia-ja-sony-vaio-s5">1500 litraa Pepsiä ja Sony Vaio S5</a>) 
+(<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litraa Pepsiä ja Sony Vaio S5</a>) 
 tammikuussa 2006. Projekti, jota artikkeli käsittelee, oli pääasiallinen syy silloin
 <em>Puluprojects</em>-nimellä kulkeneen sivuston tekemiselle. 
 <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>">Myöhemmin</a>
@@ -45,7 +45,7 @@ aloin kirjoitella artikkeleita myös muista aiheista. Halusin siis saada oman ju
 projekteilleni.</p>
 <?php else: ?>
 <p>My first article was
-(<a href="http://pulu.org/pro/1-1500-litraa-pepsia-ja-sony-vaio-s5">1500 litres of Pepsi and Sony Vaio S5</a>)
+(<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litres of Pepsi and Sony Vaio S5</a>)
 in January 2006. The project, which the article is discussing, was the primary reason to 
 create this site. It was called <em>Puluprojects</em> back then.
 <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>">Later</a>
