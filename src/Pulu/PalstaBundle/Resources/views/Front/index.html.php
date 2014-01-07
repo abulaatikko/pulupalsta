@@ -34,7 +34,7 @@ translation or just look at the images.</p>
 <? endif; ?>
 
 <!-- Keyword cloud row -->
-<div class="row" style="padding: 40px 50px 20px 50px">
+<div class="row" style="padding: 30px 50px 20px 50px">
     <div class="six columns">
 
 <div id="keyword-cloud">
