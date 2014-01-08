@@ -14,7 +14,7 @@
 <p><em>Pulupalsta</em> on kokoelma allekirjoittaneen eri aiheisia kirjoituksia eri elämänalueilta ja 
 aikakausilta. Kirjoituksissa käsitellään pääasiassa henkilökohtaisia asioita, mutta tavoite 
 on saada aikaiseksi myös laajempaa merkittävyyttä. Uudelle lukijalle suosittelen valitsemaan 
-alla olevasta pilvestä kiinnostavan avainsanan tai lukemaan jonkin
+alla olevasta <a href="#cloud">pilvestä</a> kiinnostavan avainsanan tai lukemaan jonkin
 <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'visit')) ?>">suosituimmista kirjoituksista</a>.</p>
 
 <p>Kiitän mielenkiinnosta, ja erityisesti jos heität arvosanan tai kommentin kirjoituksen 
@@ -24,7 +24,7 @@ luettuasi.</p>
 of life in different eras. At the moment the articles mainly discuss my personal life but 
 the humble goal is to achieve more relevancy for other people as well. If you are a new 
 visitor I recommend you to use your freedom to pick up an interesting topic in the keyword 
-cloud below or read some of 
+<a href="#cloud">cloud</a> below or read some of 
 <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'visit')) ?>">the most popular articles</a>.</p>
 
 <p>Unfortunately most of the articles are only in Finnish so you need to rely on automatic 
@@ -94,6 +94,7 @@ translation or just look at the images.</p>
 </div><!-- Popular/Recent articles ends -->
 
 <!-- Keyword cloud row -->
+<a name="cloud"></a>
 <div class="row" style="padding: 30px 50px 20px 50px">
     <div class="six columns">
 
