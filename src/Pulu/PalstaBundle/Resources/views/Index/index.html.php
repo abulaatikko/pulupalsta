@@ -8,7 +8,13 @@
 
 <h1><?php echo $view['translator']->trans('Avainsanahakemisto') ?></h1>
 
-<p><?php echo $view['translator']->trans('Lista vähintään kahdessa artikkelissa käytetyistä avainsanoista aakkosjärjestyksessä') ?>:</p>
+<?php if ($currentLocale == 'fi'): ?>
+<p>Vähintään kahdessa artikkelissa käytetyt avainsanat listattuna aakkosjärjestykseen. Avainsanan alla
+artikkelit on järjestetty julkaisuajankohdan mukaan.</p>
+<? else: ?>
+<p>An alphabetic list of the keywords used at least in two articles. The article lists under the keywords
+are sorted by the publish dates of the articles.</p>
+<? endif ?>
 
 <?php $keywordsCount = count($keywords); ?>
 <?php $i = 0; ?>
@@ -18,7 +24,7 @@
 // sort articles by created DESC
 $iterator = $keyword->getArticles()->getIterator();
 $iterator->uasort(function ($first, $second) {
-    return strtotime($first->getArticle()->getCreated()) > strtotime($second->getArticle()->getCreated()) ? -1 : 1;
+    return strtotime($first->getArticle()->getCreated()->format('r')) > strtotime($second->getArticle()->getCreated()->format('r')) ? -1 : 1;
 });
 $array = new Doctrine\Common\Collections\ArrayCollection(iterator_to_array($iterator));
 
