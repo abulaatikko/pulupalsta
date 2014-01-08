@@ -39,7 +39,7 @@ $articles = $array->filter(function($article) {
     <?php endif ?>
 
     <div class="four columns">
-        <a name="<?php echo $keyword->getName() ?>"></a>
+        <section id="<?php echo $keyword->getName() ?>"></section>
         <h4><?php echo $keyword->getName($currentLocale) ?></h4>
         <ul class="square">
         <? foreach ($articles as $article): ?>

@@ -46,7 +46,7 @@ class FrontController extends Controller {
             }
         }
         shuffle($shuffledKeywords);
-        return array_slice($shuffledKeywords, 0, 100);
+        return array_slice($shuffledKeywords, 0, 70);
     }
 
 }

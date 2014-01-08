@@ -59,14 +59,14 @@ ja kirjoittelin noin neljän artikkelin vuosivauhdilla uusia tekstejä. Julkaisu
 ollut alusta asti turhan kömpelö, mutta vasta vuoden 2012 jälkimmäisellä puoliskolla löysin
 viimein aikaa alkaa uudistaa sivustoa. Ja oikeastaan silloinkin ensisijainen syy oli halu kokeilla 
 <a href="http://symfony.com/">Symfony2 PHP Frameworkia</a> käytännössä, jonka ensimmäiseksi
-testiprojektiksi valitsin tämän sivuston siirtämisen uudelle alustalle. Samalla sivuston uudeksi 
+harjoitusprojektiksi valitsin tämän sivuston siirtämisen uudelle alustalle. Samalla sivuston uudeksi 
 nimeksi vaihtui Pulupalsta.</p>
 <?php else: ?>
 <p>During the next years I graduated, got a full-time web developer job and wrote circa
 four articles each year. The platform wasn't great when I created it first time but it still took
 six years to finally improve the system. And actually even then the main reason was to try out
 <a href="http://symfony.com/">Symfony2 PHP Framework</a> in practice. Upgrading Puluprojects
-was a good test project. Then the name was also changed to Pulupalsta.</p>
+was a good exercise. Then the name was also changed to Pulupalsta.</p>
 <?php endif ?>
 
 <h2><?php echo $view['translator']->trans('Miten') ?>?</h2>
@@ -83,7 +83,8 @@ was a good test project. Then the name was also changed to Pulupalsta.</p>
     <li><a href="http://en.wikipedia.org/wiki/HTML">HTML</a>: <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></li>
     <li><a href="http://en.wikipedia.org/wiki/CSS">CSS</a>: <a href="http://foundation.zurb.com/">Foundation</a></li>
     <li><a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>: <a href="http://jquery.com/">JQuery</a>, 
-        <a href="http://fabien-d.github.com/alertify.js/">Alertify</a>, <a href="http://datatables.net/">DataTables</a></li>
+        <a href="http://fabien-d.github.com/alertify.js/">Alertify</a>, <a href="http://datatables.net/">DataTables</a>,
+        <a href="http://fancybox.net/">Fancybox</a></li>
 </ul>
 
 <?php if ($currentLocale == 'fi'): ?>

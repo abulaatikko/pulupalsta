@@ -12,9 +12,9 @@
 <thead>
 <tr>
     <th><?php echo $view['translator']->trans('Kirjoitus') ?></th>
-    <th title="<?php echo $view['translator']->trans('Vierailujen lukumäärä') ?>"><?php echo $view['translator']->trans('Vier.') ?></span></th>
+    <th title="<?php echo $view['translator']->trans('Vierailujen lukumäärä') ?>"><?php echo $view['translator']->trans('Vier.') ?></th>
     <th title="<?php echo $view['translator']->trans('Arvosana') ?>"><?php echo $view['translator']->trans('Arv.') ?></th>
-    <th title="<?php echo $view['translator']->trans('Kommenttien lukumäärä') ?>"><?php echo $view['translator']->trans('Kom.') ?></span></th>
+    <th title="<?php echo $view['translator']->trans('Kommenttien lukumäärä') ?>"><?php echo $view['translator']->trans('Kom.') ?></th>
     <th><?php echo $view['translator']->trans('Kommentoitu') ?></th>
     <th><?php echo $view['translator']->trans('Muokattu') ?></th>
     <th><?php echo $view['translator']->trans('Julkaistu') ?></th>
@@ -24,17 +24,17 @@
 <? foreach ($articles as $article): ?>
 <tr>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($app->getRequest()->getLocale())))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
-    <td><?php echo $article->getVisits() ?></td>
-    <td><?php echo $article->getRating() ?></td>
-    <td><?php echo $article->getCommentsCount() ?></td>
+    <td class="text-right"><?php echo $article->getVisits() ?></td>
+    <td class="text-right"><?php echo $article->getRating() ?></td>
+    <td class="text-right"><?php echo $article->getCommentsCount() ?></td>
     <?php $lastCommented = $article->getLastCommented(); ?>
     <?php if ($lastCommented instanceof DateTime): ?>
-    <td><?php echo $lastCommented->format('Y-m-d') ?></td>
+    <td class="text-right"><?php echo $lastCommented->format('Y-m-d') ?></td>
     <? else: ?>
     <td></td>
     <? endif ?>
-    <td><?php echo $article->getModified()->format('Y-m-d') ?></td>
-    <td class="nowrap"><?php echo $article->getCreated()->format('Y-m-d'); ?></td>
+    <td class="text-right"><?php echo $article->getModified()->format('Y-m-d') ?></td>
+    <td class="nowrap text-right"><?php echo $article->getCreated()->format('Y-m-d'); ?></td>
 </tr>
 <? endforeach ?>
 </tbody>
@@ -61,7 +61,7 @@
 </ul>
 -->
 
-<a name="feeds"></a>
+<section id="feeds"></section>
 <h2 style="margin-bottom: 5px"><img style="position: relative; top: 3px" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="<?php echo $view['translator']->trans('RSS-syötteet') ?>" /> <?php echo $view['translator']->trans('RSS-syötteet') ?></h2>
 <ul class="square">
     <li><a title="<?php echo $view['translator']->trans('Pulupalstan uusimmat kirjoitukset') ?>" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_articles') ?>"><?php echo $view['translator']->trans('Uusimmat kirjoitukset') ?></a></li>

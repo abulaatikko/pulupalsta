@@ -44,7 +44,7 @@ translation or just look at the images.</p>
 <tr>
     <th>#</th>
     <th><?php echo $view['translator']->trans('Kirjoitus') ?></th>
-    <th><?php echo $view['translator']->trans('Vierailuja') ?></th>
+    <th class="text-right"><?php echo $view['translator']->trans('Vierailuja') ?></th>
 </tr>
 </thead>
 
@@ -54,7 +54,7 @@ translation or just look at the images.</p>
 <tr>
     <td><?php echo $i++ ?>.</td>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($currentLocale)))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
-    <td class="nowrap"><?php echo $article->getVisits(); ?></td>
+    <td class="nowrap text-right"><?php echo $article->getVisits(); ?></td>
 </tr>
 <? endforeach ?>
 </tbody>
@@ -71,7 +71,7 @@ translation or just look at the images.</p>
 <tr>
     <th>#</th>
     <th><?php echo $view['translator']->trans('Kirjoitus') ?></th>
-    <th><?php echo $view['translator']->trans('Julkaistu') ?></th>
+    <th class="text-right"><?php echo $view['translator']->trans('Julkaistu') ?></th>
 </tr>
 </thead>
 <tbody>
@@ -80,7 +80,7 @@ translation or just look at the images.</p>
 <tr>
     <td><?php echo $i++ ?>.</td>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($currentLocale)))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
-    <td class="nowrap"><?php echo $article->getCreated()->format('Y-m-d'); ?></td>
+    <td class="nowrap text-right"><?php echo $article->getCreated()->format('Y-m-d'); ?></td>
 </tr>
 <? endforeach ?>
 </tbody>
@@ -94,8 +94,9 @@ translation or just look at the images.</p>
 </div><!-- Popular/Recent articles ends -->
 
 <!-- Keyword cloud row -->
-<a name="cloud"></a>
-<div class="row" style="padding: 30px 50px 20px 50px">
+<section id="cloud"></section>
+<div id="keyword-cloud-container">
+<div class="row">
     <div class="six columns">
 
 <div id="keyword-cloud">
@@ -113,6 +114,7 @@ translation or just look at the images.</p>
 <p id="select-keyword"><?php echo $view['translator']->trans('VALITSE') ?><br /><?php echo $view['translator']->trans('VAPAASTI') ?><br /><span>&#8592;</span></p>
 
     </div>
+</div>
 </div>
 
 <?php $view['slots']->stop() ?>
