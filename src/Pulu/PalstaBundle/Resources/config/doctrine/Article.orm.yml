@@ -29,6 +29,9 @@ Pulu\PalstaBundle\Entity\Article:
             nullable: true
         visits:
             type: integer
+        old_visits:
+            type: integer
+            nullable: true
         use_translator:
             type: boolean
             default: false 

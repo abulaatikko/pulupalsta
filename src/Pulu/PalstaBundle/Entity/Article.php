@@ -13,6 +13,7 @@ class Article {
     protected $article_number;
     protected $rating;
     protected $visits;
+    protected $old_visits;
     protected $use_translator;
     protected $is_public;
     protected $created;
@@ -219,7 +220,15 @@ class Article {
 
     public function setVisits($visits) {
         $this->visits = $visits;
-    }    
+    }
+
+    public function getOldVisits() {
+        return $this->old_visits;
+    }
+
+    public function setOldVisits($oldVisits) {
+        $this->old_visits = $oldVisits;
+    }
 
     public function getName($lang = 'fi') {
         return $this->getLocalization($lang)->getName();

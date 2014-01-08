@@ -77,11 +77,6 @@ class Keyword {
         return new KeywordLocalization();
     }
 
-    /*public function setLocalization(KeywordLocalization $localization) {
-        $a->setKeyword($this);
-        $this->localizations[] = $localization;
-    }*/
-
     public function getName($lang = 'fi') {
         return $this->getLocalization($lang)->getName();
     }

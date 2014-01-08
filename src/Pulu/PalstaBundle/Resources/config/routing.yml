@@ -22,19 +22,19 @@ pulu_palsta_front:
         _locale: fi|en
 
 pulu_palsta_about:
-    pattern: /{_locale}/tietoa
+    pattern: /{_locale}/about
     defaults: { _controller: PuluPalstaBundle:About:index }
     requirements:
         _locale: fi|en
 
 pulu_palsta_list:
-    pattern: /{_locale}/sisallys
+    pattern: /{_locale}/table-of-contents
     defaults: { _controller: PuluPalstaBundle:List:index }
     requirements:
         _locale: fi|en
 
 pulu_palsta_index:
-    pattern: /{_locale}/hakemisto
+    pattern: /{_locale}/index
     defaults: { _controller: PuluPalstaBundle:Index:index }
     requirements:
         _locale: fi|en

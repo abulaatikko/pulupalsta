@@ -10,8 +10,8 @@ class FrontController extends Controller {
     public function indexAction() {
         $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article');
         $repository->setLanguage($this->getRequest()->getLocale());
-        $recentArticles = $repository->findOrderedByCreatedForPublic(20);
-        $visitedArticles = $repository->findOrderedByVisitsForPublic(20);
+        $recentArticles = $repository->findOrderedByCreatedForPublic(10);
+        $visitedArticles = $repository->findOrderedByVisitsForPublic(10);
         $keywords = $this->getKeywords();       
 
         return $this->render('PuluPalstaBundle:Front:index.html.php', array(

@@ -33,27 +33,6 @@ translation or just look at the images.</p>
 <p>I appreciate your interest and especially if you rate or comment the article after reading it.</p>
 <? endif; ?>
 
-<!-- Keyword cloud row -->
-<div class="row" style="padding: 30px 50px 20px 50px">
-    <div class="six columns">
-
-<div id="keyword-cloud">
-<ul>
-<?php foreach ($keywords as $keyword): ?>
-    <li class="keyword<?php echo $keyword['normalized_weight'] ?>"><a href="javascript:void(0);" class="keyword" data-keyword_id="<?php echo $keyword['id'] ?>"><?php echo $keyword['name'] ?></a></li>
-<?php endforeach ?>
-</ul>
-<p><a href="<?php echo $view['router']->generate('pulu_palsta_index') ?>"><?php echo $view['translator']->trans('Lisää') ?></a></p>
-</div>
-
-    </div>
-    <div class="six columns" id="keyword-results">
-
-<p id="select-keyword"><?php echo $view['translator']->trans('VALITSE') ?><br /><?php echo $view['translator']->trans('VAPAASTI') ?><br /><span>&#8592;</span></p>
-
-    </div>
-</div>
-
 <!-- Popular/Recent articles -->
 <div class="row">
     <div class="six columns" id="visited-articles">
@@ -113,5 +92,26 @@ translation or just look at the images.</p>
 
     </div>
 </div><!-- Popular/Recent articles ends -->
+
+<!-- Keyword cloud row -->
+<div class="row" style="padding: 30px 50px 20px 50px">
+    <div class="twelve columns">
+
+<div id="keyword-cloud">
+<ul>
+<?php foreach ($keywords as $keyword): ?>
+    <li class="keyword<?php echo $keyword['normalized_weight'] ?>"><a href="javascript:void(0);" class="keyword" data-keyword_id="<?php echo $keyword['id'] ?>"><?php echo $keyword['name'] ?></a></li>
+<?php endforeach ?>
+</ul>
+<p><a href="<?php echo $view['router']->generate('pulu_palsta_index') ?>"><?php echo $view['translator']->trans('Index') ?></a></p>
+</div>
+
+    </div>
+<!--    <div class="six columns" id="keyword-results">
+
+<p id="select-keyword"><?php echo $view['translator']->trans('VALITSE') ?><br /><?php echo $view['translator']->trans('VAPAASTI') ?><br /><span>&#8592;</span></p>
+
+    </div>-->
+</div>
 
 <?php $view['slots']->stop() ?>

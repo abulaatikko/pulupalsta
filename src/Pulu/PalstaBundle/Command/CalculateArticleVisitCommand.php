@@ -24,6 +24,7 @@ class CalculateArticleVisitCommand extends ContainerAwareCommand {
             // Get visits
             $visits = $visitRepository->getArticleVisitCount($article);
             $EM->persist($article);
+            $visits += $article->getOldVisits();
             $article->setVisits($visits);
         }
         $EM->flush();
