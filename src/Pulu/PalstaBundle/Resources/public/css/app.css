@@ -75,7 +75,6 @@ h6 {font-size: 16px;}
    Main page
 ----------------------------------------- */
 /* Keyword cloud  */
-#keyword-cloud-container {padding: 30px 50px 20px 50px;}
 #keyword-cloud ul		{padding: .5em; text-align: center; background-color: #2BA6CB; margin-bottom: 0}
 #keyword-cloud ul li	{margin: 0; padding: 0; list-style: none; display: inline;}
 #keyword-cloud ul li a	{text-decoration: none; color: #fff; padding: 0 2px;}

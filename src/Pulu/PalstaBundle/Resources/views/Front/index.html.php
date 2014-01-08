@@ -95,7 +95,6 @@ translation or just look at the images.</p>
 
 <!-- Keyword cloud row -->
 <section id="cloud"></section>
-<div id="keyword-cloud-container">
 <div class="row">
     <div class="six columns">
 
@@ -114,7 +113,6 @@ translation or just look at the images.</p>
 <p id="select-keyword"><?php echo $view['translator']->trans('VALITSE') ?><br /><?php echo $view['translator']->trans('VAPAASTI') ?><br /><span>&#8592;</span></p>
 
     </div>
-</div>
 </div>
 
 <?php $view['slots']->stop() ?>
