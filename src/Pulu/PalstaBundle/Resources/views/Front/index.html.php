@@ -104,7 +104,7 @@ translation or just look at the images.</p>
     <li class="keyword<?php echo $keyword['normalized_weight'] ?>"><a href="javascript:void(0);" class="keyword" data-keyword_id="<?php echo $keyword['id'] ?>"><?php echo $keyword['name'] ?></a></li>
 <?php endforeach ?>
 </ul>
-<p><a href="<?php echo $view['router']->generate('pulu_palsta_index') ?>"><?php echo $view['translator']->trans('Index') ?></a></p>
+<p><a href="<?php echo $view['router']->generate('pulu_palsta_index') ?>"><?php echo $view['translator']->trans('Avainsanahakemisto') ?></a></p>
 </div>
 
     </div>
