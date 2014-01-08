@@ -95,7 +95,7 @@ translation or just look at the images.</p>
 
 <!-- Keyword cloud row -->
 <div class="row" style="padding: 30px 50px 20px 50px">
-    <div class="twelve columns">
+    <div class="six columns">
 
 <div id="keyword-cloud">
 <ul>
@@ -107,11 +107,11 @@ translation or just look at the images.</p>
 </div>
 
     </div>
-<!--    <div class="six columns" id="keyword-results">
+    <div class="six columns" id="keyword-results">
 
 <p id="select-keyword"><?php echo $view['translator']->trans('VALITSE') ?><br /><?php echo $view['translator']->trans('VAPAASTI') ?><br /><span>&#8592;</span></p>
 
-    </div>-->
+    </div>
 </div>
 
 <?php $view['slots']->stop() ?>
