@@ -9,7 +9,6 @@
 <style type="text/css">
 /* Old Puluprojects settings */
 ul          {list-style: square; margin: 5px 0px 0px 30px}
-/*p {line-height: 1.5}*/
 </style>
 
 <h1><?php echo $article->getName($currentLocale) ?></h1>
@@ -22,7 +21,18 @@ ul          {list-style: square; margin: 5px 0px 0px 30px}
 <strong><?php echo $view['translator']->trans('Avainsanat') ?>:</strong>
 <?php $printKeywords = array(); ?>
 <?php foreach ($article_keywords as $article_keyword): ?>
-    <?php $printKeywords[] = '<a href="' . $view['router']->generate('pulu_palsta_index') . '#' . $article_keyword->getName() . '"><em>' . $article_keyword->getName($currentLocale) . '</em></a>'; ?>
+    <? $articleObjects = $article_keyword->getArticles();
+    $count = 0;
+    foreach ($articleObjects as $articleObject) {
+        if ($articleObject->getArticle()->isPublic()) {
+            $count++;
+        }
+    } ?>
+    <? if ($count > 1): ?>
+        <?php $printKeywords[] = '<a href="' . $view['router']->generate('pulu_palsta_index') . '#' . $article_keyword->getName() . '"><em>' . $article_keyword->getName($currentLocale) . '</em></a>'; ?>
+    <? else: ?>
+        <?php $printKeywords[] = '<em>' . $article_keyword->getName($currentLocale) . '</em>'; ?>
+    <? endif ?>
 <?php endforeach ?>
 <?php echo implode(', ', $printKeywords) ?>
 </p>

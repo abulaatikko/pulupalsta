@@ -244,6 +244,10 @@ class Article {
 
     public function getKeywords() {
         return $this->keywords;
+    }
+
+    public function isPublic() {
+        return $this->getIsPublic() && ! $this->getDeleted();
     }    
 
 }
