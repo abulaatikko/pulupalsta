@@ -34,11 +34,9 @@ Pulu\PalstaBundle\Entity\Article:
             nullable: true
         use_translator:
             type: boolean
-            default: false 
             nullable: true
         is_public:
             type: boolean
-            default: false
             nullable: true
     lifecycleCallbacks:
         prePersist: [ setCreated, setModified ]

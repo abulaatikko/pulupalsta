@@ -34,6 +34,11 @@ class Article {
         $this->keywords = new ArrayCollection();
         $this->raw_visits = new ArrayCollection();
         $this->raw_ratings = new ArrayCollection();
+
+        $this->rating = 1.00;
+        $this->visits = 0;
+        $this->use_translator = false;
+        $this->is_public = false;
     }
 
     public function getId() {

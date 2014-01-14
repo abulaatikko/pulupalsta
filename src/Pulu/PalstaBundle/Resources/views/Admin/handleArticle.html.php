@@ -53,17 +53,13 @@
     <div class="three columns">
     <?php echo $view['form']->row($form['article_number']) ?>
     </div>
-    <div class="three columns">
-    <?php echo $view['form']->row($form['visits']) ?>
-    </div>
-    <div class="three columns">
-    <?php echo $view['form']->row($form['rating']) ?>
-    </div>
     <div class="two columns">
     <?php echo $view['form']->row($form['use_translator']) ?>
     </div>
     <div class="one columns">
     <?php echo $view['form']->row($form['is_public']) ?>
+    </div>
+    <div class="six columns">
     </div>
     </div>
 

@@ -8,29 +8,17 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class ArticleType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
-        $rating = null;
-        $visits = null;
         $articleNumber = null;
         $currentKeywords = array();
         if (isset($options['data'])) {
-            $rating = $options['data']->getRating();
-            $visits = $options['data']->getVisits();
             $articleNumber = $options['data']->getArticleNumber();
             $currentKeywords = $options['data']->getKeywords();
         }        
-        $defaultRating = empty($rating) ? $options['default_rating'] : $rating;
-        $defaultVisits = empty($visits) ? $options['default_visits'] : $visits;
         $defaultArticleNumber = empty($articleNumber) ? $options['default_article_number'] : $articleNumber;
         $builder
             ->add('article_number', 'integer', array(
                 'label' => 'Artikkelinumero',
                 'data' => $defaultArticleNumber))
-            ->add('visits', 'integer', array(
-                'label' => 'Vierailuja',
-                'data' => $defaultVisits))
-            ->add('rating', 'text', array(
-                'label' => 'Arvosana', 
-                'data' => $defaultRating))
             ->add('use_translator', 'checkbox', array(
                 'label' => 'Käytä automaattista käännöstä',
                 'required' => false))
@@ -88,8 +76,6 @@ class ArticleType extends AbstractType {
             'data_class' => 'Pulu\PalstaBundle\Entity\Article',
             'cascade_validation' => true,
             'default_article_number' => '1',
-            'default_rating' => '1',
-            'default_visits' => '1',
             'available_keywords' => null,
             'precision' => 3
         ));
