@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<?php if ($app->getRequest()->getLocale() == 'fi'): ?>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="fi"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="fi"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="fi"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fi"> <!--<![endif]-->
+<?php else: ?>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<? endif ?>
 <head>
     <meta charset="utf-8" />
     <meta name="description" content="">
