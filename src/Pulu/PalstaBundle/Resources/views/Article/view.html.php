@@ -156,7 +156,7 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
     if (is_null($alt)) {
         $alt = mb_substr($desc, 40);
     }
-    $out .= ' class="lazy" width="' . $width . '" height="' . $height . '" data-original="http://media.pulu.org/palsta/' . $display_url . '" alt="' . $alt . '" /></a>';
+    $out .= ' src="http://media.pulu.org/palsta/' . $display_url . '" alt="' . $alt . '" /></a>';
     if (! $is_thumb) {
         $out .= '<p>' . $caption . '</p>';
     }

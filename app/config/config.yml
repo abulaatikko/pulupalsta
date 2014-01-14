@@ -13,7 +13,7 @@ framework:
     form:            true
     csrf_protection: true
     validation:      { enabled: true }
-    templating:      { engines: ['twig', 'php'] assets_version: v2.0.4 }
+    templating:      { engines: ['twig', 'php'] assets_version: v2.0.5 }
     default_locale:  fi
     trusted_proxies: {}
     session:         ~
