@@ -152,6 +152,7 @@ var translations = {
     '@FOSJsRoutingBundle/Resources/public/js/router.js',
     '@PuluPalstaBundle/Resources/public/js/jquery.dataTables.js',
     '@PuluPalstaBundle/Resources/public/fancybox/jquery.fancybox.pack.js',
+    '@PuluPalstaBundle/Resources/public/js/jquery.lazyload.js',
     '@PuluPalstaBundle/Resources/public/js/app.js'
     )) as $url): ?>
     <script src="<?php echo $view->escape($url) ?>"></script>
