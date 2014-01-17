@@ -86,6 +86,7 @@ $(document).ready(function() {
     if (typeof textarea1 != "undefined") {
         var CM1 = CodeMirror.fromTextArea(textarea1, {
             mode: "application/x-httpd-php",
+            smartIndent: false,
             indentUnit: 4,
             indentWithTabs: true,
             lineWrapping: true,
@@ -96,6 +97,7 @@ $(document).ready(function() {
         if (typeof textarea2 != "undefined") {
         var CM2 = CodeMirror.fromTextArea(textarea2, {
             mode: "application/x-httpd-php",
+            smartIndent: false,
             indentUnit: 4,
             indentWithTabs: true,
             lineWrapping: true,

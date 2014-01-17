@@ -38,14 +38,15 @@ ul          {list-style: square; margin: 5px 0px 0px 30px}
 </p>
 
 <?php $body = $article->getBody($currentLocale); ?>
+<?php $route_params = $app->getRequest()->get('_route_params'); ?>
 
 <? if (empty($body)): ?>
     <? if ($currentLocale == 'fi'): ?>
         <? $body = $article->getBody('en'); ?>
-<div class="alert-box">Valitettavasti artikkelista ei löydy suomenkielistä käännöstä<?php if ($article->getUseTranslator() === true): ?>, mutta ainahan voit avata sivun <a href="http://translate.google.com/translate?sl=en&tl=fi&ie=UTF-8&u=<?php echo urlencode($view['router']->generate($app->getRequest()->get('_route'), array('_locale'=> 'en'), true)) ?>">Google Translatorin</a> kautta<? endif ?>.</div>
+<div class="alert-box">Valitettavasti artikkelista ei löydy suomenkielistä käännöstä<?php if ($article->getUseTranslator() === true): ?>, mutta ainahan voit avata sivun <a href="http://translate.google.com/translate?sl=en&tl=fi&ie=UTF-8&u=<?php echo urlencode($view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'en')), true)) ?>">Google Translatorin</a> kautta<? endif ?>.</div>
     <? else: ?>
         <? $body = $article->getBody('fi'); ?>
-<div class="alert-box">Unfortunately an English translation doesn't exist<?php if ($article->getUseTranslator() === true): ?> but you can probably get a clue from looking at the <a href="http://translate.google.com/translate?sl=fi&tl=en&ie=UTF-8&u=<?php echo urlencode($view['router']->generate($app->getRequest()->get('_route'), array('_locale'=> 'fi'), true)) ?>">Google Translator</a> version<? endif ?>.</div>
+<div class="alert-box">Unfortunately an English translation doesn't exist<?php if ($article->getUseTranslator() === true): ?> but you can probably get a clue from looking at the <a href="http://translate.google.com/translate?sl=fi&tl=en&ie=UTF-8&u=<?php echo urlencode($view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'fi')), true)) ?>">Google Translator</a> version<? endif ?>.</div>
     <? endif ?>
 <? endif ?>
 
