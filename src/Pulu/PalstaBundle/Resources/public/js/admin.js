@@ -105,4 +105,53 @@ $(document).ready(function() {
         });
     }
 
+    // Beer tasting
+    var $beerSelect = $('select#beer-select');
+    $beerSelect.change(function() {
+        var beer_id = $(this).val();
+        var module_id = $(this).attr('data-module_id');
+        var $form = $('form#beer-edit');
+        if (beer_id == "") {
+            $form.find('input[name="id"]').val('');
+            $form.find('input[name="name"]').val('');
+            $form.find('input[name="price"]').val('');
+            $form.find('input[name="alc"]').val('');
+            $form.find('input[name="grade"]').val('');
+            $form.find('input[name="drunk"]').val('');
+            $form.find('textarea[name="desc"]').val('');
+            $form.find('input[name="beer_id"]').val('');
+            $form.find('select[name="style"]').val('');
+            $form.find('select[name="country"]').val('');
+
+            $form.find('#deleteConfirmation').hide();
+            $('input[name="beer_id"]').val('');
+        } else {
+            $.ajax({
+                type: "get",
+                dataType: "json",
+                url: Routing.generate('pulu_palsta_admin_module_use', {'id': module_id, 'beer_id': beer_id}),
+                success: function(data) {
+                    var beer = data.beer;
+                    $form.find('input[name="id"]').val(beer.id);
+                    $form.find('input[name="name"]').val(beer.name);
+                    $form.find('input[name="price"]').val(beer.price);
+                    $form.find('input[name="alc"]').val(beer.alc);
+                    $form.find('input[name="grade"]').val(beer.grade);
+                    $form.find('input[name="drunk"]').val(beer.drunk_date);
+                    $form.find('textarea[name="desc"]').val(beer.description);
+                    $form.find('input[name="beer_id"]').val(beer.id);
+                    $form.find('select[name="style"]').val(beer.style);
+                    $form.find('select[name="country"]').val(beer.country);
+
+                    $form.find('#deleteConfirmation').show();
+                    $('input[name="beer_id"]').val(beer.id);
+                }
+            });
+        }
+    });
+    var init_beer_select = $beerSelect.attr('data-init_beer');
+    if (typeof init_beer_select !== undefined && init_beer_select != "") {console.log('HERE');
+        $beerSelect.val(init_beer_select).change();
+    }
+
 });

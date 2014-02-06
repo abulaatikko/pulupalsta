@@ -11,6 +11,10 @@
 ul          {list-style: square; margin: 5px 0px 0px 30px}
 </style>
 
+<?php if (! $article->getIsPublic()): ?>
+    <div class="alert-box secondary" id="hidden-article">PIILOTETTU</div>
+<? endif ?>
+
 <h1><?php echo $article->getName($currentLocale) ?></h1>
 
 <p>
@@ -49,7 +53,6 @@ ul          {list-style: square; margin: 5px 0px 0px 30px}
 <div class="alert-box">Unfortunately an English translation doesn't exist<?php if ($article->getUseTranslator() === true): ?> but you can probably get a clue from looking at the <a href="http://translate.google.com/translate?sl=fi&tl=en&ie=UTF-8&u=<?php echo urlencode($view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'fi')), true)) ?>">Google Translator</a> version<? endif ?>.</div>
     <? endif ?>
 <? endif ?>
-
 
 <?php
 // Old Puluprojects functions

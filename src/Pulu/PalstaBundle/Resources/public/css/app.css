@@ -31,11 +31,14 @@ ul#about li.current a       {height: 48px;}
 .feed-icon                  {text-align: right; float: right;}
 .feed-icon img              {position: relative; top: 2px; border: none}
 
+#hidden-article             {margin-top: 20px; font-size: 72px; text-align: center;}
+
 /* -----------------------------------------
    General styles
 ----------------------------------------- */
 .nowrap         {white-space: nowrap;}
 .wide           {width: 100%;}
+.fixed-font     {font-family: 'courier new';}
 
 /* Notice/alert message */
 div.alert-box, div.notice-box   {padding: 16px; font-size: 22px; line-height: 1.5; text-shadow: none;}

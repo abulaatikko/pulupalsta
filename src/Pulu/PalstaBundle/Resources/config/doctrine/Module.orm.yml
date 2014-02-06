@@ -1,0 +1,28 @@
+Pulu\PalstaBundle\Entity\Module:
+    type: entity
+    table: module
+    repositoryClass: Pulu\PalstaBundle\Entity\ModuleRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: sequence
+            sequenceGenerator:
+                sequenceName: module_id_seq
+                allocationSize: 10
+                initialValue: 1
+    fields:
+        name:
+            type: string
+            length: 256
+        type:
+            type: integer
+            nullable: false
+    manyToOne:
+        article:
+            targetEntity: Article
+            inversedBy: modules
+            joinColumn:
+                name: article_id
+                referencedColumnName: id
+                nullable: false

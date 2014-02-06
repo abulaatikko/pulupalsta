@@ -72,6 +72,11 @@
             <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_keyword_create') ?>">Luo uusi</a></li>
         </ul>
     </li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_module') ?>">Moduulit</a>
+        <ul>
+            <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_module_create') ?>">Luo uusi</a></li>
+        </ul>
+    </li>
     <!--<li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_account') ?>">Käyttäjät</a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_setting') ?>">Asetukset</a></li>-->
 </ul>
@@ -132,6 +137,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <?php foreach ($view['assetic']->javascripts(array(
     '@PuluPalstaBundle/Resources/public/js/foundation.min.js',
+    '@FOSJsRoutingBundle/Resources/public/js/router.js',
     '@PuluPalstaBundle/Resources/public/js/codemirror.js',
     '@PuluPalstaBundle/Resources/public/js/codemirror_xml.js',
     '@PuluPalstaBundle/Resources/public/js/codemirror_htmlmixed.js',
@@ -141,5 +147,6 @@
     )) as $url): ?>
     <script src="<?php echo $view->escape($url) ?>"></script>
 <?php endforeach; ?>
+<script type="text/javascript" src="<?php echo $view['router']->generate('fos_js_routing_js', array('callback' => 'fos.Router.setData')) ?>"></script>
 </body>
 </html>

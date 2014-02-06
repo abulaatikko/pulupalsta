@@ -66,3 +66,7 @@ Pulu\PalstaBundle\Entity\Article:
             targetEntity: Rating
             mappedBy: article
             cascade: [ persist ]
+        modules:
+            targetEntity: Module
+            mappedBy: article
+            cascade: [ persist ]

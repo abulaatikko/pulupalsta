@@ -6,6 +6,7 @@ use \Pulu\PalstaBundle\Entity\ArticleLocalization;
 use \Pulu\PalstaBundle\Entity\ArticleRevision;
 use \Pulu\PalstaBundle\Entity\Comment;
 use \Pulu\PalstaBundle\Entity\Visit;
+use \Pulu\PalstaBundle\Entity\Module;
 
 class Article {
 
@@ -26,6 +27,7 @@ class Article {
     protected $keywords;
     protected $raw_visits;
     protected $raw_ratings;
+    protected $modules;
 
     public function __construct() {
         $this->localizations = new ArrayCollection();
@@ -34,6 +36,7 @@ class Article {
         $this->keywords = new ArrayCollection();
         $this->raw_visits = new ArrayCollection();
         $this->raw_ratings = new ArrayCollection();
+        $this->modules = new ArrayCollection();
 
         $this->rating = 1.00;
         $this->visits = 0;
@@ -141,17 +144,13 @@ class Article {
         return new ArticleLocalization();
     }
 
-    /*public function setLocalization(ArticleLocalization $localization) {
-        $a->setArticle($this);
-        $this->localizations[] = $localization;
-    }*/
-
     public function getRevisions() {
         return $this->revisions;
     }
 
     public function setRevisions(ArrayCollection $revisions) {
         $this->revisions = $revisions;
+        return $this;
     }
 
     public function setRevision(ArticleRepository $repository) {
@@ -197,11 +196,6 @@ class Article {
         $this->comments = $comments;
     }
 
-    /*public function setComment(Comment $comment) {\Doctrine\Common\Util\Debug::dump($a);
-        $a->setComment($this);
-        $this->comments[] = $comment;
-    }*/
-
     public function getCommentsCount() {
         $comments = $this->getComments();
         return count($comments);
@@ -225,6 +219,7 @@ class Article {
 
     public function setVisits($visits) {
         $this->visits = $visits;
+        return $this;
     }
 
     public function getOldVisits() {
@@ -233,6 +228,7 @@ class Article {
 
     public function setOldVisits($oldVisits) {
         $this->old_visits = $oldVisits;
+        return $this;
     }
 
     public function getName($lang = 'fi') {
@@ -249,6 +245,15 @@ class Article {
 
     public function getKeywords() {
         return $this->keywords;
+    }
+
+    public function getModules() {
+        return $this->modules;
+    }
+
+    public function setModules(ArrayCollection $modules) {
+        $this->modules = $modules;
+        return $this;
     }
 
     public function isPublic() {

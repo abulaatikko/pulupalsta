@@ -12,7 +12,15 @@ class ArticleController extends Controller {
 
     public function viewAction($article_number, $name) {
         $R = $this->get('request');
-        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('article_number' => $article_number, 'is_public' => true, 'deleted' => null));
+        $securityContext = $this->container->get('security.context');
+
+        $is_admin = false;
+        if ($securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
+            $is_admin = true;
+            $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('article_number' => $article_number, 'deleted' => null));
+        } else {
+            $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('article_number' => $article_number, 'is_public' => true, 'deleted' => null));
+        }
         if (! $article instanceof Article) {
             throw $this->createNotFoundException();
         }
@@ -52,7 +60,9 @@ class ArticleController extends Controller {
             'form' => $form->createView(),
             'article_keywords' => $articleKeywords,
             'rating' => $rating,
-            'doctrine' => $this->getDoctrine()
+            'doctrine' => $this->getDoctrine(),
+            'is_admin' => $is_admin,
+            'router' => $this->get('router')
         ));
     }
 

@@ -150,6 +150,8 @@ pulu_palsta_admin_comment:
 pulu_palsta_admin_comment_edit:
     pattern: /admin/comment/edit/{id}
     defaults: { _controller: PuluPalstaBundle:Admin:handleComment }
+    requirements:
+        id: \d+
 
 pulu_palsta_admin_account:
     pattern: /admin/account
@@ -162,3 +164,31 @@ pulu_palsta_admin_setting:
 pulu_palsta_admin_guide:
     pattern: /admin/guide
     defaults: { _controller: PuluPalstaBundle:Admin:guide }
+
+pulu_palsta_admin_module:
+    pattern: /admin/module
+    defaults: { _controller: PuluPalstaBundle:Module:index }
+
+pulu_palsta_admin_module_create:
+    pattern: /admin/module/create
+    defaults: { _controller: PuluPalstaBundle:Module:handle }
+
+pulu_palsta_admin_module_edit:
+    pattern: /admin/module/edit/{id}
+    defaults: { _controller: PuluPalstaBundle:Module:handle }
+    requirements:
+        id: \d+
+
+pulu_palsta_admin_module_delete:
+    pattern: /admin/module/delete/{id}
+    defaults: { _controller: PuluPalstaBundle:Module:handle }
+    requirements:
+        id: \d+
+
+pulu_palsta_admin_module_use:
+    pattern: /admin/module/use/{id}
+    defaults: { _controller: PuluPalstaBundle:Module:use }
+    options:
+        expose: true
+    requirements:
+        id: \d+

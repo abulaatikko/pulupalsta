@@ -216,6 +216,24 @@ $(document).ready(function() {
         }
     });
 
+    // Beer tasting
+    var beerTastingTable = $('table#beer-tasting-beers').dataTable({
+        'bFilter': false,
+        'bInfo': false,
+        'bPaginate': false,
+        "aoColumnDefs": [
+            { "asSorting": [ "asc", "desc" ], "aTargets": [ 0 ] },
+            { "asSorting": [ "asc", "desc" ], "aTargets": [ 1 ] },
+            { "asSorting": [ "desc", "asc" ], "aTargets": [ 2 ] },
+            { "asSorting": [ "asc", "desc" ], "aTargets": [ 3 ] },
+            { "asSorting": [ "asc", "desc" ], "aTargets": [ 4 ] },
+            { "asSorting": [ "desc", "asc" ], "aTargets": [ 5 ] },
+            { "asSorting": [ "desc", "asc" ], "aTargets": [ 6 ] },
+            { "asSorting": [ "desc", "asc" ], "aTargets": [ 7 ] }
+        ]
+    });
+    beerTastingTable.fnSort([[0, 'desc']]);
+
 });
 
 function getParameterByName(name) {
