@@ -86,6 +86,14 @@ $articleNumber = $article->getArticleNumber();
     return str_replace($bad, '', $str);
 }*/
 
+function htmlize($line, $linebreak = true) {
+    $return = '&lt;' . $line . '&gt;';
+    if ($linebreak) {
+        $return .= "\n";
+    }
+    return $return;
+}
+
 function getImage($filename, $width = null, $height = null) {
     global $articleNumber;
     $dir = 'files/' . $articleNumber . '/img/';
