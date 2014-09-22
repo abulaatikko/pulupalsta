@@ -51,12 +51,18 @@ div.alert-box, div.notice-box   {padding: 16px; font-size: 22px; line-height: 1.
 .dataTable th.sorting_asc               {background: url('../images/icons/14_sort_up.png') no-repeat scroll right center #E2B2E4;}
 .dataTable th.sorting_desc              {background: url('../images/icons/14_sort_down.png') no-repeat scroll right center #E2B2E4;}
 
+table a, #switch-language a {
+    text-decoration: none;
+}
+table a:hover, #switch-language a:hover {
+    text-decoration: underline;
+}
+
 /* -----------------------------------------
    Shared Styles (overdriven)
 ----------------------------------------- */
 /* Link */
-a           {text-decoration: none;}
-a:hover	    {text-decoration: underline;}
+a:hover	                        {text-decoration: none;}
 
 /* Table */
 table                           {border: 2px solid #CC8ACE; background-color: #fff;}
