@@ -175,6 +175,7 @@ code.lines {
     font-size: 12px;
     background-color: #FAFAFA;
     border-radius: 0px;
+    overflow-x: scroll;
 }
 code .comment {
     color: #a09aa0;
