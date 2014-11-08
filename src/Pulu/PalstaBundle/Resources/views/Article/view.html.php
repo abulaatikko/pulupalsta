@@ -106,6 +106,8 @@ function getImage($filename, $width = null, $height = null) {
     $basepath = '/home/abula/media.pulu.org/palsta/' . $dir;
     $dimensions = strval($width) . 'x' . strval($height);
 
+    $fileparts = explode('.', $filename);
+    $extension = array_pop($fileparts);
     $source = $basepath . $filename;
     $destination = $basepath . $dimensions . '/' . $filename;
 
@@ -114,7 +116,11 @@ function getImage($filename, $width = null, $height = null) {
             mkdir(dirname($destination), 0777, true);
         }
 
-        $source_handle = imagecreatefromjpeg($source);
+        if (strtolower($extension) == 'png') {
+            $source_handle = imagecreatefrompng($source);
+        } else {
+            $source_handle = imagecreatefromjpeg($source);
+        }
 
         $source_width = imageSX($source_handle);
         $source_height = imageSY($source_handle);
@@ -143,7 +149,11 @@ function getImage($filename, $width = null, $height = null) {
         $destination_height = max(1, $destination_height);
         $destination_handle = ImageCreateTrueColor($destination_width, $destination_height);
         imagecopyresampled($destination_handle, $source_handle, 0, 0, 0, 0, $destination_width, $destination_height, $source_width, $source_height);
-        imagejpeg($destination_handle, $destination, 90);
+        if (strtolower($extension) == 'png') {
+            imagepng($destination_handle, $destination, 0);
+        } else {
+            imagejpeg($destination_handle, $destination, 90);
+        }
         imagedestroy($destination_handle);
         imagedestroy($source_handle);
     }
