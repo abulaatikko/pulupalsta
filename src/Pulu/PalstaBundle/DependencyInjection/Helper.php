@@ -16,7 +16,7 @@ class Helper extends BaseHelper {
         $bad = array(
             '\'', '"', '<', '>', '{', '}', '[', ']', '`', '!', '@', '#',
             '$', '%', '^', '&', '*', '(', ')', '=', '+', '|', '/', '\\',
-            ';', ':', ',', '?', '/', ' '
+            ';', ':', '.', ',', '?', '/', ' '
         );
         $string = str_replace($bad, '', $string);        
         $string = preg_replace('/-{2,}/', '-', strtolower($string));
