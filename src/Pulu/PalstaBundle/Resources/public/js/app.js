@@ -209,7 +209,7 @@ $(document).ready(function() {
     });
 
     $(".fancybox").fancybox({
-        cyclic: false;
+        loop: false,
         helpers: {
             title: {
                 type: 'inside'
