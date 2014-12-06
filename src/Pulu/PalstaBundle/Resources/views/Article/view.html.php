@@ -161,7 +161,7 @@ function getImage($filename, $width = null, $height = null) {
     return $dir . $dimensions . '/' . $filename;
 }
 
-function displayImage($filename, $width = null, $height = null, $caption = "", $alt = "", $is_thumb = false) {
+function displayImage($filename, $width = null, $height = null, $caption = "", $alt = "", $is_thumb = false, $thumb_identifier = null) {
     $original_url = getImage($filename);
     $display_url = getImage($filename, $width, $height);
     $out = '<div class="centered imgContainer" style="';
@@ -171,7 +171,8 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
     if ($is_thumb) {
         $out .= 'float: left; margin: 0px 10px 10px 0px;';
     }
-    $out .= '"><a href="http://media.pulu.org/palsta/' . $original_url . '" rel="gallery" class="fancybox" title="' . $caption . '"><img';
+    $rel = ! empty($thumb_identifier) ? 'fancybox-group-' . substr($thumb_identifier, 0, 10) : 'fancybox-main';
+    $out .= '"><a href="http://media.pulu.org/palsta/' . $original_url . '" rel="' . $rel . '" class="fancybox" title="' . $caption . '"><img';
     if ($is_thumb) {
         $out .= ' style="margin: 0px;"';
     }
@@ -188,13 +189,14 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
 
 function displayThumbs($images = array()) {
     $out = '<div class="thumbsContainer">';
+    $thumb_identifier = md5(serialize($images));
     foreach ($images as $image) {
         $param1 = isset($image[0]) ? $image[0] : '';
         $param2 = isset($image[1]) ? $image[1] : '';
         $param3 = isset($image[2]) ? $image[2] : '';
         $param4 = isset($image[3]) ? $image[3] : '';
         $param5 = isset($image[4]) ? $image[4] : '';
-        $out .= displayImage($param1, $param2, $param3, $param4, $param5, true);
+        $out .= displayImage($param1, $param2, $param3, $param4, $param5, true, $thumb_identifier);
     }
     $out .= '</div><div style="clear: both"></div>';
     return $out;
