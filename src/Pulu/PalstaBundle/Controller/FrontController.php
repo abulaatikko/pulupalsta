@@ -23,30 +23,45 @@ class FrontController extends Controller {
 
     protected function getKeywords() {
         $keywords = $this->getDoctrine()->getRepository('PuluPalstaBundle:Keyword')->findAllOrderedByName();
-        // Find max weight
-        $maxWeight = 1;
-        foreach ($keywords as $keyword) {
-            $weight = $keyword->getWeight();
-            if ($weight > $maxWeight) {
-                $maxWeight = $weight;
-            }
-        }
 
-        $shuffledKeywords = array();
+        $returnedAmount = 50;
+        $numberOfClasses = 6;
+
+        // init basic data
+        $out = array();
         foreach ($keywords as $keyword) {
             $weight = $keyword->getWeight();
             if ($weight > 0) {
-                $normalized_weight = ceil(($weight / $maxWeight) * 6);
-                $shuffledKeywords[] = array(
+                $out[] = array(
                     'name' => $keyword->getName($this->getRequest()->getLocale()),
                     'weight' => $weight,
-                    'normalized_weight' => $normalized_weight,
+                    'normalized_weight' => null,
                     'id' => $keyword->getId()
                 );
             }
         }
-        shuffle($shuffledKeywords);
-        return array_slice($shuffledKeywords, 0, 90);
+
+        // return X number of random keywords divided to six weight classes
+        shuffle($out);
+        $out = array_slice($out, 0, $returnedAmount);
+        usort($out, function ($a, $b) {
+            if ($a['weight'] == $b['weight']) {
+                return 0;
+            }
+            return $a['weight'] > $b['weight'] ? 1 : -1;
+        });
+
+        foreach ($out as $key => $row) {
+            for ($class = 1; $class <= $numberOfClasses; $class++) {
+                if ($key < ($returnedAmount / $numberOfClasses) * $class) {
+                    $out[$key]['normalized_weight'] = $class;
+                    break;
+                }
+            }
+        }
+        shuffle($out);
+
+        return $out;
     }
 
 }
