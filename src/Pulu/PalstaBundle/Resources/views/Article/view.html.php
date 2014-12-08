@@ -190,7 +190,7 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
     }
     $out .= ' src="' . $mediaPath . $display_url . '" alt="' . $alt . '" /></a>';
     if (! $is_thumb) {
-        $out .= '<p>' . $caption . '</p>';
+        $out .= '<p>' . $captionWithoutHtml . '</p>';
     }
     $out .= '</div>';
     
