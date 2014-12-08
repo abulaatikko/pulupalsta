@@ -53,6 +53,7 @@ class AdminController extends Controller {
         ));
 
         if ($R->isMethod('POST')) {
+            $article->setModified();
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
             $delete = $R->get('delete');
