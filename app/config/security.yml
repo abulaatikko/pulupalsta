@@ -15,7 +15,7 @@ security:
             memory:
                 users:
                     #user:  { password: userpass, roles: [ 'ROLE_USER' ] }
-                    admin: { password: kurppa6, roles: [ 'ROLE_ADMIN' ] }
+                    admin: { password: KurppaKuusiSeittemänJaKaheksan, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
         dev:

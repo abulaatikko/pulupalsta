@@ -13,7 +13,7 @@ $allowed_ips = array(
     '89.166.105.71',
     '::1');
 $username = 'admin';
-$password = 'kurppa6';
+$password = 'KurppaKuusiSeittemänJaKaheksan';
 $ok = false;
 if ($_SERVER['PHP_AUTH_PW'] == $password && $_SERVER['PHP_AUTH_USER'] == $username) {
     $ok = true;
