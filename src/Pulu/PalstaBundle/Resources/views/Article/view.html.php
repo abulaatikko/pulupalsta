@@ -1,5 +1,6 @@
 <?php $view->extend('::base.html.php') ?>
 
+<?php global $currentLocale ?>
 <?php $currentLocale = $app->getRequest()->getLocale(); ?>
 
 <?php $view['slots']->set('title', $article->getName($currentLocale) . ' - Pulupalsta') ?>
@@ -162,8 +163,16 @@ function getImage($filename, $width = null, $height = null) {
 }
 
 function displayImage($filename, $width = null, $height = null, $caption = "", $alt = "", $is_thumb = false, $thumb_identifier = null) {
+    global $currentLocale;
     $original_url = getImage($filename);
     $display_url = getImage($filename, $width, $height);
+    $mediaPath = 'http://media.pulu.org/palsta/';
+    $hash = md5($original_url);
+
+    $captionWithoutHtml = $caption;
+    $originalText = $currentLocale == 'fi' ? 'originaali' : 'original';
+    $caption = '<span class="right">(<a href="' . $mediaPath . $original_url . '">' . $originalText . '</a>)</span> ' . $caption;
+
     $out = '<div class="centered imgContainer" style="';
     if (! empty($width)) {
         $out .= 'width: ' . ($width + 8). 'px;';
@@ -172,18 +181,22 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
         $out .= 'float: left; margin: 0px 10px 10px 0px;';
     }
     $rel = ! empty($thumb_identifier) ? 'fancybox-group-' . substr($thumb_identifier, 0, 10) : 'fancybox-main';
-    $out .= '"><a href="http://media.pulu.org/palsta/' . $original_url . '" rel="' . $rel . '" class="fancybox" title="' . $caption . '"><img';
+    $out .= '"><a href="' . $mediaPath . $original_url . '" rel="' . $rel . '" class="fancybox" title="' . $captionWithoutHtml . '" data-title-id="fancybox-title-' . $hash . '"><img';
     if ($is_thumb) {
         $out .= ' style="margin: 0px;"';
     }
     if (is_null($alt)) {
         $alt = mb_substr($desc, 40);
     }
-    $out .= ' src="http://media.pulu.org/palsta/' . $display_url . '" alt="' . $alt . '" /></a>';
+    $out .= ' src="' . $mediaPath . $display_url . '" alt="' . $alt . '" /></a>';
     if (! $is_thumb) {
         $out .= '<p>' . $caption . '</p>';
     }
     $out .= '</div>';
+    
+    // html supported caption
+    $out .= '<div id="fancybox-title-' . $hash . '" style="display: none">' . $caption . '</div>';
+
     return $out;
 }
 
