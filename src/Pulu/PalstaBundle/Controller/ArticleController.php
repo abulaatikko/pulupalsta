@@ -67,7 +67,7 @@ class ArticleController extends Controller {
     }
 
     public function redirectAction($article_number) {
-        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('article_number' => $article_number, 'is_public' => true, 'deleted' => null));
+        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('article_number' => $article_number));
         if (! $article instanceof Article) {
             throw $this->createNotFoundException();
         }

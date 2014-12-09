@@ -41,8 +41,7 @@ Pulu\PalstaBundle\Entity\Article:
             type: boolean
             nullable: true
     lifecycleCallbacks:
-        prePersist: [ setCreated, setModified, setPublished ]
-#        preUpdate: [ setModified ]
+        prePersist: [ setCreated, setModified ]
     oneToMany:
         localizations:
             targetEntity: ArticleLocalization

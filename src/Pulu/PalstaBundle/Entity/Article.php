@@ -92,7 +92,11 @@ class Article {
     }
 
     public function setPublished($published) {
-        $this->published = $published;
+        if (empty($this->published) && empty($published)) {
+            $this->published = new \DateTime('now');
+        } else {
+            $this->published = $published;
+        }
         return $this;
     }
 
