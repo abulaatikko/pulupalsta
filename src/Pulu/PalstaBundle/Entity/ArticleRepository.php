@@ -53,24 +53,24 @@ class ArticleRepository extends EntityRepository {
             ->getQuery()->getSingleScalarResult() + 1;
     }
 
-    public function findOrderedByCreated($max = '10') {
+    public function findOrderedByPublished($max = '10') {
         $lang = $this->getLanguage();
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
             ->where("A.deleted IS NULL AND B.language = :language")
             ->setParameter("language", $lang)
-            ->orderBy('A.created', 'DESC')
+            ->orderBy('A.published', 'DESC')
             ->setMaxResults($max)
             ->getQuery()->getResult();
     }
 
-    public function findOrderedByCreatedForPublic($max = '10') {
+    public function findOrderedByPublishedForPublic($max = '10') {
         $lang = $this->getLanguage();
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
             ->where("A.is_public = TRUE AND A.deleted IS NULL AND B.language = :language")
             ->setParameter("language", $lang)
-            ->orderBy('A.created', 'DESC')
+            ->orderBy('A.published', 'DESC')
             ->setMaxResults($max)
             ->getQuery()->getResult();
     }

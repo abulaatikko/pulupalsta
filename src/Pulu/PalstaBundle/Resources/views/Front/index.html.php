@@ -80,8 +80,7 @@ translation or just look at the images.</p>
 <tr>
     <td><?php echo $i++ ?>.</td>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($currentLocale)))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
-    <td class="nowrap text-right"><?php echo $article->getCreated()->format('Y-m-d'); ?></td>
-</tr>
+    <td class="nowrap text-right"><?php echo $article->getPublished()->format('Y-m-d'); ?></td></tr>
 <? endforeach ?>
 </tbody>
 </table>

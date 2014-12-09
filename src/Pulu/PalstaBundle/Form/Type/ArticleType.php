@@ -25,6 +25,11 @@ class ArticleType extends AbstractType {
             ->add('is_public', 'checkbox', array(
                 'label' => 'Julkinen',
                 'required' => false))
+            ->add('published', 'datetime', array(
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd HH:mm:ss',
+                'label' => 'Julkaistu',
+                'required' => false))
             ->add('localizations', 'collection',  array('type' => new ArticleLocalizationType()));
         
         $availableKeywords = $options['available_keywords'];

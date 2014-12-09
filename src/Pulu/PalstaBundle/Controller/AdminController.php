@@ -56,6 +56,7 @@ class AdminController extends Controller {
             $article->setModified();
             $em = $this->getDoctrine()->getManager();
             $em->persist($article);
+
             $delete = $R->get('delete');
             if ($delete) {
                 $article->setDeleted();
@@ -63,6 +64,7 @@ class AdminController extends Controller {
                 $this->get('session')->getFlashBag()->add('notice', 'Artikkeli poistettu');
                 return $this->redirect($this->generateUrl('pulu_palsta_admin_article'));
             }
+
             $form->handleRequest($R);
             if ($form->isValid()) {
                 $requestData = $R->get('article');

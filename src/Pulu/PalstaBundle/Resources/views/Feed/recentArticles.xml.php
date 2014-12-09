@@ -13,7 +13,7 @@
         <description><?php echo $article->getTeaser($locale) ?></description>
         <link><?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($locale))), true) ?></link>
         <guid><?php echo $article->getArticleNumber() ?></guid>
-        <pubDate><?php echo $article->getCreated()->format('D, d M Y H:i:s T') ?></pubDate>
+        <pubDate><?php echo $article->getPublished()->format('D, d M Y H:i:s T') ?></pubDate>
     </item>
 <? endforeach ?>
 

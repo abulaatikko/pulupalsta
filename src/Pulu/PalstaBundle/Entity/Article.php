@@ -19,6 +19,7 @@ class Article {
     protected $is_public;
     protected $created;
     protected $modified;
+    protected $published;
     protected $deleted;
 
     protected $localizations;
@@ -88,6 +89,15 @@ class Article {
 
     public function getModified() {
         return $this->modified;
+    }
+
+    public function setPublished($published) {
+        $this->published = $published;
+        return $this;
+    }
+
+    public function getPublished() {
+        return $this->published;
     }
 
     public function setDeleted() {

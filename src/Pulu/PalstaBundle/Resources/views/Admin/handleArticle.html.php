@@ -59,7 +59,10 @@
     <div class="one columns">
     <?php echo $view['form']->row($form['is_public']) ?>
     </div>
-    <div class="six columns">
+    <div class="two columns">
+    <?php echo $view['form']->row($form['published']) ?>
+    </div>
+    <div class="four columns">
     </div>
     </div>
 

@@ -19,6 +19,8 @@ Pulu\PalstaBundle\Entity\Article:
             type: datetime
         modified:
             type: datetime
+        published:
+            type: datetime
         deleted:
             type: datetime
             nullable: true
@@ -39,7 +41,7 @@ Pulu\PalstaBundle\Entity\Article:
             type: boolean
             nullable: true
     lifecycleCallbacks:
-        prePersist: [ setCreated, setModified ]
+        prePersist: [ setCreated, setModified, setPublished ]
 #        preUpdate: [ setModified ]
     oneToMany:
         localizations:

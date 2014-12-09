@@ -9,7 +9,7 @@ class FeedController extends Controller {
         $locale = $this->getRequest()->getLocale();
         $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article');
         $repository->setLanguage($locale);
-        $recentArticles = $repository->findOrderedByCreatedForPublic(10);        
+        $recentArticles = $repository->findOrderedByPublishedForPublic(10);        
 
         return $this->render('PuluPalstaBundle:Feed:recentArticles.xml.php', array(
             'recentArticles' => $recentArticles,

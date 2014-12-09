@@ -21,10 +21,10 @@ are sorted by the publish dates of the articles.</p>
 <?php foreach ($keywords as $keyword): ?>
 
 <?php 
-// sort articles by created DESC
+// sort articles by published DESC
 $iterator = $keyword->getArticles()->getIterator();
 $iterator->uasort(function ($first, $second) {
-    return strtotime($first->getArticle()->getCreated()->format('r')) > strtotime($second->getArticle()->getCreated()->format('r')) ? -1 : 1;
+    return strtotime($first->getArticle()->getPublished()->format('r')) > strtotime($second->getArticle()->getPublished()->format('r')) ? -1 : 1;
 });
 $array = new Doctrine\Common\Collections\ArrayCollection(iterator_to_array($iterator));
 

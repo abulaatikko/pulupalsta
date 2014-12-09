@@ -21,7 +21,7 @@ ul          {list-style: square; margin: 5px 0px 0px 30px}
 <p>
 <strong><?php echo $view['translator']->trans('Arvosana') ?>:</strong> <?php echo $article->getRating() ?>/5
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Vierailuja') ?>:</strong> <?php echo $article->getVisits() ?>
-&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Julkaistu') ?>:</strong> <?php echo $article->getCreated()->format('Y-m-d') ?>
+&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Julkaistu') ?>:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Muokattu') ?>:</strong> <?php echo $article->getModified()->format('Y-m-d') ?><br />
 <strong><?php echo $view['translator']->trans('Avainsanat') ?>:</strong>
 <?php $printKeywords = array(); ?>
