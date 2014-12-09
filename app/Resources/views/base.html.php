@@ -60,7 +60,11 @@
     <li class="active">
         <dl class="tabs pill">
             <dt></dt>
-<?php $route_params = $app->getRequest()->get('_route_params'); ?>
+<?php $route_params = $app->getRequest()->get('_route_params');
+    if (! empty($route_params['name'])) {
+        unset($route_params['name']);
+    }
+?>
 <?php if ($app->getRequest()->getLocale() == 'fi'): ?>
         <dd class="active switch-language" data-to="fi"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'en'))) ?>">in English</a></dd>
 <? else: ?>
