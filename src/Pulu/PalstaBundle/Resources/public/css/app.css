@@ -54,7 +54,7 @@ div.alert-box, div.notice-box   {padding: 16px; font-size: 22px; line-height: 1.
 table a, .tabs-content a, #navigation a, ul.breadcrumbs a {
     text-decoration: none;
 }
-table a:hover, .tabs-content a:hover, #navigation a:hover, ul.breadcrumbs a:hover {
+table a:hover, .tabs-content a:hover, ul.breadcrumbs a:hover {
     text-decoration: underline;
 }
 
