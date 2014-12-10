@@ -93,7 +93,7 @@ class Article {
 
     public function setPublished($published) {
         if (empty($this->published) && empty($published)) {
-            $this->published = new \DateTime('now');
+            $this->published = new \DateTime('+5 years 6 months 15 days 12 hours 30 minutes 30 seconds');
         } else {
             $this->published = $published;
         }

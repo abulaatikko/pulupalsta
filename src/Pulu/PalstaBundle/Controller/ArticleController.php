@@ -12,18 +12,27 @@ class ArticleController extends Controller {
 
     public function viewAction($article_number, $name) {
         $R = $this->get('request');
+        
         $securityContext = $this->container->get('security.context');
+        $is_admin = $securityContext->isGranted('ROLE_ADMIN');
+        $is_friend = $securityContext->isGranted('ROLE_FRIEND');
 
-        $is_admin = false;
-        if ($securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED')) {
-            $is_admin = true;
-            $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('article_number' => $article_number, 'deleted' => null));
+        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('article_number' => $article_number, 'deleted' => null));
+        if ($is_admin) {
+            // ok
+        } else if ($is_friend) {
+            if ($article->getPublished()->getTimestamp() > time()) {
+                $article = null;
+            }
         } else {
-            $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('article_number' => $article_number, 'is_public' => true, 'deleted' => null));
+            if (! $article->isPublic()) {
+                $article = null;
+            }
         }
         if (! $article instanceof Article) {
             throw $this->createNotFoundException();
         }
+
         $comments = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->findByCreated(null, $article->getId(), $R->getLocale(), 'ASC');;
 
         $comment = new Comment();
@@ -61,7 +70,6 @@ class ArticleController extends Controller {
             'article_keywords' => $articleKeywords,
             'rating' => $rating,
             'doctrine' => $this->getDoctrine(),
-            'is_admin' => $is_admin,
             'router' => $this->get('router')
         ));
     }

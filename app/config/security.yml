@@ -7,14 +7,16 @@ security:
         Symfony\Component\Security\Core\User\User: plaintext
 
     role_hierarchy:
-        ROLE_ADMIN:       ROLE_USER
-        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+        ROLE_FRIEND:      [ROLE_USER]
+        ROLE_ADMIN:       [ROLE_FRIEND]
+        ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
     providers:
         in_memory:
             memory:
                 users:
                     #user:  { password: userpass, roles: [ 'ROLE_USER' ] }
+                    friend: { password: OmehuaJäälöäJaSalaa, roles: [ 'ROLE_FRIEND'] }
                     admin: { password: KurppaKuusiSeittemänJaKaheksan, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:
