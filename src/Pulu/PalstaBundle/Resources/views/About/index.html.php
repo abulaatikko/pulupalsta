@@ -69,6 +69,8 @@ six years to finally improve the system. And actually even then the main reason 
 was a good exercise. Then the name was also changed to Pulupalsta.</p>
 <?php endif ?>
 
+<p><a href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/text/CHANGELOG.md') ?>">CHANGELOG.md</a></p>
+
 <h2><?php echo $view['translator']->trans('Miten') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
 <p style="margin-bottom: 5px">Sivusto on rakennettu seuraavien teknologioiden varaan:</p>
