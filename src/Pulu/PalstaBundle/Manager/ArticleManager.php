@@ -114,65 +114,60 @@ class ArticleManager {
     }
 
     public function getPropertyByRevision($method, $lang, $revision) {
+        $articleId = $this->getArticle()->getId();
 
-// whats the newest revision in cache
-$newestRevisionCached = 0;
-$newestRevisionData = '';
-for ($i = $revision; $i > 0; $i--) {
-// add article id
-    $filename = $this->getArticle()->getId() . '-' . $method . '-' . $lang . '-' . $i . '.cache';
-    $path = '/tmp/' . $filename;
-    if (file_exists($path)) {
-        if ($i == $revision) {
-            return file_get_contents($path);
+        // search cache
+        $newestRevisionCached = 0;
+        $newestRevisionData = '';
+        for ($i = $revision; $i > 0; $i--) {
+            $cacheKeys = array($articleId, $method, $lang, $i);
+            $filepath = '/tmp/' . implode('-', $cacheKeys) . '.cache';
+            if (file_exists($filepath)) {
+                if ($i == $revision) {
+                    // no need to generate anything
+                    return file_get_contents($filepath);
+                }
+                $newestRevisionCached = $i;
+                $newestRevisionData = file_get_contents($filepath);
+                break;
+            }
         }
-        $newestRevisionCached = $i;
-        $newestRevisionData = file_get_contents($path);
-        break;
-    }
-    
 
-}
+        // we need to generate the requested revision - this is slow!
         $returnFile = '/tmp/PuluPalstaArticleRevisionReturn.diff';        
         $tempFile = '/tmp/PuluPalstaArticleRevisionTemp.diff';
         file_put_contents($returnFile, '');
         file_put_contents($tempFile, '');
-//die(var_dump($newestRevisionCached));
 
-        $iterator = $this->getRevisionsByRevision();
+        $iterator = $this->getRevisionsByRevision('asc');
         foreach ($iterator as $item) {
             $itemRevision = $item->getRevision();
             if ($item->getLanguage() != $lang) {
                 continue;
             }
             if ($itemRevision > $revision) {
-                continue;
+                break;
             }
+
             if (! empty($newestRevisionCached)) {
                 if ($itemRevision < $newestRevisionCached) {
                     continue;
                 } else if ($itemRevision == $newestRevisionCached) {
-//die(var_dump($itemRevision, $revision, $newestRevisionCached));
+                    // the newest revision which we have in cache is the point after we have to start patching the revision diff:s
                     file_put_contents($returnFile, $newestRevisionData);
                     continue;
-                } else {
-                    // go through
                 }
             }
+
             file_put_contents($tempFile, $item->$method());
             exec('patch ' . $returnFile . ' < ' . $tempFile);
-if ($method == 'getBody' && $lang == 'fi') {
-ob_start();var_dump(file_get_contents($returnFile));$s=ob_get_clean();file_put_contents('/tmp/jotain.log', $s, FILE_APPEND);
-}
-//if ($itemRevision == 5) {die(var_dump(file_get_contents($returnFile), $itemRevision));}
-            copy($returnFile, '/tmp/' . $this->getArticle()->getId() . '-' . $method . '-' . $lang . '-' . $itemRevision . '.cache');
+
+            // save to cache
+            $cacheKeys = array($articleId, $method, $lang, $itemRevision);
+            copy($returnFile, '/tmp/' . implode('-', $cacheKeys) . '.cache');
         }
 
-        $return = file_get_contents($returnFile);
-        unlink($returnFile);
-        unlink($tempFile);
-
-        return $return;
+        return file_get_contents($returnFile);
     }
 
     public function getRevisionsByRevision($order = 'asc') {
