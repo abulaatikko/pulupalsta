@@ -114,21 +114,58 @@ class ArticleManager {
     }
 
     public function getPropertyByRevision($method, $lang, $revision) {
+
+// whats the newest revision in cache
+$newestRevisionCached = 0;
+$newestRevisionData = '';
+for ($i = $revision; $i > 0; $i--) {
+// add article id
+    $filename = $this->getArticle()->getId() . '-' . $method . '-' . $lang . '-' . $i . '.cache';
+    $path = '/tmp/' . $filename;
+    if (file_exists($path)) {
+        if ($i == $revision) {
+            return file_get_contents($path);
+        }
+        $newestRevisionCached = $i;
+        $newestRevisionData = file_get_contents($path);
+        break;
+    }
+    
+
+}
         $returnFile = '/tmp/PuluPalstaArticleRevisionReturn.diff';        
         $tempFile = '/tmp/PuluPalstaArticleRevisionTemp.diff';
         file_put_contents($returnFile, '');
         file_put_contents($tempFile, '');
+//die(var_dump($newestRevisionCached));
 
         $iterator = $this->getRevisionsByRevision();
         foreach ($iterator as $item) {
+            $itemRevision = $item->getRevision();
             if ($item->getLanguage() != $lang) {
                 continue;
             }
-            if ($item->getRevision() > $revision) {
+            if ($itemRevision > $revision) {
                 continue;
+            }
+            if (! empty($newestRevisionCached)) {
+                if ($itemRevision < $newestRevisionCached) {
+                    continue;
+                } else if ($itemRevision == $newestRevisionCached) {
+//die(var_dump($itemRevision, $revision, $newestRevisionCached));
+                    file_put_contents($returnFile, $newestRevisionData);
+                    continue;
+                } else {
+                    // go through
+                }
             }
             file_put_contents($tempFile, $item->$method());
             exec('patch ' . $returnFile . ' < ' . $tempFile);
+if ($method == 'getBody' && $lang == 'fi') {
+ob_start();var_dump(file_get_contents($returnFile));$s=ob_get_clean();file_put_contents('/tmp/jotain.log', $s, FILE_APPEND);
+}
+//if ($itemRevision == 5) {die(var_dump(file_get_contents($returnFile), $itemRevision));}
+            copy($returnFile, '/tmp/' . $this->getArticle()->getId() . '-' . $method . '-' . $lang . '-' . $itemRevision . '.cache');
         }
 
         $return = file_get_contents($returnFile);
@@ -161,6 +198,7 @@ class ArticleManager {
                 return 0;
             });
         }
+
         return $iterator;
     }
 
