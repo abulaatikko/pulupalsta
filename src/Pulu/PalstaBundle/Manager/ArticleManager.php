@@ -120,8 +120,7 @@ class ArticleManager {
         $newestRevisionCached = 0;
         $newestRevisionData = '';
         for ($i = $revision; $i > 0; $i--) {
-            $cacheKeys = array($articleId, $method, $lang, $i);
-            $filepath = '/tmp/' . implode('-', $cacheKeys) . '.cache';
+            $filepath = $this->getCacheFilepath(array('getPropertyByRevision', $articleId, $method, $lang, $i));
             if (file_exists($filepath)) {
                 if ($i == $revision) {
                     // no need to generate anything
@@ -163,11 +162,16 @@ class ArticleManager {
             exec('patch ' . $returnFile . ' < ' . $tempFile);
 
             // save to cache
-            $cacheKeys = array($articleId, $method, $lang, $itemRevision);
-            copy($returnFile, '/tmp/' . implode('-', $cacheKeys) . '.cache');
+            copy($returnFile, $this->getCacheFilepath(array('getPropertyByRevision', $articleId, $method, $lang, $itemRevision)));
         }
 
         return file_get_contents($returnFile);
+    }
+
+    protected function getCacheFilepath($keys) {
+        $dir = '/tmp/pulupalsta_cache/';
+        mkdir($dir, 0777, true);
+        return $dir . 'ArticleManager-' . implode('-', $keys) . '.cache';
     }
 
     public function getRevisionsByRevision($order = 'asc') {
