@@ -25,6 +25,9 @@ class CalculateKeywordWeightCommand extends ContainerAwareCommand {
             $keywordArticles = $keyword->getArticles();
             foreach ($keywordArticles as $keywordArticle) {
                 $article = $keywordArticle->getArticle();
+                if (! $article->getIsPublic()) {
+                    continue;
+                }
                 $visits = $article->getVisits();
                 $rating = $article->getRating();
                 $weight = $keywordArticle->getWeight();
