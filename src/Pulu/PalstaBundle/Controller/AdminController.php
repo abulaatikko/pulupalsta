@@ -117,36 +117,28 @@ class AdminController extends Controller {
 
         $R = $this->get('request');
         $requestRevision = $R->get('revision');
-        $revisionsData = array();
-        if (! empty($requestRevision)) {            
-            $nameFI = $articleManager->getPropertyByRevision('getName', 'fi', $requestRevision);
-            $teaserFI = $articleManager->getPropertyByRevision('getTeaser', 'fi', $requestRevision);
-            $bodyFI = $articleManager->getPropertyByRevision('getBody', 'fi', $requestRevision);
-            $nameEN = $articleManager->getPropertyByRevision('getName', 'en', $requestRevision);
-            $teaserEN = $articleManager->getPropertyByRevision('getTeaser', 'en', $requestRevision);
-            $bodyEN = $articleManager->getPropertyByRevision('getBody', 'en', $requestRevision);
-            $revisionsData = array(
-                'name' => array(
-                    'fi' => $nameFI,
-                    'en' => $nameEN
-                ),
-                'teaser' => array(
-                    'fi' => $teaserFI,
-                    'en' => $teaserEN
-                ),
-                'body' => array(
-                    'fi' => $bodyFI,
-                    'en' => $bodyEN
-                ),
+        $language = $R->get('language');
+        $revisionData = array();
+
+        if (! empty($requestRevision) && ! empty($language)) {
+            $name = $articleManager->getPropertyByRevision('getName', $language, $requestRevision);
+            $teaser = $articleManager->getPropertyByRevision('getTeaser', $language, $requestRevision);
+            $body = $articleManager->getPropertyByRevision('getBody', $language, $requestRevision);
+         
+            $revisionData = array(
+                'name' => $name,
+                'teaser' => $teaser,
+                'body' => $body,
                 'revision' => $requestRevision,
-                'created' 
+                'created' => null
             );
         }
 
         return $this->render('PuluPalstaBundle:Admin:historyArticle.html.php', array(
             'article' => $article,
             'revisions' => $revisions,
-            'revision' => $revisionsData
+            'revision' => $revisionData,
+            'language' => $language
         ));
     }
 

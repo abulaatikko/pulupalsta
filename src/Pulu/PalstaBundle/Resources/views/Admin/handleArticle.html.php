@@ -99,7 +99,8 @@
 <h2>Toiminnot</h2>
 <ul>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_article_without_name', array('article_number' => $article->getArticleNumber())) ?>">Artikkelisivu (julkinen)</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_history', array('id' => $article->getId())) ?>">Historia</a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_history', array('id' => $article->getId(), 'language' => 'fi')) ?>">Historia (fi)</a></li>
+    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_history', array('id' => $article->getId(), 'language' => 'en')) ?>">Historia (en)</a></li>
     <?php foreach ($article->getModules() as $module): ?>
     <li>Moduuli: <a href="<?php echo $view['router']->generate('pulu_palsta_admin_module_use', array('id' => $module->getId())) ?>"><?php echo $module->getName() ?></li>
     <?php endforeach ?>
