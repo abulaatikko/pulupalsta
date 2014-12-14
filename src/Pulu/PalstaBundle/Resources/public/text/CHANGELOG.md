@@ -1,5 +1,8 @@
 # CHANGELOG
 
+### 2014-12-14
+* article access levels
+
 ### 2014-12-08
 * original images
 

@@ -5,6 +5,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use \Pulu\PalstaBundle\Entity\Article;
+
 class ArticleType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
@@ -20,16 +22,26 @@ class ArticleType extends AbstractType {
                 'label' => 'Artikkelinumero',
                 'data' => $defaultArticleNumber))
             ->add('use_translator', 'checkbox', array(
-                'label' => 'Käytä automaattista käännöstä',
+                'label' => 'Tarjoa käännöspalvelua',
                 'required' => false))
             ->add('is_public', 'checkbox', array(
-                'label' => 'Julkinen',
+                'label' => 'Listoilla',
                 'required' => false))
             ->add('published', 'datetime', array(
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd HH:mm:ss',
                 'label' => 'Julkaistu',
                 'required' => false))
+            ->add('access', 'choice', array(
+                'label' => 'Lukuoikeus',
+                'choices' => array(
+                    Article::ACCESS_ADMIN => 'Ylläpitäjä',
+                    Article::ACCESS_FRIEND => 'Kaverit',
+                    Article::ACCESS_ALL => 'Kaikki'
+                ),
+                'multiple' => false,
+                'expanded' => false
+            ))
             ->add('localizations', 'collection',  array('type' => new ArticleLocalizationType()));
         
         $availableKeywords = $options['available_keywords'];

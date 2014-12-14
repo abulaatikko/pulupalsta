@@ -17,6 +17,7 @@ class Article {
     protected $old_visits;
     protected $use_translator;
     protected $is_public;
+    protected $access;
     protected $created;
     protected $modified;
     protected $published;
@@ -29,6 +30,10 @@ class Article {
     protected $raw_visits;
     protected $raw_ratings;
     protected $modules;
+
+    const ACCESS_ADMIN = 1;
+    const ACCESS_FRIEND = 10;
+    const ACCESS_ALL = 100;
 
     public function __construct() {
         $this->localizations = new ArrayCollection();
@@ -43,6 +48,7 @@ class Article {
         $this->visits = 0;
         $this->use_translator = false;
         $this->is_public = false;
+        $this->access = self::ACCESS_ADMIN;
     }
 
     public function getId() {
@@ -55,6 +61,7 @@ class Article {
 
     public function setArticleNumber($articleNumber) {
         $this->article_number = $articleNumber;
+        return $this;
     }
 
     public function getUseTranslator() {
@@ -63,6 +70,7 @@ class Article {
 
     public function setUseTranslator($useTranslator) {
         $this->use_translator = $useTranslator;
+        return $this;
     }
 
     public function getIsPublic() {
@@ -71,6 +79,16 @@ class Article {
 
     public function setIsPublic($isPublic) {
         $this->is_public = $isPublic;
+        return $this;
+    }
+
+    public function getAccess() {
+        return $this->access;
+    }
+
+    public function setAccess($access) {
+        $this->access = $access;
+        return $this;
     }
 
     public function setCreated() {
@@ -93,7 +111,7 @@ class Article {
 
     public function setPublished($published) {
         if (empty($this->published) && empty($published)) {
-            $this->published = new \DateTime('+5 years 6 months 15 days 12 hours 30 minutes 30 seconds');
+            $this->published = new \DateTime('now');
         } else {
             $this->published = $published;
         }

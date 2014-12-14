@@ -17,13 +17,6 @@ echo "<h1>1!!!!: " . $article->getName() . "</h1>";'); ?>
 </pre>
     </li>
     <li>Myös artikkelin oma SQL-skeema (oluet, kunta) voidaan laittaa php-kommentteihin artikkelin alkuun</li>
-    <li>Oikeudet artikkelin lukuun:
-        <ol>
-            <li><strong>IS_ADMIN</strong>: näkee aina</li>
-            <li><strong>IS_FRIEND</strong>: näkee, jos published &lt; now (is_public = false/true)</li>
-            <li><strong>ALL</strong>: näkee, jos is_public = true</li>
-        </ol>
-    </li>
 </ol>
 
 <?php $view['slots']->stop() ?>

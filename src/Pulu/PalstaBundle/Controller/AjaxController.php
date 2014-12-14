@@ -23,7 +23,7 @@ class AjaxController extends Controller {
             $user_agent = $R->server->get('HTTP_USER_AGENT');
             $author_hash = md5($ip_address . $user_agent);
 
-            $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find(array('id' => $article_id, 'is_public' => true, 'deleted' => null));
+            $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find(array('id' => $article_id, 'deleted' => null));
             if ($article instanceof Article) {
                 $ratingEntity = $this->getDoctrine()->getRepository('PuluPalstaBundle:Rating')->findOneBy(array('article' => $article->getId(), 'author_hash' => $author_hash));
                 if (! $ratingEntity instanceof Rating) {
@@ -60,7 +60,7 @@ class AjaxController extends Controller {
 
         if ($R->isMethod('POST')) {
             $article_id = $R->get('article_id');
-            $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find(array('id' => $article_id, 'is_public' => true, 'deleted' => null));
+            $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find(array('id' => $article_id, 'deleted' => null));
             if ($article instanceof Article) {
                 
                 $requestData = $R->request->get('comment');

@@ -40,6 +40,9 @@ Pulu\PalstaBundle\Entity\Article:
         is_public:
             type: boolean
             nullable: true
+        access:
+            type: integer
+            nullable: true
     lifecycleCallbacks:
         prePersist: [ setCreated, setModified ]
     oneToMany:

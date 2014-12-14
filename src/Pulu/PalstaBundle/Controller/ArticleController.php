@@ -18,16 +18,23 @@ class ArticleController extends Controller {
         $is_friend = $securityContext->isGranted('ROLE_FRIEND');
 
         $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('article_number' => $article_number, 'deleted' => null));
-        if ($is_admin) {
-            // ok
-        } else if ($is_friend) {
-            if ($article->getPublished()->getTimestamp() > time()) {
+
+        switch ($article->getAccess()) {
+            case Article::ACCESS_ALL:
+                break;
+            case Article::ACCESS_FRIEND:
+                if (! $is_friend && ! $is_admin) {
+                    $article = null;
+                }
+                break;
+            case Article::ACCESS_ADMIN:
+                if (! $is_admin) {
+                    $article = null;
+                }
+                break;
+            default:
                 $article = null;
-            }
-        } else {
-            if (! $article->isPublic()) {
-                $article = null;
-            }
+                break;
         }
         if (! $article instanceof Article) {
             throw $this->createNotFoundException();
@@ -84,6 +91,5 @@ class ArticleController extends Controller {
 
         return $this->redirect($this->generateUrl('pulu_palsta_article', array('article_number' => $article_number, 'name' => $name)), 301);
     }
-
 
 }
