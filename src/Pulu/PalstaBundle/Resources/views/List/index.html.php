@@ -40,7 +40,7 @@
 </tbody>
 </table>
 
-<p>
+<p class="table-notes">
     <?php echo $view['translator']->trans('Vier.') ?> = <?php echo $view['translator']->trans('Vierailujen lukumäärä') ?><br />
     <?php echo $view['translator']->trans('Arv.') ?> = <?php echo $view['translator']->trans('Arvosana') ?><br />
     <?php echo $view['translator']->trans('Kom.') ?> = <?php echo $view['translator']->trans('Kommenttien lukumäärä') ?>
