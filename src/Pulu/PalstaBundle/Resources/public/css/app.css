@@ -222,7 +222,13 @@ table.norm th {
     border-top: none;
     text-align: left;                                /* opera didnt align correctly */
 }
-</style>
+
+p.table-notes {
+    margin-top: -10px;
+    font-size: 13px;
+    line-height: 1.3;
+    font-family: Helvetica;
+}
 
 /* -----------------------------------------
    Contents page
