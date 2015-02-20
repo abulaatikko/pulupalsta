@@ -174,6 +174,8 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
     $caption = '<span class="right">(<a href="' . $mediaPath . $original_url . '">' . $originalText . '</a>)</span> ' . $caption;
 
     $out = '<div class="centered imgContainer" style="';
+    $dimensions = getimagesize($mediaPath . $display_url);
+    $width = ! empty($dimensions[0]) ? $dimensions[0] : $width;
     if (! empty($width)) {
         $out .= 'width: ' . ($width + 8). 'px;';
     }
