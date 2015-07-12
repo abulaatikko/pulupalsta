@@ -18,7 +18,7 @@ ul          {list-style: square; margin: 5px 0px 0px 30px}
 
 <h1><?php echo $article->getName($currentLocale) ?></h1>
 
-<p>
+<div id="article-metadata">
 <strong><?php echo $view['translator']->trans('Arvosana') ?>:</strong> <?php echo $article->getRating() ?>/5
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Vierailuja') ?>:</strong> <?php echo $article->getVisits() ?>
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Julkaistu') ?>:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>
@@ -40,7 +40,7 @@ ul          {list-style: square; margin: 5px 0px 0px 30px}
     <? endif ?>
 <?php endforeach ?>
 <?php echo implode(', ', $printKeywords) ?>
-</p>
+</div>
 
 <?php $body = $article->getBody($currentLocale); ?>
 <?php $route_params = $app->getRequest()->get('_route_params'); ?>

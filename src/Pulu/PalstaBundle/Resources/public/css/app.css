@@ -118,6 +118,8 @@ table#comments td small {white-space: nowrap;}
 #table_of_contents      {float: right; margin: 30px 0px 5px 5px;}
 #table_of_contents ul   {margin-left: 20px; margin-top: 0px; line-height: 1.4;}
 
+#article-metadata {line-height: 1.5;}
+
 .centered       {text-align: center;}
 .u              {text-decoration: underline;}
 .clear          {clear: both;}
