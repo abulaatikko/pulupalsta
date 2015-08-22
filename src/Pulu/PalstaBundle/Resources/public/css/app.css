@@ -123,11 +123,17 @@ table#comments td small {white-space: nowrap;}
 .centered       {text-align: center;}
 .u              {text-decoration: underline;}
 .clear          {clear: both;}
-.tight          {margin: 0px}
-.font1          {font-size: 80%}
+.tight          {margin: 0px;}
+.font1          {font-size: 80%;}
 .negative       {color: red;}
 .ready,
 .positive       {color: green;}
+.harvard-green  {color: #3AB54A;}
+.harvard-red    {color: #B50A37;}
+.harvard-blue   {color: #4294D0;}
+.harvard-yellow {color: #FFC525;}
+.harvard-orange {color: #E77D19;}
+.harvard-brown  {color: #A78562;}
 
 div.imgContainer        {margin: 0 auto 20px auto;}
 .imgContainer img,
@@ -144,7 +150,7 @@ ol li   {margin-bottom: 15px;}
     margin: 0px 0px 15px; 0px;
     padding: 14px; 
     background-color: #F5EFF5; 
-    //border: 1px solid #E2B2E4; 
+    /*border: 1px solid #E2B2E4;*/
     border-radius: 4px;
     font-family: 'courier new'; 
     line-height: 1.2;
@@ -154,7 +160,7 @@ code {
     margin: 0px 0px 15px; 0px;
     padding: 14px; 
     background-color: #F5EFF5; 
-    //border: 1px solid #E2B2E4; 
+    /*border: 1px solid #E2B2E4;*/
     border-radius: 6px;
     font-family: 'courier new'; 
     line-height: 1.3;
@@ -195,7 +201,7 @@ code.inline {
     border-radius: 0px;
     font-family: 'Courier New';
     font-weight: normal;
-    //color: #285EAE;
+    /*color: #285EAE;*/
     border: none;
     display: inline;
 }
