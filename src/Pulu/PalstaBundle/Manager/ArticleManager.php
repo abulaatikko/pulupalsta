@@ -170,7 +170,9 @@ class ArticleManager {
 
     protected function getCacheFilepath($keys) {
         $dir = '/tmp/pulupalsta_cache/';
-        mkdir($dir, 0777, true);
+        if (! file_exists($dir)) {
+            mkdir($dir, 0777, true);
+        }
         return $dir . 'ArticleManager-' . implode('-', $keys) . '.cache';
     }
 
