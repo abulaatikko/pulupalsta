@@ -4,7 +4,10 @@ imports:
     - { resource: @PuluPalstaBundle/Resources/config/services.yml }
 
 framework:
-    translator:      { fallback: fi }
+    translator:
+        enabled: true
+        logging: false
+        fallback: fi
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
