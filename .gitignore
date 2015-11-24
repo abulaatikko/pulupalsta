@@ -22,8 +22,8 @@ bin/*
 vendor/
 
 # assets and user uploads
-web/bundles/
-web/uploads/
+web/
+web/
 
 # composer
 composer.phar
