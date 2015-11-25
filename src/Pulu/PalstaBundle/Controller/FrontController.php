@@ -4,15 +4,16 @@ namespace Pulu\PalstaBundle\Controller;
 use Pulu\PalstaBundle\Entity\Article;
 use Pulu\PalstaBundle\Entity\ArticleLocalization;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class FrontController extends Controller {
 
-    public function indexAction() {
+    public function indexAction(Request $R) {
         $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article');
-        $repository->setLanguage($this->getRequest()->getLocale());
+        $repository->setLanguage($R->getLocale());
         $recentArticles = $repository->findOrderedByPublishedForPublic(10);
         $visitedArticles = $repository->findOrderedByVisitsForPublic(10);
-        $keywords = $this->getKeywords();       
+        $keywords = $this->getKeywords($R);       
 
         return $this->render('PuluPalstaBundle:Front:index.html.php', array(
             'recentArticles' => $recentArticles,
@@ -21,7 +22,7 @@ class FrontController extends Controller {
         ));
     }
 
-    protected function getKeywords() {
+    protected function getKeywords(Request $R) {
         $keywords = $this->getDoctrine()->getRepository('PuluPalstaBundle:Keyword')->findAllOrderedByName();
 
         $returnedAmount = 50;
@@ -33,7 +34,7 @@ class FrontController extends Controller {
             $weight = $keyword->getWeight();
             if ($weight > 0) {
                 $out[] = array(
-                    'name' => $keyword->getName($this->getRequest()->getLocale()),
+                    'name' => $keyword->getName($R->getLocale()),
                     'weight' => $weight,
                     'normalized_weight' => null,
                     'id' => $keyword->getId()
