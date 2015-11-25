@@ -58,8 +58,10 @@ ul          {list-style: square; margin: 5px 0px 0px 30px}
 <?php
 // Old Puluprojects functions
 
-global $articleNumber;
+global $articleNumber, $mediaPath, $mediaUrl;
 $articleNumber = $article->getArticleNumber();
+$mediaPath = $view->container->getParameter('media.path');
+$mediaUrl = $view->container->getParameter('media.url');
 
 /*function toFilename($string) {
     $conversion_array = array(
@@ -97,6 +99,7 @@ function htmlize($line, $linebreak = true) {
 
 function getImage($filename, $width = null, $height = null) {
     global $articleNumber;
+    global $mediaPath;
     $dir = 'files/' . $articleNumber . '/img/';
 
     // return original
@@ -104,7 +107,7 @@ function getImage($filename, $width = null, $height = null) {
         return $dir . $filename;
     }
 
-    $basepath = '/home/abula/media.pulu.org/palsta/' . $dir;
+    $basepath = $mediaPath . $dir;
     $dimensions = strval($width) . 'x' . strval($height);
 
     $fileparts = explode('.', $filename);
@@ -164,9 +167,11 @@ function getImage($filename, $width = null, $height = null) {
 
 function displayImage($filename, $width = null, $height = null, $caption = "", $alt = "", $is_thumb = false, $thumb_identifier = null) {
     global $currentLocale;
+    global $mediaUrl;
+
     $original_url = getImage($filename);
     $display_url = getImage($filename, $width, $height);
-    $mediaPath = 'http://media.pulu.org/palsta/';
+    $mediaPath = $mediaUrl;
     $hash = md5($original_url);
 
     $captionWithoutHtml = $caption;

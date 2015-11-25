@@ -16,3 +16,6 @@ parameters:
 
     password.admin:    ChangeThis
     password.friend:   ChangeThis
+
+    media.url:         http://dev.media.pulu.org/palsta/
+    media.path:        /home/abula/dev.media.pulu.org/palsta/
