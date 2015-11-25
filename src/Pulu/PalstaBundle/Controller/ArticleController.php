@@ -36,7 +36,7 @@ class ArticleController extends Controller {
                 break;
         }
         if (! $article instanceof Article) {
-            throw $this->createNotFoundException();
+            throw $this->createAccessDeniedException();
         }
 
         $comments = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->findByCreated(null, $article->getId(), $R->getLocale(), 'ASC');;

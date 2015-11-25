@@ -20,7 +20,8 @@
         "sensio/generator-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
         "friendsofsymfony/jsrouting-bundle": "1.5.*",
-        "symfony/icu": "1.0.*"
+        "symfony/icu": "1.0.*",
+        "symfony/twig-bundle": "^2.7"
     },
     "scripts": {
         "post-install-cmd": [
