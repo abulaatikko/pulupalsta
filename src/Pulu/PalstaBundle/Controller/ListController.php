@@ -2,11 +2,12 @@
 namespace Pulu\PalstaBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class ListController extends Controller {
-    public function indexAction() {
+    public function indexAction(Request $R) {
         $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article');
-        $repository->setLanguage($this->getRequest()->getLocale());
+        $repository->setLanguage($R->getLocale());
         $articles = $repository->findAllOrderedByNameForPublic();
         return $this->render('PuluPalstaBundle:List:index.html.php', array(
             'articles' => $articles
