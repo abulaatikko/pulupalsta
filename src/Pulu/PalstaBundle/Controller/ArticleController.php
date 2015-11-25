@@ -7,12 +7,11 @@ use Pulu\PalstaBundle\Entity\Visit;
 use Pulu\PalstaBundle\Entity\Rating;
 use Pulu\PalstaBundle\Form\Type\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class ArticleController extends Controller {
 
-    public function viewAction($article_number, $name) {
-        $R = $this->get('request');
-        
+    public function viewAction(Request $R, $article_number, $name) {
         $securityContext = $this->container->get('security.context');
         $is_admin = $securityContext->isGranted('ROLE_ADMIN');
         $is_friend = $securityContext->isGranted('ROLE_FRIEND');
@@ -81,12 +80,12 @@ class ArticleController extends Controller {
         ));
     }
 
-    public function redirectAction($article_number) {
+    public function redirectAction(Request $R, $article_number) {
         $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('article_number' => $article_number));
         if (! $article instanceof Article) {
             throw $this->createNotFoundException();
         }
-        $name = $article->getName($this->getRequest()->getLocale());
+        $name = $article->getName($R->getLocale());
         $name = $this->get('helper')->toFilename($name);
 
         return $this->redirect($this->generateUrl('pulu_palsta_article', array('article_number' => $article_number, 'name' => $name)), 301);

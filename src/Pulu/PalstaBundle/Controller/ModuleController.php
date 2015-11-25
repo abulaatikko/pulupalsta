@@ -20,8 +20,7 @@ class ModuleController extends Controller {
         ));
     }
 
-    public function handleAction($id = null) {
-        $R = $this->get('request');
+    public function handleAction(Request $R, $id = null) {
         if (empty($id)) {
             $module = new Module();
         } else {
@@ -60,8 +59,7 @@ class ModuleController extends Controller {
         ));
     }
 
-    public function useAction($id) {
-        $R = $this->get('request');
+    public function useAction(Request $R, $id) {
         $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Module');
         $module = $repository->find($id);
         $moduleType = $module->getType();

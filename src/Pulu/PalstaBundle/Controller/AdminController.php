@@ -29,8 +29,7 @@ class AdminController extends Controller {
         ));
     }
 
-    public function handleArticleAction($id = null) {
-        $R = $this->get('request');
+    public function handleArticleAction(Request $R, $id = null) {
         if (empty($id)) {
             $article = new Article();
             $articleLocalizationFI = new ArticleLocalization();
@@ -110,12 +109,11 @@ class AdminController extends Controller {
         ));
     }
 
-    public function historyArticleAction($id) {
+    public function historyArticleAction(Request $R, $id) {
         $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('id' => $id, 'deleted' => null));
         $articleManager = new ArticleManager($article);
         $revisions = $articleManager->getRevisionsByRevision('desc');
 
-        $R = $this->get('request');
         $requestRevision = $R->get('revision');
         $language = $R->get('language');
         $revisionData = array();
@@ -151,8 +149,7 @@ class AdminController extends Controller {
         ));
     }
 
-    public function handleCommentAction($id = null) {
-        $R = $this->get('request');
+    public function handleCommentAction(Request $R, $id = null) {
         if (empty($id)) {
             $comment = new Comment();
         } else {
@@ -198,8 +195,7 @@ class AdminController extends Controller {
         ));
     }
 
-    public function handleKeywordAction($id = null) {
-        $R = $this->get('request');
+    public function handleKeywordAction(Request $R, $id = null) {
         if (empty($id)) {
             $keyword = new Keyword();
             $keywordLocalizationFI = new KeywordLocalization();
@@ -251,6 +247,5 @@ class AdminController extends Controller {
     public function guideAction() {
         return $this->render('PuluPalstaBundle:Admin:guide.html.php');
     }
-
 
 }

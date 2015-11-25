@@ -7,11 +7,11 @@ use Pulu\PalstaBundle\Entity\Rating;
 use Pulu\PalstaBundle\Form\Type\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 
 class AjaxController extends Controller {
 
-    public function articleRatingAction() {
-        $R = $this->get('request');
+    public function articleRatingAction(Request $R) {
         $translator = $this->get('translator');
 
         $message = $translator->trans('Arviointi epäonnistui');
@@ -48,8 +48,7 @@ class AjaxController extends Controller {
         return $response;
     }
 
-    public function articleCommentAction() {
-        $R = $this->get('request');
+    public function articleCommentAction(Request $R) {
         $translator = $this->get('translator');
 
         $success = false;
@@ -104,8 +103,7 @@ class AjaxController extends Controller {
         return $response;
     }
 
-    public function keywordAction() {
-        $R = $this->get('request');
+    public function keywordAction(Request $R) {
         $translator = $this->get('translator');
 
         $success = false;

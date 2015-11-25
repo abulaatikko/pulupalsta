@@ -3,10 +3,10 @@ namespace Pulu\PalstaBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
+use Symfony\Component\HttpFoundation\Request;
 
 class LoginController extends Controller {
-    public function loginAction() {
-        $request = $this->getRequest();
+    public function loginAction(Request $request) {
         $session = $request->getSession();
 
         if ($request->attributes->has(SecurityContext::AUTHENTICATION_ERROR)) {
