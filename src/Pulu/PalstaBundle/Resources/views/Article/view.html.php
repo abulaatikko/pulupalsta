@@ -173,12 +173,13 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
     $display_url = getImage($filename, $width, $height);
     $mediaPath = $mediaUrl;
     $hash = md5($original_url);
+    $shortHash = substr($hash, 0, 6);
 
     $captionWithoutHtml = $caption;
     $originalText = $currentLocale == 'fi' ? 'originaali' : 'original';
-    $caption = '<span class="right">(<a href="' . $mediaPath . $original_url . '">' . $originalText . '</a>)</span> ' . $caption;
+    $caption = '<span class="right">(<a href="' . $mediaPath . $original_url . '">' . $originalText . '</a>, <a href="#img-' . $shortHash . '">§</a>)</span> ' . $caption;
 
-    $out = '<div class="centered imgContainer" style="';
+    $out = '<div class="centered imgContainer" id="img-' . $shortHash . '" style="';
     $dimensions = getimagesize($mediaPath . $display_url);
     $width = ! empty($dimensions[0]) ? $dimensions[0] : $width;
     if (! empty($width)) {
