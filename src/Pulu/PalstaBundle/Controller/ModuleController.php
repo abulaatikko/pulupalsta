@@ -64,8 +64,10 @@ class ModuleController extends Controller {
         $module = $repository->find($id);
         $moduleType = $module->getType();
 
-        $data = array();
-        $data['beers'] = $repository->getBeers();
+        $data = array('beers');
+        if ($repository->moduleSQLExists(Module::TYPE_ADMIN_BEER_TASTING)) {
+            $data['beers'] = $repository->getBeers();
+        }
 
         $tablesExist = false;
         $sql = '';
