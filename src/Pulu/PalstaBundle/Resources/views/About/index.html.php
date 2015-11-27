@@ -10,63 +10,28 @@
 
 <h2><?php echo $view['translator']->trans('Mitä ja miksi') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
-<p><em>Pulupalsta</em> sisältää tarinoita elämästäni, joita mielelläni muistelen. Parhaimmassa
-tapauksessa tarinat kiinnostavat myös muita ihmisiä ja sen takia olen kirjoituksiani
-julkaissut. Haaveilen, että kirjoituksillani olisi joskus laajempaakin merkittävyyttä, 
-mutta nykymaailman informaatiotulvassa ei ole sijaa keskinkertaisille kirjoituksille. 
-Pitää siis tavoitella priimaa!</p>
+<p><em>Pulupalsta</em> sisältää tarinoita elämästäni, joita mielelläni muistelen. Parhaimmassa tapauksessa tarinat kiinnostavat myös muita ihmisiä ja sen takia olen kirjoituksiani julkaissut. Haaveilen että kirjoituksillani olisi joskus laajempaakin merkittävyyttä, mutta nykymaailman informaatiotulvassa ei ole sijaa keskinkertaisille kirjoituksille. Pitää siis tavoitella priimaa!</p>
 <?php else: ?>
-<p><em>Pulupalsta</em> (literally <em>column of the dove</em>) contains stories
-of my life which are, in my opinion, worth remembering. The reason to publish them
-is my humble wish that the stories might interest other people too. My goal is to 
-write something more remarkable in the future but because the world is extremely
-overfilled by very interesting information, there is no room for second rate stories.
-So let's go for the top!</p>
+<p><em>Pulupalsta</em> (literally <em>column of the dove</em>) contains stories of my life which are, in my opinion, worth remembering. The reason to publish them is my humble wish that the stories might interest other people too. My goal is to write something more remarkable in the future but because the world is overfilled by very interesting information, there is no room for second rate stories. So let's go for the top!</p>
 <?php endif ?>
 
 <?php if ($currentLocale == 'fi'): ?>
-<p>Pidän web-sivujen tekemisestä, jota tämä projekti myös palvelee. Teen Pulupalstaa yksin ja
-vain yksin, joten kukaan muu ei ole asettamassa projektille reunaehtoja. Voin siis tehdä 
-sivustoa milloin huvittaa ja kuten haluan.</p>
+<p>Pidän web-sivujen tekemisestä, jota tämä projekti myös palvelee. Teen Pulupalstaa yksin ja vain yksin, joten kukaan muu ei ole asettamassa projektille reunaehtoja. Voin siis tehdä sivustoa milloin huvittaa ja kuten haluan.</p>
 <?php else: ?>
-<p>I like creating web sites which is the main reason for this site, if being honest. I'm 
-making Pulupalsta alone and only alone and therefore no one else is setting limits or 
-giving me deadlines. This is usually not the case.</p>
+<p>I like creating web sites which is the main reason for this site, if being honest. I'm making Pulupalsta alone and only alone and therefore no one else is setting limits or giving me deadlines. This is usually not the case.</p>
 <?php endif ?>
 
 <h2><?php echo $view['translator']->trans('Milloin') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
-<p>Kirjoitin ensimmäisen artikkelini
-(<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litraa Pepsiä ja Sony Vaio S5</a>) 
-tammikuussa 2006. Projekti, jota artikkeli käsittelee, oli pääasiallinen syy silloin
-<em>Puluprojects</em>-nimellä kulkeneen sivuston tekemiselle. 
-<a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>">Myöhemmin</a>
-aloin kirjoitella artikkeleita myös muista aiheista. Halusin siis saada oman julkaisualustan 
-projekteilleni.</p>
+<p>Kirjoitin ensimmäisen artikkelini (<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litraa Pepsiä ja Sony Vaio S5</a>) tammikuussa 2006. Projekti, jota artikkeli käsittelee, oli pääasiallinen syy silloin <em>Puluprojects</em>-nimellä kulkeneen sivuston tekemiselle. Myöhemmin aloin kirjoitella artikkeleita myös <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>">muista aiheista</a>. Halusin siis rakentaa julkaisualustan kirjoituksilleni.</p>
 <?php else: ?>
-<p>My first article was
-(<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litres of Pepsi and Sony Vaio S5</a>)
-in January 2006. The project, which the article is discussing, was the primary reason to 
-create this site. It was called <em>Puluprojects</em> back then.
-<a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>">Later</a>
-I've written texts about other subjects too. So basically I wanted to have own platform to publish 
-my writings.</p>
+<p>My first article was (<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litres of Pepsi and Sony Vaio S5</a>) in January 2006. The project, which the article is discussing, was the primary reason to create this site. It was called <em>Puluprojects</em> back then. Later I've written texts about <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>">other subjects</a> too. So basically I wanted to build a platform to publish my own writings.</p>
 <?php endif ?>
 
 <?php if ($currentLocale == 'fi'): ?>
-<p>Seuraavien vuosien aikana valmistuin, sain töitä web-alan ohjelmistosuunnittelijana
-ja kirjoittelin noin neljän artikkelin vuosivauhdilla uusia tekstejä. Julkaisualusta oli
-ollut alusta asti turhan kömpelö, mutta vasta vuoden 2012 jälkimmäisellä puoliskolla löysin
-viimein aikaa alkaa uudistaa sivustoa. Ja oikeastaan silloinkin ensisijainen syy oli halu kokeilla 
-<a href="http://symfony.com/">Symfony2 PHP Frameworkia</a> käytännössä, jonka ensimmäiseksi
-harjoitusprojektiksi valitsin tämän sivuston siirtämisen uudelle alustalle. Samalla sivuston uudeksi 
-nimeksi vaihtui Pulupalsta.</p>
+<p>Seuraavien vuosien aikana valmistuin, sain töitä web-alan ohjelmistosuunnittelijana ja kirjoittelin noin neljän artikkelin vuosivauhdilla uusia tekstejä. Julkaisualusta oli ollut alusta asti turhan kömpelö, mutta vasta vuoden 2012 jälkimmäisellä puoliskolla löysin viimein aikaa alkaa uudistaa sivustoa. Ja oikeastaan silloinkin ensisijainen syy oli halu kokeilla <a href="http://symfony.com/">Symfony2 PHP Frameworkia</a> käytännössä, jonka ensimmäiseksi harjoitusprojektiksi valitsin tämän sivuston siirtämisen uudelle alustalle. Samalla sivuston uudeksi nimeksi tuli Pulupalsta.</p>
 <?php else: ?>
-<p>During the next years I graduated, got a full-time web developer job and wrote circa
-four articles each year. The platform wasn't great when I created it first time but it still took
-six years to finally improve the system. And actually even then the main reason was to try out
-<a href="http://symfony.com/">Symfony2 PHP Framework</a> in practice. Upgrading Puluprojects
-was a good exercise. Then the name was also changed to Pulupalsta.</p>
+<p>During the next years I graduated, got a full-time web developer job and wrote circa four articles each year. The platform wasn't great when I created it first time but it still took six years to finally improve the system. And actually even then the main reason was to try out <a href="http://symfony.com/">Symfony2 PHP Framework</a> in practice. Upgrading Puluprojects was a good exercise. Then the name was also changed to Pulupalsta.</p>
 <?php endif ?>
 
 <p><a href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/text/CHANGELOG.md') ?>">CHANGELOG.md</a></p>
@@ -84,8 +49,10 @@ was a good exercise. Then the name was also changed to Pulupalsta.</p>
     <li><a href="http://www.postgresql.org/">PostgreSQL</a></li>
     <li><a href="http://en.wikipedia.org/wiki/HTML">HTML</a>: <a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></li>
     <li><a href="http://en.wikipedia.org/wiki/CSS">CSS</a>: <a href="http://foundation.zurb.com/">Foundation</a></li>
-    <li><a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>: <a href="http://jquery.com/">JQuery</a>, 
-        <a href="http://fabien-d.github.com/alertify.js/">Alertify</a>, <a href="http://datatables.net/">DataTables</a>,
+    <li><a href="http://en.wikipedia.org/wiki/JavaScript">JavaScript</a>:
+        <a href="http://jquery.com/">JQuery</a>,
+        <a href="http://fabien-d.github.com/alertify.js/">Alertify</a>,
+        <a href="http://datatables.net/">DataTables</a>,
         <a href="http://fancybox.net/">Fancybox</a></li>
 </ul>
 
@@ -104,13 +71,9 @@ $age = DateTime::createFromFormat('Y-m-d', '1983-02-25', $tz)
 
 <h2><?php echo $view['translator']->trans('Kuka') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
-<p>Nimeni on Lassi Heikkinen ja internet-maailmassa minut tunnetaan nimimerkillä Abula.
-Olen <?php echo $age ?> vuotta vanha ja asun Barcelonassa (Espanja). Enemmän tietoa minusta
-löytyy <a href="http://www.pulu.org/lassi">henkilökohtaisilta sivuiltani</a>.</p>
+<p>Nimeni on Lassi Heikkinen ja internet-maailmassa minut tunnetaan myös nimimerkillä Abula. Olen <?php echo $age ?> vuotta vanha ja asun Kuopiossa. Enemmän tietoa minusta löytyy <a href="http://www.pulu.org/lassi">henkilökohtaisilta sivuiltani</a>.</p>
 <?php else: ?>
-<p>My name is Lassi Heikkinen and I'm known as Abula in the internet. I'm <?php echo $age ?> years 
-old and living in Barcelona (Spain). More about me you can read on my 
-<a href="http://www.pulu.org/lassi/eng">personal page</a>.</p>
+<p>My name is Lassi Heikkinen and I'm also known as Abula in the internet. I'm <?php echo $age ?> years old and living in Kuopio. More about me you can read on my <a href="http://www.pulu.org/lassi/eng">personal page</a>.</p>
 <?php endif ?>
 
 <?php $view['slots']->stop() ?>
