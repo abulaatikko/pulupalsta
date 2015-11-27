@@ -28,7 +28,10 @@
                 <?php continue; ?>
             <?php endif ?>
             <?php $revisionsFound[] = $rev->getRevision(); ?>
-        <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_history', array('id' => $article->getId(), 'revision' => $rev->getRevision(), 'language' => $rev->getLanguage())) ?>">r<?php echo $rev->getRevision() ?>: <?php echo $rev->getCreated()->format('Y-m-d H:i:s') ?></a></li>
+        <li>
+            <a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_history', array('id' => $article->getId(), 'revision' => $rev->getRevision(), 'language' => $rev->getLanguage())) ?>">r<?php echo $rev->getRevision() ?>: <?php echo $rev->getCreated()->format('Y-m-d H:i:s') ?></a>
+            (<a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_diff', array('id' => $article->getId(), 'revision' => $rev->getRevision(), 'language' => $rev->getLanguage())) ?>">diff</a>)
+        </li>
         <? endforeach ?>
     </ul>
 </div>

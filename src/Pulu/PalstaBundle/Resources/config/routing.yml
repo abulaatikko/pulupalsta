@@ -123,6 +123,13 @@ pulu_palsta_admin_article_history:
     requirements:
         id: \d+
 
+pulu_palsta_admin_article_diff:
+    pattern: /admin/article/diff/{id}
+    defaults: { _controller: PuluPalstaBundle:Admin:diffArticle }
+    requirements:
+        id: \d+
+        revision: \d+
+
 pulu_palsta_admin_keyword:
     pattern: /admin/keyword
     defaults: { _controller: PuluPalstaBundle:Admin:listKeyword }

@@ -203,4 +203,25 @@ class ArticleManager {
         return $iterator;
     }
 
+    public function getPropertyDiff($method, $lang, $revision) {
+        $currentData = $this->getPropertyByRevision($method, $lang, $revision);
+        $previousData = $this->getPropertyByRevision($method, $lang, $revision - 1);
+        return $this->getDiff($currentData, $previousData);
+    }
+
+    protected function getDiff($newData, $oldData) {
+        $newDataFile = '/tmp/PuluPalstaNewData.diff';
+        $oldDataFile = '/tmp/PuluPalstaOldData.diff';
+        $diffFile = '/tmp/PuluPalstaDiffData.diff';
+        file_put_contents($newDataFile, $newData);
+        file_put_contents($oldDataFile, $oldData);
+        file_put_contents($diffFile, '');
+        exec('diff -u ' . $oldDataFile . ' ' . $newDataFile . ' > ' . $diffFile);
+        $output = file_get_contents($diffFile);
+        unlink($newDataFile);
+        unlink($oldDataFile);
+        unlink($diffFile);
+        return $output;
+    }
+
 }

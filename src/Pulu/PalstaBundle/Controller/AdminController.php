@@ -12,6 +12,7 @@ use Pulu\PalstaBundle\Form\Type\KeywordType;
 use Pulu\PalstaBundle\Form\Type\AdminCommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Form\Form;
 
 class AdminController extends Controller {
@@ -137,6 +138,26 @@ class AdminController extends Controller {
             'revisions' => $revisions,
             'revision' => $revisionData,
             'language' => $language
+        ));
+    }
+
+    public function diffArticleAction(Request $R, $id) {
+        $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findOneBy(array('id' => $id, 'deleted' => null));
+        $articleManager = new ArticleManager($article);
+        $em = $this->getDoctrine()->getManager();
+        $articleManager->setEntityManager($em);
+
+        $requestRevision = $R->get('revision');
+        $language = $R->get('language');
+
+        $nameDiff = $articleManager->getPropertyDiff('getName', $language, $requestRevision);
+        $teaserDiff = $articleManager->getPropertyDiff('getTeaser', $language, $requestRevision);
+        $bodyDiff = $articleManager->getPropertyDiff('getBody', $language, $requestRevision);
+
+        return $this->render('PuluPalstaBundle:Admin:diffArticle.html.php', array(
+            'diff_name' => $nameDiff,
+            'diff_teaser' => $teaserDiff,
+            'diff_body' => $bodyDiff,
         ));
     }
 
