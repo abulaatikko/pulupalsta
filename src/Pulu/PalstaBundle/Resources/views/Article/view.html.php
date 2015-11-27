@@ -186,7 +186,7 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
         $out .= 'width: ' . ($width + 8). 'px;';
     }
     if ($is_thumb) {
-        $out .= 'float: left; margin: 0px 10px 10px 0px;';
+        $out .= 'margin: 0px 10px 10px 0px; display: inline-block;';
     }
     $rel = ! empty($thumb_identifier) ? 'fancybox-group-' . substr($thumb_identifier, 0, 10) : 'fancybox-main';
     $out .= '"><a href="' . $mediaPath . $original_url . '" rel="' . $rel . '" class="fancybox" title="' . $captionWithoutHtml . '" data-title-id="fancybox-title-' . $hash . '"><img';
