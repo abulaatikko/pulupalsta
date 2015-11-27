@@ -1,5 +1,13 @@
 # CHANGELOG
 
+### 2015-11-28
+* code was improved and published in github
+* symfony 2.7
+* better http error pages
+* direct image links
+* admin: article diffs, hide special keywords by default
+* bugfixes
+
 ### 2014-12-14
 * article access levels
 

@@ -18,29 +18,29 @@
 <?php if ($currentLocale == 'fi'): ?>
 <p>Pidän web-sivujen tekemisestä, jota tämä projekti myös palvelee. Teen Pulupalstaa yksin ja vain yksin, joten kukaan muu ei ole asettamassa projektille reunaehtoja. Voin siis tehdä sivustoa milloin huvittaa ja kuten haluan.</p>
 <?php else: ?>
-<p>I like creating web sites which is the main reason for this site, if being honest. I'm making Pulupalsta alone and only alone and therefore no one else is setting limits or giving me deadlines. This is usually not the case.</p>
+<p>I love creating web sites which is the main reason for this site - to be honest. I'm making Pulupalsta alone and only alone and thereby no one else is setting limits or giving me deadlines. This is not always the case.</p>
 <?php endif ?>
 
 <h2><?php echo $view['translator']->trans('Milloin') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
 <p>Kirjoitin ensimmäisen artikkelini (<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litraa Pepsiä ja Sony Vaio S5</a>) tammikuussa 2006. Projekti, jota artikkeli käsittelee, oli pääasiallinen syy silloin <em>Puluprojects</em>-nimellä kulkeneen sivuston tekemiselle. Myöhemmin aloin kirjoitella artikkeleita myös <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>">muista aiheista</a>. Halusin siis rakentaa julkaisualustan kirjoituksilleni.</p>
 <?php else: ?>
-<p>My first article was (<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litres of Pepsi and Sony Vaio S5</a>) in January 2006. The project, which the article is discussing, was the primary reason to create this site. It was called <em>Puluprojects</em> back then. Later I've written texts about <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>">other subjects</a> too. So basically I wanted to build a platform to publish my own writings.</p>
+<p>My first article (<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litres of Pepsi and Sony Vaio S5</a>) was written in January 2006. The project, which the article is discussing, was a primary reason to create this site. It was called <em>Puluprojects</em> back then. Later I've written texts about <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>">other subjects</a> too. So basically I wanted to build a platform to publish my own writings.</p>
 <?php endif ?>
 
 <?php if ($currentLocale == 'fi'): ?>
 <p>Seuraavien vuosien aikana valmistuin, sain töitä web-alan ohjelmistosuunnittelijana ja kirjoittelin noin neljän artikkelin vuosivauhdilla uusia tekstejä. Julkaisualusta oli ollut alusta asti turhan kömpelö, mutta vasta vuoden 2012 jälkimmäisellä puoliskolla löysin viimein aikaa alkaa uudistaa sivustoa. Ja oikeastaan silloinkin ensisijainen syy oli halu kokeilla <a href="http://symfony.com/">Symfony2 PHP Frameworkia</a> käytännössä, jonka ensimmäiseksi harjoitusprojektiksi valitsin tämän sivuston siirtämisen uudelle alustalle. Samalla sivuston uudeksi nimeksi tuli Pulupalsta.</p>
 <?php else: ?>
-<p>During the next years I graduated, got a full-time web developer job and wrote circa four articles each year. The platform wasn't great when I created it first time but it still took six years to finally improve the system. And actually even then the main reason was to try out <a href="http://symfony.com/">Symfony2 PHP Framework</a> in practice. Upgrading Puluprojects was a good exercise. Then the name was also changed to Pulupalsta.</p>
+<p>During the next years I graduated, got a full-time web developer job and wrote circa four articles each year. The platform wasn't great from the maintaining point of view when I created it first time but it still took me six years to finally improve the system. And actually even then the main reason was to try out <a href="http://symfony.com/">Symfony2 PHP Framework</a> in practice. Upgrading Puluprojects was a good exercise. Then the name was also changed to Pulupalsta.</p>
 <?php endif ?>
 
 <p><a href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/text/CHANGELOG.md') ?>">CHANGELOG.md</a></p>
 
 <h2><?php echo $view['translator']->trans('Miten') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
-<p style="margin-bottom: 5px">Sivusto on rakennettu seuraavien teknologioiden varaan:</p>
+<p style="margin-bottom: 5px">Pulupalstan lähdekoodi on <a href="https://github.com/lassiheikkinen/pulupalsta">GitHub</a>-palvelussa. Sivusto on rakennettu seuraavien teknologioiden varaan:</p>
 <?php else: ?>
-<p style="margin-bottom: 5px">The site is built on:</p>
+<p style="margin-bottom: 5px">The source of Pulupalsta can be read in <a href="https://github.com/lassiheikkinen/pulupalsta">GitHub</a>. The site is built on:</p>
 <?php endif ?>
 <ul class="square">
     <li><a href="http://www.debian.org/">Debian</a></li>
