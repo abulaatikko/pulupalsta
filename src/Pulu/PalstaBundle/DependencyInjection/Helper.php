@@ -127,4 +127,9 @@ class Helper extends BaseHelper {
         return $html;
     }
 
+    public function startsWithUpperCase($str) {
+        $chr = mb_substr ($str, 0, 1, "UTF-8");
+        return mb_strtolower($chr, "UTF-8") != $chr;
+    }
+
 }

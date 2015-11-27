@@ -38,7 +38,7 @@
     if (Modernizr.touch) {
         $(window).load(function () {
             setTimeout(function () {
-                window.scrollTo(0, 1);
+                //window.scrollTo(0, 1);
             }, 0);
         });
     }
@@ -150,8 +150,18 @@ $(document).ready(function() {
         }
     });
     var init_beer_select = $beerSelect.attr('data-init_beer');
-    if (typeof init_beer_select !== undefined && init_beer_select != "") {console.log('HERE');
+    if (typeof init_beer_select !== undefined && init_beer_select != "") {
         $beerSelect.val(init_beer_select).change();
     }
+
+    // Toggle keywords
+    var $toggleKeywords = $('#toggleKeywords');
+    $toggleKeywords.click(function() {
+        var currentText = $toggleKeywords.html();
+        var altText = $toggleKeywords.attr('data-alt-text');
+        $toggleKeywords.html(altText);
+        $toggleKeywords.attr('data-alt-text', currentText);
+        $('tr[data-special="1"]').toggle();
+    });
 
 });
