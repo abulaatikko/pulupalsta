@@ -45,11 +45,11 @@ div.alert-box, div.notice-box   {padding: 16px; font-size: 22px; line-height: 1.
 
 /* Datatables JS */
 .dataTable th                           {cursor: pointer;}
-.dataTable tr.even .sorting_1           {background-color: #e3d7e3;}
-.dataTable tr.odd .sorting_1            {background-color: #f5eff5;}
+/*.dataTable tr.even .sorting_1           {background-color: #e3d7e3;}*/
+/*.dataTable tr.odd .sorting_1            {background-color: #f5eff5;}*/
 .dataTable th.sorting                   {background: url('../images/icons/14_sort_updown.png') no-repeat scroll right center #E2B2E4;}
-.dataTable th.sorting_asc               {background: url('../images/icons/14_sort_up.png') no-repeat scroll right center #E2B2E4;}
-.dataTable th.sorting_desc              {background: url('../images/icons/14_sort_down.png') no-repeat scroll right center #E2B2E4;}
+.dataTable th.sorting_asc               {background: url('../images/icons/14_sort_up.png') no-repeat scroll right center #B86FC5;}
+.dataTable th.sorting_desc              {background: url('../images/icons/14_sort_down.png') no-repeat scroll right center #B86FC5;}
 
 table a, .tabs-content a, #navigation a, ul.breadcrumbs a {
     text-decoration: none;
