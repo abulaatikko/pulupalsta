@@ -51,10 +51,10 @@
     </div>
     <div class="row">
         <div class="two columns">
-            <label>Nimi</label>
+            <label>Nimi <span class="required">*</span></label>
         </div>
         <div class="ten columns">
-            <input type="text" name="name" value="" />
+            <input type="text" name="name" value="" required />
         </div>
     </div>
     <div class="row">
@@ -83,10 +83,10 @@
     </div>
     <div class="row">
         <div class="two columns">
-            <label>Juotu (VVVV-KK-PP)</label>
+            <label>Juotu (VVVV-KK-PP) <span class="required">*</span></label>
         </div>
         <div class="ten columns">
-            <input type="text" name="drunk" value="" />
+            <input type="text" name="drunk" value="" required />
         </div>
     </div>
     <div class="row">
@@ -146,4 +146,4 @@
     <a class="close-reveal-modal">&#215;</a>
 </div>
 
-<?php $view['slots']->stop() ?>    
+<?php $view['slots']->stop() ?>
