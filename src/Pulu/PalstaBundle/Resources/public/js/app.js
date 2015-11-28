@@ -219,12 +219,11 @@ $(document).ready(function() {
             var el, id = $(this.element).data('title-id');
             if (id) {
                 el = $('#' + id);
-
                 if (el.length) {
                     this.title = el.html();
                 }
             }
-        }
+        },
     });
 
     // Beer tasting
@@ -248,6 +247,13 @@ $(document).ready(function() {
         beerTastingTable.fnSort([[0, 'desc']]);
     }
 
+});
+
+$(window).load(function() {
+    var thisHash = window.location.hash;
+    if (window.location.hash.indexOf('#img-') === 0) {
+        $(thisHash + ' .fancybox').trigger('click');
+    }
 });
 
 function getParameterByName(name) {
