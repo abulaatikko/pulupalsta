@@ -249,7 +249,39 @@ $(document).ready(function() {
 
     // Municipality
     $('#sortByImageTaken').bind('click', function() {
-        console.log('byImageTaken');
+        var me = $(this);
+        var direction = me.attr('data-direction');
+        me.attr('data-direction', -1 * direction);
+        var images = $('#signImagesContainer').children('.imgContainer').get();
+        images.sort(function(a, b) {
+            var $a = $(a);
+            var $b = $(b);
+            var aTaken = $a.attr('data-sortby-taken');
+            var bTaken = $b.attr('data-sortby-taken');
+            if (aTaken == bTaken) {
+                var aName = $a.attr('data-sortby-name');
+                var bName = $b.attr('data-sortby-name');
+                return +aName < +bName ? direction * 1 : direction * -1;
+            }
+            return aTaken < bTaken ? direction * 1 : direction * -1;
+        });
+        $.each(images, function(i, e) {
+            $('#signImagesContainer').append(e);
+        });
+    });
+    $('#sortByName').bind('click', function() {
+        var me = $(this);
+        var direction = me.attr('data-direction');
+        me.attr('data-direction', -1 * direction);
+        var images = $('#signImagesContainer').children('.imgContainer').get();
+        images.sort(function(a, b) {
+            var aName = $(a).attr('data-sortby-name');
+            var bName = $(b).attr('data-sortby-name');
+            return +aName < +bName ? direction * 1 : direction * -1;
+        });
+        $.each(images, function(i, e) {
+            $('#signImagesContainer').append(e);
+        });
     });
 
 });
