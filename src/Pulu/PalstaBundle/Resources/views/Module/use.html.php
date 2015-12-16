@@ -17,15 +17,14 @@
             <div>
                 <label>SQL-skeema</label>
                 
-<?php if ($module->getType() == $module::TYPE_ADMIN_BEER_TASTING): ?>
 <textarea style="height: 300px" class="fixed-font"><?php echo $sql ?></textarea>
-<? endif ?>
 
             </div>
         </div>
     </div>
     <?php else: ?>
 
+        <?php if ($module->getType() == $module::TYPE_ADMIN_BEER_TASTING): ?>
     <div class="row">
         <div class="twelve columns">
     
@@ -130,6 +129,7 @@
     <input class="button" type="submit" value="Tallenna" />
     <input class="alert button right" id="deleteConfirmation" type="submit" value="Poista" style="display: none" />
     </form>
+        <? endif ?>
     <? endif ?>
 
 <?php $view['slots']->stop('body') ?>

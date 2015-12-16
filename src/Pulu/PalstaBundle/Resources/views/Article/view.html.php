@@ -115,6 +115,10 @@ function getImage($filename, $width = null, $height = null) {
     $source = $basepath . $filename;
     $destination = $basepath . $dimensions . '/' . $filename;
 
+    if (! file_exists($source)) {
+        return false;
+    }
+
     if (! file_exists($destination)) {
         if (! file_exists(dirname($destination))) {
             mkdir(dirname($destination), 0777, true);
@@ -174,6 +178,10 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
     $mediaPath = $mediaUrl;
     $hash = md5($original_url);
     $shortHash = substr($hash, 0, 6);
+
+    if (empty($original_url) || empty($display_url)) {
+        return '';
+    }
 
     $captionWithoutHtml = $caption;
     $originalText = $currentLocale == 'fi' ? 'originaali' : 'original';

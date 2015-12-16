@@ -27,7 +27,8 @@ class ModuleType extends AbstractType {
             ))
             ->add('type', 'choice', array(
                 'choices' => array(
-                    Module::TYPE_ADMIN_BEER_TASTING => 'admin-beer-tasting'
+                    Module::TYPE_ADMIN_BEER_TASTING => 'admin-beer-tasting',
+                    Module::TYPE_ADMIN_MUNICIPALITY => 'admin-municipality',
                 ),
                 'required' => true,
                 'label' => 'Tyyppi'

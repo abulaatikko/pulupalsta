@@ -247,6 +247,11 @@ $(document).ready(function() {
         beerTastingTable.fnSort([[0, 'desc']]);
     }
 
+    // Municipality
+    $('#sortByImageTaken').bind('click', function() {
+        console.log('byImageTaken');
+    });
+
 });
 
 $(window).load(function() {

@@ -144,6 +144,12 @@ class ModuleController extends Controller {
                     }
                 }
             }
+        } else if ($moduleType == Module::TYPE_ADMIN_MUNICIPALITY) {
+            $tablesExist = $repository->moduleSQLExists(Module::TYPE_ADMIN_MUNICIPALITY);
+
+            if (! $tablesExist) {
+                $sql = $repository->getModuleSQL(Module::TYPE_ADMIN_MUNICIPALITY);
+            }
         }
 
         return $this->render('PuluPalstaBundle:Module:use.html.php', array(

@@ -6,6 +6,7 @@ use \Pulu\PalstaBundle\Entity\Article;
 class Module {
 
     const TYPE_ADMIN_BEER_TASTING = 1;
+    const TYPE_ADMIN_MUNICIPALITY = 2;
 
     protected $id;
     protected $article;

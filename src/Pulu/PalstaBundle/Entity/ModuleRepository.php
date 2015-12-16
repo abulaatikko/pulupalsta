@@ -6,15 +6,26 @@ use Doctrine\ORM\EntityRepository;
 
 class ModuleRepository extends EntityRepository {
 
-    public function moduleSQLExists($type = Module::TYPE_ADMIN_BEER_TASTING) {
-        return $this->getEntityManager()->getConnection()->getSchemaManager()->tablesExist(array('module_beer', 'module_beer_style', 'module_beer_country'));
+    public function moduleSQLExists($type) {
+        if ($type == Module::TYPE_ADMIN_BEER_TASTING) {
+            return $this->getEntityManager()->getConnection()->getSchemaManager()->tablesExist(array(
+                'module_beer',
+                'module_beer_style',
+                'module_beer_country'
+            ));
+        } else if ($type == Module::TYPE_ADMIN_MUNICIPALITY) {
+            return $this->getEntityManager()->getConnection()->getSchemaManager()->tablesExist(array(
+                'module_municipality',
+                'module_municipality_sign_image'
+            ));
+        }
+        return false;
     }
 
-    public function getModuleSQL($type = Module::TYPE_ADMIN_BEER_TASTING) {
+    public function getModuleSQL($type) {
 
         switch ($type) {
             case Module::TYPE_ADMIN_BEER_TASTING:
-            default:
                 return trim(
 "CREATE TABLE module_beer (
   id SERIAL,
@@ -45,6 +56,25 @@ CREATE TABLE module_beer_style (
   PRIMARY KEY (id)
 );"
                 );
+                break;
+            case Module::TYPE_ADMIN_MUNICIPALITY:
+                return trim(
+"CREATE TABLE module_municipality (
+  id SERIAL,
+  name VARCHAR NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE module_municipality_sign_image (
+  id SERIAL,
+  municipality_id INTEGER NOT NULL,
+  filename VARCHAR NOT NULL,
+  taken TIMESTAMP(0) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (municipality_id) REFERENCES module_municipality (id) ON DELETE SET NULL
+);"
+            );
+            default:
                 break;
         }
 
@@ -129,4 +159,9 @@ CREATE TABLE module_beer_style (
         return $stm->$fetchMethod();
     }
 
+    public function getMunicipalitiesWithSignImages() {
+        $sql = "SELECT A.*, B.* FROM module_municipality A JOIN module_municipality_sign_image B ON (B.municipality_id = A.id) ORDER BY A.Name COLLATE \"fi_FI\" ASC";
+        $stm = $this->getEntityManager()->getConnection()->query($sql);
+        return $stm->fetchAll();
+    }
 }
