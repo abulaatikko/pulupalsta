@@ -143,6 +143,7 @@
     '@PuluPalstaBundle/Resources/public/js/codemirror_htmlmixed.js',
     '@PuluPalstaBundle/Resources/public/js/codemirror_clike.js',    
     '@PuluPalstaBundle/Resources/public/js/codemirror_php.js',
+    '@PuluPalstaBundle/Resources/public/js/codemirror_js.js',
     '@PuluPalstaBundle/Resources/public/js/admin.js'
     )) as $url): ?>
     <script src="<?php echo $view->escape($url) ?>"></script>

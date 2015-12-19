@@ -85,7 +85,7 @@ $(document).ready(function() {
     var textarea1 = $('#article_localizations_0_body').get(0);
     if (typeof textarea1 != "undefined") {
         var CM1 = CodeMirror.fromTextArea(textarea1, {
-            mode: "application/x-httpd-php",
+            mode: "htmlmixed",
             smartIndent: false,
             indentUnit: 4,
             indentWithTabs: true,
@@ -96,7 +96,7 @@ $(document).ready(function() {
     var textarea2 = $('#article_localizations_1_body').get(0);
         if (typeof textarea2 != "undefined") {
         var CM2 = CodeMirror.fromTextArea(textarea2, {
-            mode: "application/x-httpd-php",
+            mode: "htmlmixed",
             smartIndent: false,
             indentUnit: 4,
             indentWithTabs: true,

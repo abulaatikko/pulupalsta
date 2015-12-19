@@ -164,4 +164,11 @@ CREATE TABLE module_municipality_sign_image (
         $stm = $this->getEntityManager()->getConnection()->query($sql);
         return $stm->fetchAll();
     }
+
+    public function getNewMunicipalitySignImagesPerDay() {
+        $sql = "SELECT COUNT(*) AS count, DATE_TRUNC('DAY', taken) AS day FROM module_municipality_sign_image GROUP BY day ORDER BY day";
+        $stm = $this->getEntityManager()->getConnection()->query($sql);
+        return $stm->fetchAll();
+    }
+
 }
