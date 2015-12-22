@@ -72,6 +72,31 @@ CREATE TABLE module_municipality_sign_image (
   taken TIMESTAMP(0) NOT NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (municipality_id) REFERENCES module_municipality (id) ON DELETE SET NULL
+);
+
+CREATE TABLE module_municipality_building (
+  id SERIAL,
+  research_id INTEGER,
+  municipality_id INTEGER NOT NULL,
+  built TIMESTAMP(0) NULL,
+  built_precision INTEGER NULL,
+  demolished TIMESTAMP(0) NULL,
+  demolished_precision INTEGER NULL,
+  deployed TIMESTAMP(0) NULL,
+  deployed_precision INTEGER NULL,
+  obsoleted TIMESTAMP(0) NULL,
+  obsoleted_precision INTEGER NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (municipality_id) REFERENCES module_municipality (id) ON DELETE SET NULL
+);
+
+CREATE TABLE module_municipality_building_image (
+  id SERIAL,
+  building_id INTEGER NULL,
+  filename VARCHAR NOT NULL,
+  taken TIMESTAMP(0) NOT NULL,
+  PRIMARY KEY (id),
+  FOREIGN KEY (building_id) REFERENCES module_municipality_building (id) ON DELETE SET NULL
 );"
             );
             default:
@@ -167,6 +192,31 @@ CREATE TABLE module_municipality_sign_image (
 
     public function getNewMunicipalitySignImagesPerDay() {
         $sql = "SELECT COUNT(*) AS count, DATE_TRUNC('DAY', taken) AS day FROM module_municipality_sign_image GROUP BY day ORDER BY day";
+        $stm = $this->getEntityManager()->getConnection()->query($sql);
+        return $stm->fetchAll();
+    }
+
+    public function getBuildingImages() {
+        $sql = "
+        SELECT
+            A.name, B.built, B.deployed, C.filename, C.taken
+        FROM
+            module_municipality A
+        JOIN
+            module_municipality_building B ON (B.municipality_id = A.id)
+        JOIN
+            module_municipality_building_image C ON (C.building_id = B.id)
+        WHERE
+            C.building_id IS NOT NULL
+        ORDER BY
+            A.name COLLATE \"fi_FI\" ASC
+        ";
+        $stm = $this->getEntityManager()->getConnection()->query($sql);
+        return $stm->fetchAll();
+    }
+
+    public function getNewMunicipalityBuildingImagesPerDay() {
+        $sql = "SELECT COUNT(*) AS count, DATE_TRUNC('DAY', taken) AS day FROM module_municipality_building_image GROUP BY day ORDER BY day";
         $stm = $this->getEntityManager()->getConnection()->query($sql);
         return $stm->fetchAll();
     }

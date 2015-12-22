@@ -252,7 +252,7 @@ $(document).ready(function() {
         var me = $(this);
         var direction = me.attr('data-direction');
         me.attr('data-direction', -1 * direction);
-        var images = $('#signImagesContainer').children('.imgContainer').get();
+        var images = $('#municipalityImagesContainer').children('.imgContainer').get();
         images.sort(function(a, b) {
             var $a = $(a);
             var $b = $(b);
@@ -266,21 +266,43 @@ $(document).ready(function() {
             return aTaken < bTaken ? direction * 1 : direction * -1;
         });
         $.each(images, function(i, e) {
-            $('#signImagesContainer').append(e);
+            $('#municipalityImagesContainer').append(e);
         });
     });
     $('#sortByName').bind('click', function() {
         var me = $(this);
         var direction = me.attr('data-direction');
         me.attr('data-direction', -1 * direction);
-        var images = $('#signImagesContainer').children('.imgContainer').get();
+        var images = $('#municipalityImagesContainer').children('.imgContainer').get();
         images.sort(function(a, b) {
             var aName = $(a).attr('data-sortby-name');
             var bName = $(b).attr('data-sortby-name');
             return +aName < +bName ? direction * 1 : direction * -1;
         });
         $.each(images, function(i, e) {
-            $('#signImagesContainer').append(e);
+            $('#municipalityImagesContainer').append(e);
+        });
+    });
+    $('#sortByBuildingBuilt').bind('click', function() {
+        var me = $(this);
+        var direction = me.attr('data-direction');
+        me.attr('data-direction', -1 * direction);
+        var images = $('#municipalityImagesContainer').children('.imgContainer').get();
+        images.sort(function(a, b) {
+            var aBuilt = $(a).attr('data-sortby-built');
+            var bBuilt = $(b).attr('data-sortby-built');
+            if (aBuilt != "" && bBuilt != "") {
+                return +aBuilt < +bBuilt ? direction * 1 : direction * -1;
+            } else {
+                if (aBuilt == "") {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+        });
+        $.each(images, function(i, e) {
+            $('#municipalityImagesContainer').append(e);
         });
     });
 
