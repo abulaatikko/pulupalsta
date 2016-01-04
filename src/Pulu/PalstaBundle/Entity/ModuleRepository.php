@@ -199,7 +199,7 @@ CREATE TABLE module_municipality_building_image (
     public function getBuildingImages() {
         $sql = "
         SELECT
-            A.name, B.built, B.deployed, C.filename, C.taken
+            A.name, B.built, B.built_precision, B.deployed, B.deployed_precision, C.filename, C.taken
         FROM
             module_municipality A
         JOIN
