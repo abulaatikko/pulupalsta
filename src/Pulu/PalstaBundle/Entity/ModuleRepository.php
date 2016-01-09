@@ -206,8 +206,6 @@ CREATE TABLE module_municipality_building_image (
             module_municipality_building B ON (B.municipality_id = A.id)
         JOIN
             module_municipality_building_image C ON (C.building_id = B.id)
-        WHERE
-            C.building_id IS NOT NULL
         ORDER BY
             A.name COLLATE \"fi_FI\" ASC
         ";
