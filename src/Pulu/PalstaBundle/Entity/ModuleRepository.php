@@ -99,7 +99,7 @@ CREATE TABLE module_municipality_building (
   obsoleted_precision INTEGER NULL,
   PRIMARY KEY (municipality_id, building_id),
   FOREIGN KEY (municipality_id) REFERENCES module_municipality (id) ON DELETE CASCADE,
-  FOREIGN KEY (building_id) REFERENCES module_building (id) ON DELETE CASCADE,
+  FOREIGN KEY (building_id) REFERENCES module_building (id) ON DELETE CASCADE
 );
 
 CREATE TABLE module_building_image (
@@ -211,13 +211,15 @@ CREATE TABLE module_building_image (
     public function getBuildingImages() {
         $sql = "
         SELECT
-            A.name, B.built, B.built_precision, B.deployed, B.deployed_precision, C.filename, C.taken
+            A.name, C.built, C.built_precision, B.deployed, B.deployed_precision, D.filename, D.taken
         FROM
             module_municipality A
         JOIN
-            module_building B ON (B.municipality_id = A.id)
+            module_municipality_building B ON (B.municipality_id = A.id)
         JOIN
-            module_building_image C ON (C.building_id = B.id)
+            module_building C ON (C.id = B.building_id)
+        JOIN
+            module_building_image D ON (D.building_id = C.id)
         ORDER BY
             A.name COLLATE \"fi_FI\" ASC
         ";
