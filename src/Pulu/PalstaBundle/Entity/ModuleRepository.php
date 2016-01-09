@@ -92,7 +92,7 @@ CREATE TABLE module_municipality_building (
 
 CREATE TABLE module_municipality_building_image (
   id SERIAL,
-  building_id INTEGER NULL,
+  building_id INTEGER NOT NULL,
   filename VARCHAR NOT NULL,
   taken TIMESTAMP(0) NOT NULL,
   PRIMARY KEY (id),
