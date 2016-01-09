@@ -65,7 +65,7 @@ CREATE TABLE module_beer_style (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE module_municipality_sign_image (
+CREATE TABLE module_sign_image (
   id SERIAL,
   municipality_id INTEGER NOT NULL,
   filename VARCHAR NOT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE module_municipality_sign_image (
   FOREIGN KEY (municipality_id) REFERENCES module_municipality (id) ON DELETE SET NULL
 );
 
-CREATE TABLE module_municipality_building (
+CREATE TABLE module_building (
   id SERIAL,
   research_id INTEGER,
   municipality_id INTEGER NOT NULL,
@@ -90,13 +90,25 @@ CREATE TABLE module_municipality_building (
   FOREIGN KEY (municipality_id) REFERENCES module_municipality (id) ON DELETE SET NULL
 );
 
-CREATE TABLE module_municipality_building_image (
+CREATE TABLE module_municipality_building (
+  municipality_id INTEGER NOT NULL,
+  building_id INTEGER NOT NULL,
+  deployed TIMESTAMP(0) NULL,
+  deployed_precision INTEGER NULL,
+  obsoleted TIMESTAMP(0) NULL,
+  obsoleted_precision INTEGER NULL,
+  PRIMARY KEY (municipality_id, building_id),
+  FOREIGN KEY (municipality_id) REFERENCES module_municipality (id) ON DELETE CASCADE,
+  FOREIGN KEY (building_id) REFERENCES module_building (id) ON DELETE CASCADE,
+);
+
+CREATE TABLE module_building_image (
   id SERIAL,
   building_id INTEGER NOT NULL,
   filename VARCHAR NOT NULL,
   taken TIMESTAMP(0) NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (building_id) REFERENCES module_municipality_building (id) ON DELETE SET NULL
+  FOREIGN KEY (building_id) REFERENCES module_building (id) ON DELETE SET NULL
 );"
             );
             default:
@@ -185,13 +197,13 @@ CREATE TABLE module_municipality_building_image (
     }
 
     public function getMunicipalitiesWithSignImages() {
-        $sql = "SELECT A.*, B.* FROM module_municipality A JOIN module_municipality_sign_image B ON (B.municipality_id = A.id) ORDER BY A.Name COLLATE \"fi_FI\" ASC";
+        $sql = "SELECT A.*, B.* FROM module_municipality A JOIN module_sign_image B ON (B.municipality_id = A.id) ORDER BY A.Name COLLATE \"fi_FI\" ASC";
         $stm = $this->getEntityManager()->getConnection()->query($sql);
         return $stm->fetchAll();
     }
 
     public function getNewMunicipalitySignImagesPerDay() {
-        $sql = "SELECT COUNT(*) AS count, DATE_TRUNC('DAY', taken) AS day FROM module_municipality_sign_image GROUP BY day ORDER BY day";
+        $sql = "SELECT COUNT(*) AS count, DATE_TRUNC('DAY', taken) AS day FROM module_sign_image GROUP BY day ORDER BY day";
         $stm = $this->getEntityManager()->getConnection()->query($sql);
         return $stm->fetchAll();
     }
@@ -203,9 +215,9 @@ CREATE TABLE module_municipality_building_image (
         FROM
             module_municipality A
         JOIN
-            module_municipality_building B ON (B.municipality_id = A.id)
+            module_building B ON (B.municipality_id = A.id)
         JOIN
-            module_municipality_building_image C ON (C.building_id = B.id)
+            module_building_image C ON (C.building_id = B.id)
         ORDER BY
             A.name COLLATE \"fi_FI\" ASC
         ";
@@ -214,7 +226,7 @@ CREATE TABLE module_municipality_building_image (
     }
 
     public function getNewMunicipalityBuildingImagesPerDay() {
-        $sql = "SELECT COUNT(*) AS count, DATE_TRUNC('DAY', taken) AS day FROM module_municipality_building_image GROUP BY day ORDER BY day";
+        $sql = "SELECT COUNT(*) AS count, DATE_TRUNC('DAY', taken) AS day FROM module_building_image GROUP BY day ORDER BY day";
         $stm = $this->getEntityManager()->getConnection()->query($sql);
         return $stm->fetchAll();
     }
