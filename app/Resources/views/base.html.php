@@ -77,7 +77,7 @@
 </div><!-- Language switch row ends -->
 
 <!-- Main heading -->
-<p id="title">Pulupalsta</p>
+<p id="title"><?php echo $view['translator']->trans('Kirjoituksia') ?></p>
 <p id="slogan"><?php echo $view['translator']->trans('Palstan hoitoa jo vuodesta 2006') ?></p>
 
 <!-- Navigation row -->
