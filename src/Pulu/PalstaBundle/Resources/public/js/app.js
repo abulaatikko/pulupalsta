@@ -306,6 +306,26 @@ $(document).ready(function() {
         });
     });
 
+    // Raport history, show more
+    $('ul.show-more').each(function() {
+        var $e = $(this);
+        var limit = $e.data('limit');
+        var lis = $e.find('li');
+        $.each(lis, function(i, e) {
+            if (i < limit) {
+                $(e).show();
+            } else {
+                $(e).hide();
+            }
+        });
+        $e.show();
+        $('#showMore').show();
+    });
+    $('#showMore a').bind('click', function() {
+        $('ul.show-more').find('li').show();
+        $('#showMore').hide();
+    });
+
 });
 
 $(window).load(function() {
