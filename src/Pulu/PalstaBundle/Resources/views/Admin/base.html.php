@@ -51,6 +51,7 @@
     }
     .CodeMirror pre {font-size: 12px;}
     .CodeMirror-linenumber {font-size: 12px;}
+    #article_localizations_1_teaser {height: 200px;}
     </style>
 </head>
 <body>

@@ -233,4 +233,25 @@ CREATE TABLE module_building_image (
         return $stm->fetchAll();
     }
 
+    public function getMunicipalitiesWithoutBuildingImage() {
+        $sql = "
+        SELECT
+            A.name
+        FROM
+            module_municipality A
+        WHERE
+            id NOT IN (
+                SELECT
+                    B.municipality_id
+                FROM
+                    module_municipality_building B
+                JOIN
+                    module_building C ON (B.building_id = C.id)
+                JOIN
+                    module_building_image D ON (C.id = D.building_id)
+            );";
+        $stm = $this->getEntityManager()->getConnection()->query($sql);
+        return $stm->fetchAll();
+    }
+
 }
