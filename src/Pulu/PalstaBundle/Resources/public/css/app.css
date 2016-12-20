@@ -156,7 +156,7 @@ ol li   {margin-bottom: 15px;}
     border-radius: 4px;
     font-family: 'courier new'; 
     line-height: 1.2;
-    overflow-y: auto;
+    overflow-y: scroll;
 }
 code {
     font-size: 18px;
