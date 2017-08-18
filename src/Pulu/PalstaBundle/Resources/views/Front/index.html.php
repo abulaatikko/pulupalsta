@@ -11,7 +11,7 @@
 <h1><?php echo $view['translator']->trans('Tervetuloa') ?>! <a style="float: right" href="<?php echo $view['router']->generate('pulu_palsta_list') ?>#feeds" title="<?php echo $view['translator']->trans('RSS-syötteet') ?>"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="<?php echo $view['translator']->trans('RSS-syötteet') ?>" /></a></h1>
 
 <?php if ($currentLocale == 'fi'): ?>
-<p><em>Pulupalsta</em> on kokoelma allekirjoittaneen eri aiheisia kirjoituksia eri elämänalueilta ja aikakausilta. Kirjoituksissa käsitellään pääasiassa henkilökohtaisia asioita, mutta tavoite on saada aikaiseksi myös laajempaa merkittävyyttä. Uudelle lukijalle suosittelen lukemaan jonkin <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'visit')) ?>">suosituimmista kirjoituksista</a>.</p>
+<p><em>Pulupalsta</em> on kokoelma allekirjoittaneen eri aiheisia kirjoituksia eri elämänalueilta ja aikakausilta. Kirjoituksissa käsitellään pääasiassa henkilökohtaisia asioita, mutta tavoite on saada aikaiseksi myös laajempaa merkittävyyttä. Uudelle lukijalle suosittelen lukemaan jonkin <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'visit')) ?>">luetuimmista kirjoituksista</a>.</p>
 
 <p>Kiitän mielenkiinnosta, ja erityisesti jos heität arvosanan tai kommentin kirjoituksen luettuasi.</p>
 <? else: ?>
@@ -26,7 +26,7 @@
 <div class="row">
     <div class="six columns" id="visited-articles">
 
-<h3><?php echo $view['translator']->trans('Suosituimmat kirjoitukset') ?></h3>
+<h3><?php echo $view['translator']->trans('Luetuimmat kirjoitukset') ?></h3>
 
 <table class="wide">
 <thead>
