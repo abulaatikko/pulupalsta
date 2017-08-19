@@ -83,7 +83,7 @@ h5 {font-size: 16px;}
 h6 {font-size: 14px;}
 
 dl {margin-top: 0; margin-bottom: 20px;}
-dt {font-style:italic; font-weight: 700;  line-height: 1.5;}
+dt {font-style: italic; font-weight: 700; line-height: 1.5;}
 dd {margin-left: 40px; line-height: 1.5;}
 
 dl.tabs.pill dd.active a {

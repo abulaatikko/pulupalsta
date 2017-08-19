@@ -8,18 +8,18 @@
 
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
-<h1><?php echo $view['translator']->trans('Tervetuloa') ?>! <a style="float: right" href="<?php echo $view['router']->generate('pulu_palsta_list') ?>#feeds" title="<?php echo $view['translator']->trans('RSS-syötteet') ?>"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="<?php echo $view['translator']->trans('RSS-syötteet') ?>" /></a></h1>
+<h1><?php echo $view['translator']->trans('Tervehdys') ?>! <a style="float: right" href="<?php echo $view['router']->generate('pulu_palsta_list') ?>#feeds" title="<?php echo $view['translator']->trans('RSS-syötteet') ?>"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="<?php echo $view['translator']->trans('RSS-syötteet') ?>" /></a></h1>
 
 <?php if ($currentLocale == 'fi'): ?>
-<p><em>Pulupalsta</em> on kokoelma allekirjoittaneen eri aiheisia kirjoituksia eri elämänalueilta ja aikakausilta. Kirjoituksissa käsitellään pääasiassa henkilökohtaisia asioita, mutta tavoite on saada aikaiseksi myös laajempaa merkittävyyttä. Uudelle lukijalle suosittelen lukemaan jonkin <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'visit')) ?>">luetuimmista kirjoituksista</a>.</p>
+<p><em>Pulupalsta</em> on kirjoituskokoelma, missä matkailusta, terveydestä, jopa taiteista kiinnostunut insinöörihenkinen kanssaeläjäsi kertoilee elämänsä huippuhetkistä sekä yrittää tarkastella kriittisesti yleismaailmallisempiakin aiheita. Uudelle vierailijalle voi suositella <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'visit')) ?>">luetuimpia kirjoituksia</a>.</p>
 
-<p>Kiitän mielenkiinnosta, ja erityisesti jos heität arvosanan tai kommentin kirjoituksen luettuasi.</p>
+<p>Allekirjoittanut kiittää mielenkiinnostasi - erityisesti, kun lähestyt kommentilla tai arvosanalla.</p>
 <? else: ?>
-<p><em>Pulupalsta</em> is a collection of articles which discuss topics ranging different aspects of life in different eras. At the moment the articles mainly discuss my personal life but the humble goal is to achieve more relevancy for other people as well. If you are a new visitor I recommend you to read some of <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'visit')) ?>">the most popular articles</a>.</p>
+<p><em>Pulupalsta</em> is an article collection where an engineer minded individual, interested in travelling, well being, even art, narrate top moments of his personal life but also discuss more universal topis. For a new visitor <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'visit')) ?>">the most read articles</a> are recommended.</p>
 
-<p>Unfortunately most of the articles are only in Finnish so you need to rely on the automatic translation or just look at the images.</p>
+<p>Unfortunately most of the articles are in Finnish so you need to rely on the automatic translation or just look at the images.</p>
 
-<p>I appreciate your interest and especially if you rate or comment the article after reading it.</p>
+<p>Your interest is appreciated - especially when you approach by a comment or rating.</p>
 <? endif; ?>
 
 <!-- Popular/Recent articles -->

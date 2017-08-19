@@ -9,10 +9,9 @@
 <h1><?php echo $view['translator']->trans('Avainsanahakemisto') ?></h1>
 
 <?php if ($currentLocale == 'fi'): ?>
-<p>Vähintään kahdessa artikkelissa käytetyt avainsanat listattuna aakkosjärjestykseen. Avainsanan alla
-artikkelit on järjestetty julkaisuajankohdan mukaan.</p>
+<p>Vähintään kahdessa artikkelissa käytetyt avainsanat ovat alapuolella listattuna aakkosjärjestykseen. Avainsanan alla artikkelit taasen ovat järjestetty julkaisuajankohdan mukaan.</p>
 <? else: ?>
-<p>An alphabetic list of the keywords used at least in two articles. The article lists under the keywords
+<p>An alphabetic list of the keywords used at least in two articles is below. The article lists under the keywords
 are sorted by the publish dates of the articles.</p>
 <? endif ?>
 
