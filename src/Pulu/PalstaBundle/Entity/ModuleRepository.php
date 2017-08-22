@@ -77,15 +77,10 @@ CREATE TABLE module_sign_image (
 CREATE TABLE module_building (
   id SERIAL,
   research_id INTEGER,
-  municipality_id INTEGER NOT NULL,
   built TIMESTAMP(0) NULL,
   built_precision INTEGER NULL,
   demolished TIMESTAMP(0) NULL,
   demolished_precision INTEGER NULL,
-  deployed TIMESTAMP(0) NULL,
-  deployed_precision INTEGER NULL,
-  obsoleted TIMESTAMP(0) NULL,
-  obsoleted_precision INTEGER NULL,
   PRIMARY KEY (id),
   FOREIGN KEY (municipality_id) REFERENCES module_municipality (id) ON DELETE SET NULL
 );
