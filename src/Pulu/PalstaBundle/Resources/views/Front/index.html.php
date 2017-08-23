@@ -26,24 +26,30 @@
 <div class="row">
     <div class="six columns" id="visited-articles">
 
-<h3><?php echo $view['translator']->trans('Luetuimmat kirjoitukset') ?></h3>
+<h3><?php echo $view['translator']->trans('Suosituimmat kirjoitukset') ?></h3>
 
 <table class="wide">
 <thead>
 <tr>
     <th>#</th>
     <th><?php echo $view['translator']->trans('Kirjoitus') ?></th>
-    <th class="text-right"><?php echo $view['translator']->trans('Vierailuja') ?></th>
+    <th class="text-right nowrap" title="<?php echo $view['translator']->trans('Kuukausivierailujen keskimääräinen lukumäärä julkaisusta lähtien') ?>"><?php echo $view['translator']->trans('Vier. / kk') ?></th>
 </tr>
 </thead>
 
 <tbody>
 <? $i = 1; ?>
 <? foreach ($visitedArticles as $article): ?>
+<? $averageMonthlyVisits = $article->getAverageMonthlyVisits(); ?>
 <tr>
     <td><?php echo $i++ ?>.</td>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($currentLocale)))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
-    <td class="nowrap text-right"><?php echo $article->getVisits(); ?></td>
+    <td class="nowrap text-right"><?php if ($article->getLastMonthVisits() > $averageMonthlyVisits): ?>
+        <span class="positive"><?php echo $averageMonthlyVisits; ?></span>
+<?php else: ?>
+        <span class="negative"><?php echo $averageMonthlyVisits; ?></span>
+<?php endif ?>
+</td>
 </tr>
 <? endforeach ?>
 </tbody>

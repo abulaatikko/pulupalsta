@@ -24,4 +24,15 @@ class VisitRepository extends EntityRepository {
             ->getQuery()->getSingleScalarResult();
     }
 
+    public function getArticleVisitsBetween(Article $article, $from, $to) {
+        return (int) $this->createQueryBuilder('A')
+            ->select("COUNT(A)")
+            ->where("A.article = :article_id AND A.created BETWEEN :from AND :to")
+            ->setParameter(':article_id', $article->getId())
+            ->setParameter(':from', date('Y-m-d H:i:s', $from))
+            ->setParameter(':to', date('Y-m-d H:i:s', $to))
+            ->setMaxResults(1)
+            ->getQuery()->getSingleScalarResult();
+    }
+
 }

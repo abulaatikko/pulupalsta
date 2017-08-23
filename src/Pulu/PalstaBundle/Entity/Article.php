@@ -15,6 +15,8 @@ class Article {
     protected $rating;
     protected $visits;
     protected $old_visits;
+    protected $last_month_visits;
+    protected $average_monthly_visits;
     protected $use_translator;
     protected $is_public;
     protected $access;
@@ -260,6 +262,24 @@ class Article {
 
     public function setOldVisits($oldVisits) {
         $this->old_visits = $oldVisits;
+        return $this;
+    }
+
+    public function getLastMonthVisits() {
+        return $this->last_month_visits;
+    }
+
+    public function setLastMonthVisits($lastMonthVisits) {
+        $this->last_month_visits = $lastMonthVisits;
+        return $this;
+    }
+
+    public function getAverageMonthlyVisits() {
+        return $this->average_monthly_visits;
+    }
+
+    public function setAverageMonthlyVisits($averageMonthlyVisits) {
+        $this->average_monthly_visits = $averageMonthlyVisits;
         return $this;
     }
 

@@ -13,6 +13,7 @@
 <tr>
     <th><?php echo $view['translator']->trans('Kirjoitus') ?></th>
     <th title="<?php echo $view['translator']->trans('Vierailujen lukumäärä') ?>"><?php echo $view['translator']->trans('Vier.') ?></th>
+    <th class="text-right nowrap" title="<?php echo $view['translator']->trans('Kuukausivierailujen keskimääräinen lukumäärä julkaisusta lähtien') ?>"><?php echo $view['translator']->trans('Vier. / kk') ?></th>
     <th title="<?php echo $view['translator']->trans('Arvosana') ?>"><?php echo $view['translator']->trans('Arv.') ?></th>
     <th title="<?php echo $view['translator']->trans('Kommenttien lukumäärä') ?>"><?php echo $view['translator']->trans('Kom.') ?></th>
     <th><?php echo $view['translator']->trans('Kommentoitu') ?></th>
@@ -25,6 +26,7 @@
 <tr>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($app->getRequest()->getLocale())))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
     <td class="text-right"><?php echo $article->getVisits() ?></td>
+    <td class="nowrap text-right"><?php echo $article->getAverageMonthlyVisits(); ?></span></td>
     <td class="text-right"><?php echo $article->getRating() ?></td>
     <td class="text-right"><?php echo $article->getCommentsCount() ?></td>
     <?php $lastCommented = $article->getLastCommented(); ?>
@@ -42,6 +44,7 @@
 
 <p class="table-notes">
     <?php echo $view['translator']->trans('Vier.') ?> = <?php echo $view['translator']->trans('Vierailujen lukumäärä') ?><br />
+    <?php echo $view['translator']->trans('Vier. / kk') ?> = <?php echo $view['translator']->trans('Kuukausivierailujen keskimääräinen lukumäärä julkaisusta lähtien') ?><br />
     <?php echo $view['translator']->trans('Arv.') ?> = <?php echo $view['translator']->trans('Arvosana') ?><br />
     <?php echo $view['translator']->trans('Kom.') ?> = <?php echo $view['translator']->trans('Kommenttien lukumäärä') ?>
 </p>

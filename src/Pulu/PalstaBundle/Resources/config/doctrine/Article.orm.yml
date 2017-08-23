@@ -34,6 +34,14 @@ Pulu\PalstaBundle\Entity\Article:
         old_visits:
             type: integer
             nullable: true
+        last_month_visits:
+            type: integer
+            nullable: true
+        average_monthly_visits:
+            type: decimal
+            precision: 10
+            scale: 2
+            nullable: true
         use_translator:
             type: boolean
             nullable: true

@@ -121,6 +121,30 @@ class ArticleRepository extends EntityRepository {
         return $query->getResult();
     }
 
+    public function findOrderedByAverageMonthlyVisitsForPublic($max = 10, $keyword_id = null) {
+        $lang = $this->getLanguage();
+        $builder = $this->createQueryBuilder('A')
+            ->innerJoin('A.localizations', 'B');
+        if (! empty($keyword_id)) {
+            $builder->innerJoin('A.keywords', 'C');
+        }
+        $where = "A.is_public = TRUE AND A.deleted IS NULL AND B.language = :language AND A.average_monthly_visits IS NOT NULL";
+        if (! empty($keyword_id)) {
+            $where .= " AND C.keyword = :keyword_id";
+        }
+        $builder
+            ->where($where)
+            ->setParameter("language", $lang);
+        if (! empty($keyword_id)) {
+            $builder->setParameter("keyword_id", $keyword_id);
+        }
+        $query = $builder
+            ->orderBy('A.average_monthly_visits', 'DESC')
+            ->setMaxResults($max)
+            ->getQuery();
+        return $query->getResult();
+    }
+
     public function findPreviousArticleRevision() {
         $article = $this->getArticle();
         return $this->createQueryBuilder('A')

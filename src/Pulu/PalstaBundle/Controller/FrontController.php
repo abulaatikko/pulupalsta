@@ -12,7 +12,7 @@ class FrontController extends Controller {
         $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article');
         $repository->setLanguage($R->getLocale());
         $recentArticles = $repository->findOrderedByPublishedForPublic(25);
-        $visitedArticles = $repository->findOrderedByVisitsForPublic(25);
+        $visitedArticles = $repository->findOrderedByAverageMonthlyVisitsForPublic(25);
         $keywords = $this->getKeywords($R);       
 
         return $this->render('PuluPalstaBundle:Front:index.html.php', array(
