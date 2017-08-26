@@ -19,6 +19,9 @@ Pulu\PalstaBundle\Entity\Article:
             type: datetime
         modified:
             type: datetime
+        modified_public:
+            type: datetime
+            nullable: true
         published:
             type: datetime
         deleted:

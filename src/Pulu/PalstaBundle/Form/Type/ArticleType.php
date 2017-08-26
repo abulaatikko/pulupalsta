@@ -32,6 +32,11 @@ class ArticleType extends AbstractType {
                 'format' => 'yyyy-MM-dd HH:mm:ss',
                 'label' => 'Julkaistu',
                 'required' => false))
+            ->add('modified_public', 'datetime', array(
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd HH:mm:ss',
+                'label' => 'Muokattu (julkinen)',
+                'required' => false))
             ->add('access', 'choice', array(
                 'label' => 'Lukuoikeus',
                 'choices' => array(

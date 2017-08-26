@@ -82,6 +82,7 @@
     <?php echo $view['form']->row($form['keyword_' . $i . '_weight']) ?>
     </div>
     <div class="three columns">
+    <?php echo $view['form']->row($form['modified_public']) ?>
     </div>
     <div class="three columns">
     </div>

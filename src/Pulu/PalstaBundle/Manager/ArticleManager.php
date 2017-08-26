@@ -224,4 +224,33 @@ class ArticleManager {
         return $output;
     }
 
+    public function saveModifiedPublic() {
+        $article = $this->getArticle();
+        $bodyFI = $article->getBody('fi');
+        $bodyEN = $article->getBody('en');
+
+        preg_match_all("/(artikkelihistoria|article_history)(.|\s)*?<\/ul>/", $bodyFI . $bodyEN, $articleHistoryMatches, PREG_SET_ORDER, 0);
+
+        foreach ($articleHistoryMatches as $articleHistoryMatch) {
+            preg_match_all("/[0-9]{4}-[0-9]{2}-[0-9]{2}/", $articleHistoryMatch[0], $dateMatches, PREG_SET_ORDER, 0);
+
+            $modifiedPublic = null;
+            foreach ($dateMatches as $dateMatch) {
+                $dateMatch = strtotime($dateMatch[0]);
+                if ($dateMatch > $modifiedPublic) {
+                    $modifiedPublic = $dateMatch;
+                }
+            }
+        }
+
+        if (!empty($modifiedPublic)) {
+            $date = new \DateTime();
+            $date->setTimestamp($modifiedPublic);
+            $article->setModifiedPublic($date);
+            $em = $this->getEntityManager();
+            $em->persist($article);
+            $em->flush();
+        }
+    }
+
 }

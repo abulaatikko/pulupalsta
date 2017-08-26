@@ -22,6 +22,7 @@ class Article {
     protected $access;
     protected $created;
     protected $modified;
+    protected $modified_public;
     protected $published;
     protected $deleted;
 
@@ -102,13 +103,22 @@ class Article {
         return $this->created;
     }
 
+    public function getModified() {
+        return $this->modified;
+    }
+
     public function setModified() {
         $this->modified = new \DateTime('now');
         return $this;
     }
 
-    public function getModified() {
-        return $this->modified;
+    public function getModifiedPublic() {
+        return $this->modified_public;
+    }
+
+    public function setModifiedPublic($modified_public) {
+        $this->modified_public = $modified_public;
+        return $this;
     }
 
     public function setPublished($published) {

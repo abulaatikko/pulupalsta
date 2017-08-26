@@ -95,6 +95,7 @@ class AdminController extends Controller {
                 $articleManager = new ArticleManager($article);
                 $articleManager->setEntityManager($em);
                 $articleManager->saveRevision();
+                $articleManager->saveModifiedPublic();
 
                 $this->get('session')->getFlashBag()->add('notice', 'Artikkeli tallennettu');
             } else {

@@ -35,7 +35,7 @@
     <? else: ?>
     <td></td>
     <? endif ?>
-    <td class="text-right"><?php echo $article->getModified()->format('Y-m-d') ?></td>
+    <td class="text-right"><?php echo $article->getModifiedPublic()->format('Y-m-d') ?></td>
     <td class="nowrap text-right"><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
 </tr>
 <? endforeach ?>
