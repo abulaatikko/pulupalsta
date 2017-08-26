@@ -34,7 +34,7 @@
 <p>During the next years I graduated, got a full-time job and wrote circa four articles each year. The platform wasn't great from the maintaining point of view when I created it first time but it still took me six years to finally improve the system. And actually even then the main reason was to try out <a href="http://symfony.com/">Symfony2 PHP Framework</a> in practice. Upgrading Puluprojects was a good exercise. The name was also changed to Pulupalsta back then.</p>
 <?php endif ?>
 
-<p><a href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/text/CHANGELOG.md') ?>">CHANGELOG.md</a></p>
+<p><a href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/text/CHANGELOG.txt') ?>">CHANGELOG.txt</a></p>
 
 <h2><?php echo $view['translator']->trans('Miten') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
