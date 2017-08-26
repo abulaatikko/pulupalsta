@@ -1,7 +1,7 @@
 // https://deanhume.com/Home/BlogPost/lazy-loading-images-using-intersection-observer/10163
 
 // Get all of the images that are marked up to lazy load
-const images = document.querySelectorAll('.js-lazy-image');
+const images = Array.from(document.querySelectorAll('.js-lazy-image'));
 const config = {
   // If the image gets within 50px in the Y axis, start the download.
   rootMargin: '50px 0px',
@@ -13,7 +13,7 @@ let observer;
 
 // If we don't have support for intersection observer, loads the images immediately
 if (!('IntersectionObserver' in window)) {
-  Array.from(images).forEach(image => preloadImage(image));
+  images.forEach(image => preloadImage(image));
 } else {
   // It is supported, load the images
   observer = new IntersectionObserver(onIntersection, config);
@@ -57,7 +57,7 @@ function preloadImage(image) {
  * @param {array} images 
  */
 function loadImagesImmediately(images) {
-  Array.from(images).forEach(image => preloadImage(image));
+  images.forEach(image => preloadImage(image));
 }
 
 /**
