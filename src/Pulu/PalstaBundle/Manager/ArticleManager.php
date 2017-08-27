@@ -229,7 +229,7 @@ class ArticleManager {
         $bodyFI = $article->getBody('fi');
         $bodyEN = $article->getBody('en');
 
-        preg_match_all("/(artikkelihistoria|article_history)(.|\s)*?<\/ul>/", $bodyFI . $bodyEN, $articleHistoryMatches, PREG_SET_ORDER, 0);
+        preg_match_all("/(artikkelihistoria|article_history|article-history)(.|\s)*?<\/ul>/", $bodyFI . $bodyEN, $articleHistoryMatches, PREG_SET_ORDER, 0);
 
         foreach ($articleHistoryMatches as $articleHistoryMatch) {
             preg_match_all("/[0-9]{4}-[0-9]{2}-[0-9]{2}/", $articleHistoryMatch[0], $dateMatches, PREG_SET_ORDER, 0);
