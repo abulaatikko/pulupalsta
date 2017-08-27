@@ -11,7 +11,7 @@
 <h1><?php echo $view['translator']->trans('Tervehdys') ?>! <a style="float: right" href="<?php echo $view['router']->generate('pulu_palsta_list') ?>#feeds" title="<?php echo $view['translator']->trans('RSS-syötteet') ?>"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="<?php echo $view['translator']->trans('RSS-syötteet') ?>" /></a></h1>
 
 <?php if ($currentLocale == 'fi'): ?>
-<p><em>Pulupalsta</em> on kirjoituskokoelma, missä matkailusta, terveydestä, jopa taiteista kiinnostunut insinöörihenkinen kanssaeläjäsi kertoilee elämänsä huippuhetkistä sekä yrittää tarkastella kriittisesti yleismaailmallisempiakin aiheita.</p>
+<p><em>Pulupalsta</em> on kirjoituskokoelma, missä matkailusta, hyvinvoinnista ja jopa taiteista kiinnostunut insinöörihenkinen kanssaeläjäsi kertoilee elämänsä hupihetkistä sekä yrittää tarkastella kriittisesti yleismaailmallisempiakin aiheita.</p>
 
 <p>Allekirjoittanut kiittää mielenkiinnostasi - erityisesti, kun lähestyt kommentilla tai tähtiarviolla.</p>
 <? else: ?>
@@ -19,7 +19,7 @@
 
 <p>Unfortunately most of the articles are in Finnish so you need to rely on the automatic translation or just look at the images.</p>
 
-<p>Your interest is appreciated - especially when you approach by a comment or rating.</p>
+<p>Your interest is appreciated - especially when you approach by a comment or a star rating.</p>
 <? endif; ?>
 
 <!-- Popular/Recent articles -->
