@@ -314,7 +314,8 @@ form.custom .custom.disabled { background-color: #ddd; }
 
 .pull-ten { right: 83.33333%; }
 
-img, object, embed { max-width: 100%; height: auto; }
+img, object, embed { max-width: 100%; }
+object, embed { height: auto; }
 
 object, embed { height: 100%; }
 

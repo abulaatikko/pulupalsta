@@ -204,6 +204,12 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
     if (is_null($alt)) {
         $alt = mb_substr($desc, 40);
     }
+    if (!empty($dimensions[0])) {
+        $out .= ' width="' . $dimensions[0] . '" ';
+    }
+    if (!empty($dimensions[1])) {
+        $out .= ' height="' . $dimensions[1] . '" ';
+    }
     $out .= ' class="js-lazy-image" data-src="' . $mediaPath . $display_url . '" alt="' . $alt . '" /></a>';
     if (! $is_thumb) {
         $out .= '<p>' . $captionWithoutHtml . '</p>';
