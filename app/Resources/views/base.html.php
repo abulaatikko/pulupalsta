@@ -83,6 +83,7 @@
 <!-- Navigation row -->
 <div class="row">
     <div class="twelve columns">
+        <div id="navigation-row">
 
 <ul id="navigation">
     <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_front' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_front') ?>"><?php echo $view['translator']->trans('Etusivu') ?></a></li>
@@ -93,6 +94,7 @@
     <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_about' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_about') ?>"><?php echo $view['translator']->trans('Hä') ?>?</a></li>
 </ul>
 
+        </div>
     </div>
 </div><!-- Navigation ends -->
 
