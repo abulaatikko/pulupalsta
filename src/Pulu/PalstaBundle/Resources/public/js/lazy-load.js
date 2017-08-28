@@ -4,7 +4,7 @@
 const images = Array.from(document.querySelectorAll('.js-lazy-image'));
 const config = {
   // If the image gets within 50px in the Y axis, start the download.
-  rootMargin: '50px 0px',
+  rootMargin: '500px 0px',
   threshold: 0.01
 };
 
