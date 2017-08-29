@@ -33,7 +33,7 @@
 <tr>
     <th>#</th>
     <th><?php echo $view['translator']->trans('Kirjoitus') ?></th>
-    <th class="text-right nowrap" title="<?php echo $view['translator']->trans('Kuukausivierailujen keskimääräinen lukumäärä julkaisusta lähtien') ?>"><?php echo $view['translator']->trans('Vier. (per kk)') ?></th>
+    <th class="text-right nowrap" title="<?php echo $view['translator']->trans('Vierailut yhteensä / kuukausivierailut julkaisusta lähtien') ?>"><?php echo $view['translator']->trans('Vier. / per kk') ?></th>
 </tr>
 </thead>
 
@@ -44,7 +44,7 @@
 <tr>
     <td><?php echo $i++ ?>.</td>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($currentLocale)))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
-    <td class="nowrap text-right"><?php echo $article->getVisits(); ?> (<?php echo floor($averageMonthlyVisits); ?>)</td>
+    <td class="nowrap text-right"><?php echo $article->getVisits(); ?> / <?php echo floor($averageMonthlyVisits); ?></td>
 </tr>
 <? endforeach ?>
 </tbody>
