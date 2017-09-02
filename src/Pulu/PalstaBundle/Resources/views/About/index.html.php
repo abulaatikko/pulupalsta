@@ -10,9 +10,9 @@
 
 <h2><?php echo $view['translator']->trans('Mitä ja miksi') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
-<p><em>Pulupalsta</em> sisältää tarinoita elämästäni, joita mielelläni muistelen. Haaveilen että kirjoituksillani olisi joskus yleismaailmallisempaakin merkittävyyttä, mutta nykymaailman informaatiotulvassa ei ole sijaa keskinkertaisille kirjoituksille. Pitää siis tavoitella priimaa!</p>
+<p><em>Pulupalsta</em> sisältää tarinoita elämästäni, joita mielelläni muistelen. Haaveilen että kirjoituksillani olisi joskus suurempaakin merkittävyyttä, mutta se ei ole nykymaailman informaatiotulvassa aivan helppoa. Tavoiteltakoon siis priimaa!</p>
 <?php else: ?>
-<p><em>Pulupalsta</em> (lit. <em>dove's column</em>) contains stories of my personal life which are, in my opinion, worth telling. The goal is to discuss also more universal topics but because the world is overfilled by very interesting information, there is no room for bad articles. So let's go for the top!</p>
+<p><em>Pulupalsta</em> (lit. <em>dove's column</em>) contains stories of my personal life which are, in my opinion, worth telling. The goal is to produce interesting information for wider audience too but it's not easy in the world which is already overfilled by high-quality information. The only way is to go for the top!</p>
 <?php endif ?>
 
 <?php if ($currentLocale == 'fi'): ?>
