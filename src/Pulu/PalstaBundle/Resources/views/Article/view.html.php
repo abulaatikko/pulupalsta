@@ -126,6 +126,8 @@ function getImage($filename, $width = null, $height = null) {
 
         if (strtolower($extension) == 'png') {
             $source_handle = imagecreatefrompng($source);
+        } else if (strtolower($extension) == 'gif') {
+            $source_handle = imagecreatefromgif($source);
         } else {
             $source_handle = imagecreatefromjpeg($source);
         }
