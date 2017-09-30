@@ -15,6 +15,7 @@ security:
             memory:
                 users:
                     friend: { password: %password.friend%, roles: [ 'ROLE_FRIEND'] }
+                    across: { password: %password.across%, roles: [ 'ROLE_FRIEND'] }
                     admin: { password: %password.admin%, roles: [ 'ROLE_ADMIN' ] }
 
     firewalls:

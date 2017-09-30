@@ -174,7 +174,8 @@ table#comments td small {white-space: nowrap;}
 
 div.imgContainer        {margin: 0 auto 20px auto; max-width: 100%;}
 .imgContainer img,
-.imgContainer iframe    {border: 2px solid #515151; padding: 2px; margin: 0 auto;}
+.imgContainer iframe,
+.imgContainer video     {border: 2px solid #515151; padding: 2px; margin: 0 auto;}
 .imgContainer iframe    {max-width: 100%;}
 .imgContainer p         {text-align: left; font-size: 80%; margin-top: 0}
 div.thumbsContainer     {text-align: center;}
