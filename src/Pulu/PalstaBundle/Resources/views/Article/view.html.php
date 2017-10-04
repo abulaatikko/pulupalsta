@@ -171,7 +171,7 @@ function getImage($filename, $width = null, $height = null) {
     return $dir . $dimensions . '/' . $filename;
 }
 
-function displayImage($filename, $width = null, $height = null, $caption = "", $alt = "", $is_thumb = false, $thumb_identifier = null) {
+function displayImage($filename, $width = null, $height = null, $caption = "", $alt = "", $is_thumb = false, $thumb_identifier = null, $show_caption = true) {
     global $currentLocale;
     global $mediaUrl;
 
@@ -193,7 +193,7 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
     $dimensions = getimagesize($mediaPath . $display_url);
     $width = ! empty($dimensions[0]) ? $dimensions[0] : $width;
     if (! empty($width)) {
-        $out .= 'width: ' . ($width + 8). 'px;';
+        $out .= 'width: ' . $width. 'px;';
     }
     if ($is_thumb) {
         $out .= 'margin: 0px 10px 10px 0px; display: inline-block;';
@@ -213,7 +213,7 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
         $out .= ' height="' . $dimensions[1] . '" ';
     }
     $out .= ' class="js-lazy-image" data-src="' . $mediaPath . $display_url . '" alt="' . $alt . '" /></a>';
-    if (! $is_thumb) {
+    if (! $is_thumb || $show_caption) {
         $out .= '<p>' . $captionWithoutHtml . '</p>';
     }
     $out .= '</div>';
@@ -233,7 +233,8 @@ function displayThumbs($images = array()) {
         $param3 = isset($image[2]) ? $image[2] : '';
         $param4 = isset($image[3]) ? $image[3] : '';
         $param5 = isset($image[4]) ? $image[4] : '';
-        $out .= displayImage($param1, $param2, $param3, $param4, $param5, true, $thumb_identifier);
+        $param6 = isset($image[5]) ? $image[5] : false;
+        $out .= displayImage($param1, $param2, $param3, $param4, $param5, true, $thumb_identifier, $param6);
     }
     $out .= '</div><div style="clear: both"></div>';
     return $out;
