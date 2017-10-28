@@ -224,7 +224,7 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
     return $out;
 }
 
-function displayThumbs($images = array()) {
+function displayThumbs($images = array(), $clear = true) {
     $out = '<div class="thumbsContainer">';
     $thumb_identifier = md5(serialize($images));
     foreach ($images as $image) {
@@ -236,7 +236,10 @@ function displayThumbs($images = array()) {
         $param6 = isset($image[5]) ? $image[5] : false;
         $out .= displayImage($param1, $param2, $param3, $param4, $param5, true, $thumb_identifier, $param6);
     }
-    $out .= '</div><div style="clear: both"></div>';
+    $out .= '</div>';
+    if ($clear) {
+        $out .= '<div style="clear: both"></div>';
+    }
     return $out;
 }
 ?>
