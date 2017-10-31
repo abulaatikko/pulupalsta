@@ -242,6 +242,35 @@ function displayThumbs($images = array(), $clear = true) {
     }
     return $out;
 }
+
+function createRecplay($id, $replays, $level, $caption = '', $dimensions = array()) {
+    $width = !empty($dimensions['width']) ? $dimensions['width'] : 512;
+    $height = !empty($dimensions['height']) ? $dimensions['height'] : 384;
+    $cssWidth = $width + 8; // because of 2px border and 2px margin
+    $cssHeight = $height + 8;
+            
+    $title = '';
+    if (count($replays) > 1) {
+        foreach ($replays as $replay) {
+            $text = !empty($replay['text']) ? $replay['text'] : $replay['file'];
+            $title .= '<input type="checkbox" checked value="' . $replay['file'] . '">' . $text;
+        }
+    } else {
+        $title .= $replays[0]['file'] . '<input type="hidden" value="' . $title . '">';
+    }
+    
+    $levelFilename = is_integer($level) ? 'qwquu0' . $level . '.lev' : $level;
+
+    $out = '';
+    $out .= '<div class="recplay" id="' . $id . '" data-level="' . $levelFilename . '" data-width="' . $width . '" data-height="' . $height . '">';
+    $out .= '<div class="centered imgContainer" style="width: ' . $cssWidth . 'px;">';
+    $out .= '<p class="header"><span class="title">' . $title . '</span></p>';
+    $out .= '<div class="placeholder" style="height: ' . $cssHeight . 'px; width: ' . $cssWidth . 'px"><div class="toggle" style="width: ' . ($width) . 'px; height: ' . ($height - 14) . 'px; top: 14px; position: absolute;"></div></div>';
+    $out .= '<p>' . $caption . '</p>';
+    $out .= '</div></div>';
+    
+    return $out;
+}
 ?>
 
 <? eval('?>' . $body . '<?php '); ?>

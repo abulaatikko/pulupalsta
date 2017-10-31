@@ -175,10 +175,22 @@ table#comments td small {white-space: nowrap;}
 div.imgContainer        {margin: 0 auto 20px auto; max-width: 100%;}
 .imgContainer img,
 .imgContainer iframe,
+.recplay .imgContainer .placeholder,
 .imgContainer video     {border: 2px solid #515151; padding: 2px; margin: 0 auto;}
 .imgContainer iframe    {max-width: 100%;}
 .imgContainer p         {text-align: left; font-size: 80%; margin-top: 0}
 div.thumbsContainer     {display: flex; justify-content: center; flex-wrap: wrap;}
+
+.recplay .placeholder   {
+    position: relative;
+    opacity: 1;
+    background:
+        content-box no-repeat center url('../images/icons/play.svg'),
+        content-box repeat center url('../images/recplay-placeholder.jpg');
+    background-size: 200px, auto;
+}
+.recplay .placeholder:hover {opacity: 0.90;}
+.recplay .header {text-align: center; margin: 0;}
 
 .fade-in {
     animation-name: fadeIn;
