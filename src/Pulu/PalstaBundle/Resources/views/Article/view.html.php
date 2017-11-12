@@ -51,7 +51,7 @@ ul          {list-style: square; margin: 5px 0px 0px 30px}
 <div class="alert-box">Valitettavasti artikkelista ei löydy suomenkielistä käännöstä<?php if ($article->getUseTranslator() === true): ?>, mutta ainahan voit avata sivun <a href="http://translate.google.com/translate?sl=en&tl=fi&ie=UTF-8&u=<?php echo urlencode($view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'en')), true)) ?>">Google Translatorin</a> kautta<? endif ?>.</div>
     <? else: ?>
         <? $body = $article->getBody('fi'); ?>
-<div class="alert-box">Unfortunately an English translation doesn't exist<?php if ($article->getUseTranslator() === true): ?> but you can probably get a clue from looking at the <a href="http://translate.google.com/translate?sl=fi&tl=en&ie=UTF-8&u=<?php echo urlencode($view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'fi')), true)) ?>">Google Translator</a> version<? endif ?>.</div>
+<div class="alert-box">Unfortunately an English translation doesn't exist<?php if ($article->getUseTranslator() === true): ?> but you can probably get a clue by looking at the <a href="http://translate.google.com/translate?sl=fi&tl=en&ie=UTF-8&u=<?php echo urlencode($view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'fi')), true)) ?>">Google Translator</a> version<? endif ?>.</div>
     <? endif ?>
 <? endif ?>
 
@@ -243,26 +243,28 @@ function displayThumbs($images = array(), $clear = true) {
     return $out;
 }
 
-function createRecplay($id, $replays, $level, $caption = '', $dimensions = array()) {
-    $width = !empty($dimensions['width']) ? $dimensions['width'] : 512;
-    $height = !empty($dimensions['height']) ? $dimensions['height'] : 384;
+function createRecplay($id, $replays, $level, $caption = '', $options = array()) {
+    $width = !empty($options['width']) ? $options['width'] : 512;
+    $height = !empty($options['height']) ? $options['height'] : 384;
+    $zoom = !empty($options['zoom']) ? $options['zoom'] : 0;
     $cssWidth = $width + 8; // because of 2px border and 2px margin
     $cssHeight = $height + 8;
-            
+
     $title = '';
     if (count($replays) > 1) {
         foreach ($replays as $replay) {
             $text = !empty($replay['text']) ? $replay['text'] : $replay['file'];
-            $title .= '<input type="checkbox" checked value="' . $replay['file'] . '">' . $text;
+            $title .= '<span class="replay"><input type="checkbox" checked value="' . $replay['file'] . '">' . $text . '</span> ';
         }
     } else {
-        $title .= $replays[0]['file'] . '<input type="hidden" value="' . $title . '">';
+        $text = !empty($replays[0]['text']) ? $replays[0]['text'] : $replays[0]['file'];
+        $title .= $text . '<input type="hidden" value="' . $replays[0]['file'] . '">';
     }
     
-    $levelFilename = is_integer($level) ? 'qwquu0' . $level . '.lev' : $level;
+    $levelFilename = is_integer($level) ? 'qwquu' . str_pad($level, 3, '0', STR_PAD_LEFT) . '.lev' : $level;
 
     $out = '';
-    $out .= '<div class="recplay" id="' . $id . '" data-level="' . $levelFilename . '" data-width="' . $width . '" data-height="' . $height . '">';
+    $out .= '<div class="recplay" id="' . $id . '" data-level="' . $levelFilename . '" data-width="' . $width . '" data-height="' . $height . '" data-zoom="' . $zoom . '">';
     $out .= '<div class="centered imgContainer" style="width: ' . $cssWidth . 'px;">';
     $out .= '<p class="header"><span class="title">' . $title . '</span></p>';
     $out .= '<div class="placeholder" style="height: ' . $cssHeight . 'px; width: ' . $cssWidth . 'px"><div class="toggle" style="width: ' . ($width) . 'px; height: ' . ($height - 14) . 'px; top: 14px; position: absolute;"></div></div>';

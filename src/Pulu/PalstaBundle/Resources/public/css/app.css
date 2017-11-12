@@ -50,6 +50,7 @@ ul#about li.current a       {height: 48px;}
 .nowrap         {white-space: nowrap;}
 .wide           {width: 100%;}
 .fixed-font     {font-family: 'courier new';}
+.no-margin-bottom {margin-bottom: 0px;}
 
 /* Notice/alert message */
 div.alert-box, div.notice-box   {padding: 16px; font-size: 22px; line-height: 1.5; text-shadow: none; color: #edf10a; background-color: #000; margin-top: 15px;}
@@ -191,6 +192,7 @@ div.thumbsContainer     {display: flex; justify-content: center; flex-wrap: wrap
 }
 .recplay .placeholder:hover {opacity: 0.90;}
 .recplay .header {text-align: center; margin: 0;}
+.recplay .header .replay {white-space: pre;}
 
 .fade-in {
     animation-name: fadeIn;
