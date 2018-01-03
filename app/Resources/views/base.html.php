@@ -123,7 +123,7 @@
     </div><!-- twelve columns ends -->
 </div><!-- Contents row ends -->
 
-<p id="copyright">&copy; 2006-<?php echo date('Y'); ?> Lassi Heikkinen</p>
+<p id="copyright">&copy; 2006-<?php echo date('Y'); ?> <a href="https://lassi.pulu.org">Lassi Heikkinen</a></p>
 
         </div><!-- Main wrapper ends -->
     </div><!-- twelve columns ends -->

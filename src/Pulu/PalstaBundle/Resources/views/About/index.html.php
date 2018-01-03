@@ -25,7 +25,7 @@
 <?php if ($currentLocale == 'fi'): ?>
 <p>Kirjoitin ensimmäisen artikkelini (<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litraa Pepsiä ja Sony Vaio S5</a>) tammikuussa 2006. Projekti, jota artikkeli käsittelee, oli pääasiallinen syy silloin <em>Puluprojects</em>-nimellä kulkeneen sivuston tekemiselle. Myöhemmin olen kirjoittanut myös monista muista aiheista.</p>
 <?php else: ?>
-<p>My first article (<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litres of Pepsi and Sony Vaio S5</a>) was written in January 2006. The Pepsi project was the primary reason to create this site, named <em>Puluprojects</em> back then. Later I've produced texts about many other topics too.</p>
+<p>My first article (<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litres of Pepsi and Sony Vaio S5</a>) was written in January 2006. The Pepsi project was the primary reason to create this site, titled <em>Puluprojects</em> back then. Later I've produced texts about many other topics too.</p>
 <?php endif ?>
 
 <?php if ($currentLocale == 'fi'): ?>
