@@ -16,9 +16,9 @@
     <th class="text-right nowrap" title="<?php echo $view['translator']->trans('Kuukausivierailujen keskimääräinen lukumäärä julkaisusta lähtien') ?>"><?php echo $view['translator']->trans('Vier. / kk') ?></th>
     <th title="<?php echo $view['translator']->trans('Arvosana') ?>"><?php echo $view['translator']->trans('Arv.') ?></th>
     <th title="<?php echo $view['translator']->trans('Kommenttien lukumäärä') ?>"><?php echo $view['translator']->trans('Kom.') ?></th>
-    <th><?php echo $view['translator']->trans('Kommentoitu') ?></th>
-    <th><?php echo $view['translator']->trans('Muokattu') ?></th>
-    <th><?php echo $view['translator']->trans('Julkaistu') ?></th>
+    <th class="nowrap"><?php echo $view['translator']->trans('Kommentoitu') ?></th>
+    <th class="nowrap"><?php echo $view['translator']->trans('Muokattu') ?></th>
+    <th class="nowrap"><?php echo $view['translator']->trans('Julkaistu') ?></th>
 </tr>
 </thead>
 <tbody>
@@ -31,11 +31,11 @@
     <td class="text-right"><?php echo $article->getCommentsCount() ?></td>
     <?php $lastCommented = $article->getLastCommented(); ?>
     <?php if ($lastCommented instanceof DateTime): ?>
-    <td class="text-right"><?php echo $lastCommented->format('Y-m-d') ?></td>
+    <td class="nowrap text-right"><?php echo $lastCommented->format('Y-m-d') ?></td>
     <? else: ?>
     <td></td>
     <? endif ?>
-    <td class="text-right"><?php echo $article->getModifiedPublic()->format('Y-m-d') ?></td>
+    <td class="nowrap text-right"><?php echo $article->getModifiedPublic()->format('Y-m-d') ?></td>
     <td class="nowrap text-right"><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
 </tr>
 <? endforeach ?>

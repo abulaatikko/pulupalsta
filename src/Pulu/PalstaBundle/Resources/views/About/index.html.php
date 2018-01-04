@@ -23,7 +23,7 @@
 
 <h2><?php echo $view['translator']->trans('Milloin') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
-<p>Kirjoitin ensimmäisen artikkelini (<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litraa Pepsiä ja Sony Vaio S5</a>) tammikuussa 2006. Projekti, jota artikkeli käsittelee, oli pääasiallinen syy silloin <em>Puluprojects</em>-nimellä kulkeneen sivuston tekemiselle. Myöhemmin olen kirjoittanut myös monista muista aiheista.</p>
+<p>Kirjoitin ensimmäisen artikkelini (<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litraa Pepsiä ja Sony Vaio S5</a>) tammikuussa 2006. Projekti jota artikkeli käsittelee, oli pääasiallinen syy silloin <em>Puluprojects</em>-nimellä kulkeneen sivuston tekemiselle. Myöhemmin olen kirjoittanut myös monista muista aiheista.</p>
 <?php else: ?>
 <p>My first article (<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litres of Pepsi and Sony Vaio S5</a>) was written in January 2006. The Pepsi project was the primary reason to create this site, titled <em>Puluprojects</em> back then. Later I've produced texts about many other topics too.</p>
 <?php endif ?>
@@ -69,7 +69,7 @@ $age = DateTime::createFromFormat('Y-m-d', '1983-02-25', $tz)
 
 <h2><?php echo $view['translator']->trans('Kuka') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
-<p>Nimeni on Lassi Heikkinen ja internet-maailmassa minut tunnetaan myös nimimerkillä Abula. Olen <?php echo $age ?> vuotta vanha ja asun Helsingissä. Olen ammatiltani web-kehittäjä, mutta tällä sivustolla olennaisinta on kuitenkin sisältö. Enemmän tietoa minusta löytyy <a href="http://lassi.pulu.org/">henkilökohtaisilta sivuiltani</a>.</p>
+<p>Nimeni on Lassi Heikkinen ja internet-maailmassa minut tunnetaan myös nimimerkillä Abula. Olen <?php echo $age ?> vuotta vanha ja asun Helsingissä. Olen ammatiltani web-kehittäjä, mutta tällä sivustolla olennaisinta on kuitenkin sisältö. Enemmän tietoa minusta löytyy <a href="http://lassi.pulu.org/">henkilökohtaiselta sivultani</a>.</p>
 <?php else: ?>
 <p>My name is Lassi Heikkinen and I'm also known as Abula in the internet. I'm <?php echo $age ?> years old and living in Helsinki. My profession is a web developer, however, contents is the point of this site. More about me on my <a href="http://lassi.pulu.org/">personal page</a>.</p>
 <?php endif ?>
