@@ -242,7 +242,10 @@ class Article {
 
     public function getCommentsCount() {
         $comments = $this->getComments();
-        return count($comments);
+        $notDeletedComments = $comments->filter(function($comment) {
+            return ! $comment->getDeleted();
+        });
+        return count($notDeletedComments);
     }
 
     public function getLastCommented() {
