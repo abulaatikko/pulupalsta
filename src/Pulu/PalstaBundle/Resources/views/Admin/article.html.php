@@ -24,8 +24,9 @@
 
 <tbody>
 <? foreach ($articles as $article): ?>
+<? $isPublicStyle = $article->isPublic() ? '' : ' style="text-decoration: line-through"'; ?>
 <tr>
-    <td><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_edit', array('id' => $article->getId())) ?>"><?php echo $article->getName() ?></a> (<?php echo $article->getArticleNumber() ?>)</td>
+    <td<?php echo $isPublicStyle ?>><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_edit', array('id' => $article->getId())) ?>"><?php echo $article->getName() ?></a> (<?php echo $article->getArticleNumber() ?>)</td>
     <td class="nowrap"><?php echo $article->getCreated()->format('Y-m-d') ?></td>
     <td class="nowrap"><?php echo $article->getModified()->format('Y-m-d') ?></td>
 </tr>
