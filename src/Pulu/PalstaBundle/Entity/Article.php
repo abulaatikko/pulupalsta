@@ -14,7 +14,7 @@ class Article {
     protected $article_number;
     protected $rating;
     protected $visits;
-    protected $old_visits;
+    protected $old_visits; // from puluprojects
     protected $last_month_visits;
     protected $average_monthly_visits;
     protected $use_translator;
@@ -269,6 +269,7 @@ class Article {
         return $this;
     }
 
+    // from puluprojects
     public function getOldVisits() {
         return $this->old_visits;
     }

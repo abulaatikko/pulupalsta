@@ -1,0 +1,17 @@
+Pulu\PalstaBundle\Entity\VisitPerMonth:
+    type: entity
+    table: visit_per_month
+    repositoryClass: Pulu\PalstaBundle\Entity\VisitPerMonthRepository
+    id:
+        article_id:
+            type: integer
+        month:
+            type: string
+            lenght: 7
+    fields:
+        visits:
+            type: integer
+            nullable: false
+    indexes:
+        visit_per_month_article_idx:
+            columns: [ article_id ]

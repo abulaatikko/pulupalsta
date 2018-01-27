@@ -208,3 +208,11 @@ pulu_palsta_admin_module_use:
         expose: true
     requirements:
         id: \d+
+
+pulu_palsta_admin_api_visit:
+    pattern: /admin/api/visit
+    defaults: { _controller: PuluPalstaBundle:Api:getVisit }
+
+pulu_palsta_admin_visit:
+    pattern: /admin/visit
+    defaults: { _controller: PuluPalstaBundle:Admin:visit }
