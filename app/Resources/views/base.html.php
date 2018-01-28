@@ -123,7 +123,20 @@
     </div><!-- twelve columns ends -->
 </div><!-- Contents row ends -->
 
+<!-- Bottom navigation row -->
+<div class="row">
+    <div class="twelve columns">
+        <div id="bottom-navigation-row">
+
+<ul id="bottom-navigation">
+    <li><a href="javascript:void(0)" onclick="goToTop()"><?php echo $view['translator']->trans('Takaisin ylös') ?></a></li>
+</ul>
 <p id="copyright">&copy; 2006-<?php echo date('Y'); ?> <a href="https://lassi.pulu.org">Lassi Heikkinen</a></p>
+
+        </div>
+    </div>
+</div><!-- Navigation ends -->
+
 
         </div><!-- Main wrapper ends -->
     </div><!-- twelve columns ends -->
@@ -174,6 +187,13 @@ var translations = {
 
 <?php /*<!--<script src="javascripts/foundation.min.js"></script>
 <script src="javascripts/app.js"></script>-->*/ ?>
+
+<script type="text/javascript">
+function goToTop() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
 
 <script type="text/javascript">
 var _gaq=[['_setAccount','UA-10351274-1'],['_trackPageview']];

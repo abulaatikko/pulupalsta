@@ -12,26 +12,32 @@ body			{background: #d2d2d2;}
 }
 #slogan			{font-family: Verdana; font-size: 1.1em; text-align: center; margin-bottom: 5px; color: #999999;}
 
-#copyright		{text-align: right; font-size: 0.9em; margin: 5px -10px; font-family: Verdana; color: #999999;}
+#copyright		{text-align: right; font-size: 0.9em; margin: 0px -10px; padding-top: 5px; font-family: Verdana; color: #999999;}
 #copyright a,
 #copyright a:visited {color: #999999}
 
 /* Top navigation and about */
-#navigation-row             {display: flex; justify-content: space-between; margin-top: 15px;}
+#navigation-row,
+#bottom-navigation-row      {display: flex; justify-content: space-between; margin-top: 15px;}
+#bottom-navigation-row      {margin-top: 0px;}
 
 ul#navigation,
+ul#bottom-navigation,
 ul#about                    {display: flex; list-style: none; margin: 0 -19px 0px -17px;}
 ul#about                    {align-self: flex-end;}
 ul#navigation               {flex-wrap: wrap;}
 
 ul#navigation li,
 ul#about li                 {align-self: flex-end; background-color: #286dd5; margin: 5px 4px 0px 2px;}
+ul#bottom-navigation li     {align-self: flex-end; background-color: #286dd5; margin: 0px 4px 0px 2px;}
 ul#navigation li            {float: left;}
 ul#about li                 {float: right;}
 
 ul#navigation a,
+ul#bottom-navigation a,
 ul#about a                  {color: #fbfbfb; display: block; text-decoration: none; padding: 4px 6px; font: 600 16px Verdana; line-height: 20px;}
 ul#navigation a:hover,
+ul#bottom-navigation a:hover,
 ul#about a:hover            {background-color: #3f87f3;}
 
 ul#navigation li.current,
