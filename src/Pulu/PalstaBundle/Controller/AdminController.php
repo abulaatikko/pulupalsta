@@ -270,4 +270,8 @@ class AdminController extends Controller {
         return $this->render('PuluPalstaBundle:Admin:guide.html.php');
     }
 
+    public function visitAction() {
+        return $this->render('PuluPalstaBundle:Admin:visit.html.php');
+    }
+
 }
