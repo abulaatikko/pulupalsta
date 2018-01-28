@@ -7,12 +7,12 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class CalculateArticleVisitsPerMonthCommand extends ContainerAwareCommand {
+class CalculateArticleVisitsLastMonthCommand extends ContainerAwareCommand {
 
     const DAYS_IN_MONTH = 30;
 
     protected function configure()     {
-        $this->setName('pulupalsta:calculate-article-visit-per-month')->setDescription('Calculate article visits per month');
+        $this->setName('pulupalsta:calculate-article-visit-last-month')->setDescription('Calculate article visits in last month');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output) {
