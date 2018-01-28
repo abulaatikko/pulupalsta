@@ -16,6 +16,12 @@ class ApiController extends Controller {
         $out = array();
         $articles = $articleRepository->findAll();
         foreach ($articles as $article) {
+            if (! $article->isPublic()) {
+                continue;
+            }
+            if (! $article->getAverageMonthlyVisits() < 50) {
+                continue;
+            }
             $visitPerMonthRepository->setArticle($article);
             $visitPerMonths = $visitPerMonthRepository->findVisitsPerMonth();
 
