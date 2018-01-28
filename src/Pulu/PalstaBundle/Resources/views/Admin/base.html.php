@@ -78,7 +78,7 @@
             <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_module_create') ?>">Luo uusi</a></li>
         </ul>
     </li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_visit') ?>">Vierailut</a></li>
+    <li>Vierailut: <a href="<?php echo $view['router']->generate('pulu_palsta_admin_visit') ?>">1</a>, <a href="<?php echo $view['router']->generate('pulu_palsta_admin_visit_average') ?>">2</a></li>
     <!--<li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_account') ?>">Käyttäjät</a></li>
     <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_setting') ?>">Asetukset</a></li>-->
 </ul>

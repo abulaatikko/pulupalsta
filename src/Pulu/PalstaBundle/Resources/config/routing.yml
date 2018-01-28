@@ -216,3 +216,7 @@ pulu_palsta_admin_api_visit:
 pulu_palsta_admin_visit:
     pattern: /admin/visit
     defaults: { _controller: PuluPalstaBundle:Admin:visit }
+
+pulu_palsta_admin_visit_average:
+    pattern: /admin/visit/average
+    defaults: { _controller: PuluPalstaBundle:Admin:visitAverage }

@@ -274,4 +274,8 @@ class AdminController extends Controller {
         return $this->render('PuluPalstaBundle:Admin:visit.html.php');
     }
 
+    public function visitAverageAction() {
+        return $this->render('PuluPalstaBundle:Admin:visit_average.html.php');
+    }
+
 }

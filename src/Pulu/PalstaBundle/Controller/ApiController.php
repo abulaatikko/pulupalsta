@@ -19,7 +19,7 @@ class ApiController extends Controller {
             if (! $article->isPublic()) {
                 continue;
             }
-            if (! $article->getAverageMonthlyVisits() < 50) {
+            if ($article->getAverageMonthlyVisits() < 50) {
                 continue;
             }
             $visitPerMonthRepository->setArticle($article);
