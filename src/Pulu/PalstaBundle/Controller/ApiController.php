@@ -27,6 +27,9 @@ class ApiController extends Controller {
 
             $outVisits = array();
             foreach ($visitPerMonths as $visitPerMonth) {
+                if (strtotime($visitPerMonth['month']) < strtotime('-1 year')) {
+                    continue;
+                }
                 $outVisits[] = array(
                     'month' => $visitPerMonth['month'],
                     'visits' => $visitPerMonth['visits']
