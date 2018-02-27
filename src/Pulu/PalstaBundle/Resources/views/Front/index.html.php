@@ -13,7 +13,7 @@
 <?php if ($currentLocale == 'fi'): ?>
 <p><em>Pulupalsta</em> on kirjoituskokoelma, missä matkailusta, hyvästä elämästä, jopa taiteista kiinnostunut kanssaeläjäsi kertoilee elämänsä huippuhetkistä sekä yrittää tarkastella kriittisesti yleismaailmallisempiakin aiheita.</p>
 
-<p>Allekirjoittanut kiittää mielenkiinnostasi - erityisesti, kun lähestyt kommentilla tai tähtiarviolla.</p>
+<p>Allekirjoittanut kiittää mielenkiinnostasi - erityisesti kun lähestyt kommentilla tai tähtiarviolla.</p>
 <? else: ?>
 <p><em>Pulupalsta</em> is an article collection where your fellow, interested in travelling, well being, even art, narrate top moments of his personal life but also discuss more universal topics.</p>
 
