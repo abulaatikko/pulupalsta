@@ -22,3 +22,19 @@ php app/console doctrine:schema:update --dump-sql
 ```
 
 And add commands to cron.
+
+## Debug
+
+* Use app_dev.php like https://palsta.pulu.org/app_dev.php/fi/1-article-name
+    * needs nginx:
+
+````
+location ~ ^/(app_dev|config)\.php(/|$) {
+    auth_basic "Closed";
+    auth_basic_user_file /etc/nginx/dev_htpasswd;
+
+    include /etc/nginx/fastcgi.conf;
+    fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+    fastcgi_split_path_info ^(.+\.php)(/.*)$;
+}
+````
