@@ -97,6 +97,24 @@ function htmlize($line, $linebreak = true) {
     return $return;
 }
 
+function evalize($body, $article, $doctrine) {
+    global $mediaUrl;
+
+    $hash = md5($body);
+    $dir = '/tmp/palsta-evalized-cache/';
+    if (! file_exists($dir)) {
+        mkdir($dir, 0777, true);
+    }
+    $file = $dir . 'evalized-palsta-article-' . $article->getId() . '-' . $hash;
+    if (! file_exists($file)) {
+        ob_start();
+        eval('?' . '> ' . $body . ' <?php '); // start tag in two parts fixes the syntax highlighting in vim
+        $evalizedBody = ob_get_contents();
+        file_put_contents($file, $evalizedBody);
+    }
+    echo file_get_contents($file);
+}
+
 function getImage($filename, $width = null, $height = null) {
     global $articleNumber;
     global $mediaPath;
@@ -275,7 +293,10 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 }
 ?>
 
-<? eval('?>' . $body . '<?php '); ?>
+<?php
+    echo evalize($body, $article, $doctrine);
+?>
+
 
 <h2 style="margin-bottom: 5px"><?php echo $view['translator']->trans('Arvioi lukemasi') ?></h2>
 
