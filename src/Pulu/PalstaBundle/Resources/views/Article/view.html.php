@@ -7,11 +7,6 @@
 
 <?php $view['slots']->start('body') ?>
 
-<style type="text/css">
-/* Old Puluprojects settings */
-ul          {list-style: square; margin: 5px 0px 0px 30px}
-</style>
-
 <?php if (! $article->getIsPublic()): ?>
     <div class="alert-box secondary" id="hidden-article">PIILOTETTU</div>
 <? endif ?>
