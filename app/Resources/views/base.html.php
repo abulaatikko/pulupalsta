@@ -179,6 +179,7 @@ var translations = {
     '@PuluPalstaBundle/Resources/public/js/jquery.dataTables.js',
     '@PuluPalstaBundle/Resources/public/fancybox/jquery.fancybox.pack.js',
     '@PuluPalstaBundle/Resources/public/js/lazy-load.js',
+    '@PuluPalstaBundle/Resources/public/js/lazy-load-youtube.js',
     '@PuluPalstaBundle/Resources/public/js/app.js'
     )) as $url): ?>
     <script src="<?php echo $view->escape($url) ?>"></script>

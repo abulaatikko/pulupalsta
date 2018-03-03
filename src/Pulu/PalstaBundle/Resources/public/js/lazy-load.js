@@ -2,7 +2,7 @@
 
 // Get all of the images that are marked up to lazy load
 const images = Array.from(document.querySelectorAll('.js-lazy-image'));
-const config = {
+const configV = {
   // If the image gets within 50px in the Y axis, start the download.
   rootMargin: '500px 0px',
   threshold: 0.01
@@ -16,7 +16,7 @@ if (!('IntersectionObserver' in window)) {
   images.forEach(image => preloadImage(image));
 } else {
   // It is supported, load the images
-  observer = new IntersectionObserver(onIntersection, config);
+  observer = new IntersectionObserver(onIntersection, configV);
   images.forEach(image => {
     if (image.classList.contains('js-lazy-image--handled')) {
       return;
