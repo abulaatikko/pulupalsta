@@ -103,7 +103,7 @@ h4 {font-size: 18px;}
 h5 {font-size: 16px;}
 h6 {font-size: 14px;}
 
-ul {margin-bottom: 20px;}
+ul {margin-bottom: 20px; margin-left: 30px; list-style: square;}
 
 dl {margin-top: 0; margin-bottom: 20px;}
 dt {font-style: italic; font-weight: 700; line-height: 1.5;}

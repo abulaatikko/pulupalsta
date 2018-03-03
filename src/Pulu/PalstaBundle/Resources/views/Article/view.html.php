@@ -267,7 +267,12 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
     if (count($replays) > 1) {
         foreach ($replays as $replay) {
             $text = !empty($replay['text']) ? $replay['text'] : $replay['file'];
-            $title .= '<span class="replay"><input type="checkbox" checked value="' . $replay['file'] . '">' . $text . '</span> ';
+            if (isset($replay['checked'])) {
+                $checked = !empty($replay['checked']) ? 'checked' : '';
+            } else {
+                $checked = 'checked';
+            }
+            $title .= '<span class="replay"><input type="checkbox" ' . $checked . ' value="' . $replay['file'] . '">' . $text . '</span> ';
         }
     } else {
         $text = !empty($replays[0]['text']) ? $replays[0]['text'] : $replays[0]['file'];
