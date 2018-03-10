@@ -105,9 +105,10 @@ function evalize($body, $article, $doctrine) {
         ob_start();
         eval('?' . '> ' . $body . ' <?php '); // start tag in two parts fixes the syntax highlighting in vim
         $evalizedBody = ob_get_contents();
+        ob_end_clean();
         file_put_contents($file, $evalizedBody);
     }
-    echo file_get_contents($file);
+    return file_get_contents($file);
 }
 
 function getImage($filename, $width = null, $height = null) {
