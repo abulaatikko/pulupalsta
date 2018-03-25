@@ -38,3 +38,11 @@ location ~ ^/(app_dev|config)\.php(/|$) {
     fastcgi_split_path_info ^(.+\.php)(/.*)$;
 }
 ````
+
+## Troubleshooting
+
+### 1. Remember eval cache
+
+````
+rm -rf /tmp/palsta-evalized-cache/*
+````
