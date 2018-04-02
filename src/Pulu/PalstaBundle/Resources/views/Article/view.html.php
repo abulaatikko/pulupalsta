@@ -258,8 +258,8 @@ function displayThumbs($images = array(), $clear = true) {
 }
 
 function createRecplay($id, $replays, $level, $caption = '', $options = array()) {
-    $width = !empty($options['width']) ? $options['width'] : 512;
-    $height = !empty($options['height']) ? $options['height'] : 384;
+    $width = !empty($options['width']) ? $options['width'] : 480;
+    $height = !empty($options['height']) ? $options['height'] : 360;
     $zoom = !empty($options['zoom']) ? $options['zoom'] : 0;
     $cssWidth = $width + 8; // because of 2px border and 2px margin
     $cssHeight = $height + 8;
