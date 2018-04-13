@@ -6,32 +6,28 @@
 
 <?php $currentLocale = $app->getRequest()->getLocale(); ?>
 
-<h1><?php echo $view['translator']->trans('Tietoa sivustosta') ?></h1>
+<h1><?php echo $view['translator']->trans('Tietoa') ?></h1>
 
 <h2><?php echo $view['translator']->trans('Mitä ja miksi') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
-<p><em>Pulupalsta</em> sisältää tarinoita elämästäni, joita mielelläni muistelen. Haaveilen että kirjoituksillani olisi joskus suurempaakin merkittävyyttä, mutta se ei ole nykymaailman informaatiotulvassa aivan helppoa. Tavoiteltakoon siis priimaa!</p>
-<?php else: ?>
-<p><em>Pulupalsta</em> (lit. <em>dove's column</em>) contains stories of my personal life which are, in my opinion, worth telling. The goal is to produce interesting information for wider audience too but it's not easy in the world which is already overfilled by high-quality information. The only way is to go for the top!</p>
-<?php endif ?>
+<p>Pulupalsta on kokoelma seikkailujani sekä erilaisista tutkielmia. Projekti palvelee myös ammatillista osaamistani, jonka keskiössä web-sivut ovat.</p>
 
-<?php if ($currentLocale == 'fi'): ?>
-<p>Pidän web-sivujen tekemisestä, jota tämä projekti myös palvelee. Lisäksi kirjoittaminen on hyvä tapa jäsentää ajatuksia, mikä taas tukee oppimista.</p>
 <?php else: ?>
-<p>I love creating websites which is major reason for this site. Writing also helps to clarify thoughts which supports learning.</p>
+<p>Pulupalsta (lit. <em>dove's column</em>) is a collection of my adventures and different explorations. The project is also a playground for my professional skills.</p>
+
 <?php endif ?>
 
 <h2><?php echo $view['translator']->trans('Milloin') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
-<p>Kirjoitin ensimmäisen artikkelini (<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litraa Pepsiä ja Sony Vaio S5</a>) tammikuussa 2006. Projekti jota artikkeli käsittelee, oli pääasiallinen syy silloin <em>Puluprojects</em>-nimellä kulkeneen sivuston tekemiselle. Myöhemmin olen kirjoittanut myös monista muista aiheista.</p>
+<p>Kirjoitin ensimmäisen artikkelini (<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litraa Pepsiä ja Sony Vaio S5</a>) tammikuussa 2006. Projekti jota artikkeli käsittelee, oli pääasiallinen syy silloin <em>Puluprojects</em>-nimellä kulkeneen sivuston tekemiselle.</p>
 <?php else: ?>
-<p>My first article (<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litres of Pepsi and Sony Vaio S5</a>) was written in January 2006. The Pepsi project was the primary reason to create this site, titled <em>Puluprojects</em> back then. Later I've produced texts about many other topics too.</p>
+<p>My first article (<a href="http://palsta.pulu.org/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">1500 litres of Pepsi and Sony Vaio S5</a>) was written in January 2006. The Pepsi project was the primary reason to create this site, titled <em>Puluprojects</em> back then.</p>
 <?php endif ?>
 
 <?php if ($currentLocale == 'fi'): ?>
-<p>Julkaisualusta oli aluksi hyvin kömpelö, mutta viimein vuonna 2012 sain aikaa uudistaa sivustoa isolla kädellä, kun oli myös kiinnostus kokeilla jotain modernia PHP-frameworkia käytännön työssä. Samalla sivuston nimi vaihtui Pulupalstaksi.</p>
+<p>Julkaisualusta siirrettiin PHP frameworkin päälle vuonna 2012, jolloin myös nimi vaihtui nykyiseksi.</p>
 <?php else: ?>
-<p>The platform wasn't great in the beginning and it took me six years to finally improve the system. Upgrading the site was also a good exercise to try out a PHP framework in practice. The name was changed to Pulupalsta back then.</p>
+<p>The platform was upgraded to PHP framework in 2012 when the name was also changed to the current one.</p>
 <?php endif ?>
 
 <p><a href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/text/CHANGELOG.txt') ?>">CHANGELOG.txt</a></p>
@@ -55,9 +51,9 @@
 </ul>
 
 <?php if ($currentLocale == 'fi'): ?>
-<p>Avoimen lähdekoodin ohjelmistot ovat ihailtavaa kansalaistoimintaa. Ne antavat uskoa ihmiskuntaan.</p>
+<p>Projektia voi tukea: 19RoPRBgnUzWoQvaJ8hPx8m1yywVcxRs5W (bitcoin).</p>
 <?php else: ?>
-<p>Open source software is something to really admire. There's hope for humanity.</p>
+<p>It's possible to support the project: 19RoPRBgnUzWoQvaJ8hPx8m1yywVcxRs5W (bitcoin).</p>
 <?php endif ?>
 
 <?php
@@ -69,9 +65,9 @@ $age = DateTime::createFromFormat('Y-m-d', '1983-02-25', $tz)
 
 <h2><?php echo $view['translator']->trans('Kuka') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
-<p>Nimeni on Lassi Heikkinen ja internet-maailmassa minut tunnetaan myös nimimerkillä Abula. Olen <?php echo $age ?> vuotta vanha ja asun Helsingissä. Olen ammatiltani web-kehittäjä, mutta tällä sivustolla olennaisinta on kuitenkin sisältö. Enemmän tietoa minusta löytyy <a href="http://lassi.pulu.org/">henkilökohtaiselta sivultani</a>.</p>
+<p>Nimeni on Lassi Heikkinen ja internet-maailmassa minut tunnetaan myös nimimerkillä Abula. Olen <?php echo $age ?> vuotta vanha ja asun Helsingissä. Enemmän tietoa minusta löytyy <a href="http://lassi.pulu.org/">henkilökohtaiselta sivultani</a>.</p>
 <?php else: ?>
-<p>My name is Lassi Heikkinen and I'm also known as Abula in the internet. I'm <?php echo $age ?> years old and living in Helsinki. My profession is a web developer, however, contents is the point of this site. More about me on my <a href="http://lassi.pulu.org/">personal page</a>.</p>
+<p>My name is Lassi Heikkinen and I'm also known as Abula in the internet. I'm <?php echo $age ?> years old and living in Helsinki. More about me on my <a href="http://lassi.pulu.org/">personal page</a>.</p>
 <?php endif ?>
 
 <?php $view['slots']->stop() ?>

@@ -8,18 +8,14 @@
 
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
-<h1><?php echo $view['translator']->trans('Tervehdys') ?>! <a style="float: right" href="<?php echo $view['router']->generate('pulu_palsta_list') ?>#feeds" title="<?php echo $view['translator']->trans('RSS-syötteet') ?>"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="<?php echo $view['translator']->trans('RSS-syötteet') ?>" /></a></h1>
+<h1><?php echo $view['translator']->trans('Terve') ?>! <a style="float: right" href="<?php echo $view['router']->generate('pulu_palsta_list') ?>#feeds" title="<?php echo $view['translator']->trans('RSS-syötteet') ?>"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="<?php echo $view['translator']->trans('RSS-syötteet') ?>" /></a></h1>
 
 <?php if ($currentLocale == 'fi'): ?>
-<p><em>Pulupalsta</em> on kirjoituskokoelma, missä matkailusta, hyvästä elämästä, jopa taiteista kiinnostunut kanssaeläjäsi kertoilee elämänsä huippuhetkistä sekä yrittää tarkastella kriittisesti yleismaailmallisempiakin aiheita.</p>
+<p>Pulupalsta on kokoelma seikkailuja ja tutkielmia, joita yhden aktiivisen miehen elämä on eteen tuonut.</p>
 
-<p>Allekirjoittanut kiittää mielenkiinnostasi - erityisesti kun lähestyt kommentilla tai tähtiarviolla.</p>
 <? else: ?>
-<p><em>Pulupalsta</em> is an article collection where your fellow, interested in travelling, well being, even art, narrate top moments of his personal life but also discuss more universal topics.</p>
+<p>Pulupalsta is a collection of adventures and explorations which one active man has met during his life.</p>
 
-<p>Unfortunately most of the articles are in Finnish so you need to rely on the automatic translation or just look at the images.</p>
-
-<p>Your interest is appreciated - especially when you approach by a comment or a star rating.</p>
 <? endif; ?>
 
 <!-- Popular/Recent articles -->

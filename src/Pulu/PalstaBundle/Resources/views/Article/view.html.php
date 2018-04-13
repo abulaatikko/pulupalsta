@@ -299,7 +299,7 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 ?>
 
 
-<h2 style="margin-bottom: 5px"><?php echo $view['translator']->trans('Arvioi lukemasi') ?></h2>
+<h2 style="margin-bottom: 5px"><?php echo $view['translator']->trans('Tähtiä kiitos') ?>!</h2>
 
 <div id="rating" data-rating="<?php echo $rating ?>">
     <div></div><div></div><div></div><div></div><div></div>
