@@ -56,6 +56,9 @@
     <div class="two columns">
     <?php echo $view['form']->row($form['use_translator']) ?>
     </div>
+    <div class="two columns">
+    <?php echo $view['form']->row($form['language']) ?>
+    </div>
     <div class="one columns">
     <?php echo $view['form']->row($form['is_public']) ?>
     </div>
@@ -64,8 +67,6 @@
     </div>
     <div class="two columns">
     <?php echo $view['form']->row($form['access']) ?>
-    </div>
-    <div class="two columns">
     </div>
     </div>
 

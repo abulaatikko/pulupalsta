@@ -48,6 +48,10 @@ Pulu\PalstaBundle\Entity\Article:
         use_translator:
             type: boolean
             nullable: true
+        language:
+            type: string
+            length: 2
+            nullable: true
         is_public:
             type: boolean
             nullable: true

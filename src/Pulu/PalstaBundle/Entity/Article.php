@@ -18,6 +18,7 @@ class Article {
     protected $last_month_visits;
     protected $average_monthly_visits;
     protected $use_translator;
+    protected $language;
     protected $is_public;
     protected $access;
     protected $created;
@@ -50,6 +51,7 @@ class Article {
         $this->rating = 1.00;
         $this->visits = 0;
         $this->use_translator = false;
+        $this->language = 'fi';
         $this->is_public = false;
         $this->access = self::ACCESS_ADMIN;
     }
@@ -74,6 +76,15 @@ class Article {
     public function setUseTranslator($useTranslator) {
         $this->use_translator = $useTranslator;
         return $this;
+    }
+
+    public function getLanguage() {
+        return $this->language;
+    }
+
+    public function setLanguage($language) {
+        $this->language = $language;
+        return $this->language;
     }
 
     public function getIsPublic() {

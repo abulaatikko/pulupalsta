@@ -24,6 +24,14 @@ class ArticleType extends AbstractType {
             ->add('use_translator', 'checkbox', array(
                 'label' => 'Tarjoa käännöspalvelua',
                 'required' => false))
+            ->add('language', 'choice', array(
+                'label' => 'Kieli',
+                'choices' => array(
+                    'fi' => 'suomi',
+                    'en' => 'englanti',
+                ),
+                'multiple' => false,
+                'expanded' => false))
             ->add('is_public', 'checkbox', array(
                 'label' => 'Listoilla',
                 'required' => false))
