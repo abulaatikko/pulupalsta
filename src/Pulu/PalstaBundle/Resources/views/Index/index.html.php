@@ -42,7 +42,7 @@ $articles = $array->filter(function($article) {
         <h4><?php echo $keyword->getName($currentLocale) ?></h4>
         <ul class="square">
         <? foreach ($articles as $article): ?>
-        <li><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticle()->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getArticle()->getName($currentLocale)))) ?>'><?php echo $article->getArticle()->getName($currentLocale); ?></a></li>
+        <li><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticle()->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getArticle()->getName($currentLocale)))) ?>'><?php echo $article->getArticle()->getName($currentLocale); ?></a> <?php echo $article->getArticle()->getLanguage() === 'fi' ? '🇫🇮' : '🇬🇧' ?></li>
         <? endforeach ?>
         </ul>
     </div>

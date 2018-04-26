@@ -28,7 +28,7 @@
 <thead>
 <tr>
     <th>#</th>
-    <th><?php echo $view['translator']->trans('Kirjoitus') ?></th>
+    <th colspan="2"><?php echo $view['translator']->trans('Kirjoitus') ?></th>
     <th class="text-right nowrap" title="<?php echo $view['translator']->trans('Vierailut yhteensä (Keskimääräiset kuukausivierailut julkaisusta lähtien)') ?>"><?php echo $view['translator']->trans('Vier. (kk)') ?></th>
 </tr>
 </thead>
@@ -40,6 +40,7 @@
 <tr>
     <td><?php echo $i++ ?>.</td>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($currentLocale)))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
+    <td class="centered"><?php echo $article->getLanguage() === 'fi' ? '🇫🇮' :'🇬🇧' ?></td>
     <td class="nowrap text-right"><?php echo $article->getVisits(); ?> (<?php echo floor($averageMonthlyVisits); ?>)</td>
 </tr>
 <? endforeach ?>
@@ -56,7 +57,7 @@
 <thead>
 <tr>
     <th>#</th>
-    <th><?php echo $view['translator']->trans('Kirjoitus') ?></th>
+    <th colspan="2"><?php echo $view['translator']->trans('Kirjoitus') ?></th>
     <th class="text-right"><?php echo $view['translator']->trans('Julkaistu') ?></th>
 </tr>
 </thead>
@@ -66,6 +67,7 @@
 <tr>
     <td><?php echo $i++ ?>.</td>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($currentLocale)))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
+    <td class="centered"><?php echo $article->getLanguage() === 'fi' ? '🇫🇮' :'🇬🇧' ?></td>
     <td class="nowrap text-right"><?php echo $article->getPublished()->format('Y-m-d'); ?></td></tr>
 <? endforeach ?>
 </tbody>
