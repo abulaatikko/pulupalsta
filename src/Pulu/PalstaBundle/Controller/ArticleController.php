@@ -39,7 +39,7 @@ class ArticleController extends Controller {
             throw $this->createAccessDeniedException();
         }
 
-        $comments = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->findByCreated(null, $article->getId(), $R->getLocale(), 'ASC');;
+        $comments = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->findByCreated(null, $article->getId(), null, 'ASC');;
 
         $comment = new Comment();
         $form = $this->createForm(new CommentType(), $comment);
