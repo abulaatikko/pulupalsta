@@ -24,7 +24,7 @@
 <tbody>
 <? foreach ($articles as $article): ?>
 <tr>
-    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($app->getRequest()->getLocale())))) ?>'><?php echo $article->getName($currentLocale); ?></a></td>
+    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()))) ?>'><?php echo $article->getName(); ?></a></td>
     <td class="centered"><?php echo $article->getLanguage() === 'fi' ? '🇫🇮' :'🇬🇧' ?></td>
     <td class="text-right"><?php echo $article->getVisits() ?></td>
     <td class="nowrap text-right"><?php echo $article->getAverageMonthlyVisits(); ?></span></td>

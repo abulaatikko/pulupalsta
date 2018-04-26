@@ -11,10 +11,11 @@
     <div class="alert-box secondary" id="hidden-article">PIILOTETTU</div>
 <? endif ?>
 
-<h1><?php echo $article->getName($currentLocale) ?></h1>
+<h1><?php echo $article->getName() ?></h1>
 
 <div id="article-metadata">
-<strong><?php echo $view['translator']->trans('Arvosana') ?>:</strong> <?php echo $article->getRating() ?>/5
+<strong><?php echo $view['translator']->trans('Kieli') ?>:</strong> <?php echo $article->getLanguage() === 'en' ? '🇬🇧' : '🇫🇮' ?>
+&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Arvosana') ?>:</strong> <?php echo $article->getRating() ?>/5
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Vierailuja') ?>:</strong> <?php echo $article->getVisits() ?>
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Julkaistu') ?>:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Muokattu') ?>:</strong> <?php echo $article->getModifiedPublic()->format('Y-m-d') ?><br />
@@ -37,7 +38,7 @@
 <?php echo implode(', ', $printKeywords) ?>
 </div>
 
-<?php $body = $article->getBody($currentLocale); ?>
+<?php $body = $article->getBody(); ?>
 <?php $route_params = $app->getRequest()->get('_route_params'); ?>
 
 <? if (empty($body)): ?>

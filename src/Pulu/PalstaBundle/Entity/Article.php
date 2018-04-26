@@ -189,7 +189,11 @@ class Article {
         $this->localizations = $localizations;
     }
 
-    public function getLocalization($lang = 'fi') {
+    public function getLocalization($lang) {
+        if (empty($lang)) {
+            $lang = $this->getLanguage();
+        }
+
         $translations = $this->getLocalizations();
         foreach ($translations as $trans) {
             if ($trans->getLanguage() == $lang) {
@@ -308,15 +312,15 @@ class Article {
         return $this;
     }
 
-    public function getName($lang = 'fi') {
+    public function getName($lang = null) {
         return $this->getLocalization($lang)->getName();
     }
 
-    public function getTeaser($lang = 'fi') {
+    public function getTeaser($lang = null) {
         return $this->getLocalization($lang)->getTeaser();
     }
 
-    public function getBody($lang = 'fi') {
+    public function getBody($lang = null) {
         return $this->getLocalization($lang)->getBody();
     }
 
