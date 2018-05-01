@@ -14,7 +14,7 @@
 <h1><?php echo $article->getName() ?></h1>
 
 <div id="article-metadata">
-<strong><?php echo $view['translator']->trans('Kieli') ?>:</strong> <?php echo $article->getLanguage() === 'en' ? '🇬🇧' : '🇫🇮' ?>
+<strong><?php echo $view['translator']->trans('Kieli') ?>:</strong> <img style="height: 12px" class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /> 
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Arvosana') ?>:</strong> <?php echo $article->getRating() ?>/5
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Vierailuja') ?>:</strong> <?php echo $article->getVisits() ?>
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Julkaistu') ?>:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>

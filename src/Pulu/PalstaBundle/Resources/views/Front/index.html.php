@@ -40,7 +40,7 @@
 <tr>
     <td><?php echo $i++ ?>.</td>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()))) ?>'><?php echo $article->getName(); ?></a></td>
-    <td class="centered"><?php echo $article->getLanguage() === 'fi' ? '🇫🇮' :'🇬🇧' ?></td>
+    <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
     <td class="nowrap text-right"><?php echo $article->getVisits(); ?> (<?php echo floor($averageMonthlyVisits); ?>)</td>
 </tr>
 <? endforeach ?>
@@ -67,7 +67,7 @@
 <tr>
     <td><?php echo $i++ ?>.</td>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()))) ?>'><?php echo $article->getName(); ?></a></td>
-    <td class="centered"><?php echo $article->getLanguage() === 'fi' ? '🇫🇮' :'🇬🇧' ?></td>
+    <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
     <td class="nowrap text-right"><?php echo $article->getPublished()->format('Y-m-d'); ?></td></tr>
 <? endforeach ?>
 </tbody>
