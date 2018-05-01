@@ -50,12 +50,6 @@
         <a href="http://fancybox.net/">Fancybox</a></li>
 </ul>
 
-<?php if ($currentLocale == 'fi'): ?>
-<p>Projektia voi tukea: 19RoPRBgnUzWoQvaJ8hPx8m1yywVcxRs5W (bitcoin).</p>
-<?php else: ?>
-<p>It's possible to support the project: 19RoPRBgnUzWoQvaJ8hPx8m1yywVcxRs5W (bitcoin).</p>
-<?php endif ?>
-
 <?php
 $tz  = new DateTimeZone('Europe/Helsinki');
 $age = DateTime::createFromFormat('Y-m-d', '1983-02-25', $tz)
@@ -69,5 +63,12 @@ $age = DateTime::createFromFormat('Y-m-d', '1983-02-25', $tz)
 <?php else: ?>
 <p>My name is Lassi Heikkinen and I'm also known as Abula in the internet. I'm <?php echo $age ?> years old and living in Helsinki. More about me on my <a href="http://lassi.pulu.org/">personal page</a>.</p>
 <?php endif ?>
+
+<?php if ($currentLocale == 'fi'): ?>
+<p>Projektia voi tukea: 19RoPRBgnUzWoQvaJ8hPx8m1yywVcxRs5W (bitcoin).</p>
+<?php else: ?>
+<p>It's possible to support the project: 19RoPRBgnUzWoQvaJ8hPx8m1yywVcxRs5W (bitcoin).</p>
+<?php endif ?>
+
 
 <?php $view['slots']->stop() ?>
