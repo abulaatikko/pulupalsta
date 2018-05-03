@@ -11,10 +11,10 @@
 <h1><?php echo $view['translator']->trans('Terve') ?>! <a style="float: right" href="<?php echo $view['router']->generate('pulu_palsta_list') ?>#feeds" title="<?php echo $view['translator']->trans('RSS-syötteet') ?>"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="<?php echo $view['translator']->trans('RSS-syötteet') ?>" /></a></h1>
 
 <?php if ($currentLocale == 'fi'): ?>
-<p>Pulupalsta on kokoelma seikkailuja ja tutkielmia, joita yhden aktiivisen miehen elämä on eteen tuonut.</p>
+<p>Pulupalsta on kokoelma erilaisia seikkailuja ja tutkielmia, joita yhden aktiivisen miehen elämä on eteen tuonut.</p>
 
 <? else: ?>
-<p>Pulupalsta is a collection of adventures and explorations which one active man has met during his life.</p>
+<p>Pulupalsta is a collection of adventures and explorations which one active man has done during his life.</p>
 
 <? endif; ?>
 
