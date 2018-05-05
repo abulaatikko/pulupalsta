@@ -78,7 +78,7 @@
 
 <!-- Main heading -->
 <p id="title"><?php echo $view['translator']->trans('Pulupalsta') ?></p>
-<p id="slogan"><?php echo $view['translator']->trans('Palstan hoitoa jo vuodesta 2006') ?></p>
+<p id="slogan"><?php echo $view['translator']->trans('Seikkailuja jo vuodesta 2003') ?></p>
 
 <!-- Navigation row -->
 <div class="row">
@@ -90,9 +90,9 @@
     <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_list' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_list') ?>"><?php echo $view['translator']->trans('Sisällysluettelo') ?></a></li>
     <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_index' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_index') ?>"><?php echo $view['translator']->trans('Avainsanahakemisto') ?></a></li>
 </ul>
-<ul id="about">
+<!--<ul id="about">
     <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_about' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_about') ?>">?</a></li>
-</ul>
+</ul>-->
 
         </div>
     </div>

@@ -10,10 +10,10 @@
 
 <h2><?php echo $view['translator']->trans('Mitä ja miksi') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
-<p>Pulupalsta on kokoelma seikkailujani sekä erilaisista tutkielmia. Projekti palvelee myös ammatillista osaamistani, jonka keskiössä web-sivut ovat.</p>
+<p>Pulupalsta on harrastusprojekti, joka ylläpitää ammatillista osaamistani. Tekstit on revitty kulloisistakin projekteista, jotka käsillä ovat.</p>
 
 <?php else: ?>
-<p>Pulupalsta (lit. <em>dove's column</em>) is a collection of my adventures and different explorations. The project is also a playground for my professional skills.</p>
+<p>Pulupalsta is a freetime project to practice web development. Texts are quite random.</p>
 
 <?php endif ?>
 
@@ -32,7 +32,7 @@
 
 <p><a href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/text/CHANGELOG.txt') ?>">CHANGELOG.txt</a></p>
 
-<h2><?php echo $view['translator']->trans('Miten') ?>?</h2>
+<!--<h2><?php echo $view['translator']->trans('Miten') ?>?</h2>
 <?php if ($currentLocale == 'fi'): ?>
 <p style="margin-bottom: 5px">Pulupalstan lähdekoodi on <a href="https://github.com/lassiheikkinen/pulupalsta">GitHub</a>-palvelussa. Sivusto on rakennettu seuraavien teknologioiden varaan:</p>
 <?php else: ?>
@@ -48,7 +48,7 @@
         <a href="http://fabien-d.github.com/alertify.js/">Alertify</a>,
         <a href="http://datatables.net/">DataTables</a>,
         <a href="http://fancybox.net/">Fancybox</a></li>
-</ul>
+</ul>-->
 
 <?php
 $tz  = new DateTimeZone('Europe/Helsinki');
@@ -64,11 +64,11 @@ $age = DateTime::createFromFormat('Y-m-d', '1983-02-25', $tz)
 <p>My name is Lassi Heikkinen and I'm also known as Abula in the internet. I'm <?php echo $age ?> years old and living in Helsinki. More about me on my <a href="http://lassi.pulu.org/">personal page</a>.</p>
 <?php endif ?>
 
-<?php if ($currentLocale == 'fi'): ?>
+<!--<?php if ($currentLocale == 'fi'): ?>
 <p>Projektia voi tukea: 19RoPRBgnUzWoQvaJ8hPx8m1yywVcxRs5W (bitcoin).</p>
 <?php else: ?>
 <p>It's possible to support the project: 19RoPRBgnUzWoQvaJ8hPx8m1yywVcxRs5W (bitcoin).</p>
-<?php endif ?>
+<?php endif ?>-->
 
 
 <?php $view['slots']->stop() ?>
