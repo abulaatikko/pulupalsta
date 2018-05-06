@@ -11,7 +11,7 @@
 <h1><?php echo $view['translator']->trans('Terve') ?>! <a style="float: right" href="<?php echo $view['router']->generate('pulu_palsta_list') ?>#feeds" title="<?php echo $view['translator']->trans('RSS-syötteet') ?>"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="<?php echo $view['translator']->trans('RSS-syötteet') ?>" /></a></h1>
 
 <?php if ($currentLocale == 'fi'): ?>
-<p>Pulupalsta on kokoelma tutkimusmatkaraportteja ja muita sekalaisia kirjoituksia. Allekirjoittaneen suositukset: <a href="/en/51">Townhalls</a> (2003), <a href="/fi/1">Pepsi</a> (2006), <a href="/fi/52">USA</a> (2016), <a href="/fi/60">Elasto Mania</a> (2018).</p>
+<p>Pulupalsta on kokoelma tutkimusmatkaraportteja ja muita sekalaisia kirjoituksia. Allekirjoittaneen suositukset: <a href="/fi/51">Kunnantalot</a> (2003), <a href="/fi/1">Pepsi</a> (2006), <a href="/fi/52">USA</a> (2016), <a href="/fi/60">Elasto Mania</a> (2018).</p>
 
 <? else: ?>
 <p>Pulupalsta is a collection of expedition reports and other random texts. Author's recommendations: <a href="/en/51">Townhalls</a> (2003), <a href="/fi/1">Pepsi</a> (2006), <a href="/fi/52">USA</a> (2016), <a href="/fi/60">Elasto Mania</a> (2018).</p>
