@@ -200,9 +200,9 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
         return '';
     }
 
-    $captionWithoutHtml = $caption;
+    $captionText = strip_tags($caption);
     $originalText = $currentLocale == 'fi' ? 'originaali' : 'original';
-    $caption = '<span class="right">(<a href="' . $mediaPath . $original_url . '">' . $originalText . '</a>, <a href="#img-' . $shortHash . '">§</a>)</span> ' . $caption;
+    $captionWithExtra = '<span class="right">(<a target="_blank" href="' . $mediaPath . $original_url . '">' . $originalText . '</a>, <a href="#img-' . $shortHash . '">§</a>)</span> ' . $caption;
 
     $out = '<div class="centered imgContainer" id="img-' . $shortHash . '" style="';
     $dimensions = getimagesize($mediaPath . $display_url);
@@ -214,7 +214,7 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
         $out .= 'margin: 0px 10px 10px 0px; display: inline-block;';
     }
     $rel = ! empty($thumb_identifier) ? 'fancybox-group-' . substr($thumb_identifier, 0, 10) : 'fancybox-main';
-    $out .= '"><a href="' . $mediaPath . $original_url . '" rel="' . $rel . '" class="fancybox" title="' . $captionWithoutHtml . '" data-title-id="fancybox-title-' . $hash . '"><img';
+    $out .= '"><a href="' . $mediaPath . $original_url . '" rel="' . $rel . '" class="fancybox" title="' . $captionText . '" data-title-id="fancybox-title-' . $hash . '"><img';
     if ($is_thumb) {
         $out .= ' style="margin: 0px;"';
     }
@@ -229,7 +229,7 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
     }
     $out .= ' class="js-lazy-image" data-src="' . $mediaPath . $display_url . '" alt="' . $alt . '" /></a>';
     if (! $is_thumb || $show_caption) {
-        $out .= '<p>' . $captionWithoutHtml . '</p>';
+        $out .= '<p>' . $caption . '</p>';
     }
     $out .= '</div>';
     
