@@ -76,6 +76,7 @@ table a, .tabs-content a, #navigation a, ul.breadcrumbs a {
 table a:hover, .tabs-content a:hover, ul.breadcrumbs a:hover {
     text-decoration: underline;
 }
+.flag           {border: thin black solid;}
 
 /* -----------------------------------------
    Shared Styles (overdriven)
