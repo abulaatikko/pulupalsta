@@ -223,8 +223,7 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
     }
     if (!empty($dimensions[0])) {
         $out .= ' width="' . $dimensions[0] . '" ';
-    }
-    if (!empty($dimensions[1])) {
+    } else if (!empty($dimensions[1])) {
         $out .= ' height="' . $dimensions[1] . '" ';
     }
     $out .= ' class="js-lazy-image" data-src="' . $mediaPath . $display_url . '" alt="' . $alt . '" /></a>';
