@@ -78,7 +78,7 @@
 
 <!-- Main heading -->
 <p id="title"><?php echo $view['translator']->trans('Pulupalsta') ?></p>
-<p id="slogan"><?php echo $view['translator']->trans('Kirjoituksia jo vuodesta 2006') ?></p>
+<p id="slogan"><?php echo $view['translator']->trans('Täyttä ja väkevää elämää') ?></p>
 
 <!-- Navigation row -->
 <div class="row">
