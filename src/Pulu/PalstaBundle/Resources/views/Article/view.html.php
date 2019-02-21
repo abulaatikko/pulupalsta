@@ -19,7 +19,7 @@
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Vierailuja') ?>:</strong> <?php echo $article->getVisits() ?>
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Julkaistu') ?>:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Muokattu') ?>:</strong> <?php echo $article->getModifiedPublic()->format('Y-m-d') ?><br />
-<strong><?php echo $view['translator']->trans('Avainsanat') ?>:</strong>
+<strong><?php echo $view['translator']->trans('Aihetunnisteet') ?>:</strong>
 <?php $printKeywords = array(); ?>
 <?php foreach ($article_keywords as $article_keyword): ?>
     <? $articleObjects = $article_keyword->getArticles();
@@ -299,7 +299,7 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 ?>
 
 
-<h2 style="margin-bottom: 5px"><?php echo $view['translator']->trans('Tähtiä kiitos') ?>!</h2>
+<h2 style="margin-bottom: 5px"><?php echo $view['translator']->trans('Oliko hyvä') ?>?</h2>
 
 <div id="rating" data-rating="<?php echo $rating ?>">
     <div></div><div></div><div></div><div></div><div></div>
