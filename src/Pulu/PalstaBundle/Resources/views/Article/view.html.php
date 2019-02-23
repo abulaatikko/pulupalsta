@@ -15,7 +15,7 @@
 
 <div id="article-metadata">
 <strong><?php echo $view['translator']->trans('Kieli') ?>:</strong> <img style="height: 12px" class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /> 
-&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Arvosana') ?>:</strong> <?php echo $article->getRating() ?>/5
+&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Arvosana') ?>:</strong> <?php echo $article->getRating() ?>/5 (<?php echo $article->getRatingCount() ?>)
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Vierailuja') ?>:</strong> <?php echo $article->getVisits() ?>
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Julkaistu') ?>:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>
 &nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Muokattu') ?>:</strong> <?php echo $article->getModifiedPublic()->format('Y-m-d') ?><br />
@@ -299,11 +299,12 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 ?>
 
 
-<h2 style="margin-bottom: 5px"><?php echo $view['translator']->trans('Oliko hyvä') ?>?</h2>
+    <h2 style="margin-bottom: 5px"><?php echo $view['translator']->trans('Oliko hyvä') ?>?</h2>
 
 <div id="rating" data-rating="<?php echo $rating ?>">
     <div></div><div></div><div></div><div></div><div></div>
 </div>
+<p><?php echo $view['translator']->trans('Nykyinen arvosana') ?>: <?php echo $article->getRating() ?>/5 (<?php echo $article->getRatingCount() ?>)</p>
 <div id='info'></div>
 <div id="article_id" data-id="<?php echo $article->getId() ?>"></div>
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>

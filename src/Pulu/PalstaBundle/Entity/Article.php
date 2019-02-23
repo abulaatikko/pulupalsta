@@ -181,6 +181,10 @@ class Article {
         return $this->raw_ratings;
     }
 
+    public function getRatingCount() {
+        return count($this->raw_ratings);
+    }
+
     public function getLocalizations() {
         return $this->localizations;
     }
