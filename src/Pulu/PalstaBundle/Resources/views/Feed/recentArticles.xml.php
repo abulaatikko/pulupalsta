@@ -1,8 +1,8 @@
 <?php echo '<?xml version="1.0" encoding="UTF-8" ?>' . "\n"; ?>
 <rss version="2.0">
 <channel>
-    <title><?php echo $view['translator']->trans('Pulupalstan kirjoitukset') ?></title>
-    <description><?php echo $view['translator']->trans('Pulupalstan uusimmat kirjoitukset') ?></description>
+    <title>Pulupalsta Articles</title>
+    <description>Pulupalsta Recent Articles</description>
     <link>http://palsta.pulu.org</link>
     <lastBuildDate><?php echo date('D, d M Y H:i:s T'); ?></lastBuildDate>
     <pubDate><?php echo date('D, d M Y H:i:s T'); ?></pubDate>

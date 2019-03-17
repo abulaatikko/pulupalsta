@@ -10,29 +10,29 @@ class CommentType extends AbstractType {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $safety_questions = array(
             array(
-                'question' => 'Turvakysymys: Mikä on maailman väkirikkain valtio?',
+                'question' => 'Safety question: Which country has the largest population?',
                 'answers' => array('kiina', 'china', 'people\'s republic of china', 'prc', 'kiinan kansantasavalta')),
             array(
-                'question' => 'Turvakysymys: Mikä on nimeltään lähin tähtemme?',
+                'question' => 'Safety question: What\'s the name of the nearest star to us?',
                 'answers' => array('aurinko', 'sun')),
             array(
-                'question' => 'Turvakysymys: Mikä on aakkosten ensimmäinen kirjain?',
+                'question' => 'Safety question: What\'s the first letter of the alphabet?',
                 'answers' => array('a', 'aa')),
             array(
-                'question' => 'Turvakysymys: Mikä on tämän sivuston tekijän etunimi?',
+                'question' => 'Safety question: What\'s the first name of the creator of this site?',
                 'answers' => array('lassi', 'abula', 'heikkinen', 'lassi heikkinen')),
             array(
-                'question' => 'Turvakysymys: Paljonko on kuusi kertaa kuusi?',
+                'question' => 'Safety question: How much is six multiplied by six?',
                 'answers' => array('36', 'kolmekymmentäkuusi', 'thirty six'))
         );
         shuffle($safety_questions);
 
         $builder
             ->add('author_name', 'text', array(
-                'label' => 'Nimesi',
+                'label' => 'Your name',
                 'data' => $options['default_author_name']))
             ->add('body', 'textarea', array(
-                'label' => 'Kommentti',
+                'label' => 'Comment',
                 'data' => $options['default_body']))
             ->add('safety_question', 'text', array(
                 'label' => $safety_questions[0]['question'],

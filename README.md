@@ -1,7 +1,7 @@
 # Pulupalsta
 
 * http://palsta.pulu.org/en
-* http://palsta.pulu.org/en/about
+* http://dev.palsta.pulu.org/app_dev.php/fi
 * https://github.com/lassiheikkinen/pulupalsta
 
 ## Requirements

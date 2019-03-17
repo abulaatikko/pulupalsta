@@ -1,24 +1,24 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', $view['translator']->trans('Sisällysluettelo') . ' - Pulupalsta') ?>
+<?php $view['slots']->set('title', 'Articles - Pulupalsta') ?>
 
 <?php $view['slots']->start('body') ?>
 
 <?php $currentLocale = $app->getRequest()->getLocale(); ?>
 
-<h1><?php echo $view['translator']->trans('Sisällysluettelo') ?></h1>
+<h1>Articles</h1>
 
 <table class="wide" id="contents">
 <thead>
 <tr>
-    <th colspan="2"><?php echo $view['translator']->trans('Kirjoitus') ?></th>
-    <th title="<?php echo $view['translator']->trans('Vierailujen lukumäärä') ?>"><?php echo $view['translator']->trans('Vier.') ?></th>
-    <th class="text-right nowrap" title="<?php echo $view['translator']->trans('Kuukausivierailujen keskimääräinen lukumäärä julkaisusta lähtien') ?>"><?php echo $view['translator']->trans('Vier. (kk)') ?></th>
-    <th title="<?php echo $view['translator']->trans('Arvosana') ?>"><?php echo $view['translator']->trans('Arv.') ?></th>
-    <th title="<?php echo $view['translator']->trans('Kommenttien lukumäärä') ?>"><?php echo $view['translator']->trans('Kom.') ?></th>
-    <th class="nowrap"><?php echo $view['translator']->trans('Kommentoitu') ?></th>
-    <th class="nowrap"><?php echo $view['translator']->trans('Muokattu') ?></th>
-    <th class="nowrap"><?php echo $view['translator']->trans('Julkaistu') ?></th>
+    <th colspan="2">Article</th>
+    <th title="Number of Visits">Vis.</th>
+    <th class="text-right nowrap" title="Average monthly visits since publication">Vis. / mon</th>
+    <th title="Rating">Rat.</th>
+    <th title="Number of Comments">Com.</th>
+    <th class="nowrap">Commented</th>
+    <th class="nowrap">Modified</th>
+    <th class="nowrap">Published</th>
 </tr>
 </thead>
 <tbody>
@@ -44,10 +44,10 @@
 </table>
 
 <p class="table-notes">
-    <?php echo $view['translator']->trans('Vier.') ?> = <?php echo $view['translator']->trans('Vierailujen lukumäärä') ?><br />
-    <?php echo $view['translator']->trans('Vier. (kk)') ?> = <?php echo $view['translator']->trans('Kuukausivierailujen keskimääräinen lukumäärä julkaisusta lähtien') ?><br />
-    <?php echo $view['translator']->trans('Arv.') ?> = <?php echo $view['translator']->trans('Arvosana') ?><br />
-    <?php echo $view['translator']->trans('Kom.') ?> = <?php echo $view['translator']->trans('Kommenttien lukumäärä') ?>
+    Vis. = Number of Visits<br />
+    Vis. / mon = Average monthly visits since publication<br />
+    Rat. = Rating<br />
+    Com. = Number of Comments
 </p>
 
 <!--
@@ -66,10 +66,10 @@
 -->
 
 <section id="feeds"></section>
-<h2 style="margin-bottom: 5px"><img style="position: relative; top: 3px" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="<?php echo $view['translator']->trans('RSS-syötteet') ?>" /> <?php echo $view['translator']->trans('RSS-syötteet') ?></h2>
+<h2 style="margin-bottom: 5px"><img style="position: relative; top: 3px" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feeds" /> RSS Feeds</h2>
 <ul class="square">
-    <li><a title="<?php echo $view['translator']->trans('Pulupalstan uusimmat kirjoitukset') ?>" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_articles') ?>"><?php echo $view['translator']->trans('Uusimmat kirjoitukset') ?></a></li>
-    <li><a title="<?php echo $view['translator']->trans('Pulupalstan uusimmat kommentit') ?>" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_comments') ?>"><?php echo $view['translator']->trans('Uusimmat kommentit') ?></a></li>
+    <li><a title="Pulupalsta Recent Articles" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_articles') ?>">Recent Articles</a></li>
+    <li><a title="Pulupalsta Recent Comments" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_comments') ?>">Recent Comments</a></li>
 </ul>
 
 <?php $view['slots']->stop() ?>

@@ -18,8 +18,8 @@
     <meta name="viewport" content="width=device-width" />
     <title><?php $view['slots']->output('title', 'Pulupalsta') ?></title>
     <link rel="icon" type="image/png" href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/favicon.png') ?>" />
-    <link rel="alternate" title="<?php echo $view['translator']->trans('Pulupalstan kirjoitukset') ?>" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_articles') ?>" type="application/rss+xml" />
-    <link rel="alternate" title="<?php echo $view['translator']->trans('Pulupalstan kommentit') ?>" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_comments') ?>" type="application/rss+xml" />
+    <link rel="alternate" title="Pulupalsta Recent Articles" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_articles') ?>" type="application/rss+xml" />
+    <link rel="alternate" title="Pulupalsta Recent Comments" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_comments') ?>" type="application/rss+xml" />
     <?php foreach ($view['assetic']->stylesheets(
         array(
             // https://github.com/kriswallsmith/assetic/issues/53
@@ -52,33 +52,9 @@
         <!-- Main wrapper -->
         <div id="main-wrapper">
 
-<!-- Language switch row -->
-<div class="row">
-    <div class="twelve columns">
-
-<ul class="tabs-content" id="switch-language">
-    <li class="active">
-        <dl class="tabs pill">
-            <dt></dt>
-<?php $route_params = $app->getRequest()->get('_route_params');
-    if (! empty($route_params['name'])) {
-        unset($route_params['name']);
-    }
-?>
-<?php if ($app->getRequest()->getLocale() == 'fi'): ?>
-<dd class="active switch-language" data-to="fi"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'en'))) ?>"><img style="height: 12px" class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/en.svg') ?>" alt="" /></a></dd>
-<? else: ?>
-<dd class="active switch-language" data-to="en"><a href="<?php echo $view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'fi'))) ?>"><img style="height: 12px" class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/fi.svg') ?>" alt="" /></a></dd>
-<? endif ?>
-        </dl>
-    </li>
-</ul>
-    </div>
-</div><!-- Language switch row ends -->
-
 <!-- Main heading -->
-<p id="title"><?php echo $view['translator']->trans('Pulupalsta') ?></p>
-<p id="slogan"><?php echo $view['translator']->trans('Kerranhan sitä eletään') ?></p>
+<p id="title">Pulupalsta</p>
+<p id="slogan">For the lulz</p>
 
 <!-- Navigation row -->
 <div class="row">
@@ -86,9 +62,9 @@
         <div id="navigation-row">
 
 <ul id="navigation">
-    <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_front' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_front') ?>"><?php echo $view['translator']->trans('Etusivu') ?></a></li>
-    <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_list' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_list') ?>"><?php echo $view['translator']->trans('Sisällysluettelo') ?></a></li>
-    <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_index' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_index') ?>"><?php echo $view['translator']->trans('Avainsanahakemisto') ?></a></li>
+<li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_front' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_front') ?>">Front page</a></li>
+<li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_list' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_list') ?>">Articles</a></li>
+<li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_index' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_index') ?>">Keywords</a></li>
 </ul>
 <!--<ul id="about">
     <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_about' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_about') ?>">?</a></li>
@@ -129,7 +105,7 @@
         <div id="bottom-navigation-row">
 
 <ul id="bottom-navigation">
-    <li><a href="javascript:void(0)" onclick="goToTop()"><?php echo $view['translator']->trans('Takaisin ylös') ?></a></li>
+    <li><a href="javascript:void(0)" onclick="goToTop()">Back to Top</a></li>
 </ul>
 <p id="copyright">&copy; 2006-<?php echo date('Y'); ?> <a href="https://lassi.pulu.org">Lassi Heikkinen</a></p>
 
@@ -163,10 +139,10 @@
 
 <script type="text/javascript">
 var translations = {
-    "your_rating_failed": "<?php echo $view['translator']->trans('Arvosanasi hylättiin') ?>",
-    "failed_to_send_your_comment": "<?php echo $view['translator']->trans('Kommentin lähetys epäonnistui') ?>",
-    "article": "<?php echo $view['translator']->trans('Kirjoitus') ?>",
-    "visits": "<?php echo $view['translator']->trans('Vierailuja') ?>"
+    "your_rating_failed": "Rating failed",
+    "failed_to_send_your_comment": "Commenting failed",
+    "article": "Article",
+    "visits": "Visits"
 }
 </script>
   

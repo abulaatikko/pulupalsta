@@ -14,12 +14,12 @@
 <h1><?php echo $article->getName() ?></h1>
 
 <div id="article-metadata">
-<strong><?php echo $view['translator']->trans('Kieli') ?>:</strong> <img style="height: 12px" class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /> 
-&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Arvosana') ?>:</strong> <?php echo $article->getRating() ?>/5 (<?php echo $article->getRatingCount() ?>)
-&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Vierailuja') ?>:</strong> <?php echo $article->getVisits() ?>
-&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Julkaistu') ?>:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>
-&nbsp;&nbsp;<strong><?php echo $view['translator']->trans('Muokattu') ?>:</strong> <?php echo $article->getModifiedPublic()->format('Y-m-d') ?><br />
-<strong><?php echo $view['translator']->trans('Aihetunnisteet') ?>:</strong>
+<strong>Language:</strong> <img style="height: 12px" class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" />
+&nbsp;&nbsp;<strong>Rating:</strong> <?php echo $article->getRating() ?>/5 (<?php echo $article->getRatingCount() ?> votes)
+&nbsp;&nbsp;<strong>Visits:</strong> <?php echo $article->getVisits() ?>
+&nbsp;&nbsp;<strong>Published:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>
+&nbsp;&nbsp;<strong>Modified:</strong> <?php echo $article->getModifiedPublic()->format('Y-m-d') ?><br />
+<strong>Keywords:</strong>
 <?php $printKeywords = array(); ?>
 <?php foreach ($article_keywords as $article_keyword): ?>
     <? $articleObjects = $article_keyword->getArticles();
@@ -299,24 +299,24 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 ?>
 
 
-    <h2 style="margin-bottom: 5px"><?php echo $view['translator']->trans('Oliko hyvä') ?>?</h2>
+    <h2 style="margin-bottom: 5px">Good or bad?</h2>
 
 <div id="rating" data-rating="<?php echo $rating ?>">
     <div></div><div></div><div></div><div></div><div></div>
 </div>
-<p><?php echo $view['translator']->trans('Nykyinen arvosana') ?>: <?php echo $article->getRating() ?>/5 (<?php echo $article->getRatingCount() ?>)</p>
+<p>Current rating: <?php echo $article->getRating() ?>/5 (<?php echo $article->getRatingCount() ?> votes)</p>
 <div id='info'></div>
 <div id="article_id" data-id="<?php echo $article->getId() ?>"></div>
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
 <a name="kommentointi"></a>
 <div <?php echo empty($comments) ? 'style="display: none"' : '' ?>>
-<h2><?php echo $view['translator']->trans('Kommentit') ?></h2>
+<h2>Comments</h2>
 <table class="wide" id="comments">
 <thead>
 <tr>
-    <th><?php echo $view['translator']->trans('Kirjoittaja') ?></th>
-    <th><?php echo $view['translator']->trans('Kommentti') ?></th>
+    <th>Author</th>
+    <th>Comment</th>
 </tr>
 </thead>
 <tbody>
@@ -332,7 +332,7 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 </div>
 <? //endif ?>
 
-<h3><?php echo $view['translator']->trans('Kirjoita uusi kommentti') ?></h3>
+<h3>Write a comment</h3>
 
 <form id="articleComment" action="<?php echo $view['router']->generate('pulu_palsta_article_comment') ?>" method="post" <?php echo $view['form']->enctype($form) ?> >
     <?php $view['form']->setTheme($form, array('PuluPalstaBundle:Form')) ;?>
@@ -345,7 +345,7 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
     <?php echo $view['form']->row($form['safety_question']) ?>
     <?php echo $view['form']->rest($form) ?>
     <input type="hidden" name="article_id" value="<?php echo $article->getId() ?>" />
-    <p><input class="button" type="submit" value="<?php echo $view['translator']->trans('Lähetä') ?>" /></p>
+    <p><input class="button" type="submit" value="Submit" /></p>
     </div>
     </div>
 </form>

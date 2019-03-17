@@ -1,19 +1,14 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', $view['translator']->trans('Avainsanahakemisto') . ' - Pulupalsta') ?>
+<?php $view['slots']->set('title', 'Keywords - Pulupalsta') ?>
 
 <?php $view['slots']->start('body') ?>
 
 <?php $currentLocale = $app->getRequest()->getLocale(); ?>
 
-<h1><?php echo $view['translator']->trans('Avainsanahakemisto') ?></h1>
+<h1>Keywords</h1>
 
-<?php if ($currentLocale == 'fi'): ?>
-<p>Vähintään kahdessa artikkelissa käytetyt avainsanat ovat alapuolella listattuna aakkosjärjestykseen. Avainsanan alla artikkelit taasen ovat järjestetty julkaisuajankohdan mukaan.</p>
-<? else: ?>
-<p>An alphabetic list of the keywords used at least in two articles is below. The article lists under the keywords
-are sorted by the publish dates of the articles.</p>
-<? endif ?>
+<p>An alphabetic list of the keywords used at least in two articles. The articles under the keywords are sorted by the publish dates of the articles.</p>
 
 <?php $keywordsCount = count($keywords); ?>
 <?php $i = 0; ?>
