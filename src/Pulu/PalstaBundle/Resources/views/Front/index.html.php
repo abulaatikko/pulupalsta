@@ -1,6 +1,6 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', $view['translator']->trans('Pulupalsta')) ?>
+<?php $view['slots']->set('title', 'Pulupalsta') ?>
 
 <?php $view['slots']->start('body') ?>
 
@@ -8,74 +8,58 @@
 
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
-<h1><?php echo $view['translator']->trans('Terve') ?>! <a style="float: right" href="<?php echo $view['router']->generate('pulu_palsta_list') ?>#feeds" title="<?php echo $view['translator']->trans('RSS-syötteet') ?>"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="<?php echo $view['translator']->trans('RSS-syötteet') ?>" /></a></h1>
+<h1>Welcome my Friend! <a style="float: right" href="<?php echo $view['router']->generate('pulu_palsta_list') ?>#feeds" title="RSS Feeds"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feeds" /></a></h1>
 
-<?php if ($currentLocale == 'fi'): ?>
-<p>Pulupalsta on kokoelma tutkimusmatkaraportteja ja muita sekalaisia kirjoituksia. Allekirjoittaneen suositukset: <a href="/fi/51">Kunnantalot</a> (2003), <a href="/fi/1">Pepsi</a> (2006), <a href="/fi/60">Elasto Mania</a> (2018).</p>
-
-<? else: ?>
-<p>Pulupalsta is a collection of expedition reports and other random texts. Author's recommendations: <a href="/en/51">Townhalls</a> (2003), <a href="/fi/1">Pepsi</a> (2006), <a href="/fi/60">Elasto Mania</a> (2018).</p>
-
-<? endif; ?>
+<p>Hi, I'm Lassi in real life and Abula in internet life. I created this website in 2006 to publish reports of my random projects. The most popular ones are: <a href="/en/51">Townhalls</a> (2003), <a href="/fi/1">Pepsi</a> (2006), <a href="/fi/60">Elasto Mania</a> (2018). Yes, seen the light, I have.</p>
 
 <!-- Popular/Recent articles -->
 <div class="row">
     <div class="six columns" id="visited-articles">
 
-<h3><?php echo $view['translator']->trans('Suosituimmat') ?></h3>
+<h3>Research and analysis</h3>
 
 <table class="wide">
 <thead>
 <tr>
-    <th>#</th>
-    <th colspan="2"><?php echo $view['translator']->trans('Kirjoitus') ?></th>
-    <th class="text-right nowrap" title="<?php echo $view['translator']->trans('Vierailut yhteensä (Keskimääräiset kuukausivierailut julkaisusta lähtien)') ?>"><?php echo $view['translator']->trans('Vier. (kk)') ?></th>
+    <th>Published</th>
+    <th colspan="2">Paper</th>
 </tr>
 </thead>
-
 <tbody>
-<? $i = 1; ?>
-<? foreach ($visitedArticles as $article): ?>
-<? $averageMonthlyVisits = $article->getAverageMonthlyVisits(); ?>
+<? foreach ($researchArticles as $article): ?>
 <tr>
-    <td><?php echo $i++ ?>.</td>
+    <td class="nowrap text-right"><?php echo $article->getPublished()->format('Y-m-d'); ?></td></tr>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getName(); ?></a></td>
     <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
-    <td class="nowrap text-right"><?php echo $article->getVisits(); ?> (<?php echo floor($averageMonthlyVisits); ?>)</td>
-</tr>
 <? endforeach ?>
 </tbody>
 </table>
-<p><a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'visit')) ?>"><?php echo $view['translator']->trans('Lisää') ?></a></p>
 
     </div>
     <div class="six columns" id="recent-articles">
 
-<h3><?php echo $view['translator']->trans('Uusimmat') ?></h3> 
+<h3>Abula Adventures</h3>
 
 <table class="wide">
 <thead>
 <tr>
-    <th>#</th>
-    <th colspan="2"><?php echo $view['translator']->trans('Kirjoitus') ?></th>
-    <th class="text-right"><?php echo $view['translator']->trans('Julkaistu') ?></th>
+    <th>Published</th>
+    <th colspan="2">Adventure</th>
 </tr>
 </thead>
+
 <tbody>
-<? $i = 1; ?>
-<? foreach ($recentArticles as $article): ?>
+<? foreach ($adventureArticles as $article): ?>
 <tr>
-    <td><?php echo $i++ ?>.</td>
+    <td><?php echo $article->getPublished()->format('Y-m-d') ?></td>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getName(); ?></a></td>
     <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
-    <td class="nowrap text-right"><?php echo $article->getPublished()->format('Y-m-d'); ?></td></tr>
+</tr>
 <? endforeach ?>
 </tbody>
 </table>
-<p>
-    <a href="<?php echo $view['router']->generate('pulu_palsta_list', array('sort' => 'published')) ?>"><?php echo $view['translator']->trans('Lisää') ?></a>
-    <span class="feed-icon"><a title="<?php echo $view['translator']->trans('Pulupalstan uusimmat kirjoitukset') ?>" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_articles') ?>"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/16_feed.png') ?>" alt="<?php echo $view['translator']->trans('Pulupalstan uusimmat kirjoitukset') ?>" /></a></span>
-</p>
+
+<p></p>
 
     </div>
 </div><!-- Popular/Recent articles ends -->

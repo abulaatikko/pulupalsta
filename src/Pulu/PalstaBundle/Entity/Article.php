@@ -40,9 +40,9 @@ class Article {
     const ACCESS_FRIEND = 10;
     const ACCESS_ALL = 100;
 
-    const TYPE_UNDEFINED = 1;
-    const TYPE_ADVENTURE = 2;
-    const TYPE_RESEARCH = 3;
+    const TYPE_UNDEFINED = 0;
+    const TYPE_ADVENTURE = 1;
+    const TYPE_RESEARCH = 2;
 
     public function __construct() {
         $this->localizations = new ArrayCollection();

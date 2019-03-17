@@ -62,7 +62,7 @@
         <div id="navigation-row">
 
 <ul id="navigation">
-<li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_front' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_front') ?>">Front page</a></li>
+<li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_front' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_front') ?>">Front Page</a></li>
 <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_list' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_list') ?>">Articles</a></li>
 <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_index' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_index') ?>">Keywords</a></li>
 </ul>

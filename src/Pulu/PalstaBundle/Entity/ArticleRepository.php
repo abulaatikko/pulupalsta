@@ -156,4 +156,23 @@ class ArticleRepository extends EntityRepository {
             ->getQuery()->getSingleResult();
     }
 
+    public function findAdventuresOrderedByPublishedForPublic() {
+        return $this->createQueryBuilder('A')
+            ->innerJoin('A.localizations', 'B')
+            ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type")
+            ->setParameter("type", Article::TYPE_ADVENTURE)
+            ->orderBy('A.published', 'DESC')
+            ->getQuery()->getResult();
+    }
+
+    public function findResearchesOrderedByPublishedForPublic() {
+        return $this->createQueryBuilder('A')
+            ->innerJoin('A.localizations', 'B')
+            ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type AND B.language = :language")
+            ->setParameter("type", Article::TYPE_RESEARCH)
+            ->setParameter("language", $this->getLanguage())
+            ->orderBy('A.published', 'DESC')
+            ->getQuery()->getResult();
+    }
+
 }
