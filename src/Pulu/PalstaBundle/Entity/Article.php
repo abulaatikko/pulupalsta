@@ -12,6 +12,7 @@ class Article {
 
     protected $id;
     protected $article_number;
+    protected $type;
     protected $rating;
     protected $visits;
     protected $old_visits; // from puluprojects
@@ -39,6 +40,10 @@ class Article {
     const ACCESS_FRIEND = 10;
     const ACCESS_ALL = 100;
 
+    const TYPE_UNDEFINED = 1;
+    const TYPE_ADVENTURE = 2;
+    const TYPE_RESEARCH = 3;
+
     public function __construct() {
         $this->localizations = new ArrayCollection();
         $this->revisions = new ArrayCollection();
@@ -48,6 +53,7 @@ class Article {
         $this->raw_ratings = new ArrayCollection();
         $this->modules = new ArrayCollection();
 
+        $this->type = self::TYPE_UNDEFINED;
         $this->rating = 1.00;
         $this->visits = 0;
         $this->use_translator = false;
@@ -66,6 +72,15 @@ class Article {
 
     public function setArticleNumber($articleNumber) {
         $this->article_number = $articleNumber;
+        return $this;
+    }
+
+    public function getType() {
+        return $this->type;
+    }
+
+    public function setType($type) {
+        $this->type = $type;
         return $this;
     }
 

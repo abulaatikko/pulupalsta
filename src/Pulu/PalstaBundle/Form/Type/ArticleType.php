@@ -22,7 +22,7 @@ class ArticleType extends AbstractType {
                 'label' => 'Artikkelinumero',
                 'data' => $defaultArticleNumber))
             ->add('use_translator', 'checkbox', array(
-                'label' => 'Tarjoa käännöspalvelua',
+                'label' => 'Käännöspalvelu',
                 'required' => false))
             ->add('language', 'choice', array(
                 'label' => 'Kieli',
@@ -32,6 +32,16 @@ class ArticleType extends AbstractType {
                 ),
                 'multiple' => false,
                 'expanded' => false))
+            ->add('type', 'choice', array(
+                'label' => 'Tyyppi',
+                'choices' => array(
+                    0 => '',
+                    1 => 'Adventure',
+                    2 => 'Research'
+                ),
+                'multiple' => false,
+                'expanded' => false
+            ))
             ->add('is_public', 'checkbox', array(
                 'label' => 'Listoilla',
                 'required' => false))

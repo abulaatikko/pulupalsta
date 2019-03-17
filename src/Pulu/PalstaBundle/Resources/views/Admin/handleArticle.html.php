@@ -65,8 +65,11 @@
     <div class="two columns">
     <?php echo $view['form']->row($form['published']) ?>
     </div>
-    <div class="two columns">
+    <div class="one columns">
     <?php echo $view['form']->row($form['access']) ?>
+    </div>
+    <div class="one columns">
+    <?php echo $view['form']->row($form['type']) ?>
     </div>
     <div class="one columns">
     </div>

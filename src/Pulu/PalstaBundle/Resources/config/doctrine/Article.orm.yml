@@ -15,6 +15,9 @@ Pulu\PalstaBundle\Entity\Article:
         article_number:
             type: integer
             unique: true
+        type:
+            type: integer
+            nullable: true
         created:
             type: datetime
         modified:
