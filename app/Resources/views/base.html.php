@@ -54,7 +54,7 @@
 
 <!-- Main heading -->
 <p id="title">Pulupalsta</p>
-<p id="slogan">For the lulz</p>
+<p id="slogan">One life, full power</p>
 
 <!-- Navigation row -->
 <div class="row">

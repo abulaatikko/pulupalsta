@@ -10,7 +10,7 @@
 
 <h1>Welcome my Friend! <a style="float: right" href="<?php echo $view['router']->generate('pulu_palsta_list') ?>#feeds" title="RSS Feeds"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feeds" /></a></h1>
 
-<p>Hi, I'm Lassi in real life and Abula in internet life. I created this website in 2006 to publish reports of my random projects. The most popular ones are: <a href="/en/51">Townhalls</a> (2003), <a href="/fi/1">Pepsi</a> (2006), <a href="/fi/60">Elasto Mania</a> (2018). Yes, seen the light, I have.</p>
+<p>Hi, I'm Lassi in real life and Abula in internet life. I created this website in 2006 to publish reports of my random projects. For the lulz. Like: <a href="/fi/1">Pepsi</a> (2006), <a href="/en/51">Townhalls</a> (2016), <a href="/fi/60">Elasto Mania</a> (2018).</p>
 
 <!-- Popular/Recent articles -->
 <div class="row">
