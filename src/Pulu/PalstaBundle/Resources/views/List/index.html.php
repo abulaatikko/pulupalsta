@@ -11,7 +11,7 @@
 <table class="wide" id="contents">
 <thead>
 <tr>
-    <th colspan="2">Article</th>
+    <th colspan="3">Article</th>
     <th title="Number of Visits">Vis.</th>
     <th class="text-right nowrap" title="Average monthly visits since publication">Vis. / mon</th>
     <th title="Rating">Rat.</th>
@@ -23,9 +23,11 @@
 </thead>
 <tbody>
 <? foreach ($articles as $article): ?>
+<? $typeText = isset($articleTypes[$article->getType()]) ? $articleTypes[$article->getType()] : '' ?>
 <tr>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getName(); ?></a></td>
     <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
+    <td style="font-size: 60%; text-align: right;"><?php echo $typeText ?></td>
     <td class="text-right"><?php echo $article->getVisits() ?></td>
     <td class="nowrap text-right"><?php echo $article->getAverageMonthlyVisits(); ?></span></td>
     <td class="text-right"><?php echo $article->getRating() ?></td>
