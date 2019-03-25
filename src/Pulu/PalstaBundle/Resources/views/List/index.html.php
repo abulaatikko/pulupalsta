@@ -24,10 +24,16 @@
 <tbody>
 <? foreach ($articles as $article): ?>
 <? $typeText = isset($articleTypes[$article->getType()]) ? $articleTypes[$article->getType()] : '' ?>
+<?
+$typeStyles = 'font-size: 60%; text-align: right; font-weight: bold';
+if ($typeText == 'Adventure') { $typeStyles .= '; color: navy';}
+if ($typeText == 'Research') { $typeStyles .= '; color: green';}
+if ($typeText == 'Art') { $typeStyles .= '; color: red';}
+?>
 <tr>
     <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getName(); ?></a></td>
     <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
-    <td style="font-size: 60%; text-align: right;"><?php echo $typeText ?></td>
+    <td style="<?php echo $typeStyles; ?>"><?php echo $typeText ?></td>
     <td class="text-right"><?php echo $article->getVisits() ?></td>
     <td class="nowrap text-right"><?php echo $article->getAverageMonthlyVisits(); ?></span></td>
     <td class="text-right"><?php echo $article->getRating() ?></td>
