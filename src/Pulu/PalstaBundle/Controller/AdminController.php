@@ -26,7 +26,13 @@ class AdminController extends Controller {
         $articles = $repository->findAllOrderedByName();
 
         return $this->render('PuluPalstaBundle:Admin:article.html.php', array(
-            'articles' => $articles
+            'articles' => $articles,
+            'articleTypes' => [
+                Article::TYPE_UNDEFINED => '',
+                Article::TYPE_ADVENTURE => 'Adventure',
+                Article::TYPE_RESEARCH => 'Research',
+                Article::TYPE_ART => 'Art'
+            ]
         ));
     }
 

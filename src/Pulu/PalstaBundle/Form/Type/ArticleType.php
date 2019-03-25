@@ -37,7 +37,8 @@ class ArticleType extends AbstractType {
                 'choices' => array(
                     0 => '',
                     1 => 'Adventure',
-                    2 => 'Research'
+                    2 => 'Research',
+                    3 => 'Art'
                 ),
                 'multiple' => false,
                 'expanded' => false

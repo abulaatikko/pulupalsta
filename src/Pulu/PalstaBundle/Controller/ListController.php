@@ -15,7 +15,8 @@ class ListController extends Controller {
             'articleTypes' => [
                 Article::TYPE_UNDEFINED => '',
                 Article::TYPE_ADVENTURE => 'Adventure',
-                Article::TYPE_RESEARCH => 'Research'
+                Article::TYPE_RESEARCH => 'Research',
+                Article::TYPE_ART => 'Art'
             ]
         ));        
     }
