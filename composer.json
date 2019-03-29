@@ -4,24 +4,26 @@
     "type": "project",
     "description": "Pulupalsta",
     "autoload": {
-        "psr-0": { "": "src/" }
+        "psr-4": { "": "src/" },
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "require": {
-        "php": ">=5.3.9",
-        "symfony/symfony": "2.8.*",
-        "doctrine/orm": ">=2.2.3,<2.5-dev",
-        "doctrine/doctrine-bundle": "1.5.*",
+        "php": ">=5.5.9",
+        "symfony/symfony": "3.4.*",
+        "doctrine/orm": "2.5.*",
+        "doctrine/doctrine-bundle": "1.6.*",
         "twig/extensions": "1.*",
         "symfony/assetic-bundle": "2.*",
-        "symfony/swiftmailer-bundle": "2.3.*",
-        "symfony/monolog-bundle": "2.3.*",
-        "sensio/distribution-bundle": "2.3.*",
-        "sensio/framework-extra-bundle": "2.3.*",
-        "sensio/generator-bundle": "2.3.*",
+        "symfony/swiftmailer-bundle": "2.6.*",
+        "symfony/monolog-bundle": "3.1.*",
+        "sensio/distribution-bundle": "5.0.*",
+        "sensio/framework-extra-bundle": "5.0.*",
+        "sensio/generator-bundle": "3.0.*",
         "incenteev/composer-parameter-handler": "~2.0",
-        "friendsofsymfony/jsrouting-bundle": "1.5.*",
-        "symfony/icu": "1.0.*",
-        "symfony/twig-bundle": "^2.7"
+        "friendsofsymfony/jsrouting-bundle": "2.3.*",
+	"symfony/intl": "3.4.*",
+        "symfony/twig-bundle": "3.4.*",
+	"symfony/http-kernel": "3.4.*"
     },
     "scripts": {
         "post-install-cmd": [
@@ -48,9 +50,6 @@
         "symfony-web-dir": "web",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
-        },
-        "branch-alias": {
-            "dev-master": "2.3-dev"
         }
     }
 }

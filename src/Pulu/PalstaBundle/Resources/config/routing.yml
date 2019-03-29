@@ -1,28 +1,28 @@
 pulu_palsta_root:
-    pattern: /
+    path: /
     defaults:
         _controller: FrameworkBundle:Redirect:urlRedirect
         path: /fi
         permanent: true
 
 pulu_palsta_login:
-    pattern: /login
+    path: /login
     defaults: {_controller: PuluPalstaBundle:Login:login}
 
 pulu_palsta_login_check:
-    pattern: /login_check
+    path: /login_check
 
 pulu_palsta_logout:
-    pattern: /logout
+    path: /logout
 
 pulu_palsta_front:
-    pattern: /{_locale}
+    path: /{_locale}
     defaults: { _controller: PuluPalstaBundle:Front:index}
     requirements:
         _locale: fi|en
 
 pulu_palsta_front_with_trailing_slash:
-    pattern: /{_locale}/
+    path: /{_locale}/
     defaults:
         _controller: FrameworkBundle:Redirect:redirect
         route: pulu_palsta_front
@@ -31,32 +31,32 @@ pulu_palsta_front_with_trailing_slash:
         _locale: fi|en
 
 pulu_palsta_about:
-    pattern: /{_locale}/about
+    path: /{_locale}/about
     defaults: { _controller: PuluPalstaBundle:About:index }
     requirements:
         _locale: fi|en
 
 pulu_palsta_list:
-    pattern: /{_locale}/table-of-contents
+    path: /{_locale}/table-of-contents
     defaults: { _controller: PuluPalstaBundle:List:index }
     requirements:
         _locale: fi|en
 
 pulu_palsta_index:
-    pattern: /{_locale}/index
+    path: /{_locale}/index
     defaults: { _controller: PuluPalstaBundle:Index:index }
     requirements:
         _locale: fi|en
 
 pulu_palsta_article_without_name:
-    pattern: /{_locale}/{article_number}
+    path: /{_locale}/{article_number}
     defaults: { _controller: PuluPalstaBundle:Article:redirect }
     requirements:
         article_number: \d+
         _locale: fi|en
 
 pulu_palsta_article:
-    pattern: /{_locale}/{article_number}-{name}
+    path: /{_locale}/{article_number}-{name}
     defaults: { _controller: PuluPalstaBundle:Article:view, article_number: 1, name: default }
     options:
         expose: true
@@ -66,7 +66,7 @@ pulu_palsta_article:
         _locale: fi|en
 
 pulu_palsta_article_rating:
-    pattern: /{_locale}/ajax/rating
+    path: /{_locale}/ajax/rating
     defaults: { _controller: PuluPalstaBundle:Ajax:articleRating }
     options:
         expose: true
@@ -74,7 +74,7 @@ pulu_palsta_article_rating:
         _locale: fi|en
 
 pulu_palsta_article_comment:
-    pattern: /{_locale}/ajax/comment
+    path: /{_locale}/ajax/comment
     defaults: { _controller: PuluPalstaBundle:Ajax:articleComment }
     options:
         expose: true
@@ -82,7 +82,7 @@ pulu_palsta_article_comment:
         _locale: fi|en
 
 pulu_palsta_keyword:
-    pattern: /{_locale}/ajax/keyword
+    path: /{_locale}/ajax/keyword
     defaults: { _controller: PuluPalstaBundle:Ajax:keyword }
     options:
         expose: true
@@ -90,119 +90,119 @@ pulu_palsta_keyword:
         _locale: fi|en
 
 pulu_palsta_feed_recent_articles:
-    pattern: /{_locale}/feed/recent_articles
+    path: /{_locale}/feed/recent_articles
     defaults: { _controller: PuluPalstaBundle:Feed:recentArticles }
     requirements:
         _locale: fi|en
 
 pulu_palsta_feed_recent_comments:
-    pattern: /{_locale}/feed/recent_comments
+    path: /{_locale}/feed/recent_comments
     defaults: { _controller: PuluPalstaBundle:Feed:recentComments }
     requirements:
         _locale: fi|en
 
 ##### ADMIN #####
 pulu_palsta_admin:
-    pattern: /admin
+    path: /admin
     defaults: { _controller: PuluPalstaBundle:Admin:index }
 
 pulu_palsta_admin_article:
-    pattern: /admin/article
+    path: /admin/article
     defaults: { _controller: PuluPalstaBundle:Admin:listArticle }
 
 pulu_palsta_admin_article_create:
-    pattern: /admin/article/create
+    path: /admin/article/create
     defaults: { _controller: PuluPalstaBundle:Admin:handleArticle }
 
 pulu_palsta_admin_article_edit:
-    pattern: /admin/article/edit/{id}
+    path: /admin/article/edit/{id}
     defaults: { _controller: PuluPalstaBundle:Admin:handleArticle }
     requirements:
         id: \d+
 
 pulu_palsta_admin_article_delete:
-    pattern: /admin/article/delete/{id}
+    path: /admin/article/delete/{id}
     defaults: { _controller: PuluPalstaBundle:Admin:handleArticle }
     requirements:
         id: \d+
 
 pulu_palsta_admin_article_history:
-    pattern: /admin/article/history/{id}
+    path: /admin/article/history/{id}
     defaults: { _controller: PuluPalstaBundle:Admin:historyArticle }
     requirements:
         id: \d+
 
 pulu_palsta_admin_article_diff:
-    pattern: /admin/article/diff/{id}
+    path: /admin/article/diff/{id}
     defaults: { _controller: PuluPalstaBundle:Admin:diffArticle }
     requirements:
         id: \d+
         revision: \d+
 
 pulu_palsta_admin_keyword:
-    pattern: /admin/keyword
+    path: /admin/keyword
     defaults: { _controller: PuluPalstaBundle:Admin:listKeyword }
 
 pulu_palsta_admin_keyword_create:
-    pattern: /admin/keyword/create
+    path: /admin/keyword/create
     defaults: { _controller: PuluPalstaBundle:Admin:handleKeyword }
 
 pulu_palsta_admin_keyword_edit:
-    pattern: /admin/keyword/edit/{id}
+    path: /admin/keyword/edit/{id}
     defaults: { _controller: PuluPalstaBundle:Admin:handleKeyword }
     requirements:
         id: \d+
 
 pulu_palsta_admin_keyword_delete:
-    pattern: /admin/keyword/delete/{id}
+    path: /admin/keyword/delete/{id}
     defaults: { _controller: PuluPalstaBundle:Admin:handleKeyword }
     requirements:
         id: \d+
 
 pulu_palsta_admin_comment:
-    pattern: /admin/comment
+    path: /admin/comment
     defaults: { _controller: PuluPalstaBundle:Admin:listComment }
 
 pulu_palsta_admin_comment_edit:
-    pattern: /admin/comment/edit/{id}
+    path: /admin/comment/edit/{id}
     defaults: { _controller: PuluPalstaBundle:Admin:handleComment }
     requirements:
         id: \d+
 
 pulu_palsta_admin_account:
-    pattern: /admin/account
+    path: /admin/account
     defaults: { _controller: PuluPalstaBundle:Admin:account }
 
 pulu_palsta_admin_setting:
-    pattern: /admin/setting
+    path: /admin/setting
     defaults: { _controller: PuluPalstaBundle:Admin:setting }
 
 pulu_palsta_admin_guide:
-    pattern: /admin/guide
+    path: /admin/guide
     defaults: { _controller: PuluPalstaBundle:Admin:guide }
 
 pulu_palsta_admin_module:
-    pattern: /admin/module
+    path: /admin/module
     defaults: { _controller: PuluPalstaBundle:Module:index }
 
 pulu_palsta_admin_module_create:
-    pattern: /admin/module/create
+    path: /admin/module/create
     defaults: { _controller: PuluPalstaBundle:Module:handle }
 
 pulu_palsta_admin_module_edit:
-    pattern: /admin/module/edit/{id}
+    path: /admin/module/edit/{id}
     defaults: { _controller: PuluPalstaBundle:Module:handle }
     requirements:
         id: \d+
 
 pulu_palsta_admin_module_delete:
-    pattern: /admin/module/delete/{id}
+    path: /admin/module/delete/{id}
     defaults: { _controller: PuluPalstaBundle:Module:handle }
     requirements:
         id: \d+
 
 pulu_palsta_admin_module_use:
-    pattern: /admin/module/use/{id}
+    path: /admin/module/use/{id}
     defaults: { _controller: PuluPalstaBundle:Module:use }
     options:
         expose: true
@@ -210,13 +210,13 @@ pulu_palsta_admin_module_use:
         id: \d+
 
 pulu_palsta_admin_api_visit:
-    pattern: /admin/api/visit
+    path: /admin/api/visit
     defaults: { _controller: PuluPalstaBundle:Api:getVisit }
 
 pulu_palsta_admin_visit:
-    pattern: /admin/visit
+    path: /admin/visit
     defaults: { _controller: PuluPalstaBundle:Admin:visit }
 
 pulu_palsta_admin_visit_average:
-    pattern: /admin/visit/average
+    path: /admin/visit/average
     defaults: { _controller: PuluPalstaBundle:Admin:visitAverage }
