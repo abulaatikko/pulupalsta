@@ -19,7 +19,7 @@
 <thead>
 <tr>
     <th>Avainsana</th>
-    <th>Painoarvo</th>
+    <th>Käytössä</th>
     <th>Luotu</th>
     <th>Muokattu</th>
 </tr>
@@ -39,7 +39,7 @@ if ($view['helper']->startsWithUppercase($name)) {
 ?>
 <tr data-special="<?= $special ?>" class="<?= $hidden ?>">
     <td class="nowrap"><a href="<?php echo $view['router']->generate('pulu_palsta_admin_keyword_edit', array('id' => $keyword->getId())) ?>"><?= $name ?></a></td>
-    <td class="nowrap"><?php echo(sprintf("%.2f", $keyword->getWeight())) ?></td>
+    <td class="nowrap"><?php echo $keyword->getArticleCount() ?></td>
     <td class="nowrap"><?php echo $keyword->getCreated()->format('Y-m-d') ?></td>
     <td class="nowrap"><?php echo $keyword->getModified()->format('Y-m-d') ?></td>
 </tr>

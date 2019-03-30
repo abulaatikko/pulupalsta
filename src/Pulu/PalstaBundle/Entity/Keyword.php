@@ -85,4 +85,8 @@ class Keyword {
         return $this->articles;
     }
 
+    public function getArticleCount() {
+        return count($this->getArticles());
+    }
+
 }
