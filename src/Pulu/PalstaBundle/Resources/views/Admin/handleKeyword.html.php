@@ -38,11 +38,6 @@
 <form action="<?php echo $view['router']->generate($formUrl, array('id' => $keyword->getId())) ?>" method="post" <?php echo $view['form']->enctype($form) ?> >
     <?php $view['form']->setTheme($form, array('PuluPalstaBundle:Form')) ;?>
 
-    <div>
-        <label>Painoarvo</label>
-        <p><?php echo(sprintf('%.2f', $keyword->getWeight())) ?></p>
-    </div>
-
 <?php if (! empty($form['localizations'])): ?>
         <?php foreach ($form['localizations'] as $row): ?>
             <div id="language-<?php echo $row['language']->vars['value'] ?>">
@@ -61,6 +56,16 @@
     <input class="alert button right" id="deleteConfirmation" type="submit" value="Poista" />
     <?php endif ?>
 </form>
+
+    <div>
+        <p>Käytössä artikkeleissa:</p>
+        <ul>
+        <? foreach($keyword->getArticles() as $keywordArticle): ?>
+        <? $article = $keywordArticle->getArticle(); ?>
+        <li><a href="<? echo $view['router']->generate('pulu_palsta_admin_article_edit', array('id' => $article->getId())) ?>"><? echo $article->getName() ?> (#<? echo $article->getId() ?>)</a></li>
+        <? endforeach ?>
+        </ul>
+    </div>
 
 <?php $view['slots']->stop('body') ?>
 
