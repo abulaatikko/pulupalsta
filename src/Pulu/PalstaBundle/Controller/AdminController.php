@@ -92,8 +92,6 @@ class AdminController extends Controller {
                             $articleKeyword->setWeight($requestData[$keyword_weight_key]);
                         }
                         $em->persist($articleKeyword);
-                    } else {                        
-                        break;
                     }
                 }
                 $em->flush();
