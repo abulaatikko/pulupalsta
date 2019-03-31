@@ -5,9 +5,9 @@
 <?php $view['slots']->start('body') ?>
 
 <ul class="breadcrumbs">
-  <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin') ?>">Etusivu</a></li>
-  <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article') ?>">Artikkelit</a></li>
-  <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_edit', array('id' => $article->getId())) ?>" class="current"><?php echo htmlspecialchars($article->getName('fi')) ?></a> (historia)</li>
+  <li><a href="<?php echo $view['router']->path('pulu_palsta_admin') ?>">Etusivu</a></li>
+  <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_article') ?>">Artikkelit</a></li>
+  <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_article_edit', array('id' => $article->getId())) ?>" class="current"><?php echo htmlspecialchars($article->getName('fi')) ?></a> (historia)</li>
 </ul>
 
 <h1>Historia (<?php echo $language ?>)</h1>
@@ -29,10 +29,10 @@
             <?php endif ?>
             <?php $revisionsFound[] = $rev->getRevision(); ?>
         <li>
-            <a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_history', array('id' => $article->getId(), 'revision' => $rev->getRevision(), 'language' => $rev->getLanguage())) ?>">r<?php echo $rev->getRevision() ?>: <?php echo $rev->getCreated()->format('Y-m-d H:i:s') ?></a>
-            (<a href="<?php echo $view['router']->generate('pulu_palsta_admin_article_diff', array('id' => $article->getId(), 'revision' => $rev->getRevision(), 'language' => $rev->getLanguage())) ?>">diff</a>)
+            <a href="<?php echo $view['router']->path('pulu_palsta_admin_article_history', array('id' => $article->getId(), 'revision' => $rev->getRevision(), 'language' => $rev->getLanguage())) ?>">r<?php echo $rev->getRevision() ?>: <?php echo $rev->getCreated()->format('Y-m-d H:i:s') ?></a>
+            (<a href="<?php echo $view['router']->path('pulu_palsta_admin_article_diff', array('id' => $article->getId(), 'revision' => $rev->getRevision(), 'language' => $rev->getLanguage())) ?>">diff</a>)
         </li>
-        <? endforeach ?>
+        <?php endforeach ?>
     </ul>
 </div>
 <div class="six columns"></div>

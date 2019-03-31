@@ -7,17 +7,17 @@
     <lastBuildDate><?php echo date('D, d M Y H:i:s T'); ?></lastBuildDate>
     <pubDate><?php echo date('D, d M Y H:i:s T'); ?></pubDate>
 
-<? foreach ($recentComments as $comment): ?>
+<?php foreach ($recentComments as $comment): ?>
     <item>
         <title><?php echo $comment->getAuthorName() ?> (<?php echo $comment->getArticle()->getName($locale) ?>)</title>
         <description><?php echo $comment->getBody($locale) ?></description>
-        <link><?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $comment->getArticle()->getArticleNumber(), 'name' => $view['helper']->toFilename($comment->getArticle()->getName($locale))), true) ?></link>
+        <link><?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $comment->getArticle()->getArticleNumber(), 'name' => $view['helper']->toFilename($comment->getArticle()->getName($locale))), true) ?></link>
         <author><?php echo $comment->getAuthorName() ?></author>
         <category><?php echo $comment->getArticle()->getName($locale) ?></category>
         <guid><?php echo $comment->getId() ?></guid>
         <pubDate><?php echo $comment->getCreated()->format('D, d M Y H:i:s T') ?></pubDate>
     </item>
-<? endforeach ?>
+<?php endforeach ?>
 
 </channel>
 </rss>

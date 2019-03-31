@@ -26,7 +26,7 @@ class ModuleController extends Controller {
         } else {
             $module = $this->getDoctrine()->getRepository('PuluPalstaBundle:Module')->find($id);
         }
-        $form = $this->createForm(new ModuleType(), $module, array(
+        $form = $this->createForm(ModuleType::class, $module, array(
             'articles' => $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findAllOrderedByName()
         ));
 

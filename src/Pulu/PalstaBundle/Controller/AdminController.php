@@ -53,7 +53,7 @@ class AdminController extends Controller {
 
         $defaultArticleNumber = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->findNextArticleNumber();
         $availableKeywords = $this->getDoctrine()->getRepository('PuluPalstaBundle:Keyword')->findAllOrderedByName();
-        $form = $this->createForm(new ArticleType(), $article, array(
+        $form = $this->createForm(ArticleType::class, $article, array(
             'default_article_number' => $defaultArticleNumber,
             'available_keywords' => $availableKeywords
         ));
@@ -181,7 +181,7 @@ class AdminController extends Controller {
         } else {
             $comment = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->findOneBy(array('id' => $id, 'deleted' => null));
         }
-        $form = $this->createForm(new AdminCommentType(), $comment);
+        $form = $this->createForm(AdminCommentType::class, $comment);
 
         if ($R->isMethod('POST')) {
             $em = $this->getDoctrine()->getManager();
@@ -235,7 +235,7 @@ class AdminController extends Controller {
         } else {
             $keyword = $this->getDoctrine()->getRepository('PuluPalstaBundle:Keyword')->find($id);
         }
-        $form = $this->createForm(new KeywordType(), $keyword);
+        $form = $this->createForm(KeywordType::class, $keyword);
 
         if ($R->isMethod('POST')) {
             $em = $this->getDoctrine()->getManager();

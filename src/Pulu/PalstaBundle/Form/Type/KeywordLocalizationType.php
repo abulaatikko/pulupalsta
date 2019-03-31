@@ -3,18 +3,21 @@ namespace Pulu\PalstaBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Pulu\PalstaBundle\Entity\KeywordRepository;
+
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class KeywordLocalizationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder
-            ->add('language', 'hidden')
-            ->add('name', 'text', array('label' => 'Nimi'));
+            ->add('language', HiddenType::class)
+            ->add('name', TextType::class, array('label' => 'Nimi'));
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver) {
+    public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults(array(
             'data_class' => 'Pulu\PalstaBundle\Entity\KeywordLocalization'
         ));

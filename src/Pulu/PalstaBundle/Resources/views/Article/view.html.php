@@ -9,7 +9,7 @@
 
 <?php if (! $article->getIsPublic()): ?>
     <div class="alert-box secondary" id="hidden-article">PIILOTETTU</div>
-<? endif ?>
+<?php endif ?>
 
 <h1><?php echo $article->getName() ?></h1>
 
@@ -22,18 +22,18 @@
 <strong>Keywords:</strong>
 <?php $printKeywords = array(); ?>
 <?php foreach ($article_keywords as $article_keyword): ?>
-    <? $articleObjects = $article_keyword->getArticles();
+    <?php $articleObjects = $article_keyword->getArticles();
     $count = 0;
     foreach ($articleObjects as $articleObject) {
         if ($articleObject->getArticle()->isPublic()) {
             $count++;
         }
     } ?>
-    <? if ($count > 1): ?>
-        <?php $printKeywords[] = '<a href="' . $view['router']->generate('pulu_palsta_index') . '#' . $article_keyword->getName() . '"><em>' . $article_keyword->getName($currentLocale) . '</em></a>'; ?>
-    <? else: ?>
+    <?php if ($count > 1): ?>
+        <?php $printKeywords[] = '<a href="' . $view['router']->path('pulu_palsta_index') . '#' . $article_keyword->getName() . '"><em>' . $article_keyword->getName($currentLocale) . '</em></a>'; ?>
+    <?php else: ?>
         <?php $printKeywords[] = '<em>' . $article_keyword->getName($currentLocale) . '</em>'; ?>
-    <? endif ?>
+    <?php endif ?>
 <?php endforeach ?>
 <?php echo implode(', ', $printKeywords) ?>
 </div>
@@ -41,23 +41,23 @@
 <?php $body = $article->getBody(); ?>
 <?php $route_params = $app->getRequest()->get('_route_params'); ?>
 
-<? if (empty($body)): ?>
-    <? if ($currentLocale == 'fi'): ?>
-        <? $body = $article->getBody('en'); ?>
-<div class="alert-box">Valitettavasti artikkelista ei löydy suomenkielistä käännöstä<?php if ($article->getUseTranslator() === true): ?>, mutta ainahan voit avata sivun <a href="http://translate.google.com/translate?sl=en&tl=fi&ie=UTF-8&u=<?php echo urlencode($view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'en')), true)) ?>">Google Translatorin</a> kautta<? endif ?>.</div>
-    <? else: ?>
-        <? $body = $article->getBody('fi'); ?>
-<div class="alert-box">Unfortunately no English translation exist<?php if ($article->getUseTranslator() === true): ?> but you can probably get a clue by looking at the <a href="http://translate.google.com/translate?sl=fi&tl=en&ie=UTF-8&u=<?php echo urlencode($view['router']->generate($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'fi')), true)) ?>">Google Translator</a> version<? endif ?>.</div>
-    <? endif ?>
-<? endif ?>
+<?php if (empty($body)): ?>
+    <?php if ($currentLocale == 'fi'): ?>
+        <?php $body = $article->getBody('en'); ?>
+<div class="alert-box">Valitettavasti artikkelista ei löydy suomenkielistä käännöstä<?php if ($article->getUseTranslator() === true): ?>, mutta ainahan voit avata sivun <a href="http://translate.google.com/translate?sl=en&tl=fi&ie=UTF-8&u=<?php echo urlencode($view['router']->path($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'en')), true)) ?>">Google Translatorin</a> kautta<?php endif ?>.</div>
+    <?php else: ?>
+        <?php $body = $article->getBody('fi'); ?>
+<div class="alert-box">Unfortunately no English translation exist<?php if ($article->getUseTranslator() === true): ?> but you can probably get a clue by looking at the <a href="http://translate.google.com/translate?sl=fi&tl=en&ie=UTF-8&u=<?php echo urlencode($view['router']->path($app->getRequest()->get('_route'), array_merge($route_params, array('_locale' => 'fi')), true)) ?>">Google Translator</a> version<?php endif ?>.</div>
+    <?php endif ?>
+<?php endif ?>
 
 <?php
 // Old Puluprojects functions
 
 global $articleNumber, $mediaPath, $mediaUrl;
 $articleNumber = $article->getArticleNumber();
-$mediaPath = $view->container->getParameter('media.path');
-$mediaUrl = $view->container->getParameter('media.url');
+//$mediaPath = $view->container->getParameter('media.path');
+//$mediaUrl = $view->container->getParameter('media.url');
 
 /*function toFilename($string) {
     $conversion_array = array(
@@ -320,22 +320,21 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 </tr>
 </thead>
 <tbody>
-<? foreach ($comments as $comment): ?>
-<? $authorColor = in_array($comment->getAuthorName(), ['Lassi', 'Abula']) ? '; font-weight: 100; font-style: italic' : ''; ?>
+<?php foreach ($comments as $comment): ?>
+<?php $authorColor = in_array($comment->getAuthorName(), ['Lassi', 'Abula']) ? '; font-weight: 100; font-style: italic' : ''; ?>
 <tr>
-    <td style="width: 12%"><strong style="display: block<? echo $authorColor ?>"><?php echo $comment->getAuthorName() ?></strong><small><?php echo $comment->getCreated()->format('Y-m-d H:i') ?></small></td>
+    <td style="width: 12%"><strong style="display: block<?php echo $authorColor ?>"><?php echo $comment->getAuthorName() ?></strong><small><?php echo $comment->getCreated()->format('Y-m-d H:i') ?></small></td>
     <td><?php echo(nl2br($view['helper']->convertUrlsToLinks(htmlspecialchars($comment->getBody())))) ?></td>
 </tr>
-<? endforeach ?>
+<?php endforeach ?>
 
 </tbody>
 </table>
 </div>
-<? //endif ?>
 
 <h3>Write a comment</h3>
 
-<form id="articleComment" action="<?php echo $view['router']->generate('pulu_palsta_article_comment') ?>" method="post" <?php echo $view['form']->enctype($form) ?> >
+<form id="articleComment" action="<?php echo $view['router']->path('pulu_palsta_article_comment') ?>" method="post">
     <?php $view['form']->setTheme($form, array('PuluPalstaBundle:Form')) ;?>
     <div class="row">
     <div class="six columns">

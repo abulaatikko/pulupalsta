@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ArticleController extends Controller {
 
     public function viewAction(Request $R, $article_number, $name) {
-        $securityContext = $this->container->get('security.context');
+        $securityContext = $this->container->get('security.authorization_checker');
         $is_admin = $securityContext->isGranted('ROLE_ADMIN');
         $is_friend = $securityContext->isGranted('ROLE_FRIEND');
 
@@ -42,7 +42,7 @@ class ArticleController extends Controller {
         $comments = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->findByCreated(null, $article->getId(), null, 'ASC');;
 
         $comment = new Comment();
-        $form = $this->createForm(new CommentType(), $comment);
+        $form = $this->createForm(CommentType::class, $comment);
 
         // Register visit
         $ip_address = $R->getClientIp();
@@ -76,7 +76,9 @@ class ArticleController extends Controller {
             'article_keywords' => $articleKeywords,
             'rating' => $rating,
             'doctrine' => $this->getDoctrine(),
-            'router' => $this->get('router')
+            'router' => $this->get('router'),
+            'mediaPath' => $this->container->getParameter('media.path'),
+            'mediaUrl' => $this->container->getParameter('media.url')
         ));
     }
 

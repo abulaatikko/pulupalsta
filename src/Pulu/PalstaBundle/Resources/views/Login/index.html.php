@@ -10,7 +10,7 @@
     <div><?php echo $error->getMessage() ?></div>
 <?php endif; */ ?>
 
-<form action="<?php echo $view['router']->generate('pulu_palsta_login_check') ?>" method="post">
+<form action="<?php echo $view['router']->path('pulu_palsta_login_check') ?>" method="post">
     <label for="username">User:</label>
     <input style="width: 200px" type="text" id="username" name="_username" value="<?php echo $last_username ?>" />
 

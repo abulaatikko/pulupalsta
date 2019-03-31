@@ -3,7 +3,11 @@ namespace Pulu\PalstaBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class CommentType extends AbstractType {
 
@@ -28,17 +32,17 @@ class CommentType extends AbstractType {
         shuffle($safety_questions);
 
         $builder
-            ->add('author_name', 'text', array(
+            ->add('author_name', TextType::class, array(
                 'label' => 'Your name',
                 'data' => $options['default_author_name']))
-            ->add('body', 'textarea', array(
+            ->add('body', TextareaType::class, array(
                 'label' => 'Comment',
                 'data' => $options['default_body']))
-            ->add('safety_question', 'text', array(
+            ->add('safety_question', TextType::class, array(
                 'label' => $safety_questions[0]['question'],
                 'mapped' => false,
                 'data' => $options['default_safety_question']))
-            ->add('safety_answer', 'hidden', array(
+            ->add('safety_answer', HiddenType::class, array(
                 'data' => base64_encode(serialize($safety_questions[0]['answers'])),
                 'mapped' => false));
     }
@@ -47,7 +51,7 @@ class CommentType extends AbstractType {
         return 'comment';
     }
 
-    public function setDefaultOptions(OptionsResolverInterface $resolver) {
+    public function configureOptions(OptionsResolver $resolver) {
         $resolver->setDefaults(array(
             'data_class' => 'Pulu\PalstaBundle\Entity\Comment',
             'default_body' => '',

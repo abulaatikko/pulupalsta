@@ -66,48 +66,48 @@
 <h3>Navigaatio</h3>
 
 <ul>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_article') ?>">Artikkelit</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_comment') ?>">Kommentit</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_keyword') ?>">Avainsanat</a>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_article') ?>">Artikkelit</a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_comment') ?>">Kommentit</a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_keyword') ?>">Avainsanat</a>
         <ul>
-            <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_keyword_create') ?>">Luo uusi</a></li>
+            <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_keyword_create') ?>">Luo uusi</a></li>
         </ul>
     </li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_module') ?>">Moduulit</a>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_module') ?>">Moduulit</a>
         <ul>
-            <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_module_create') ?>">Luo uusi</a></li>
+            <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_module_create') ?>">Luo uusi</a></li>
         </ul>
     </li>
-    <li>Vierailut: <a href="<?php echo $view['router']->generate('pulu_palsta_admin_visit') ?>">1</a>, <a href="<?php echo $view['router']->generate('pulu_palsta_admin_visit_average') ?>">2</a></li>
-    <!--<li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_account') ?>">Käyttäjät</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_setting') ?>">Asetukset</a></li>-->
+    <li>Vierailut: <a href="<?php echo $view['router']->path('pulu_palsta_admin_visit') ?>">1</a>, <a href="<?php echo $view['router']->path('pulu_palsta_admin_visit_average') ?>">2</a></li>
+    <!--<li><a href="<?php echo $view['router']->path('pulu_palsta_admin_account') ?>">Käyttäjät</a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_setting') ?>">Asetukset</a></li>-->
 </ul>
 
 <ul>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_front', array('_locale' => 'fi')) ?>">Avaa sivusto</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_guide') ?>">Ohjeet</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_logout') ?>">Kirjaudu ulos</a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_front', array('_locale' => 'fi')) ?>">Avaa sivusto</a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_guide') ?>">Ohjeet</a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_logout') ?>">Kirjaudu ulos</a></li>
 </ul>
 
     </div><!-- Navigation area ends -->
     <!-- Body -->
     <div class="ten columns" id="contents">
 
-<? if ($view['session']->hasFlash('notice')): ?>
+<?php if ($view['session']->hasFlash('notice')): ?>
 <div id="notice">
 <?php foreach ($view['session']->getFlash('notice') as $message): ?>
     <?php echo "<div class='alert-box success'>$message</div>" ?>
 <?php endforeach; ?>
 </div>
-<? endif ?>
+<?php endif ?>
 
-<? if ($view['session']->hasFlash('error')): ?>
+<?php if ($view['session']->hasFlash('error')): ?>
 <div style="padding-top: 20px;" id="error">
 <?php foreach ($view['session']->getFlash('error') as $message): ?>
     <?php echo "<div class='alert-box alert'>$message</div>" ?>
 <?php endforeach; ?>
 </div>
-<? endif ?>
+<?php endif ?>
 
 <?php $view['slots']->output('body') ?>
 
@@ -150,6 +150,6 @@
     )) as $url): ?>
     <script src="<?php echo $view->escape($url) ?>"></script>
 <?php endforeach; ?>
-<script type="text/javascript" src="<?php echo $view['router']->generate('fos_js_routing_js', array('callback' => 'fos.Router.setData')) ?>"></script>
+<script type="text/javascript" src="<?php echo $view['router']->path('fos_js_routing_js', array('callback' => 'fos.Router.setData')) ?>"></script>
 </body>
 </html>

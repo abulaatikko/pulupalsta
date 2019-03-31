@@ -7,15 +7,15 @@
     <lastBuildDate><?php echo date('D, d M Y H:i:s T'); ?></lastBuildDate>
     <pubDate><?php echo date('D, d M Y H:i:s T'); ?></pubDate>
 
-<? foreach ($recentArticles as $article): ?>
+<?php foreach ($recentArticles as $article): ?>
     <item>
         <title><?php echo $article->getName($locale) ?> (#<?php echo $article->getArticleNumber() ?>)</title>
         <description><?php echo $article->getTeaser($locale) ?></description>
-        <link><?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($locale))), true) ?></link>
+        <link><?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName($locale))), true) ?></link>
         <guid><?php echo $article->getArticleNumber() ?></guid>
         <pubDate><?php echo $article->getPublished()->format('D, d M Y H:i:s T') ?></pubDate>
     </item>
-<? endforeach ?>
+<?php endforeach ?>
 
 </channel>
 </rss>
