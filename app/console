@@ -8,7 +8,7 @@ use Symfony\Component\Debug\Debug;
 // for more information
 umask(0000);
 set_time_limit(0);
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__.'/../app/autoload.php';
 $input = new ArgvInput();
 $env = $input->getParameterOption(['--env', '-e'], getenv('SYMFONY_ENV') ?: 'dev', true);
 $debug = getenv('SYMFONY_DEBUG') !== '0' && !$input->hasParameterOption('--no-debug', true) && $env !== 'prod';
