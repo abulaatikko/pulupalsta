@@ -37,7 +37,7 @@ $articles = $array->filter(function($article) {
         <h4><?php echo $keyword->getName($currentLocale) ?></h4>
         <ul class="square">
         <?php foreach ($articles as $article): ?>
-        <li><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticle()->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getArticle()->getName()), '_locale' => $article->getArticle()->getLanguage())) ?>'><?php echo $article->getArticle()->getName(); ?></a></li>
+        <li><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticle()->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getArticle()->getName()), '_locale' => $article->getArticle()->getLanguage())) ?>'><?php echo $article->getArticle()->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getArticle()->getName(); ?><?php echo $article->getArticle()->getIsOneOfBest() ? '</strong>' : '' ?></a></li>
         <?php endforeach ?>
         </ul>
     </div>

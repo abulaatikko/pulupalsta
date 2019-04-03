@@ -21,6 +21,9 @@ class CalculateArticleVisitsLastMonthCommand extends ContainerAwareCommand {
         $articleRepository = $D->getRepository('PuluPalstaBundle:Article');
         $visitRepository = $D->getRepository('PuluPalstaBundle:Visit');
         $articles = $articleRepository->findAllOrderedByName();
+
+        $top = [];
+
         foreach ($articles as $article) {
             $allTimeVisits = $article->getVisits();
 
@@ -37,7 +40,21 @@ class CalculateArticleVisitsLastMonthCommand extends ContainerAwareCommand {
             $EM->persist($article);
             $article->setLastMonthVisits($lastMonthVisits);
             $article->setAverageMonthlyVisits($allTimeVisitsPerMonth);
+
+            $top[intval($allTimeVisitsPerMonth * 100) . '.' . $article->getId()] = $article;
         }
+
+        krsort($top, SORT_NUMERIC);
+
+        $i = 1;
+        foreach ($top as $topArticle) {
+            if ($i++ > 10) {
+                $topArticle->setIsOneOfBest(false);
+            } else {
+                $topArticle->setIsOneOfBest(true);
+            }
+        }
+
         $EM->flush();
     }
 

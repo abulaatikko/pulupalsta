@@ -48,6 +48,9 @@ Pulu\PalstaBundle\Entity\Article:
             precision: 10
             scale: 2
             nullable: true
+        is_one_of_best:
+            type: boolean
+            nullable: true
         use_translator:
             type: boolean
             nullable: true

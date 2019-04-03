@@ -60,10 +60,10 @@
     <div>
         <p>Käytössä artikkeleissa:</p>
         <ul>
-        <? foreach($keyword->getArticles() as $keywordArticle): ?>
-        <? $article = $keywordArticle->getArticle(); ?>
-        <li><a href="<? echo $view['router']->generate('pulu_palsta_admin_article_edit', array('id' => $article->getId())) ?>"><? echo $article->getName() ?> (#<? echo $article->getId() ?>)</a></li>
-        <? endforeach ?>
+        <?php foreach($keyword->getArticles() as $keywordArticle): ?>
+        <?php $article = $keywordArticle->getArticle(); ?>
+        <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_article_edit', array('id' => $article->getId())) ?>"><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?> (#<?php echo $article->getId() ?>)<?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></li>
+        <?php endforeach ?>
         </ul>
     </div>
 

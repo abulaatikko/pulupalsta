@@ -33,7 +33,7 @@ if ($typeText == 'Research') { $typeStyles .= '; color: green';}
 if ($typeText == 'Art') { $typeStyles .= '; color: red';}
 ?>
 <tr>
-    <td<?php echo $isPublicStyle ?>><a href="<?php echo $view['router']->path('pulu_palsta_admin_article_edit', array('id' => $article->getId())) ?>"><?php echo $article->getName() ?></a> (<?php echo $article->getArticleNumber() ?>)</td>
+    <td<?php echo $isPublicStyle ?>><a href="<?php echo $view['router']->path('pulu_palsta_admin_article_edit', array('id' => $article->getId())) ?>"><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a> (<?php echo $article->getArticleNumber() ?>)</td>
     <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
     <td style="<?php echo $typeStyles; ?>"><?php echo $typeText ?></td>
 

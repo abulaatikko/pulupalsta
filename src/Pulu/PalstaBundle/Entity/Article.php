@@ -18,6 +18,7 @@ class Article {
     protected $old_visits; // from puluprojects
     protected $last_month_visits;
     protected $average_monthly_visits;
+    protected $is_one_of_best;
     protected $use_translator;
     protected $language;
     protected $is_public;
@@ -60,6 +61,7 @@ class Article {
         $this->use_translator = false;
         $this->language = 'fi';
         $this->is_public = false;
+        $this->is_one_of_best = false;
         $this->access = self::ACCESS_ADMIN;
     }
 
@@ -110,6 +112,15 @@ class Article {
     public function setIsPublic($isPublic) {
         $this->is_public = $isPublic;
         return $this;
+    }
+
+    public function getIsOneOfBest() {
+        return $this->is_one_of_best;
+    }
+
+    public function setIsOneOfBest($isOneOfBest) {
+        $this->is_one_of_best = $isOneOfBest;
+        return $this->is_one_of_best;
     }
 
     public function getAccess() {
