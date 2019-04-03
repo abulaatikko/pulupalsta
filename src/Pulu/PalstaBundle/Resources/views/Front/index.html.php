@@ -8,9 +8,9 @@
 
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
-<h1>Welcome my Friend! <a style="float: right" href="<?php echo $view['router']->generate('pulu_palsta_list') ?>#feeds" title="RSS Feeds"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feeds" /></a></h1>
+<h1>Welcome! <a style="float: right" href="<?php echo $view['router']->generate('pulu_palsta_list') ?>#feeds" title="RSS Feeds"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feeds" /></a></h1>
 
-<p>Hi, I'm Lassi in real life and Abula in internet life. I created this website in 2006 to publish reports of my random projects, just for the lulz. Best ones: <a href="/fi/1">Pepsi</a> (2006), <a href="/en/51">Townhalls</a> (2016), <a href="/fi/56">Money (2017)</a>, <a href="/fi/60">Elasto Mania</a> (2018). Most texts are in Finnish.</p>
+<p>Hi, I'm Lassi in real life and Abula in internet life. I'm a web developer and this is my test project. I've also created some content.</p>
 
 <!-- Popular/Recent articles -->
 <div class="row">

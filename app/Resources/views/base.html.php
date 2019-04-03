@@ -107,7 +107,7 @@
 <ul id="bottom-navigation">
     <li><a href="javascript:void(0)" onclick="goToTop()">Back to Top</a></li>
 </ul>
-<p id="copyright">&copy; 2006-<?php echo date('Y'); ?> <a href="https://lassi.pulu.org">Lassi Heikkinen</a>, aka Abula</p>
+<p id="copyright">&copy; 2006-<?php echo date('Y'); ?> <a href="https://lassi.pulu.org">Lassi Heikkinen</a></p>
 
         </div>
     </div>
