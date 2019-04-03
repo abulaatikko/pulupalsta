@@ -44,7 +44,7 @@ class ArticleType extends AbstractType {
                 'label' => 'Tyyppi',
                 'choices' => array(
                     '' => 0,
-                    'Adventure' => 1,
+                    'Training' => 1,
                     'Research' => 2,
                     'Art' => 3
                 ),

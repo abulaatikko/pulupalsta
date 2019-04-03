@@ -42,7 +42,7 @@ class Article {
     const ACCESS_ALL = 100;
 
     const TYPE_UNDEFINED = 0;
-    const TYPE_ADVENTURE = 1;
+    const TYPE_TRAINING = 1;
     const TYPE_RESEARCH = 2;
     const TYPE_ART = 3;
 

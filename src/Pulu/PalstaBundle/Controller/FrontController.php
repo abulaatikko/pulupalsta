@@ -11,12 +11,12 @@ class FrontController extends Controller {
     public function indexAction(Request $R) {
         $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article');
         $repository->setLanguage($R->getLocale());
-        $adventureArticles = $repository->findAdventuresOrderedByPublishedForPublic();
+        $trainingArticles = $repository->findTrainingsOrderedByPublishedForPublic();
         $researchArticles = $repository->findResearchesOrderedByPublishedForPublic();
         $keywords = $this->getKeywords($R);       
 
         return $this->render('PuluPalstaBundle:Front:index.html.php', array(
-            'adventureArticles' => $adventureArticles,
+            'trainingArticles' => $trainingArticles,
             'researchArticles' => $researchArticles,
             'keywords' => $keywords
         ));
