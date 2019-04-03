@@ -22,8 +22,7 @@ bin/*
 vendor/
 
 # assets and user uploads
-web/
-web/
+web/*
 
 # composer
 composer.phar

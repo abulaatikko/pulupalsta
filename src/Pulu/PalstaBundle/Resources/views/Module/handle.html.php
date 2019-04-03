@@ -2,31 +2,31 @@
 
 <?php if ($module->getId() > 0): ?>
 <?php $view['slots']->set('title', $module->getName() . ' - Ylläpito - Pulupalsta') ?>
-<? else: ?>
+<?php else: ?>
 <?php $view['slots']->set('title', 'Luo moduuli - Ylläpito - Pulupalsta') ?>
-<? endif ?>
+<?php endif ?>
 
 <?php $view['slots']->start('body') ?>
 
 <?php if ($module->getId() > 0): ?>
 <ul class="breadcrumbs">
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin') ?>">Etusivu</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_module') ?>">Moduulit</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_module_edit', array('id' => $module->getId())) ?>" class="current"><?php echo $module->getName() ?></a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin') ?>">Etusivu</a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_module') ?>">Moduulit</a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_module_edit', array('id' => $module->getId())) ?>" class="current"><?php echo $module->getName() ?></a></li>
 </ul>
 <h1><?php echo $module->getName() ?></h1>
 <?php $formUrl = 'pulu_palsta_admin_module_edit'; ?>
 <?php else: ?>
 <ul class="breadcrumbs">
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin') ?>">Etusivu</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_module') ?>">Moduulit</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_module_create') ?>" class="current">Luo uusi</a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin') ?>">Etusivu</a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_module') ?>">Moduulit</a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_module_create') ?>" class="current">Luo uusi</a></li>
 </ul>
 <h1>Luo uusi moduuli</h1>
 <?php $formUrl = 'pulu_palsta_admin_module_create'; ?>
 <?php endif ?>
 
-<form action="<?php echo $view['router']->generate($formUrl, array('id' => $module->getId())) ?>" method="post" <?php echo $view['form']->enctype($form) ?> >
+<form action="<?php echo $view['router']->path($formUrl, array('id' => $module->getId())) ?>" method="post">
     <?php $view['form']->setTheme($form, array('PuluPalstaBundle:Form')) ?>
 
     <div class="row">
@@ -61,7 +61,7 @@
 
 <div id="deleteConfirmationModal" class="reveal-modal small">
     <h4>Oletko varma?</h4>
-    <form action="<?php echo $view['router']->generate($formUrl, array('id' => $module->getId())) ?>" method="post" <?php echo $view['form']->enctype($form) ?> >
+    <form action="<?php echo $view['router']->path($formUrl, array('id' => $module->getId())) ?>" method="post">
         <input class="secondary button close" type="submit" value="Peruuta" />
         <input class="alert button right" name="delete" type="submit" value="Kyllä" />
     </form>

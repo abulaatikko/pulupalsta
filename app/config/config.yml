@@ -1,7 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
-    - { resource: @PuluPalstaBundle/Resources/config/services.yml }
+    - { resource: '@PuluPalstaBundle/Resources/config/services.yml' }
 
 framework:
     translator:
@@ -15,7 +15,8 @@ framework:
     form:            true
     csrf_protection: true
     validation:      { enabled: true }
-    templating:      { engines: ['twig', 'php'] assets_version: v2.2.3 }
+    templating:      { engines: ['twig', 'php'] }
+    assets:          { version: v2.2.3 }
     default_locale:  fi
     trusted_proxies: {}
     session:         ~

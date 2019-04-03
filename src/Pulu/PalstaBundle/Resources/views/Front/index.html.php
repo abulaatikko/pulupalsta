@@ -8,7 +8,7 @@
 
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
-<h1>Welcome! <a style="float: right" href="<?php echo $view['router']->generate('pulu_palsta_list') ?>#feeds" title="RSS Feeds"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feeds" /></a></h1>
+<h1>Welcome! <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_list') ?>#feeds" title="RSS Feeds"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feeds" /></a></h1>
 
 <p>Hi, I'm Lassi in real life and Abula in internet life. I'm a web developer and this is my test project. I've also created some content.</p>
 
@@ -26,13 +26,13 @@
 </tr>
 </thead>
 <tbody>
-<? foreach ($researchArticles as $article): ?>
+<?php foreach ($researchArticles as $article): ?>
 <tr>
     <td><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
-    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getName(); ?></a></td>
+    <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getName(); ?></a></td>
     <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
 </tr>
-<? endforeach ?>
+<?php endforeach ?>
 </tbody>
 </table>
 
@@ -50,13 +50,13 @@
 </thead>
 
 <tbody>
-<? foreach ($adventureArticles as $article): ?>
+<?php foreach ($adventureArticles as $article): ?>
 <tr>
     <td><?php echo $article->getPublished()->format('Y-m-d') ?></td>
-    <td><a href='<?php echo $view['router']->generate('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getName(); ?></a></td>
+    <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getName(); ?></a></td>
     <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
 </tr>
-<? endforeach ?>
+<?php endforeach ?>
 </tbody>
 </table>
 

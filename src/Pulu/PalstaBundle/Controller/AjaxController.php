@@ -23,7 +23,7 @@ class AjaxController extends Controller {
             $user_agent = $R->server->get('HTTP_USER_AGENT');
             $author_hash = md5($ip_address . $user_agent);
 
-            $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find(array('id' => $article_id, 'deleted' => null));
+            $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find(array('id' => $article_id));
             if ($article instanceof Article) {
                 $ratingEntity = $this->getDoctrine()->getRepository('PuluPalstaBundle:Rating')->findOneBy(array('article' => $article->getId(), 'author_hash' => $author_hash));
                 if (! $ratingEntity instanceof Rating) {
@@ -55,11 +55,11 @@ class AjaxController extends Controller {
         $message = $translator->trans('Kommentointi epäonnistui');
 
         $comment = new Comment();
-        $form = $this->createForm(new CommentType(), $comment);
+        $form = $this->createForm(CommentType::class, $comment);
 
         if ($R->isMethod('POST')) {
             $article_id = $R->get('article_id');
-            $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find(array('id' => $article_id, 'deleted' => null));
+            $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find(array('id' => $article_id));
             if ($article instanceof Article) {
                 
                 $requestData = $R->request->get('comment');

@@ -6,9 +6,9 @@
 
 <h1><?php echo $module->getName() ?></h1>
 <ul class="breadcrumbs">
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin') ?>">Etusivu</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_module') ?>">Moduulit</a></li>
-    <li><a href="<?php echo $view['router']->generate('pulu_palsta_admin_module_use', array('id' => $module->getId())) ?>" class="current"><?php echo $module->getName() ?></a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin') ?>">Etusivu</a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_module') ?>">Moduulit</a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_module_use', array('id' => $module->getId())) ?>" class="current"><?php echo $module->getName() ?></a></li>
 </ul>
 
     <?php if (empty($tables_exist)): ?>
@@ -32,13 +32,13 @@
         <option value="">Lisää uusi olut...</option>
         <?php foreach ($data['beers'] as $beer): ?>
         <option value="<?php echo $beer['id'] ?>"><?php echo date('Y-m-d', strtotime($beer['drunk_date'])) ?> (#<?php echo $beer['row_number'] ?>): <?php echo $beer['name'] ?></option>
-        <? endforeach ?>
+        <?php endforeach ?>
     </select>
 
         </div>
     </div>
 
-    <form action="<?php echo $view['router']->generate('pulu_palsta_admin_module_use', array('id' => $module->getId())) ?>" method="post" id="beer-edit">
+    <form action="<?php echo $view['router']->path('pulu_palsta_admin_module_use', array('id' => $module->getId())) ?>" method="post" id="beer-edit">
 
     <div class="row">
         <div class="two columns">
@@ -97,7 +97,7 @@
                 <option></option>
                 <?php foreach ($form_data['styles'] as $style): ?>
                     <option value="<?php echo $style['id'] ?>"><?php echo $style['name'] ?></option>
-                <? endforeach ?>
+                <?php endforeach ?>
             </select>
             <input type="text" name="new_style" />
         </div>
@@ -111,7 +111,7 @@
                 <option></option>
                 <?php foreach ($form_data['countries'] as $country): ?>
                     <option value="<?php echo $country['id'] ?>"><?php echo $country['name'] ?></option>
-                <? endforeach ?>
+                <?php endforeach ?>
             </select>
             <input type="text" name="new_country" />
         </div>
@@ -129,8 +129,8 @@
     <input class="button" type="submit" value="Tallenna" />
     <input class="alert button right" id="deleteConfirmation" type="submit" value="Poista" style="display: none" />
     </form>
-        <? endif ?>
-    <? endif ?>
+        <?php endif ?>
+    <?php endif ?>
 
 <?php $view['slots']->stop('body') ?>
 
@@ -138,7 +138,7 @@
 
 <div id="deleteConfirmationModal" class="reveal-modal small">
     <h4>Oletko varma?</h4>
-    <form action="<?php echo $view['router']->generate('pulu_palsta_admin_module_use', array('id' => $module->getId())) ?>" method="post">
+    <form action="<?php echo $view['router']->path('pulu_palsta_admin_module_use', array('id' => $module->getId())) ?>" method="post">
         <input class="secondary button close" type="submit" value="Peruuta" />
         <input class="alert button right" name="delete" type="submit" value="Kyllä" />
         <input type="hidden" name="beer_id" value="" />

@@ -10,7 +10,7 @@
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<? endif ?>
+<?php endif ?>
 <head>
     <meta charset="utf-8" />
     <meta name="description" content="">
@@ -18,8 +18,8 @@
     <meta name="viewport" content="width=device-width" />
     <title><?php $view['slots']->output('title', 'Pulupalsta') ?></title>
     <link rel="icon" type="image/png" href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/favicon.png') ?>" />
-    <link rel="alternate" title="Pulupalsta Recent Articles" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_articles') ?>" type="application/rss+xml" />
-    <link rel="alternate" title="Pulupalsta Recent Comments" href="<?php echo $view['router']->generate('pulu_palsta_feed_recent_comments') ?>" type="application/rss+xml" />
+    <link rel="alternate" title="Pulupalsta Recent Articles" href="<?php echo $view['router']->path('pulu_palsta_feed_recent_articles') ?>" type="application/rss+xml" />
+    <link rel="alternate" title="Pulupalsta Recent Comments" href="<?php echo $view['router']->path('pulu_palsta_feed_recent_comments') ?>" type="application/rss+xml" />
     <?php foreach ($view['assetic']->stylesheets(
         array(
             // https://github.com/kriswallsmith/assetic/issues/53
@@ -62,12 +62,12 @@
         <div id="navigation-row">
 
 <ul id="navigation">
-<li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_front' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_front') ?>">Front Page</a></li>
-<li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_list' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_list') ?>">Articles</a></li>
-<li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_index' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_index') ?>">Keywords</a></li>
+<li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_front' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->path('pulu_palsta_front') ?>">Front Page</a></li>
+<li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_list' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->path('pulu_palsta_list') ?>">Articles</a></li>
+<li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_index' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->path('pulu_palsta_index') ?>">Keywords</a></li>
 </ul>
 <!--<ul id="about">
-    <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_about' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->generate('pulu_palsta_about') ?>">?</a></li>
+    <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_about' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->path('pulu_palsta_about') ?>">?</a></li>
 </ul>-->
 
         </div>
@@ -78,21 +78,21 @@
 <div class="row">
     <div class="twelve columns" id="main-contents">
 
-<? if ($view['session']->hasFlash('notice')): ?>
+<?php if ($view['session']->hasFlash('notice')): ?>
 <div style="padding-top: 20px;" id="notice">
 <?php foreach ($view['session']->getFlash('notice') as $message): ?>
     <?php echo "<div class='alert-box success'>$message</div>" ?>
 <?php endforeach; ?>
 </div>
-<? endif ?>
+<?php endif ?>
 
-<? if ($view['session']->hasFlash('error')): ?>
+<?php if ($view['session']->hasFlash('error')): ?>
 <div style="padding-top: 20px;" id="error">
 <?php foreach ($view['session']->getFlash('error') as $message): ?>
     <?php echo "<div class='alert-box alert'>$message</div>" ?>
 <?php endforeach; ?>
 </div>
-<? endif ?>
+<?php endif ?>
 
 <?php $view['slots']->output('body') ?>
 
@@ -160,7 +160,7 @@ var translations = {
     )) as $url): ?>
     <script src="<?php echo $view->escape($url) ?>"></script>
     <?php endforeach; ?>
-<script type="text/javascript" src="<?php echo $view['router']->generate('fos_js_routing_js', array('callback' => 'fos.Router.setData')) ?>"></script>
+<script type="text/javascript" src="<?php echo $view['router']->path('fos_js_routing_js', array('callback' => 'fos.Router.setData')) ?>"></script>
 
 <?php /*<!--<script src="javascripts/foundation.min.js"></script>
 <script src="javascripts/app.js"></script>-->*/ ?>
