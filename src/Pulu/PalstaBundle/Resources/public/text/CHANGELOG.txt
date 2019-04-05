@@ -1,5 +1,17 @@
 # CHANGELOG
 
+### 2019-04-05
+
+* Update Symfony 3.4
+* Add article.category (research, training, art)
+* Show language in article lists
+* Use English in controls
+* Show article only in its own language
+* Show top-10 articles in bold
+* Show rating count
+* Highlight author in comments
+* Show articles in admin keyword edit
+
 ### 2018-01-28
 
 * back top top link
