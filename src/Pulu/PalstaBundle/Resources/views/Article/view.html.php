@@ -299,7 +299,7 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
     echo evalize($body, $article, $doctrine);
 ?>
 
-    <?php if (! empty($article->getWrittenAt())): ?><p><em>&ndash; Lassi, <?php echo $article->getWrittenAt() ?></em></p><?php endif ?>
+    <?php if (! empty($article->getWrittenAt())): ?><p><em>&ndash; Lassi, <?php echo $article->getWrittenAt() ?> <?php echo $article->getPublished()->format('Y-m-d') ?></em></p><?php endif ?>
 
     <h2 style="margin-bottom: 5px">Good or bad?</h2>
 
