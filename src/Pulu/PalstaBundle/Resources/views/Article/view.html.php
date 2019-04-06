@@ -54,10 +54,10 @@
 <?php
 // Old Puluprojects functions
 
-global $articleNumber, $mediaPath, $mediaUrl;
+global $articleNumber, $mediaPathGlobal, $mediaUrlGlobal;
 $articleNumber = $article->getArticleNumber();
-//$mediaPath = $view->container->getParameter('media.path');
-//$mediaUrl = $view->container->getParameter('media.url');
+$mediaPathGlobal = $mediaPath;
+$mediaUrlGlobal = $mediaUrl;
 
 /*function toFilename($string) {
     $conversion_array = array(
@@ -112,9 +112,10 @@ function evalize($body, $article, $doctrine) {
     return file_get_contents($file);
 }
 
+
 function getImage($filename, $width = null, $height = null) {
     global $articleNumber;
-    global $mediaPath;
+    global $mediaPathGlobal;
     $dir = 'files/' . $articleNumber . '/img/';
 
     // return original
@@ -122,7 +123,7 @@ function getImage($filename, $width = null, $height = null) {
         return $dir . $filename;
     }
 
-    $basepath = $mediaPath . $dir;
+    $basepath = $mediaPathGlobal . $dir;
     $dimensions = strval($width) . 'x' . strval($height);
 
     $fileparts = explode('.', $filename);
@@ -188,11 +189,11 @@ function getImage($filename, $width = null, $height = null) {
 
 function displayImage($filename, $width = null, $height = null, $caption = "", $alt = "", $is_thumb = false, $thumb_identifier = null, $show_caption = true) {
     global $currentLocale;
-    global $mediaUrl;
+    global $mediaUrlGlobal;
 
     $original_url = getImage($filename);
     $display_url = getImage($filename, $width, $height);
-    $mediaPath = $mediaUrl;
+    $mediaPath = $mediaUrlGlobal;
     $hash = md5($original_url);
     $shortHash = substr($hash, 0, 6);
 
