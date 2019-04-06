@@ -64,6 +64,10 @@ class ArticleType extends AbstractType {
                 'format' => 'yyyy-MM-dd HH:mm:ss',
                 'label' => 'Muokattu (julkinen)',
                 'required' => false))
+            ->add('written_at', TextType::class, array(
+                'label' => 'Kirjoituspaikka',
+                'required' => false
+            ))
             ->add('access', ChoiceType::class, array(
                 'label' => 'Lukuoikeus',
                 'choices' => array(

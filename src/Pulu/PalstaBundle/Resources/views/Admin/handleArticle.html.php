@@ -91,6 +91,7 @@
     <?php echo $view['form']->row($form['modified_public']) ?>
     </div>
     <div class="three columns">
+    <?php echo $view['form']->row($form['written_at']) ?>
     </div>
     </div>
     <?php endfor ?>

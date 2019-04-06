@@ -27,6 +27,7 @@ class Article {
     protected $modified;
     protected $modified_public;
     protected $published;
+    protected $written_at;
     protected $deleted;
 
     protected $localizations;
@@ -188,6 +189,15 @@ class Article {
 
     public function getRating() {
         return $this->rating;
+    }
+
+    public function setWrittenAt($at) {
+        $this->written_at = $at;
+        return $this;
+    }
+
+    public function getWrittenAt() {
+        return $this->written_at;
     }
 
     public function setRawVisits(ArrayCollection $raw_visits) {
