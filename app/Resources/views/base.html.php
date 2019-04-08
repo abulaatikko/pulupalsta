@@ -66,9 +66,9 @@
 <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_list' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->path('pulu_palsta_list') ?>">Articles</a></li>
 <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_index' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->path('pulu_palsta_index') ?>">Keywords</a></li>
 </ul>
-<!--<ul id="about">
+<ul id="about">
     <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_about' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->path('pulu_palsta_about') ?>">?</a></li>
-</ul>-->
+</ul>
 
         </div>
     </div>
