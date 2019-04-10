@@ -10,7 +10,7 @@
 
 <h1>Terve! <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_list') ?>#feeds" title="RSS Feeds"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feeds" /></a></h1>
 
-<p>Hi, I'm Lassi in real life and Abula in internet life. I'm a web developer and this is my test project, a sandbox so to speak. I've also created some content. The top-10 most popular articles are in <strong>bold</strong>.</p>
+<p>Hi, I'm Lassi in real life and Abula in internet life. I'm a web developer and this is my test project, a sandbox. I've also created some content for the universe. The top-10 most popular articles are in <strong>bold</strong>.</p>
 
 <!-- Popular/Recent articles -->
 <div class="row">
