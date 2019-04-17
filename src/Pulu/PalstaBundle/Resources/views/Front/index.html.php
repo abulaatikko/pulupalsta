@@ -10,13 +10,13 @@
 
 <h1>Terve! <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_list') ?>#feeds" title="RSS Feeds"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feeds" /></a></h1>
 
-<p>Hi, I'm Lassi in real life and Abula in internet life. I'm a web developer and this is my test project, a sandbox. I've also created some content for the universe. The top-10 most popular articles are in <strong>bold</strong>.</p>
+<p>Hi, I'm Lassi in real life and Abula in internet life. I'm a web developer and this is my test project. I've also created some content for the universe. The top-10 most popular articles are in <strong>bold</strong>.</p>
 
 <!-- Popular/Recent articles -->
 <div class="row">
     <div class="six columns" id="visited-articles">
 
-<h3>Research and experiment</h3>
+<h3>Theses</h3>
 
 <table class="wide">
 <thead>
@@ -39,7 +39,7 @@
     </div>
     <div class="six columns" id="recent-articles">
 
-<h3>Training and travelling</h3>
+<h3>Expeditions</h3>
 
 <table class="wide">
 <thead>
@@ -50,7 +50,7 @@
 </thead>
 
 <tbody>
-<?php foreach ($trainingArticles as $article): ?>
+<?php foreach ($expeditionArticles as $article): ?>
 <tr>
     <td><?php echo $article->getPublished()->format('Y-m-d') ?></td>
     <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
