@@ -301,12 +301,15 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 
     <?php if (! empty($article->getWrittenAt())): ?><p><em>&ndash; Lassi, <?php echo $article->getWrittenAt() ?> <?php echo $article->getPublished()->format('Y-m-d') ?></em></p><?php endif ?>
 
+<?php if ($article->getArticleNumber() !== 71): ?>
     <h2 style="margin-bottom: 5px">Good or bad?</h2>
 
 <div id="rating" data-rating="<?php echo $rating ?>">
     <div></div><div></div><div></div><div></div><div></div>
 </div>
 <p>Current rating: <?php echo $article->getRating() ?>/5 (<?php echo $article->getRatingCount() ?> votes)</p>
+<?php endif; ?>
+
 <div id='info'></div>
 <div id="article_id" data-id="<?php echo $article->getId() ?>"></div>
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>

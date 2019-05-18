@@ -8,9 +8,9 @@
 
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
-<h1>Welcome, a user of internet <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_list') ?>#feeds" title="RSS Feeds"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feeds" /></a></h1>
+<h1>Welcome, a user of internet! <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_list') ?>#feeds" title="RSS Feeds"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feeds" /></a></h1>
 
-<p>Hi, I'm Lassi in real life and Abula in internet life. I'm a web developer and this is my playground. I've also created some content for the universe. Most texts are in Finnish. The top-10 most popular articles are in <strong>bold</strong>. A <a href="/en/71-guestbook-vieraskirja">guestbook</a> exists.</p>
+<p>Hi, I'm Lassi in real life and Abula in internet life. I live zero carbon life (net effect). In addition I'm a web developer and this is my playground. I've also created some cultural material for the universe. Most texts are in Finnish. The top-10 most popular articles are in <strong>bold</strong>.</p>
 
 <!-- Popular/Recent articles -->
 <div class="row">
