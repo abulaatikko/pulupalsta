@@ -28,7 +28,8 @@
 $typeStyles = 'font-size: 60%; text-align: right; font-weight: bold';
 if ($typeText == 'Expedition') { $typeStyles .= '; color: navy';}
 if ($typeText == 'Research') { $typeStyles .= '; color: green';}
-if ($typeText == 'Art') { $typeStyles .= '; color: red';}
+if ($typeText == 'Art') { $typeStyles .= '; color: art';}
+if ($typeText == 'Essay') { $typeStyles .= '; color: black';}
 ?>
 <tr>
     <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>

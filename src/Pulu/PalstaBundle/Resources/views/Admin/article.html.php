@@ -31,6 +31,7 @@ $typeStyles = 'font-size: 60%; text-align: right; font-weight: bold';
 if ($typeText == 'Expedition') { $typeStyles .= '; color: navy';}
 if ($typeText == 'Research') { $typeStyles .= '; color: green';}
 if ($typeText == 'Art') { $typeStyles .= '; color: red';}
+if ($typeText == 'Thesis') { $typeStyles .= '; color: black';}
 ?>
 <tr>
     <td<?php echo $isPublicStyle ?>><a href="<?php echo $view['router']->path('pulu_palsta_admin_article_edit', array('id' => $article->getId())) ?>"><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a> (<?php echo $article->getArticleNumber() ?>)</td>

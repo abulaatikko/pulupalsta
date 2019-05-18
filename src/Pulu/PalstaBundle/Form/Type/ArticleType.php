@@ -46,7 +46,8 @@ class ArticleType extends AbstractType {
                     '' => 0,
                     'Expedition' => 1,
                     'Research' => 2,
-                    'Art' => 3
+                    'Art' => 3,
+                    'Essay' => 4
                 ),
                 'multiple' => false,
                 'expanded' => false
