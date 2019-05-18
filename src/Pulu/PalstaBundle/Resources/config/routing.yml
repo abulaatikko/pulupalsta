@@ -65,6 +65,17 @@ pulu_palsta_article:
         name: ([A-Za-z0-9-]+)
         _locale: fi|en
 
+pulu_palsta_article_with_trailing_slash:
+    path: /{_locale}/{article_number}-{name}/
+    defaults:
+        _controller: FrameworkBundle:Redirect:redirect
+        route: pulu_palsta_article
+        permanent: true
+    requirements:
+        article_number: \d+
+        name: ([A-Za-z0-9-]+)
+        _locale: fi|en
+
 pulu_palsta_article_rating:
     path: /{_locale}/ajax/rating
     defaults: { _controller: PuluPalstaBundle:Ajax:articleRating }
