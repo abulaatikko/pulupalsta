@@ -10,7 +10,7 @@
 
 <h1>Welcome, a user of internet! <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_list') ?>#feeds" title="RSS Feeds"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feeds" /></a></h1>
 
-<p>Hi, I'm Lassi in real life and Abula in internet life. I live zero carbon life (net effect). In addition I'm a web developer and this is my playground. I've also created some cultural material for the universe. Most texts are in Finnish. The top-10 most popular articles are in <strong>bold</strong>.</p>
+<p>Hi, I'm Lassi, also known as Abula in internet life. I live <a href="/en/72">zero carbon life</a> (net effect). In addition I'm a web developer and this site is my playground. I've also created cultural material for the universe. The top-10 most popular articles are in <strong>bold</strong>.</p>
 
 <!-- Popular/Recent articles -->
 <div class="row">
@@ -27,7 +27,14 @@
 </thead>
 
 <tbody>
+<?php $isCarbonLimitPrinted = false; ?>
 <?php foreach ($expeditionArticles as $article): ?>
+<?php if ($article->getPublished()->format('Y') === '2015' && !$isCarbonLimitPrinted): ?>
+<tr>
+    <td colspan="3" class="zero-carbon-separator">ZERO CARBON SINCE 2016</td>
+</tr>
+<?php $isCarbonLimitPrinted = true; ?>
+<?php endif; ?>
 <tr>
     <td><?php echo $article->getPublished()->format('Y-m-d') ?></td>
     <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>

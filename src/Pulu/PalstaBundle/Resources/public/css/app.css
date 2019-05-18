@@ -98,7 +98,7 @@ table tbody tr.alt              {background: #eef3eb;}
 table tbody tr:nth-child(even)  {background-color: #eef3eb;}
 
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote {font-size: 16px;}
-h1 {font-size: 40px; color: #ed4837;}
+h1 {font-size: 40px; color: black;}
 h2 {font-size: 34px; margin: 40px 0px 10px 0px; font-weight: bold;}
 h3 {font-size: 26px;}
 h4 {font-size: 18px;}
@@ -312,6 +312,13 @@ p.table-notes {
     margin-top: -10px;
     font-size: 13px;
     line-height: 1.3;
+}
+
+td.zero-carbon-separator {
+    color: white;
+    background-color: #eb4637;
+    font-weight: bold;
+    text-align: center;
 }
 
 /* -----------------------------------------
