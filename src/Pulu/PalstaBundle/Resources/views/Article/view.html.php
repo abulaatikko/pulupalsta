@@ -19,6 +19,7 @@
 &nbsp;&nbsp;<strong>Visits:</strong> <?php echo $article->getVisits() ?>
 &nbsp;&nbsp;<strong>Published:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>
 &nbsp;&nbsp;<strong>Modified:</strong> <?php echo $article->getModifiedPublic()->format('Y-m-d') ?><br />
+<?php if (! empty($article_keywords)): ?>
 <strong>Keywords:</strong>
 <?php $printKeywords = array(); ?>
 <?php foreach ($article_keywords as $article_keyword): ?>
@@ -36,6 +37,7 @@
     <?php endif ?>
 <?php endforeach ?>
 <?php echo implode(', ', $printKeywords) ?>
+<?php endif; ?>
 </div>
 
 <?php $body = $article->getBody(); ?>
