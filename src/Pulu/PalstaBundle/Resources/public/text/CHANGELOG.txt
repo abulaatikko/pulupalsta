@@ -1,5 +1,9 @@
 # CHANGELOG
 
+### 2019-05-19
+
+* Add layout theme: Zero carbon life
+
 ### 2019-04-05
 
 * Update Symfony 3.4
