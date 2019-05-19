@@ -13,11 +13,13 @@ class FrontController extends Controller {
         $repository->setLanguage($R->getLocale());
         $expeditionArticles = $repository->findExpeditionsOrderedByPublishedForPublic();
         $researchArticles = $repository->findResearchesOrderedByPublishedForPublic();
+        $essayArticles = $repository->findEssaysOrderedByPublishedForPublic();
         $keywords = $this->getKeywords($R);       
 
         return $this->render('PuluPalstaBundle:Front:index.html.php', array(
             'expeditionArticles' => $expeditionArticles,
             'researchArticles' => $researchArticles,
+            'essayArticles' => $essayArticles,
             'keywords' => $keywords
         ));
     }
