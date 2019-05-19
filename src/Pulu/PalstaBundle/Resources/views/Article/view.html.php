@@ -15,7 +15,7 @@
 
 <div id="article-metadata">
 <strong>Language:</strong> <img style="height: 12px" class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" />
-&nbsp;&nbsp;<strong>Rating:</strong> <?php echo $article->getRating() ?>/5 (<?php echo $article->getRatingCount() ?> votes)
+<?php if (1 == 2): ?>&nbsp;&nbsp;<strong>Rating:</strong> <?php echo $article->getRating() ?>/5 (<?php echo $article->getRatingCount() ?> votes)<?php endif; ?>
 &nbsp;&nbsp;<strong>Visits:</strong> <?php echo $article->getVisits() ?>
 &nbsp;&nbsp;<strong>Published:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>
 <?php if (! empty($article->getModifiedPublic())): ?>
@@ -306,7 +306,7 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 
     <?php if (! empty($article->getWrittenAt())): ?><p><em>&ndash; Lassi, <?php echo $article->getWrittenAt() ?> <?php echo $article->getPublished()->format('Y-m-d') ?></em></p><?php endif ?>
 
-<?php if ($article->getArticleNumber() !== 71): ?>
+<?php if (1 == 2 && $article->getArticleNumber() !== 71): ?>
     <h2 style="margin-bottom: 5px">Good or bad?</h2>
 
 <div id="rating" data-rating="<?php echo $rating ?>">
