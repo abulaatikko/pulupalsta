@@ -46,9 +46,11 @@ class CalculateArticleVisitsLastMonthCommand extends ContainerAwareCommand {
 
         krsort($top, SORT_NUMERIC);
 
+        $top25 = intval(count($top) * 0.25);
+
         $i = 1;
         foreach ($top as $topArticle) {
-            if ($i++ > 10) {
+            if ($i++ > $top25) {
                 $topArticle->setIsOneOfBest(false);
             } else {
                 $topArticle->setIsOneOfBest(true);
