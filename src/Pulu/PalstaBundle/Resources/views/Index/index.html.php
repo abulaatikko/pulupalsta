@@ -51,6 +51,4 @@ $articles = $array->filter(function($article) {
     
 <?php endforeach ?>
 
-</div>
-
 <?php $view['slots']->stop() ?>
