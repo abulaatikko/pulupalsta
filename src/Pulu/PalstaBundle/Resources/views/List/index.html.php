@@ -74,11 +74,11 @@ if ($typeText == 'Essay') { $typeStyles .= '; color: black';}
 </ul>
 -->
 
-<section id="feeds"></section>
+<!--<section id="feeds"></section>
 <h2 style="margin-bottom: 5px"><img style="position: relative; top: 3px" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feeds" /> RSS Feeds</h2>
 <ul class="square">
     <li><a title="Pulupalsta Recent Articles" href="<?php echo $view['router']->path('pulu_palsta_feed_recent_articles') ?>">Recent Articles</a></li>
     <li><a title="Pulupalsta Recent Comments" href="<?php echo $view['router']->path('pulu_palsta_feed_recent_comments') ?>">Recent Comments</a></li>
-</ul>
+</ul>-->
 
 <?php $view['slots']->stop() ?>

@@ -16,7 +16,7 @@
 <div id="article-metadata">
 <strong>Language:</strong> <img style="height: 12px" class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" />
 <?php if (1 == 2): ?>&nbsp;&nbsp;<strong>Rating:</strong> <?php echo $article->getRating() ?>/5 (<?php echo $article->getRatingCount() ?> votes)<?php endif; ?>
-&nbsp;&nbsp;<strong>Visits:</strong> <?php echo $article->getVisits() ?>
+<?php if (1 == 2): ?>&nbsp;&nbsp;<strong>Visits:</strong> <?php echo $article->getVisits() ?><?php endif; ?>
 &nbsp;&nbsp;<strong>Published:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>
 <?php if (! empty($article->getModifiedPublic())): ?>
 &nbsp;&nbsp;<strong>Modified:</strong> <?php echo $article->getModifiedPublic()->format('Y-m-d') ?>

@@ -8,7 +8,7 @@
 
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
-<h1>Welcome, a user of internet! <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_list') ?>#feeds" title="RSS Feeds"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feeds" /></a></h1>
+<h1>Welcome, a user of internet!</h1>
 
 <p>Hi, I'm Lassi, also known as Abula in internet life. I live <a href="/en/72">zero carbon life</a> (net effect). In addition I'm a web developer and this site is my playground. I've also created cultural material for the universe. The top-10 most popular articles are in <strong>bold</strong>.</p>
 
