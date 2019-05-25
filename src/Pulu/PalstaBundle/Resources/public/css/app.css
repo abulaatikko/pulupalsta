@@ -328,6 +328,12 @@ td.zero-carbon-separator {
     text-align: center;
 }
 
+.sub-regions {
+    display: block;
+    font-size: 70%;
+    color: gray;
+}
+
 /* -----------------------------------------
    Contents page
 ----------------------------------------- */
