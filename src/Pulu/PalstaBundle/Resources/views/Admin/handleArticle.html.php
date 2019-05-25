@@ -109,7 +109,7 @@
 <?php if ($article->getId() > 0): ?>
 <h2>Toiminnot</h2>
 <ul>
-    <li><a href="<?php echo $view['router']->path('pulu_palsta_article_without_name', array('article_number' => $article->getArticleNumber())) ?>">Artikkelisivu (julkinen)</a></li>
+    <li><a href='<?php echo $view['router']->path('pulu_palsta_article_without_name', array('article_number' => $article->getArticleNumber(), '_locale' => $article->getLanguage())) ?>'>Artikkelisivu (julkinen)</li>
     <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_article_history', array('id' => $article->getId(), 'language' => 'fi')) ?>">Historia (fi)</a></li>
     <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_article_history', array('id' => $article->getId(), 'language' => 'en')) ?>">Historia (en)</a></li>
     <?php foreach ($article->getModules() as $module): ?>
