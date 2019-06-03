@@ -32,7 +32,7 @@
     #title { margin: 30px; }
     .breadcrumbs { margin-top: 15px; }
     #navigation { border-top: 4px solid #285EAE; border-bottom: 4px solid #285EAE; border-right: 4px dashed #285EAE; background: #fff; }
-    #navigation ul { margin-left: 10px; list-style-type: square; }
+    #navigation ul { margin-left: 24px; list-style-type: square; }
     #contents { border-top: 4px solid #285EAE; border-bottom: 4px solid #285EAE; background: #fff; }
     #notice { padding-top: 20px; }
     #notice .alert-box { margin: 0px; }
@@ -66,7 +66,11 @@
 <h3>Navigaatio</h3>
 
 <ul>
-    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_article') ?>">Artikkelit</a></li>
+    <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_article') ?>">Artikkelit</a>
+        <ul>
+            <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_article_create') ?>">Luo uusi</a></li>
+        </ul>
+    </li>
     <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_comment') ?>">Kommentit</a></li>
     <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_keyword') ?>">Avainsanat</a>
         <ul>
