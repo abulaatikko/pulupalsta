@@ -18,12 +18,8 @@
 <?php if (1 == 2): ?>&nbsp;&nbsp;<strong>Rating:</strong> <?php echo $article->getRating() ?>/5 (<?php echo $article->getRatingCount() ?> votes)<?php endif; ?>
 <?php if (1 == 2): ?>&nbsp;&nbsp;<strong>Visits:</strong> <?php echo $article->getVisits() ?><?php endif; ?>
 &nbsp;&nbsp;<strong>Published:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>
-<?php if (! empty($article->getModifiedPublic())): ?>
-&nbsp;&nbsp;<strong>Modified:</strong> <?php echo $article->getModifiedPublic()->format('Y-m-d') ?>
-<?php endif; ?>
-<br />
 <?php if (! empty($article_keywords)): ?>
-<strong>Keywords:</strong>
+&nbsp;&nbsp;<strong>Keywords:</strong>
 <?php $printKeywords = array(); ?>
 <?php foreach ($article_keywords as $article_keyword): ?>
     <?php $articleObjects = $article_keyword->getArticles();
