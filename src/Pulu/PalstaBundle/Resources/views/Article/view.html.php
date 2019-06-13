@@ -315,6 +315,8 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 <div id="article_id" data-id="<?php echo $article->getId() ?>"></div>
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
+<?php $Parsedown = new Parsedown(); ?>
+
 <a name="kommentointi"></a>
 <div <?php echo empty($comments) ? 'style="display: none"' : '' ?>>
 <h2>Comments</h2>
@@ -330,7 +332,7 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 <?php $authorColor = in_array($comment->getAuthorName(), ['Lassi', 'Abula']) ? '; font-weight: 100; font-style: italic' : ''; ?>
 <tr>
     <td style="width: 12%"><strong style="display: block<?php echo $authorColor ?>"><?php echo $comment->getAuthorName() ?></strong><small><?php echo $comment->getCreated()->format('Y-m-d H:i') ?></small></td>
-    <td><?php echo(nl2br($view['helper']->convertUrlsToLinks(htmlspecialchars($comment->getBody())))) ?></td>
+    <td><?php echo($Parsedown->text($comment->getBody())) ?></td>
 </tr>
 <?php endforeach ?>
 
