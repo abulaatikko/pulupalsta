@@ -54,7 +54,7 @@
 
 <!-- Main heading -->
 <p id="title">Pulupalsta</p>
-<p id="slogan">One life, full power, zero carbon</p>
+<p id="slogan">one life, full power, zero carbon</p>
 
 <!-- Navigation row -->
 <div class="row">

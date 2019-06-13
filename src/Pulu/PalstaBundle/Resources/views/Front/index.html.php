@@ -10,7 +10,7 @@
 
 <h1>Welcome, a user of internet!</h1>
 
-<p>Hi, I'm Lassi, also known as Abula in internet life. I live <a href="/en/72">zero carbon life</a> (net effect). In addition I'm a web developer and this site is my playground. I've also created cultural material for the universe. The top-10 most popular articles are in <strong>bold</strong>.</p>
+<p>Hi, I'm Lassi in real life and Abula in internet life. Pulupalsta is a self-made platform to publish cultural material for the universe. The most popular articles are in <strong>bold</strong>.</p>
 
 <!-- Popular/Recent articles -->
 <div class="row">

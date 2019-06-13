@@ -6,7 +6,7 @@
 body			{background: #d2d2d2;}
 #main-wrapper   {margin: 2% 4%;}
 #main-contents	{border: 0px solid #3d3d3d; padding: 0 20px; background-color: #fefefe;}
-#title			{font-size: 4em; font-weight: 600; font-family: Verdana; margin: 5px; padding: 0px; text-align: center; letter-spacing: 0.1em; line-height: 1em; color: #000;}
+#title			{font-size: 64px; font-weight: 600; font-family: Verdana; margin: 5px; padding: 0px; text-align: center; letter-spacing: 0.05em; line-height: 1em; color: #000;}
 @media (max-width: 750px) {
     #title      {margin: 50px 0 0 0;}
 }
@@ -105,7 +105,7 @@ tr.carbon a:active,
 tr.carbon a:visited             {color: black;}
 
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote {font-size: 16px;}
-h1 {font-size: 40px; color: black;}
+h1 {font-size: 44px; color: black;}
 h2 {font-size: 34px; margin: 40px 0px 10px 0px; font-weight: bold;}
 h3 {font-size: 26px;}
 h4 {font-size: 18px;}
@@ -181,7 +181,7 @@ table#comments td small {white-space: nowrap;}
 #table_of_contents ul.saga ul        {list-style: none; margin-left: 5px; font-weight: normal; text-align: left;}
 #table_of_contents ul.saga ul ul     {margin-left: 30px;}
 
-#article-metadata {line-height: 1.5;}
+#article-metadata                    {line-height: 1.5;}
 
 .centered       {text-align: center;}
 .u              {text-decoration: underline;}
