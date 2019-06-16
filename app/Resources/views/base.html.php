@@ -18,8 +18,7 @@
     <meta name="viewport" content="width=device-width" />
     <title><?php $view['slots']->output('title', 'Pulupalsta') ?></title>
     <link rel="icon" type="image/png" href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/favicon.png') ?>" />
-    <link rel="alternate" title="Pulupalsta Recent Articles" href="<?php echo $view['router']->path('pulu_palsta_feed_recent_articles') ?>" type="application/rss+xml" />
-    <link rel="alternate" title="Pulupalsta Recent Comments" href="<?php echo $view['router']->path('pulu_palsta_feed_recent_comments') ?>" type="application/rss+xml" />
+    <link rel="canonical" href="<?php echo ! empty($view['slots']->get('canonical')) ? $view['slots']->get('canonical') : $app->getRequest()->getUri() ?>" />
     <?php foreach ($view['assetic']->stylesheets(
         array(
             // https://github.com/kriswallsmith/assetic/issues/53
