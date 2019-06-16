@@ -23,7 +23,7 @@ class AdminController extends Controller {
 
     public function listArticleAction() {
         $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article');
-        $articles = $repository->findAllOrderedByName();
+        $articles = $repository->findOrderedByPublished(99999);
 
         return $this->render('PuluPalstaBundle:Admin:article.html.php', array(
             'articles' => $articles,
