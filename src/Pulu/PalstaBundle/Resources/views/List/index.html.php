@@ -28,7 +28,7 @@
 $typeStyles = 'font-size: 60%; text-align: right; font-weight: bold';
 if ($typeText == 'Expedition') { $typeStyles .= '; color: navy';}
 if ($typeText == 'Research') { $typeStyles .= '; color: green';}
-if ($typeText == 'Art') { $typeStyles .= '; color: art';}
+if ($typeText == 'Art') { $typeStyles .= '; color: gold';}
 if ($typeText == 'Essay') { $typeStyles .= '; color: black';}
 ?>
 <tr>

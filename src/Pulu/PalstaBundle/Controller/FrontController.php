@@ -14,12 +14,14 @@ class FrontController extends Controller {
         $expeditionArticles = $repository->findExpeditionsOrderedByPublishedForPublic();
         $researchArticles = $repository->findResearchesOrderedByPublishedForPublic();
         $essayArticles = $repository->findEssaysOrderedByPublishedForPublic();
+        $artArticles = $repository->findArtsOrderedByPublishedForPublic();
         $keywords = $this->getKeywords($R);       
 
         return $this->render('PuluPalstaBundle:Front:index.html.php', array(
             'expeditionArticles' => $expeditionArticles,
             'researchArticles' => $researchArticles,
             'essayArticles' => $essayArticles,
+            'artArticles' => $artArticles,
             'keywords' => $keywords
         ));
     }
