@@ -17,7 +17,6 @@
 <!--    <th title="Rating">Rat.</th>-->
     <th title="Number of Comments">Com.</th>
     <th class="nowrap">Commented</th>
-    <th class="nowrap">Modified</th>
     <th class="nowrap">Published</th>
 </tr>
 </thead>
@@ -45,7 +44,6 @@ if ($typeText == 'Essay') { $typeStyles .= '; color: black';}
     <?php else: ?>
     <td></td>
     <?php endif ?>
-    <td class="nowrap text-right"><?php echo $article->getModifiedPublic()->format('Y-m-d') ?></td>
     <td class="nowrap text-right"><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
 </tr>
 <?php endforeach ?>
