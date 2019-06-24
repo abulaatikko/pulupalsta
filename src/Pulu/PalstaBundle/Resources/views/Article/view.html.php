@@ -341,8 +341,7 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 </table>
 </div>
 
-<h3>Write a comment</h3>
-
+<hr>
 <form id="articleComment" action="<?php echo $view['router']->path('pulu_palsta_article_comment') ?>" method="post">
     <?php $view['form']->setTheme($form, array('PuluPalstaBundle:Form')) ;?>
     <div class="row">
