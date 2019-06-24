@@ -1,6 +1,6 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', 'Pulupalsta') ?>
+<?php $view['slots']->set('title', 'Pulupalsta - Full power') ?>
 
 <?php $view['slots']->start('body') ?>
 
@@ -27,15 +27,25 @@
 </thead>
 
 <tbody>
-<?php $isCarbonLimitPrinted = false; ?>
+<?php $carbonCss = ' class="carbon"'; ?>
+<?php $isCarbonStartPrinted = false; ?>
+<?php $isCarbonEndPrinted = false; ?>
 <?php foreach ($expeditionArticles as $article): ?>
-<?php if ($article->getPublished()->format('Y') === '2015' && !$isCarbonLimitPrinted): ?>
+<?php if ($article->getPublished()->format('Y') === '2018' && !$isCarbonStartPrinted): ?>
 <tr>
-    <td colspan="3" class="zero-carbon-separator">ZERO CARBON SINCE 2016</td>
+    <td colspan="3" class="zero-carbon-end-separator">PROJECT PAUSED</td>
 </tr>
-<?php $isCarbonLimitPrinted = true; ?>
+<?php $isCarbonStartPrinted = true; ?>
+<?php $carbonCss = ''; ?>
 <?php endif; ?>
-<tr<?php echo $isCarbonLimitPrinted ? ' class="carbon"' : '' ?>>
+<?php if ($article->getPublished()->format('Y') === '2015' && !$isCarbonEndPrinted): ?>
+<tr>
+    <td colspan="3" class="zero-carbon-start-separator">ZERO CARBON SINCE 2016</td>
+</tr>
+<?php $isCarbonEndPrinted = true; ?>
+<?php $carbonCss = ' class="carbon"'; ?>
+<?php endif; ?>
+<tr<?php echo $carbonCss ?>>
     <td><?php echo $article->getPublished()->format('Y-m-d') ?></td>
     <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
     <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>

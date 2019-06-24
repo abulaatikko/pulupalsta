@@ -53,7 +53,7 @@
 
 <!-- Main heading -->
 <p id="title">Pulupalsta</p>
-<p id="slogan">one life, full power, zero carbon</p>
+<p id="slogan">Full power, Zero carbon<span style="position: absolute; margin-left: -110px; margin-top: 25px; font-weight: 600; transform-origin: 0 0; transform: rotate(-30deg); color: #ff0e0e; text-shadow: 1px 1px 2px black; text-align: center; font-size: 24px;">PAUSED</span></p>
 
 <!-- Navigation row -->
 <div class="row">
