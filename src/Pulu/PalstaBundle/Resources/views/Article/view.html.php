@@ -18,7 +18,7 @@
 <strong>Language:</strong> <img style="height: 12px" class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" />
 <?php if (1 == 2): ?>&nbsp;&nbsp;<strong>Rating:</strong> <?php echo $article->getRating() ?>/5 (<?php echo $article->getRatingCount() ?> votes)<?php endif; ?>
 <?php if (1 == 2): ?>&nbsp;&nbsp;<strong>Visits:</strong> <?php echo $article->getVisits() ?><?php endif; ?>
-&nbsp;&nbsp;<strong>Published:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>
+&nbsp;&nbsp;<strong>Published:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>, <?php echo $article->getWrittenAt() ?>
 <?php if (! empty($article_keywords)): ?>
 &nbsp;&nbsp;<strong>Keywords:</strong>
 <?php $printKeywords = array(); ?>
@@ -300,8 +300,6 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 <?php
     echo evalize($body, $article, $doctrine);
 ?>
-
-    <?php if (! empty($article->getWrittenAt())): ?><p><em>&ndash; <?php echo $article->getPublished()->format('Y-m-d') ?>, <?php echo $article->getWrittenAt() ?></em></p><?php endif ?>
 
 <?php if (1 == 2 && $article->getArticleNumber() !== 71): ?>
     <h2 style="margin-bottom: 5px">Good or bad?</h2>
