@@ -88,7 +88,7 @@
 </ul>
 
 <ul>
-    <li><a href="<?php echo $view['router']->path('pulu_palsta_front', array('_locale' => 'fi')) ?>">Avaa sivusto</a></li>
+    <li><a target="_blank" href="<?php echo $view['router']->path('pulu_palsta_front', array('_locale' => 'fi')) ?>">Avaa sivusto</a></li>
     <li><a href="<?php echo $view['router']->path('pulu_palsta_admin_guide') ?>">Ohjeet</a></li>
     <li><a href="<?php echo $view['router']->path('pulu_palsta_logout') ?>">Kirjaudu ulos</a></li>
 </ul>
