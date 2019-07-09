@@ -69,6 +69,11 @@ class ArticleController extends Controller {
             $rating = $ratingEntity->getRating();
         }
 
+        // Redirect to correct localization
+        if ($article->getLanguage() !== $R->getLocale() && empty($article->getBody($R->getLocale()))) {
+            return $this->redirect($this->generateUrl('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), '_locale' => $article->getLanguage())), 301);
+        }
+
         return $this->render('PuluPalstaBundle:Article:view.html.php', array(
             'article' => $article,
             'comments' => $comments,
