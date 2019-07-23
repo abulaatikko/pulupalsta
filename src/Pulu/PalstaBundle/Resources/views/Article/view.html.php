@@ -4,6 +4,7 @@
 <?php $currentLocale = $app->getRequest()->getLocale(); ?>
 
 <?php $view['slots']->set('title', $article->getName($currentLocale) . ' - Pulupalsta') ?>
+<?php $view['slots']->set('description', strip_tags($article->getTeaser($currentLocale))) ?>
 <?php $view['slots']->set('canonical', $view['router']->url('pulu_palsta_article_without_name', array('article_number' => $article->getArticleNumber(), '_locale' => $article->getLanguage()), false)) ?>
 
 <?php $view['slots']->start('body') ?>
