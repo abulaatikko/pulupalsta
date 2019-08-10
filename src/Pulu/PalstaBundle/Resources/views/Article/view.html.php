@@ -16,10 +16,11 @@
 <h1><?php echo $article->getName() ?></h1>
 
 <div id="article-metadata">
+<?php if ($article->getArticleNumber() !== 71): ?>
 <strong>Language:</strong> <img style="height: 12px" class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" />
-<?php if (1 == 2): ?>&nbsp;&nbsp;<strong>Rating:</strong> <?php echo $article->getRating() ?>/5 (<?php echo $article->getRatingCount() ?> votes)<?php endif; ?>
-<?php if (1 == 2): ?>&nbsp;&nbsp;<strong>Visits:</strong> <?php echo $article->getVisits() ?><?php endif; ?>
-&nbsp;&nbsp;<strong>Published:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?><?php echo $article->getWrittenAt() ? ", " . $article->getWrittenAt() : '' ?>
+&nbsp;&nbsp;
+<strong>Published:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?><?php echo $article->getWrittenAt() ? ", " . $article->getWrittenAt() : '' ?>
+<?php endif; ?>
 <?php if (! empty($article_keywords)): ?>
 &nbsp;&nbsp;<strong>Keywords:</strong>
 <?php $printKeywords = array(); ?>
@@ -302,19 +303,11 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
     echo evalize($body, $article, $doctrine);
 ?>
 
-<?php if (1 == 2 && $article->getArticleNumber() !== 71): ?>
-    <h2 style="margin-bottom: 5px">Good or bad?</h2>
-
-<div id="rating" data-rating="<?php echo $rating ?>">
-    <div></div><div></div><div></div><div></div><div></div>
-</div>
-<p>Current rating: <?php echo $article->getRating() ?>/5 (<?php echo $article->getRatingCount() ?> votes)</p>
-<?php endif; ?>
-
 <div id='info'></div>
 <div id="article_id" data-id="<?php echo $article->getId() ?>"></div>
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
+<?php if ($article->getType() === Pulu\PalstaBundle\Entity\Article::TYPE_RESEARCH || $article->getArticleNumber() === 71): ?>
 <?php $Parsedown = new Parsedown(); ?>
 
 <a name="kommentointi"></a>
@@ -356,5 +349,6 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
     </div>
     </div>
 </form>
+<?php endif; ?>
 
 <?php $view['slots']->stop() ?>
