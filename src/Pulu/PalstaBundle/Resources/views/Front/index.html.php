@@ -9,9 +9,9 @@
 
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
-<h1>Welcome, a user of internet!</h1>
+<h1>A user of internet, welcome!</h1>
 
-<p>Hi, I'm Lassi in real life and Abula in internet life. Pulupalsta is a self-made platform to publish cultural material for the universe. I travel a lot and do other random things. The most popular articles are in <strong>bold</strong>.</p>
+<p>Pulupalsta is a platform to publish cultural material for the universe. The most popular articles are in <strong>bold</strong>. Focus is on travelling, lists and politics. Yes, lists, I love lists, especially those with checkboxes. The purpose of life is ticking checkboxes.</p>
 
 <!-- Popular/Recent articles -->
 <div class="row">
