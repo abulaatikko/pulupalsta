@@ -22,6 +22,7 @@ class Helper extends BaseHelper {
         $string = preg_replace('/-{2,}/', '-', strtolower($string));
         $string = trim(str_replace('-', ' ', $string));
         $string = str_replace(' ', '-', $string);
+        $string = transliterator_transliterate("Any-Latin; Latin-ASCII", $string);
         $string = urlencode($string);
         $string = preg_replace('/%../', '', urlencode($string));
         return $string;
