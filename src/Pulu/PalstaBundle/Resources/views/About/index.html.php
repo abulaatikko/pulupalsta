@@ -8,7 +8,7 @@
 <br>
 <p>Pulupalsta is an experiment. It's a project to learn web development, writing and life all-around.</p>
 
-<p><a href="/fi/1-1500-litraa-pepsiC3A4-ja-sony-vaio-s5">The first article</a> was written in 2006. The site got significant upgrades in 2012 and 2019. See <a href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/text/CHANGELOG.txt') ?>">CHANGELOG.txt</a> for more history details.</p>
+<p>The first article was written in 2006. The site got significant upgrades in 2012 and 2019. See <a href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/text/CHANGELOG.txt') ?>">CHANGELOG.txt</a> for more history details.</p>
 
 <!--<p>IRCnet channel #pulupalsta exists.</p>-->
 
