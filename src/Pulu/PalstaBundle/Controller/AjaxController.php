@@ -8,6 +8,7 @@ use Pulu\PalstaBundle\Form\Type\CommentType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+use Parsedown;
 
 class AjaxController extends Controller {
 
@@ -57,6 +58,8 @@ class AjaxController extends Controller {
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
 
+        $Parsedown = new Parsedown();
+
         if ($R->isMethod('POST')) {
             $article_id = $R->get('article_id');
             $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find(array('id' => $article_id));
@@ -97,7 +100,7 @@ class AjaxController extends Controller {
                 }
             }
         }
-        $data = $success ? array('comment' => $comment->getBody(), 'author_name' => $comment->getAuthorName(), 'created' => $comment->getCreated()->format('Y-m-d H:i')) : '';
+        $data = $success ? array('comment' => $Parsedown->text($comment->getBody()), 'author_name' => $comment->getAuthorName(), 'created' => $comment->getCreated()->format('Y-m-d H:i')) : '';
         $response = new Response(json_encode(array('success' => $success, 'message' => $message, 'data' => $data)));
         $response->headers->set('Content-Type', 'application/json');
         return $response;
