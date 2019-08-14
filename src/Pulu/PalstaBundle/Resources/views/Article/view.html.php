@@ -311,7 +311,7 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 <?php $Parsedown = new Parsedown(); ?>
 
 <a name="kommentointi"></a>
-<div <?php echo empty($comments) ? 'style="display: none"' : '' ?>>
+<div <?php echo empty($comments) ? 'style="display: none"' : '' ?> id="comments-container">
 <h2>Comments</h2>
 <table class="wide" id="comments">
 <thead>

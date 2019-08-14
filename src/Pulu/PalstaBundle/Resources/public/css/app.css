@@ -69,6 +69,7 @@ div.alert-box, div.notice-box   {padding: 16px; font-size: 22px; line-height: 1.
 .dataTable th.sorting                   {background-color: #3e942e;}
 .dataTable th.sorting_asc,
 .dataTable th.sorting_desc              {background-color: #378329;}
+#contents_wrapper                       {overflow: scroll;}
 
 table a, .tabs-content a, #navigation a, ul.breadcrumbs a {
     text-decoration: none;
@@ -169,6 +170,7 @@ dl.tabs.pill dd.active a:hover {
 #rating .selected,
 #rating .highlighted {background-position: -40px 0px;}
 
+#comments-container     {overflow: scroll;}
 table#comments td small {white-space: nowrap;}
 
 #table_of_contents      {float: right; margin: 30px 0px 5px 5px;}
