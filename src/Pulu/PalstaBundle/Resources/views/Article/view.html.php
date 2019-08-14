@@ -238,7 +238,7 @@ function displayImage($filename, $width = null, $height = null, $caption = "", $
     $out .= '</div>';
     
     // html supported caption
-    $out .= '<div id="fancybox-title-' . $hash . '" style="display: none">' . $caption . '</div>';
+    $out .= '<div id="fancybox-title-' . $hash . '" style="display: none">' . $captionWithExtra . '</div>';
 
     return $out;
 }
