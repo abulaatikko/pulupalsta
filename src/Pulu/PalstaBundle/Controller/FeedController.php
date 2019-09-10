@@ -18,6 +18,16 @@ class FeedController extends Controller {
         ));
     }
 
+    public function articlesAction(Request $R) {
+        $locale = $R->getLocale();
+        $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article');
+        $articles = $repository->findArticlesForFeed(30);
+
+        return $this->render('PuluPalstaBundle:Feed:articles.xml.php', array(
+            'articles' => $articles
+        ));
+    }
+
     public function recentCommentsAction(Request $R) {
         $locale = $R->getLocale();
         $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment');

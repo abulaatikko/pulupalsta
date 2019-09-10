@@ -19,6 +19,7 @@
     <title><?php $view['slots']->output('title', 'Pulupalsta') ?></title>
     <link rel="icon" type="image/png" href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/favicon.png') ?>" />
     <link rel="canonical" href="<?php echo ! empty($view['slots']->get('canonical')) ? $view['slots']->get('canonical') : $app->getRequest()->getUri() ?>" />
+    <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="<?php echo $view['router']->path('pulu_palsta_feed_articles') ?>">
     <?php foreach ($view['assetic']->stylesheets(
         array(
             // https://github.com/kriswallsmith/assetic/issues/53

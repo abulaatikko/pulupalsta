@@ -75,6 +75,21 @@ class ArticleRepository extends EntityRepository {
             ->getQuery()->getResult();
     }
 
+    public function findArticlesForFeed($max = '10') {
+        $dateTimeMin = new \DateTime('2006-01-01');
+        $dateTimeMax = new \DateTime();
+        $dateTimeMax->modify('-1 week');
+
+        return $this->createQueryBuilder('A')
+            ->innerJoin('A.localizations', 'B')
+            ->where("A.is_public = TRUE AND A.deleted IS NULL AND B.language = A.language AND A.published BETWEEN :dateMin AND :dateMax")
+            ->setParameter("dateMin", $dateTimeMin->format('Y-m-d 00:00:00'))
+            ->setParameter("dateMax", $dateTimeMax->format('Y-m-d 23:59:59'))
+            ->orderBy('A.published', 'DESC')
+            ->setMaxResults($max)
+            ->getQuery()->getResult();
+    }
+
     public function findOrderedByRating($max = 10) {
         $lang = $this->getLanguage();
         return $this->createQueryBuilder('A')

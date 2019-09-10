@@ -106,6 +106,10 @@ pulu_palsta_feed_recent_articles:
     requirements:
         _locale: fi|en
 
+pulu_palsta_feed_articles:
+    path: /en/feed/articles
+    defaults: { _controller: PuluPalstaBundle:Feed:articles }
+
 pulu_palsta_feed_recent_comments:
     path: /{_locale}/feed/recent_comments
     defaults: { _controller: PuluPalstaBundle:Feed:recentComments }

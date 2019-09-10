@@ -9,7 +9,7 @@
 
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
-<h1>A user of internet, welcome!</h1>
+<h1>Welcome, a user of internet! <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_feed_articles') ?>" title="RSS Feed"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feed" /></a></h1>
 
 <p>Pulupalsta is a platform to publish cultural material for the universe. The most popular articles are in <strong>bold</strong>. Focus is on travelling, lists and politics. Yes, lists, I love lists, especially those with checkboxes. The purpose of life is ticking checkboxes.</p>
 

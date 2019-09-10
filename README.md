@@ -46,3 +46,7 @@ location ~ ^/(app_dev|config)\.php(/|$) {
 ````
 rm -rf /tmp/palsta-evalized-cache/*
 ````
+
+### Logs
+
+Look at `var/logs/`, not just `app/logs/` or `/var/logs/nginx/palsta*`
