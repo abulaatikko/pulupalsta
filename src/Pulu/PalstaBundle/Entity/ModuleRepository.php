@@ -192,7 +192,7 @@ CREATE TABLE module_building_image (
     }
 
     public function getMunicipalitiesWithSignImages() {
-        $sql = "SELECT A.*, B.* FROM module_municipality A JOIN module_sign_image B ON (B.municipality_id = A.id) ORDER BY A.Name COLLATE \"fi_FI\" ASC";
+        $sql = "SELECT A.*, B.* FROM module_municipality A JOIN module_sign_image B ON (B.municipality_id = A.id) ORDER BY B.taken ASC";
         $stm = $this->getEntityManager()->getConnection()->query($sql);
         return $stm->fetchAll();
     }
@@ -216,7 +216,7 @@ CREATE TABLE module_building_image (
         JOIN
             module_building_image D ON (D.building_id = C.id)
         ORDER BY
-            A.name COLLATE \"fi_FI\" ASC
+            D.taken ASC
         ";
         $stm = $this->getEntityManager()->getConnection()->query($sql);
         return $stm->fetchAll();

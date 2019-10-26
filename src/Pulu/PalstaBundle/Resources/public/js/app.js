@@ -260,7 +260,7 @@ $(document).ready(function() {
         images.sort(function(a, b) {
             var aName = $(a).attr('data-sortby-name');
             var bName = $(b).attr('data-sortby-name');
-            return +aName < +bName ? direction * 1 : direction * -1;
+            return aName < bName ? direction * -1 : direction * 1;
         });
         $.each(images, function(i, e) {
             $('#municipalityImagesContainer').append(e);
