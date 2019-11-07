@@ -50,8 +50,11 @@
     <?php endif ?>
 
     <div class="row">
-    <div class="three columns">
+    <div class="two columns">
     <?php echo $view['form']->row($form['article_number']) ?>
+    </div>
+    <div class="two columns">
+    <?php echo $view['form']->row($form['is_commentable']) ?>
     </div>
     <div class="two columns">
     <?php echo $view['form']->row($form['use_translator']) ?>
@@ -70,8 +73,6 @@
     </div>
     <div class="one columns">
     <?php echo $view['form']->row($form['type']) ?>
-    </div>
-    <div class="one columns">
     </div>
     </div>
 

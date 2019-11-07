@@ -54,6 +54,9 @@ Pulu\PalstaBundle\Entity\Article:
         is_one_of_best:
             type: boolean
             nullable: true
+        is_commentable:
+            type: boolean
+            nullable: true
         use_translator:
             type: boolean
             nullable: true

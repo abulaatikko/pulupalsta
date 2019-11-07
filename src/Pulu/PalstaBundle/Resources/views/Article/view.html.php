@@ -307,7 +307,7 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 <div id="article_id" data-id="<?php echo $article->getId() ?>"></div>
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
-<?php if ($article->getType() === Pulu\PalstaBundle\Entity\Article::TYPE_RESEARCH || $article->getArticleNumber() === 71): ?>
+<?php if ($article->getIsCommentable()): ?>
 <?php $Parsedown = new Parsedown(); ?>
 
 <a name="kommentointi"></a>

@@ -55,6 +55,9 @@ class ArticleType extends AbstractType {
             ->add('is_public', CheckboxType::class, array(
                 'label' => 'Listoilla',
                 'required' => false))
+            ->add('is_commentable', CheckboxType::class, array(
+                'label' => 'Kommentoitavissa',
+                'required' => false))
             ->add('published', DateTimeType::class, array(
                 'widget' => 'single_text',
                 'format' => 'yyyy-MM-dd HH:mm:ss',

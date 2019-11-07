@@ -19,6 +19,7 @@ class Article {
     protected $last_month_visits;
     protected $average_monthly_visits;
     protected $is_one_of_best;
+    protected $is_commentable;
     protected $use_translator;
     protected $language;
     protected $is_public;
@@ -64,6 +65,7 @@ class Article {
         $this->language = 'fi';
         $this->is_public = false;
         $this->is_one_of_best = false;
+        $this->is_commentable = false;
         $this->access = self::ACCESS_ADMIN;
     }
 
@@ -123,6 +125,15 @@ class Article {
     public function setIsOneOfBest($isOneOfBest) {
         $this->is_one_of_best = $isOneOfBest;
         return $this->is_one_of_best;
+    }
+
+    public function getIsCommentable() {
+        return $this->is_commentable;
+    }
+
+    public function setIsCommentable($isCommentable) {
+        $this->is_commentable = $isCommentable;
+        return $this->is_commentable;
     }
 
     public function getAccess() {
