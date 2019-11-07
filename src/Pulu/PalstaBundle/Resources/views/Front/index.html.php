@@ -17,7 +17,7 @@
 <div class="row">
     <div class="six columns" id="visited-articles">
 
-<h3>Expeditions</h3>
+<h3>Travelling</h3>
 
 <table class="wide">
 <thead>
@@ -31,7 +31,7 @@
 <?php $carbonCss = ''; ?>
 <?php $isCarbonStartPrinted = false; ?>
 <?php $isCarbonEndPrinted = false; ?>
-<?php foreach ($expeditionArticles as $article): ?>
+<?php foreach ($travellingArticles as $article): ?>
 <?php if (1 == 2 && $article->getPublished()->format('Y') === '2015' && !$isCarbonEndPrinted): ?>
 <tr>
     <td colspan="3" class="zero-carbon-start-separator">ZERO CARBON SINCE 2016</td>

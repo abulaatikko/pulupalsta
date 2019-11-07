@@ -171,11 +171,11 @@ class ArticleRepository extends EntityRepository {
             ->getQuery()->getSingleResult();
     }
 
-    public function findExpeditionsOrderedByPublishedForPublic() {
+    public function findTravellingsOrderedByPublishedForPublic() {
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
             ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type AND B.language = :language")
-            ->setParameter("type", Article::TYPE_EXPEDITION)
+            ->setParameter("type", Article::TYPE_TRAVELLING)
             ->setParameter("language", $this->getLanguage())
             ->orderBy('A.published', 'DESC')
             ->getQuery()->getResult();

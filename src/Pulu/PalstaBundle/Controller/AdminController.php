@@ -29,7 +29,7 @@ class AdminController extends Controller {
             'articles' => $articles,
             'articleTypes' => [
                 Article::TYPE_UNDEFINED => '',
-                Article::TYPE_EXPEDITION => 'Expedition',
+                Article::TYPE_TRAVELLING => 'Travelling',
                 Article::TYPE_RESEARCH => 'Research',
                 Article::TYPE_ART => 'Art',
                 Article::TYPE_ESSAY => 'Essay'
