@@ -7,7 +7,7 @@
 
 <?php $currentLocale = $app->getRequest()->getLocale(); ?>
 
-<h1>Articles</h1>
+<h1>All articles</h1>
 
 <table class="wide" id="contents">
 <thead>
