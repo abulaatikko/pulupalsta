@@ -21,7 +21,7 @@
 &nbsp;&nbsp;
 <strong>Published:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?><?php echo $article->getWrittenAt() ? ", " . $article->getWrittenAt() : '' ?>
 <?php endif; ?>
-<?php if (! empty($article_keywords)): ?>
+<!--<?php if (! empty($article_keywords)): ?>
 &nbsp;&nbsp;<strong>Keywords:</strong>
 <?php $printKeywords = array(); ?>
 <?php foreach ($article_keywords as $article_keyword): ?>
@@ -40,6 +40,7 @@
 <?php endforeach ?>
 <?php echo implode(', ', $printKeywords) ?>
 <?php endif; ?>
+-->
 </div>
 
 <?php $body = $article->getBody(); ?>
