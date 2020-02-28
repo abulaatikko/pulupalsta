@@ -14,8 +14,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="description" content="<?php $view['slots']->output('description', '') ?>">
+    <meta name="author" content="Lassi Heikkinen">
     <!-- Set the viewport width to device width for mobile -->
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="nosnippet">
     <title><?php $view['slots']->output('title', 'Pulupalsta') ?></title>
     <link rel="icon" type="image/png" href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/favicon.png') ?>" />
     <link rel="canonical" href="<?php echo ! empty($view['slots']->get('canonical')) ? $view['slots']->get('canonical') : $app->getRequest()->getUri() ?>" />

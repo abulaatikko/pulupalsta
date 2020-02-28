@@ -1,7 +1,7 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', 'Pulupalsta - Full power') ?>
-<?php $view['slots']->set('description', 'Front page of Pulupalsta') ?>
+<?php $view['slots']->set('title', 'Intro - Pulupalsta') ?>
+<?php $view['slots']->set('description', 'Introduction of Pulupalsta, The Public Archive of The Empire of Pulu') ?>
 
 <?php $view['slots']->start('body') ?>
 
