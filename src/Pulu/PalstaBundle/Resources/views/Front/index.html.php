@@ -9,9 +9,9 @@
 
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
-<h1>Welcome, a user of internet! <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_feed_articles') ?>" title="RSS Feed"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feed" /></a></h1>
+<h1>Intro <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_feed_articles') ?>" title="RSS Feed"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feed" /></a></h1>
 
-<p>Pulupalsta is a platform to publish cultural material for the universe. The most popular articles are in <strong>bold</strong>. Focus is on travelling, lists and politics. Yes, lists, I love lists, especially those with checkboxes. The purpose of life is ticking checkboxes.</p>
+<p>This is a public archive of <em>The Empire of Pulu</em>. The most popular articles are in <strong>bold</strong> (top 25 %). Current focus is on world travelling, visual aesthetics and spartan lifestyle. Follow the emperor in Instagram: <a href="https://www.instagram.com/abulaatikko/">@abulaatikko</a></p>
 
 <!-- Popular/Recent articles -->
 <div class="row">
