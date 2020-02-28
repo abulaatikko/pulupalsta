@@ -55,8 +55,8 @@
         <div id="main-wrapper">
 
 <!-- Main heading -->
-<p id="title">Pulupalsta</p>
-<p id="slogan">Full power, Zero carbon<span style="position: absolute; margin-left: -100px; margin-top: 25px; font-weight: 600; transform-origin: 0 0; transform: rotate(-30deg); color: #ff0e0e; text-shadow: 1px 1px 2px black; text-align: center; font-size: 16px;">PAUSED</span></p>
+<p id="title" style="margin: 25px 0 5px;">Pulupalsta</p>
+<p id="slogan">The Public Archive</p>
 
 <!-- Navigation row -->
 <div class="row">
