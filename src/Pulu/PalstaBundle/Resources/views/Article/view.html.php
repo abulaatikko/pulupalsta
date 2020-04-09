@@ -19,7 +19,9 @@
 <?php if ($article->getArticleNumber() !== 71): ?>
 <strong>Language:</strong> <img style="height: 12px" class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" />
 &nbsp;&nbsp;
-<strong>Published:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?><?php echo $article->getWrittenAt() ? ", " . $article->getWrittenAt() : '' ?>
+<strong>Published:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>
+&nbsp;&nbsp;
+<strong>Modified:</strong> <?php echo $article->getModified()->format('Y-m-d') ?>
 <?php endif; ?>
 <!--<?php if (! empty($article_keywords)): ?>
 &nbsp;&nbsp;<strong>Keywords:</strong>
