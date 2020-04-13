@@ -64,13 +64,13 @@
         <div id="navigation-row">
 
 <ul id="navigation">
-<li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_front' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->path('pulu_palsta_front') ?>">Intro</a></li>
-    <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_list' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->path('pulu_palsta_list') ?>">Articles</a></li>
-    <!--<li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_index' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->path('pulu_palsta_index') ?>">Keywords</a></li>-->
+<li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_front' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->path('pulu_palsta_front') ?>">Front</a></li>
+    <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_list' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->path('pulu_palsta_list') ?>">List</a></li>
+    <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_index' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->path('pulu_palsta_index') ?>">Index</a></li>
+<!--    <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_about' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->path('pulu_palsta_about') ?>">About</a></li>-->
 </ul>
 <ul id="about">
-    <!--    <li><a href="/en/71">Chat</a></li>-->
-    <li <?php echo $app->getRequest()->get('_route') == 'pulu_palsta_about' ? 'class="current"' : '' ?>><a href="<?php echo $view['router']->path('pulu_palsta_about') ?>">?</a></li>
+    <!--<li><a href="/en/71">Plop</a></li>-->
 </ul>
 
         </div>
