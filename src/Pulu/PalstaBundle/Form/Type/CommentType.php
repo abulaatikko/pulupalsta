@@ -33,7 +33,7 @@ class CommentType extends AbstractType {
 
         $builder
             ->add('author_name', TextType::class, array(
-                'label' => 'Your name',
+                'label' => 'Your alias',
                 'data' => $options['default_author_name']))
             ->add('body', TextareaType::class, array(
                 'label' => 'Comment',
