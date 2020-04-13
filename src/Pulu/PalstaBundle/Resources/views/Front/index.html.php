@@ -19,21 +19,20 @@
 <div class="row">
     <div class="six columns" id="visited-articles">
 
-<h3>Travelling</h3>
+<h3>Research</h3>
 
 <table class="wide">
 <thead>
 <tr>
     <th>Published</th>
-    <th colspan="2">Report</th>
+    <th colspan="2">Paper</th>
 </tr>
 </thead>
-
 <tbody>
 <?php $carbonCss = ''; ?>
 <?php $isCarbonStartPrinted = false; ?>
 <?php $isCarbonEndPrinted = false; ?>
-<?php foreach ($travellingArticles as $article): ?>
+<?php foreach ($researchArticles as $article): ?>
 <?php if (1 == 2 && $article->getPublished()->format('Y') === '2015' && !$isCarbonEndPrinted): ?>
 <tr>
     <td colspan="3" class="zero-carbon-start-separator">ZERO CARBON SINCE 2016</td>
@@ -54,20 +53,26 @@
     </div>
     <div class="six columns" id="recent-articles">
 
-<h3>Research</h3>
+<h3>Travel reports</h3>
 
 <table class="wide">
 <thead>
 <tr>
     <th>Published</th>
-    <th colspan="2">Paper</th>
+    <th colspan="2">Report</th>
 </tr>
 </thead>
+
 <tbody>
+<tr>
+    <td>TBA</td>
+    <td>Kaukana Kaakossa (Uusi-Seelanti, Singapore, Vietnam)</td>
+    <td>?</td>
+</tr>
 <?php $carbonCss = ''; ?>
 <?php $isCarbonStartPrinted = false; ?>
 <?php $isCarbonEndPrinted = false; ?>
-<?php foreach ($researchArticles as $article): ?>
+<?php foreach ($travellingArticles as $article): ?>
 <?php if (1 == 2 && $article->getPublished()->format('Y') === '2015' && !$isCarbonEndPrinted): ?>
 <tr>
     <td colspan="3" class="zero-carbon-start-separator">ZERO CARBON SINCE 2016</td>
