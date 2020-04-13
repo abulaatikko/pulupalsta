@@ -11,7 +11,9 @@
 
 <h1>Introduction <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_feed_articles') ?>" title="RSS Feed"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feed" /></a></h1>
 
-<p>This is a public archive of <em>The Empire of Pulu</em>. The most popular articles are in <strong>bold</strong> (top 25 %). Current focus is on world travelling, visual aesthetics and spartan lifestyle. Follow the emperor in Instagram: <a href="https://www.instagram.com/abulaatikko/">@abulaatikko</a></p>
+<p>This is a collection of random texts and projects made by one human. With help of many friends. Current focus is on sport and travelling (April 2020). The most popular articles are in <strong>bold</strong> (top 25 %).</p>
+
+<p><a href="https://palsta.pulu.org/fi/1-1500-litraa-pepsia-ja-sony-vaio-s5">1500 litraa Pepsiä ja Sony Vaio S5</a> was the first one. Other popular articles are <a href="https://palsta.pulu.org/fi/50">Finnish Municipal Border Signs</a> and <a href="https://palsta.pulu.org/en/60-elasto-mania-1995-2018">Elasto Mania (1995&ndash;2018)</a>. World travelling started from London in 2011. <a href="https://palsta.pulu.org/fi/90-klassikkoravintolat">Klassikkoravintolat</a> is my favourite.</p>
 
 <!-- Popular/Recent articles -->
 <div class="row">
