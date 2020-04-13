@@ -1,6 +1,6 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', 'Sign in - Pulupalsta') ?>
+<?php $view['slots']->set('title', 'Sign in - Pulurojects') ?>
 
 <?php $view['slots']->start('body') ?>
 

@@ -1,11 +1,5 @@
 <?php $view->extend('PuluPalstaBundle:Admin:base.html.php') ?>
 
-<?php if ($keyword->getId() > 0): ?>
-<?php $view['slots']->set('title', $keyword->getName() . ' - Ylläpito - Pulupalsta') ?>
-<?php else: ?>
-<?php $view['slots']->set('title', 'Luo avainsana - Ylläpito - Pulupalsta') ?>
-<?php endif ?>
-
 <?php $view['slots']->start('body') ?>
 
 <?php if ($keyword->getId() > 0): ?>

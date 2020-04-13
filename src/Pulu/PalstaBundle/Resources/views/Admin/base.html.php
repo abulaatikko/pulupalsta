@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width" />
-    <title><?php $view['slots']->output('title', 'Ylläpito - Pulupalsta') ?></title>
+    <title><?php $view['slots']->output('title', 'Ylläpito - Puluprojects') ?></title>
     <?php foreach ($view['assetic']->stylesheets(
         array(
             '@PuluPalstaBundle/Resources/public/css/foundation.css',

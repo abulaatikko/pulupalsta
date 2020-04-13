@@ -55,8 +55,8 @@
         <div id="main-wrapper">
 
 <!-- Main heading -->
-<p id="title" style="margin: 25px 0 5px;">Pulupalsta</p>
-<p id="slogan">The Public Archive</p>
+<p id="title" style="margin: 25px 0 5px;">Pulu Projects</p>
+<p id="slogan">aka Pulupalsta</p>
 
 <!-- Navigation row -->
 <div class="row">

@@ -1,7 +1,5 @@
 <?php $view->extend('PuluPalstaBundle:Admin:base.html.php') ?>
 
-<?php $view['slots']->set('title', 'Avainsanat - Ylläpito - Pulupalsta') ?>
-
 <?php $view['slots']->start('body') ?>
 
 <ul class="breadcrumbs">

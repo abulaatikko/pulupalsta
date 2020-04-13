@@ -1,11 +1,5 @@
 <?php $view->extend('PuluPalstaBundle:Admin:base.html.php') ?>
 
-<?php if ($comment->getId() > 0): ?>
-<?php $view['slots']->set('title', 'Kommentti: #' . $comment->getId() . ' - Ylläpito - Pulupalsta') ?>
-<?php else: ?>
-<?php $view['slots']->set('title', 'Luo kommentti - Ylläpito - Pulupalsta') ?>
-<?php endif ?>
-
 <?php $view['slots']->start('body') ?>
 
 <?php if ($comment->getId() > 0): ?>

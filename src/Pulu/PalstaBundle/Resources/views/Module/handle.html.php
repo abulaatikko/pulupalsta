@@ -1,11 +1,5 @@
 <?php $view->extend('PuluPalstaBundle:Admin:base.html.php') ?>
 
-<?php if ($module->getId() > 0): ?>
-<?php $view['slots']->set('title', $module->getName() . ' - Ylläpito - Pulupalsta') ?>
-<?php else: ?>
-<?php $view['slots']->set('title', 'Luo moduuli - Ylläpito - Pulupalsta') ?>
-<?php endif ?>
-
 <?php $view['slots']->start('body') ?>
 
 <?php if ($module->getId() > 0): ?>
