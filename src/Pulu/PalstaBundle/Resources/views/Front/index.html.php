@@ -1,7 +1,7 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', 'Summary - Puluprojects') ?>
-<?php $view['slots']->set('description', 'Summary of Puluprojects') ?>
+<?php $view['slots']->set('title', 'Introduction - Puluprojects') ?>
+<?php $view['slots']->set('description', 'Introduction of Puluprojects') ?>
 
 <?php $view['slots']->start('body') ?>
 
@@ -9,7 +9,7 @@
 
 <div id="locale" data-locale="<?php echo $currentLocale ?>"></div>
 
-<h1>Intro <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_feed_articles') ?>" title="RSS Feed"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feed" /></a></h1>
+<h1>Introduction <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_feed_articles') ?>" title="RSS Feed"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feed" /></a></h1>
 
 <p>This is a public archive of <em>The Empire of Pulu</em>. The most popular articles are in <strong>bold</strong> (top 25 %). Current focus is on world travelling, visual aesthetics and spartan lifestyle. Follow the emperor in Instagram: <a href="https://www.instagram.com/abulaatikko/">@abulaatikko</a></p>
 

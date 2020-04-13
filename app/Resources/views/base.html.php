@@ -18,7 +18,7 @@
     <!-- Set the viewport width to device width for mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="nosnippet">
-    <title><?php $view['slots']->output('title', 'Pulupalsta') ?></title>
+    <title><?php $view['slots']->output('title', 'Puluprojects') ?></title>
     <link rel="icon" type="image/png" href="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/favicon.png') ?>" />
     <link rel="canonical" href="<?php echo ! empty($view['slots']->get('canonical')) ? $view['slots']->get('canonical') : $app->getRequest()->getUri() ?>" />
     <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="<?php echo $view['router']->path('pulu_palsta_feed_articles') ?>">
@@ -55,7 +55,7 @@
         <div id="main-wrapper">
 
 <!-- Main heading -->
-<p id="title" style="margin: 25px 0 5px;">Pulu Projects</p>
+<p id="title" style="margin: 25px 0 5px;">Puluprojects</p>
 <p id="slogan">aka Pulupalsta</p>
 
 <!-- Navigation row -->
