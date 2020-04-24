@@ -16,12 +16,12 @@
 <h1><?php echo $article->getName() ?></h1>
 
 <div id="article-metadata">
-<?php if ($article->getArticleNumber() !== 71): ?>
-<strong>Language:</strong> <img style="height: 12px" class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" />
+<?php if ($article->getArticleNumber() !== 117): ?>
+<strong><?php echo $currentLocale === 'en' ? 'Language' : 'Kieli' ?>:</strong> <img style="height: 12px" class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" />
 &nbsp;&nbsp;
-<strong>Published:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>
+<strong><?php echo $currentLocale === 'en' ? 'Published' : 'Julkaistu' ?>:</strong> <?php echo $article->getPublished()->format('Y-m-d') ?>
 &nbsp;&nbsp;
-<strong>Modified:</strong> <?php echo $article->getModified()->format('Y-m-d') ?>
+<strong><?php echo $currentLocale === 'en' ? 'Modified' : 'Muokattu' ?>:</strong> <?php echo $article->getModified()->format('Y-m-d') ?>
 <?php endif; ?>
 <!--<?php if (! empty($article_keywords)): ?>
 &nbsp;&nbsp;<strong>Keywords:</strong>
