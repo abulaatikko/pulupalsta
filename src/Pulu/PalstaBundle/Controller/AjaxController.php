@@ -53,7 +53,7 @@ class AjaxController extends Controller {
         $translator = $this->get('translator');
 
         $success = false;
-        $message = $translator->trans('Kommentointi epäonnistui');
+        $message = $translator->trans('Commenting failure');
 
         $comment = new Comment();
         $form = $this->createForm(CommentType::class, $comment);
@@ -63,38 +63,53 @@ class AjaxController extends Controller {
         if ($R->isMethod('POST')) {
             $article_id = $R->get('article_id');
             $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find(array('id' => $article_id));
+
             if ($article instanceof Article) {
-                
                 $requestData = $R->request->get('comment');
+
                 if (isset($requestData['safety_question'])) {
                     $answers = unserialize(base64_decode($requestData['safety_answer']));
                     array_map('mb_strtolower', $answers);
+
                     if (in_array(mb_strtolower($requestData['safety_question']), $answers)) {
                         if (isset($requestData['author_name']) && mb_strlen($requestData['author_name']) < 64) {
                             $ip_address = $R->getClientIp();
                             $user_agent = $R->server->get('HTTP_USER_AGENT');
-                            $commenting_delay = '2';    // minutes
-                            $tooFast = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->tooFast($article->getId(), $ip_address, $user_agent, $commenting_delay . ' mins');
-                            if (! $tooFast) {
-                                $form->handleRequest($R);
-                                $em = $this->getDoctrine()->getManager();
-                                $em->persist($comment);
-                                if ($form->isValid()) {
-                                    $comment->setBody(strip_tags($comment->getBody()));
-                                    $comment->setArticle($article);
-                                    $comment->setLanguage($R->getLocale());
-                                    $comment->setAuthorIpAddress($R->getClientIp());
-                                    $comment->setAuthorUserAgent($R->server->get('HTTP_USER_AGENT'));
 
-                                    $em->flush();
-                                    $success = true;
-                                    $message = $translator->trans('Kommentointi onnistui');
+                            $tooFast = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->tooFast($article->getId(), $ip_address, $user_agent, '60 secs');
+
+                            if (! $tooFast) {
+                                $key = hash('sha256', $requestData['author_key'] . $this->container->getParameter('salt.author_key'));
+                                $keyCheckDelay = 5 * 1000000; // seconds
+
+                                if (empty($requestData['author_key']) && $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->isAuthorNameReserved($requestData['author_name'])) {
+                                    $message = $translator->trans('Alias is already protected');
+                                } else if (! $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->isAuthorSecured($requestData['author_name'], $key)) {
+                                    usleep($keyCheckDelay);
+                                    $message = $translator->trans('Key didn\'t work');
+                                } else {
+                                    usleep($keyCheckDelay);
+                                    $form->handleRequest($R);
+                                    $em = $this->getDoctrine()->getManager();
+                                    $em->persist($comment);
+                                    if ($form->isValid()) {
+                                        $comment->setBody(strip_tags($comment->getBody()));
+                                        $comment->setArticle($article);
+                                        $comment->setLanguage($R->getLocale());
+                                        $comment->setAuthorIpAddress($R->getClientIp());
+                                        $comment->setAuthorUserAgent($R->server->get('HTTP_USER_AGENT'));
+                                        $comment->setAuthorKey($key);
+
+                                        $em->flush();
+                                        $success = true;
+                                        $message = $translator->trans('Commenting success');
+                                    }
                                 }
                             } else {
-                                $message = $translator->trans('Liian nopeaa kommentointia, odota muutama minuutti');
+                                $message = 'Too fast commenting. Wait a few minutes.';
                             }
                         } else {
-                            $message = $translator->trans('Nimesi on liian pitkä');
+                            $message = $translator->trans('Too long alias');
                         }
                     }
                 }

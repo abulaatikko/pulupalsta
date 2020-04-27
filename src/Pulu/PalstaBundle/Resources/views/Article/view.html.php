@@ -344,11 +344,18 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
     <?php echo $view['form']->row($form['body']) ?>
     </div>
     <div class="six columns">
-    <?php echo $view['form']->row($form['author_name']) ?>
-    <?php echo $view['form']->row($form['safety_question']) ?>
-    <?php echo $view['form']->rest($form) ?>
-    <input type="hidden" name="article_id" value="<?php echo $article->getId() ?>" />
-    <p><input class="button" type="submit" value="Submit" /></p>
+        <div class="row">
+            <div class="six columns">
+                <?php echo $view['form']->row($form['author_name']) ?>
+            </div>
+            <div class="six columns">
+                <?php echo $view['form']->row($form['author_key']) ?>
+            </div>
+        </div>
+        <?php echo $view['form']->row($form['safety_question']) ?>
+        <?php echo $view['form']->rest($form) ?>
+        <input type="hidden" name="article_id" value="<?php echo $article->getId() ?>" />
+        <p><input class="button" type="submit" value="Submit" /></p>
     </div>
     </div>
 </form>

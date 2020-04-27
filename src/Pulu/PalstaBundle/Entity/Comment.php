@@ -12,6 +12,7 @@ class Comment {
     protected $author_name;
     protected $author_ip_address;
     protected $author_useragent;
+    protected $author_key;
     protected $created;
     protected $modified;
     protected $deleted;
@@ -80,6 +81,15 @@ class Comment {
 
     public function setAuthorUserAgent($author_useragent) {
         $this->author_useragent = $author_useragent;
+        return $this;
+    }
+
+    public function getAuthorKey() {
+        return $this->author_key;
+    }
+
+    public function setAuthorKey($author_key) {
+        $this->author_key = $author_key;
         return $this;
     }
 

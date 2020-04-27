@@ -116,6 +116,9 @@ $(document).ready(function() {
 
     // Add comment
     $('form#articleComment').submit(function() {
+        var submitText = $('form#articleComment input[type=submit]').val();
+        $('form#articleComment input[type=submit]').prop("disabled", true).val('Just a moment...');
+
         var $form = $(this);
         $.ajax({
             type: "POST",
@@ -123,7 +126,7 @@ $(document).ready(function() {
             data: $(this).serialize(),
             success: function(data) {
                 if (data['success'] == true) {
-                    alertify.success(data['message']);
+                    //alertify.success(data['message']);
                     $('table#comments').closest('div').fadeIn(2000);
                     $('table#comments').find('tbody:last').append('<tr style="display: none"><td style="width: 12%"><strong>' + data['data']['author_name'] + '</strong><br /><small>' + data['data']['created'] + '</small></td><td>' + data['data']['comment'] + '</td></tr>');
                     $('table#comments').find('tr:last').fadeIn(2000);
@@ -131,9 +134,11 @@ $(document).ready(function() {
                 } else {
                     alertify.error(data['message']);
                 }
+                $('form#articleComment input[type=submit]').prop("disabled", false).val(submitText);
             },
             error: function(data) {
                 alertify.error(translations['failed_to_send_your_comment']);
+                $('form#articleComment input[type=submit]').prop("disabled", false).val(submitText);
             },
             dataType: "json"
         });

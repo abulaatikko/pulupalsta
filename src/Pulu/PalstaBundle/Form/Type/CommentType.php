@@ -8,6 +8,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class CommentType extends AbstractType {
 
@@ -35,8 +36,12 @@ class CommentType extends AbstractType {
             ->add('author_name', TextType::class, array(
                 'label' => 'Your alias',
                 'data' => $options['default_author_name']))
+            ->add('author_key', PasswordType::class, array(
+                'label' => 'Your key',
+                'required' => false,
+                'data' => $options['default_author_key']))
             ->add('body', TextareaType::class, array(
-                'label' => 'Comment',
+                'label' => 'Your comment',
                 'data' => $options['default_body']))
             ->add('safety_question', TextType::class, array(
                 'label' => $safety_questions[0]['question'],
@@ -56,6 +61,7 @@ class CommentType extends AbstractType {
             'data_class' => 'Pulu\PalstaBundle\Entity\Comment',
             'default_body' => '',
             'default_author_name' => '',
+            'default_author_key' => '',
             'default_safety_question' => ''
         ));
     }

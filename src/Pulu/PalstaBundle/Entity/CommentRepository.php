@@ -32,4 +32,26 @@ class CommentRepository extends EntityRepository {
             ->getQuery()->getResult();
     }
 
+    public function isAuthorNameReserved($author_name) {
+        return (bool) $this->createQueryBuilder('A')
+            ->select("COUNT(A)")
+            ->where("A.author_name = :author_name")
+            ->setParameter('author_name', $author_name)
+            ->setMaxResults(1)
+            ->getQuery()->getSingleScalarResult();
+    }
+
+    public function isAuthorSecured($author_name, $key) {
+        if (! $this->isAuthorNameReserved($author_name)) {
+            return true;
+        }
+        return (bool) $this->createQueryBuilder('A')
+            ->select("COUNT(A)")
+            ->where("A.author_name = :author_name AND A.author_key = :author_key")
+            ->setParameter('author_name', $author_name)
+            ->setParameter('author_key', $key)
+            ->setMaxResults(1)
+            ->getQuery()->getSingleScalarResult();
+    }
+
 }
