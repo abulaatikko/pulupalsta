@@ -20,3 +20,4 @@ parameters:
 
     media.url:         http://dev.media.pulu.org/palsta/
     media.path:        /home/abula/dev.media.pulu.org/palsta/
+    salt.author_key:   ThisTokenIsNotSoSecretChangeIt
