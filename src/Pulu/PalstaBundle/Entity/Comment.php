@@ -120,4 +120,8 @@ class Comment {
         return $this;
     }
 
+    public function isProtected() {
+        return ! empty($this->author_key);
+    }
+
 }

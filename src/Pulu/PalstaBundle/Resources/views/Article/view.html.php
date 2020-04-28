@@ -325,9 +325,8 @@ function createRecplay($id, $replays, $level, $caption = '', $options = array())
 </thead>
 <tbody>
 <?php foreach ($comments as $comment): ?>
-<?php $authorColor = in_array($comment->getAuthorName(), ['Lassi', 'Abula', 'Abulaatikko']) ? '; font-weight: 100; font-style: italic' : ''; ?>
 <tr>
-    <td style="width: 12%"><strong style="display: block<?php echo $authorColor ?>"><?php echo $comment->getAuthorName() ?></strong><small><?php echo $comment->getCreated()->format('Y-m-d H:i') ?></small></td>
+    <td style="width: 12%"><strong style="display: block"><?php echo $comment->getAuthorName() ?></strong><small><?php echo $comment->getCreated()->format('Y-m-d H:i') ?></small><?php if ($comment->isProtected()): ?><br><small>PROTECTED</small><?php endif; ?></td>
     <td><?php echo($Parsedown->text($comment->getBody())) ?></td>
 </tr>
 <?php endforeach ?>

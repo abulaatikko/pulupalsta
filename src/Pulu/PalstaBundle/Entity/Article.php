@@ -304,20 +304,23 @@ class Article {
         return $this->comments;
     }
 
+    public function getCommentsNotDeleted() {
+        $comments = $this->getComments();
+        return $comments->filter(function($comment) {
+            return ! $comment->getDeleted();
+        });
+    }
+
     public function setComments(ArrayCollection $comments) {
         $this->comments = $comments;
     }
 
     public function getCommentsCount() {
-        $comments = $this->getComments();
-        $notDeletedComments = $comments->filter(function($comment) {
-            return ! $comment->getDeleted();
-        });
-        return count($notDeletedComments);
+        return count($this->getCommentsNotDeleted());
     }
 
     public function getLastCommented() {
-        $comments = $this->getComments();
+        $comments = $this->getCommentsNotDeleted();
         $return = null;
         foreach ($comments as $comment) {
             $created = $comment->getCreated();
