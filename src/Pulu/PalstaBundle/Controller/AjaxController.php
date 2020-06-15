@@ -61,6 +61,8 @@ class AjaxController extends Controller {
         $Parsedown = new Parsedown();
 
         if ($R->isMethod('POST')) {
+            $keyCheckDelay = 5 * 1000000; // seconds
+            usleep($keyCheckDelay);
             $article_id = $R->get('article_id');
             $article = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article')->find(array('id' => $article_id));
 
@@ -69,7 +71,7 @@ class AjaxController extends Controller {
 
                 if (isset($requestData['safety_question'])) {
                     $answers = unserialize(base64_decode($requestData['safety_answer']));
-                    array_map('mb_strtolower', $answers);
+                    $answers = array_map('mb_strtolower', $answers);
 
                     if (in_array(mb_strtolower($requestData['safety_question']), $answers)) {
                         if (isset($requestData['author_name']) && mb_strlen($requestData['author_name']) < 64) {
@@ -79,8 +81,7 @@ class AjaxController extends Controller {
                             $tooFast = $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->tooFast($article->getId(), $ip_address, $user_agent, '60 secs');
 
                             if (! $tooFast) {
-                                $key = hash('sha256', $requestData['author_key'] . $this->container->getParameter('salt.author_key'));
-                                $keyCheckDelay = 5 * 1000000; // seconds
+                                $key = $requestData['author_key'] ? hash('sha256', $requestData['author_key'] . $this->container->getParameter('salt.author_key')) : '';
 
                                 if (empty($requestData['author_key']) && $this->getDoctrine()->getRepository('PuluPalstaBundle:Comment')->isAuthorNameReserved($requestData['author_name'])) {
                                     $message = $translator->trans('Alias is already protected');
@@ -88,7 +89,6 @@ class AjaxController extends Controller {
                                     usleep($keyCheckDelay);
                                     $message = $translator->trans('Key didn\'t work');
                                 } else {
-                                    usleep($keyCheckDelay);
                                     $form->handleRequest($R);
                                     $em = $this->getDoctrine()->getManager();
                                     $em->persist($comment);
@@ -102,6 +102,7 @@ class AjaxController extends Controller {
 
                                         $em->flush();
                                         $success = true;
+                                        $isProtected = ! empty($key);
                                         $message = $translator->trans('Commenting success');
                                     }
                                 }
@@ -115,7 +116,13 @@ class AjaxController extends Controller {
                 }
             }
         }
-        $data = $success ? array('comment' => $Parsedown->text($comment->getBody()), 'author_name' => $comment->getAuthorName(), 'created' => $comment->getCreated()->format('Y-m-d H:i')) : '';
+        $data = $success 
+            ? array(
+                'comment' => $Parsedown->text($comment->getBody()),
+                'author_name' => $comment->getAuthorName(),
+                'created' => $comment->getCreated()->format('Y-m-d H:i'),
+                'is_protected' => ! empty($isProtected)
+            ) : '';
         $response = new Response(json_encode(array('success' => $success, 'message' => $message, 'data' => $data)));
         $response->headers->set('Content-Type', 'application/json');
         return $response;

@@ -14,18 +14,18 @@ class CommentType extends AbstractType {
 
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $safety_questions = array(
-            array(
-                'question' => 'Human check: Which country has the largest population?',
+            /*array(
+                'question' => 'The virus - what country did it start to spread from?',
                 'answers' => array('kiina', 'china', 'people\'s republic of china', 'prc', 'kiinan kansantasavalta')),
             array(
-                'question' => 'Human check: What\'s the name of the nearest star to us?',
+                'question' => 'The star, the one quite close to us?',
                 'answers' => array('aurinko', 'sun')),
             array(
-                'question' => 'Human check: What\'s the first letter of the alphabet?',
-                'answers' => array('a', 'aa')),
+                'question' => 'What\'s the first...no...second letter of the alphabet?',
+                'answers' => array('b', 'b')),*/
             array(
-                'question' => 'Human check: How much is six multiplied by six?',
-                'answers' => array('36', 'kolmekymmentäkuusi', 'thirty six'))
+                'question' => 'What\'s the name of this website?',
+                'answers' => array('puluprojects', 'pulupalsta')) // use lowercase
         );
         shuffle($safety_questions);
 

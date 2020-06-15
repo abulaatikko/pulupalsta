@@ -128,7 +128,7 @@ $(document).ready(function() {
                 if (data['success'] == true) {
                     //alertify.success(data['message']);
                     $('table#comments').closest('div').fadeIn(2000);
-                    $('table#comments').find('tbody:last').append('<tr style="display: none"><td style="width: 12%"><strong>' + data['data']['author_name'] + '</strong><br /><small>' + data['data']['created'] + '</small></td><td>' + data['data']['comment'] + '</td></tr>');
+                    $('table#comments').find('tbody:last').append('<tr style="display: none"><td style="width: 12%"><strong>' + data['data']['author_name'] + '</strong><br /><small>' + data['data']['created'] + '</small><br><small>' + (data['data']['is_protected'] ? 'PROTECTED' : '') + '</small></td><td>' + data['data']['comment'] + '</td></tr>');
                     $('table#comments').find('tr:last').fadeIn(2000);
                     $form[0].reset();
                 } else {
