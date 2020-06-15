@@ -13,8 +13,8 @@
 <thead>
 <tr>
     <th colspan="3">Article</th>
-    <th title="Number of Visits">Vis.</th>
-    <th class="text-right nowrap" title="Average monthly visits since publication">Vis. / mon</th>
+    <th title="Number of Views">Views</th>
+    <th class="text-right nowrap" title="Average monthly views since publication">V. / mon</th>
 <!--    <th title="Rating">Rat.</th>-->
     <th title="Number of Comments">Com.</th>
     <th class="nowrap">Commented</th>
@@ -54,8 +54,8 @@ if ($typeText == 'Essay') { $typeStyles .= '; color: black';}
 </table>
 
 <p class="table-notes">
-    Vis. = Number of Visits<br />
-    Vis. / mon = Average monthly visits since publication<br />
+    Views = Number of Views<br />
+    V. / mon = Average monthly views since publication<br />
 <!--    Rat. = Rating<br />-->
     Com. = Number of Comments
 </p>
