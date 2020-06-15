@@ -55,8 +55,8 @@
         <div id="main-wrapper">
 
 <!-- Main heading -->
-<p id="title" style="margin: 25px 0 5px;">Puluprojects</p>
-<p id="slogan">aka Pulupalsta</p>
+<p id="title" style="margin: 25px 0 5px;">Random Projects</p>
+<p id="slogan"></p>
 
 <!-- Navigation row -->
 <div class="row">
