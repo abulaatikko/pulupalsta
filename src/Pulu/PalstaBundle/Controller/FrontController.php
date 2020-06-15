@@ -15,6 +15,8 @@ class FrontController extends Controller {
         $researchArticles = $repository->findResearchesOrderedByPublishedForPublic();
         $essayArticles = $repository->findEssaysOrderedByPublishedForPublic();
         $artArticles = $repository->findArtsOrderedByPublishedForPublic();
+        $sportArticles = $repository->findSportsOrderedByPublishedForPublic();
+        $nutritionArticles = $repository->findNutritionsOrderedByPublishedForPublic();
         $keywords = $this->getKeywords($R);       
 
         return $this->render('PuluPalstaBundle:Front:index.html.php', array(
@@ -22,6 +24,8 @@ class FrontController extends Controller {
             'researchArticles' => $researchArticles,
             'essayArticles' => $essayArticles,
             'artArticles' => $artArticles,
+            'sportArticles' => $sportArticles,
+            'nutritionArticles' => $nutritionArticles,
             'keywords' => $keywords
         ));
     }

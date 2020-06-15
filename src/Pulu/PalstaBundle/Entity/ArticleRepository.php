@@ -175,7 +175,7 @@ class ArticleRepository extends EntityRepository {
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
             ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type AND B.language = :language")
-            ->setParameter("type", Article::TYPE_TRAVELLING)
+            ->setParameter("type", Article::TYPE_TRAVEL)
             ->setParameter("language", $this->getLanguage())
             ->orderBy('A.published', 'DESC')
             ->getQuery()->getResult();
@@ -204,6 +204,24 @@ class ArticleRepository extends EntityRepository {
             ->innerJoin('A.localizations', 'B')
             ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type")
             ->setParameter("type", Article::TYPE_ART)
+            ->orderBy('A.published', 'DESC')
+            ->getQuery()->getResult();
+    }
+
+    public function findSportsOrderedByPublishedForPublic() {
+        return $this->createQueryBuilder('A')
+            ->innerJoin('A.localizations', 'B')
+            ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type")
+            ->setParameter("type", Article::TYPE_SPORT)
+            ->orderBy('A.published', 'DESC')
+            ->getQuery()->getResult();
+    }
+
+    public function findNutritionsOrderedByPublishedForPublic() {
+        return $this->createQueryBuilder('A')
+            ->innerJoin('A.localizations', 'B')
+            ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type")
+            ->setParameter("type", Article::TYPE_NUTRITION)
             ->orderBy('A.published', 'DESC')
             ->getQuery()->getResult();
     }

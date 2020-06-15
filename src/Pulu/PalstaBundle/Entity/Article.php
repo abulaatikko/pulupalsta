@@ -44,10 +44,12 @@ class Article {
     const ACCESS_ALL = 100;
 
     const TYPE_UNDEFINED = 0;
-    const TYPE_TRAVELLING = 1;
+    const TYPE_TRAVEL = 1;
     const TYPE_RESEARCH = 2;
     const TYPE_ART = 3;
     const TYPE_ESSAY = 4;
+    const TYPE_SPORT = 5;
+    const TYPE_NUTRITION = 6;
 
     public function __construct() {
         $this->localizations = new ArrayCollection();

@@ -27,7 +27,7 @@
 <?php $typeText = isset($articleTypes[$article->getType()]) ? $articleTypes[$article->getType()] : '' ?>
 <?php
 $typeStyles = 'font-size: 60%; text-align: right; font-weight: bold';
-if ($typeText == 'Travelling') { $typeStyles .= '; color: navy';}
+if ($typeText == 'Travel') { $typeStyles .= '; color: navy';}
 if ($typeText == 'Research') { $typeStyles .= '; color: green';}
 if ($typeText == 'Art') { $typeStyles .= '; color: gold';}
 if ($typeText == 'Essay') { $typeStyles .= '; color: black';}

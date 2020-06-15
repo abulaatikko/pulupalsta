@@ -19,28 +19,18 @@
 <div class="row">
     <div class="six columns" id="visited-articles">
 
-<h3>Research</h3>
+<h3>Sport</h3>
 
 <table class="wide">
 <thead>
 <tr>
     <th>Published</th>
-    <th colspan="2">Paper</th>
+    <th colspan="2">Article</th>
 </tr>
 </thead>
 <tbody>
-<?php $carbonCss = ''; ?>
-<?php $isCarbonStartPrinted = false; ?>
-<?php $isCarbonEndPrinted = false; ?>
-<?php foreach ($researchArticles as $article): ?>
-<?php if (1 == 2 && $article->getPublished()->format('Y') === '2015' && !$isCarbonEndPrinted): ?>
+<?php foreach ($sportArticles as $article): ?>
 <tr>
-    <td colspan="3" class="zero-carbon-start-separator">ZERO CARBON SINCE 2016</td>
-</tr>
-<?php $isCarbonEndPrinted = true; ?>
-<?php $carbonCss = ''; //' class="carbon"'; ?>
-<?php endif; ?>
-<tr<?php echo $carbonCss ?>>
     <td><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
     <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
     <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
@@ -48,18 +38,15 @@
 <?php endforeach ?>
 </tbody>
 </table>
-<p></p>
+<p><br /></p>
 
-    </div>
-    <div class="six columns" id="recent-articles">
-
-<h3>Travel reports</h3>
+<h3>Travel</h3>
 
 <table class="wide">
 <thead>
 <tr>
     <th>Published</th>
-    <th colspan="2">Report</th>
+    <th colspan="2">Article</th>
 </tr>
 </thead>
 
@@ -88,18 +75,24 @@
 <?php endforeach ?>
 </tbody>
 </table>
+    <div class="six columns">
+        <p></p>
+    </div>
 
-<h3>Art</h3>
+    </div>
+    <div class="six columns" id="recent-articles">
+
+<h3>Nutrition</h3>
 
 <table class="wide">
 <thead>
 <tr>
     <th>Published</th>
-    <th colspan="2">Work</th>
+    <th colspan="2">Article</th>
 </tr>
 </thead>
 <tbody>
-<?php foreach ($artArticles as $article): ?>
+<?php foreach ($nutritionArticles as $article): ?>
 <tr>
     <td><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
     <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
@@ -108,19 +101,30 @@
 <?php endforeach ?>
 </tbody>
 </table>
+<p><br /></p>
 
-<h3>Essays</h3>
+<h3>Research</h3>
 
 <table class="wide">
 <thead>
 <tr>
     <th>Published</th>
-    <th colspan="2">Text</th>
+    <th colspan="2">Article</th>
 </tr>
 </thead>
 <tbody>
-<?php foreach ($essayArticles as $article): ?>
+<?php $carbonCss = ''; ?>
+<?php $isCarbonStartPrinted = false; ?>
+<?php $isCarbonEndPrinted = false; ?>
+<?php foreach ($researchArticles as $article): ?>
+<?php if (1 == 2 && $article->getPublished()->format('Y') === '2015' && !$isCarbonEndPrinted): ?>
 <tr>
+    <td colspan="3" class="zero-carbon-start-separator">ZERO CARBON SINCE 2016</td>
+</tr>
+<?php $isCarbonEndPrinted = true; ?>
+<?php $carbonCss = ''; //' class="carbon"'; ?>
+<?php endif; ?>
+<tr<?php echo $carbonCss ?>>
     <td><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
     <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
     <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
@@ -128,6 +132,7 @@
 <?php endforeach ?>
 </tbody>
 </table>
+<p></p>
 
     </div>
     <div class="six columns">
