@@ -190,11 +190,11 @@ class ArticleRepository extends EntityRepository {
             ->getQuery()->getResult();
     }
 
-    public function findEssaysOrderedByPublishedForPublic() {
+    public function findOpinionsOrderedByPublishedForPublic() {
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
             ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type")
-            ->setParameter("type", Article::TYPE_ESSAY)
+            ->setParameter("type", Article::TYPE_OPINION)
             ->orderBy('A.published', 'DESC')
             ->getQuery()->getResult();
     }

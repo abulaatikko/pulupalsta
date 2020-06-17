@@ -47,7 +47,7 @@ class Article {
     const TYPE_TRAVEL = 1;
     const TYPE_RESEARCH = 2;
     const TYPE_ART = 3;
-    const TYPE_ESSAY = 4;
+    const TYPE_OPINION = 4;
     const TYPE_SPORT = 5;
     const TYPE_NUTRITION = 6;
 

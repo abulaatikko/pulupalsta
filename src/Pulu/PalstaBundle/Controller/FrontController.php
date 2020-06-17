@@ -13,7 +13,7 @@ class FrontController extends Controller {
         $repository->setLanguage($R->getLocale());
         $travellingArticles = $repository->findTravellingsOrderedByPublishedForPublic();
         $researchArticles = $repository->findResearchesOrderedByPublishedForPublic();
-        $essayArticles = $repository->findEssaysOrderedByPublishedForPublic();
+        $opinionArticles = $repository->findOpinionsOrderedByPublishedForPublic();
         $artArticles = $repository->findArtsOrderedByPublishedForPublic();
         $sportArticles = $repository->findSportsOrderedByPublishedForPublic();
         $nutritionArticles = $repository->findNutritionsOrderedByPublishedForPublic();
@@ -22,7 +22,7 @@ class FrontController extends Controller {
         return $this->render('PuluPalstaBundle:Front:index.html.php', array(
             'travellingArticles' => $travellingArticles,
             'researchArticles' => $researchArticles,
-            'essayArticles' => $essayArticles,
+            'opinionArticles' => $opinionArticles,
             'artArticles' => $artArticles,
             'sportArticles' => $sportArticles,
             'nutritionArticles' => $nutritionArticles,

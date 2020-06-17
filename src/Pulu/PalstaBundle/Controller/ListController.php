@@ -17,7 +17,7 @@ class ListController extends Controller {
                 Article::TYPE_TRAVEL => 'Travel',
                 Article::TYPE_RESEARCH => 'Research',
                 Article::TYPE_ART => 'Art',
-                Article::TYPE_ESSAY => 'Essay',
+                Article::TYPE_OPINION => 'Opinion',
                 Article::TYPE_SPORT => 'Sport',
                 Article::TYPE_NUTRITION => 'Nutrition'
             ]
