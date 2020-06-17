@@ -1,7 +1,7 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', 'List - Puluprojects') ?>
-<?php $view['slots']->set('description', 'List of projects in Puluprojects') ?>
+<?php $view['slots']->set('title', 'List - Palsta') ?>
+<?php $view['slots']->set('description', 'List of articles in Palsta') ?>
 
 <?php $view['slots']->start('body') ?>
 

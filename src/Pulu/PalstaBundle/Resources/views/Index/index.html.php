@@ -1,7 +1,7 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', 'Index - Puluprojects') ?>
-<?php $view['slots']->set('description', 'List of the most common keywords used in Puluprojects') ?>
+<?php $view['slots']->set('title', 'Index - Palsta') ?>
+<?php $view['slots']->set('description', 'List of the most common keywords used in Palsta articles') ?>
 
 <?php $view['slots']->start('body') ?>
 

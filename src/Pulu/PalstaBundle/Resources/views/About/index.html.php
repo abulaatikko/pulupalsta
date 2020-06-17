@@ -1,8 +1,8 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', 'About - Puluprojects') ?>
+<?php $view['slots']->set('title', 'About - Palsta') ?>
 
-<?php $view['slots']->set('description', 'Background information of Puluprojects') ?>
+<?php $view['slots']->set('description', 'Background information of Palsta') ?>
 
 <?php $view['slots']->start('body') ?>
 
