@@ -200,6 +200,7 @@ table#comments td small {white-space: nowrap;}
 .harvard-orange {color: #E77D19;}
 .harvard-brown  {color: #A78562;}
 span.hox        {background-color: yellow;}
+span.gear       {background-color: lightgreen;}
 
 div.imgContainer        {margin: 0 auto 20px auto; max-width: 100%;}
 .imgContainer img,
