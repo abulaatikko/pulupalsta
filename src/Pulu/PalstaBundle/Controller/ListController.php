@@ -11,16 +11,7 @@ class ListController extends Controller {
         $repository->setLanguage($R->getLocale());
         $articles = $repository->findOrderedByPublishedForPublic(10000);
         return $this->render('PuluPalstaBundle:List:index.html.php', array(
-            'articles' => $articles,
-            'articleTypes' => [
-                Article::TYPE_UNDEFINED => '',
-                Article::TYPE_TRAVEL => 'Travel',
-                Article::TYPE_RESEARCH => 'Research',
-                Article::TYPE_ART => 'Art',
-                Article::TYPE_OPINION => 'Opinion',
-                Article::TYPE_SPORT => 'Sport',
-                Article::TYPE_NUTRITION => 'Nutrition'
-            ]
+            'articles' => $articles
         ));        
     }
 }

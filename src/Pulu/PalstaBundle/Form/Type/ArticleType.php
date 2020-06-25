@@ -43,13 +43,12 @@ class ArticleType extends AbstractType {
             ->add('type', ChoiceType::class, array(
                 'label' => 'Tyyppi',
                 'choices' => array(
-                    '' => 0,
-                    'Travel' => 1,
-                    'Research' => 2,
-                    'Art' => 3,
-                    'Opinion' => 4,
-                    'Sport' => 5,
-                    'Nutrition' => 6
+                    Article::$typeNames[Article::TYPE_UNDEFINED] => Article::TYPE_UNDEFINED,
+                    Article::$typeNames[Article::TYPE_TRAVEL] => Article::TYPE_TRAVEL,
+                    Article::$typeNames[Article::TYPE_RESEARCH] => Article::TYPE_RESEARCH,
+                    Article::$typeNames[Article::TYPE_ART] => Article::TYPE_ART,
+                    Article::$typeNames[Article::TYPE_OPINION] => Article::TYPE_OPINION,
+                    Article::$typeNames[Article::TYPE_SPORT] => Article::TYPE_SPORT,
                 ),
                 'multiple' => false,
                 'expanded' => false

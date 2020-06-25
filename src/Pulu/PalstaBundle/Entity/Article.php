@@ -51,6 +51,16 @@ class Article {
     const TYPE_SPORT = 5;
     const TYPE_NUTRITION = 6;
 
+    static public $typeNames = [
+        self::TYPE_UNDEFINED => '',
+        self::TYPE_TRAVEL => 'Travel',
+        self::TYPE_RESEARCH => 'Research',
+        self::TYPE_ART => 'Art',
+        self::TYPE_OPINION => 'Opinion',
+        self::TYPE_SPORT => 'Sport',
+        self::TYPE_NUTRITION => 'Nutrition'
+    ];
+
     public function __construct() {
         $this->localizations = new ArrayCollection();
         $this->revisions = new ArrayCollection();
@@ -91,6 +101,25 @@ class Article {
     public function setType($type) {
         $this->type = $type;
         return $this;
+    }
+
+    public function getTypeName() {
+        return self::$typeNames[$this->getType()];
+    }
+
+    public function getTypeColor() {
+        switch ($this->getType()) {
+            case self::TYPE_TRAVEL:
+                return 'navy';
+            case self::TYPE_RESEARCH:
+                return 'green';
+            case self::TYPE_ART:
+                return 'gold';
+            case self::TYPE_OPINION:
+                return 'black';
+            default:
+                return black;
+        }
     }
 
     public function getUseTranslator() {

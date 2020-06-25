@@ -24,6 +24,8 @@
 <strong><?php echo $currentLocale === 'en' ? 'Modified' : 'Muokattu' ?>:</strong> <?php echo $article->getModified()->format('Y-m-d') ?>
 &nbsp;&nbsp;
 <strong><?php echo $currentLocale === 'en' ? 'Views' : 'Katselut' ?>:</strong> <?php echo $article->getVisits() ?>
+&nbsp;&nbsp;
+<strong><?php echo $currentLocale === 'en' ? 'Category' : 'Kategoria' ?>:</strong> <em><?php echo $article->getTypeName() ?></em>
 <?php endif; ?>
 <!--<?php if (! empty($article_keywords)): ?>
 &nbsp;&nbsp;<strong>Keywords:</strong>

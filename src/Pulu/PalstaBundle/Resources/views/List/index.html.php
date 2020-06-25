@@ -24,18 +24,11 @@
 </thead>
 <tbody>
 <?php foreach ($articles as $article): ?>
-<?php $typeText = isset($articleTypes[$article->getType()]) ? $articleTypes[$article->getType()] : '' ?>
-<?php
-$typeStyles = 'font-size: 60%; text-align: right; font-weight: bold';
-if ($typeText == 'Travel') { $typeStyles .= '; color: navy';}
-if ($typeText == 'Research') { $typeStyles .= '; color: green';}
-if ($typeText == 'Art') { $typeStyles .= '; color: gold';}
-if ($typeText == 'Opinion') { $typeStyles .= '; color: black';}
-?>
+<?php $typeStyles = 'font-size: 60%; text-align: right; font-weight: bold; color: ' . $article->getTypeColor(); ?>
 <tr>
     <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
     <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
-    <td style="<?php echo $typeStyles; ?>"><?php echo $typeText ?></td>
+    <td style="<?php echo $typeStyles; ?>"><?php echo $article->getTypeName() ?></td>
     <td class="text-right"><?php echo $article->getVisits() ?></td>
     <td class="nowrap text-right"><?php echo $article->getAverageMonthlyVisits(); ?></span></td>
 <!--    <td class="text-right"><?php echo $article->getRating() ?></td>-->
