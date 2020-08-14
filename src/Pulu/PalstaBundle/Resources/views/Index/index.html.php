@@ -7,7 +7,7 @@
 
 <?php $currentLocale = $app->getRequest()->getLocale(); ?>
 
-<h1>Index</h1>
+<h1>Keywords</h1>
 
 <p>An alphabetic list of the keywords used at least in two articles. The articles under the keywords are sorted by the publish dates of the articles.</p>
 
