@@ -56,7 +56,7 @@ class Article {
         self::TYPE_RESEARCH => 'Research',
         self::TYPE_MISC => 'Misc',
         self::TYPE_OPINION => 'Statement',
-        self::TYPE_TRAINING => 'Training'
+        self::TYPE_TRAINING => 'Training / Gear'
     ];
 
     public function __construct() {

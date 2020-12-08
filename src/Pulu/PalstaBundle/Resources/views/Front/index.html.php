@@ -11,7 +11,7 @@
 
 <h1>Intro <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_feed_articles') ?>" title="RSS Feed"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feed" /></a></h1>
 
-<p>This is a collection of project reports. Primary focus is on TRAINING, GEAR and RANDOM RESEARCH. The most popular articles are in <strong>bold</strong> (top 25 %).</p>
+<p>This is a collection of project reports. Primary focus is on TRAINING, GEAR and OTHER RESEARCH. The most popular articles are in <strong>bold</strong> (top 25 %).</p>
 
 <!-- Popular/Recent articles -->
 <div class="row">
@@ -80,7 +80,7 @@
     </div>
     <div class="six columns" id="recent-articles">
 
-<h3>Random Research</h3>
+<h3>Other Research</h3>
 
 <table class="wide">
 <thead>
