@@ -1,6 +1,6 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', 'Z') ?>
+<?php $view['slots']->set('title', 'Z: Intro') ?>
 <?php $view['slots']->set('description', 'Front page of Project-Z') ?>
 
 <?php $view['slots']->start('body') ?>
