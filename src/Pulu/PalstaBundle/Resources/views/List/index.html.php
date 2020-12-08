@@ -15,9 +15,8 @@
     <th colspan="3">Article</th>
     <th title="Number of Views">Views</th>
     <th class="text-right nowrap" title="Average monthly views since publication">V. / mon</th>
-<!--    <th title="Rating">Rat.</th>-->
-    <th title="Number of Comments">Com.</th>
-    <th class="nowrap">Commented</th>
+    <!--<th title="Number of Comments">Com.</th>
+    <th class="nowrap">Commented</th>-->
     <th class="nowrap">Modified</th>
     <th class="nowrap">Published</th>
 </tr>
@@ -31,14 +30,13 @@
     <td style="<?php echo $typeStyles; ?>"><?php echo $article->getTypeName() ?></td>
     <td class="text-right"><?php echo $article->getVisits() ?></td>
     <td class="nowrap text-right"><?php echo $article->getAverageMonthlyVisits(); ?></span></td>
-<!--    <td class="text-right"><?php echo $article->getRating() ?></td>-->
-    <td class="text-right"><?php echo $article->getCommentsCount() ?></td>
+    <!--<td class="text-right"><?php echo $article->getCommentsCount() ?></td>
     <?php $lastCommented = $article->getLastCommented(); ?>
     <?php if ($lastCommented instanceof DateTime): ?>
     <td class="nowrap text-right"><?php echo $lastCommented->format('Y-m-d') ?></td>
     <?php else: ?>
     <td></td>
-    <?php endif ?>
+    <?php endif ?>-->
     <td class="nowrap text-right"><?php echo $article->getModified()->format('Y-m-d'); ?></td>
     <td class="nowrap text-right"><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
 </tr>
