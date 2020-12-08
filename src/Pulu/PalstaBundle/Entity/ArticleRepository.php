@@ -171,11 +171,11 @@ class ArticleRepository extends EntityRepository {
             ->getQuery()->getSingleResult();
     }
 
-    public function findTravellingsOrderedByPublishedForPublic() {
+    public function findExplorationsOrderedByPublishedForPublic() {
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
             ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type AND B.language = :language")
-            ->setParameter("type", Article::TYPE_TRAVEL)
+            ->setParameter("type", Article::TYPE_EXPLORATION)
             ->setParameter("language", $this->getLanguage())
             ->orderBy('A.published', 'DESC')
             ->getQuery()->getResult();
@@ -199,29 +199,20 @@ class ArticleRepository extends EntityRepository {
             ->getQuery()->getResult();
     }
 
-    public function findArtsOrderedByPublishedForPublic() {
+    public function findMiscsOrderedByPublishedForPublic() {
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
             ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type")
-            ->setParameter("type", Article::TYPE_ART)
+            ->setParameter("type", Article::TYPE_MISC)
             ->orderBy('A.published', 'DESC')
             ->getQuery()->getResult();
     }
 
-    public function findSportsOrderedByPublishedForPublic() {
+    public function findTrainingsOrderedByPublishedForPublic() {
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
             ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type")
-            ->setParameter("type", Article::TYPE_SPORT)
-            ->orderBy('A.published', 'DESC')
-            ->getQuery()->getResult();
-    }
-
-    public function findNutritionsOrderedByPublishedForPublic() {
-        return $this->createQueryBuilder('A')
-            ->innerJoin('A.localizations', 'B')
-            ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type")
-            ->setParameter("type", Article::TYPE_NUTRITION)
+            ->setParameter("type", Article::TYPE_TRAINING)
             ->orderBy('A.published', 'DESC')
             ->getQuery()->getResult();
     }

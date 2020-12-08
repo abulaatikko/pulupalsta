@@ -44,11 +44,11 @@ class ArticleType extends AbstractType {
                 'label' => 'Tyyppi',
                 'choices' => array(
                     Article::$typeNames[Article::TYPE_UNDEFINED] => Article::TYPE_UNDEFINED,
-                    Article::$typeNames[Article::TYPE_TRAVEL] => Article::TYPE_TRAVEL,
+                    Article::$typeNames[Article::TYPE_EXPLORATION] => Article::TYPE_EXPLORATION,
                     Article::$typeNames[Article::TYPE_RESEARCH] => Article::TYPE_RESEARCH,
-                    Article::$typeNames[Article::TYPE_ART] => Article::TYPE_ART,
+                    Article::$typeNames[Article::TYPE_MISC] => Article::TYPE_MISC,
                     Article::$typeNames[Article::TYPE_OPINION] => Article::TYPE_OPINION,
-                    Article::$typeNames[Article::TYPE_SPORT] => Article::TYPE_SPORT,
+                    Article::$typeNames[Article::TYPE_TRAINING] => Article::TYPE_TRAINING,
                 ),
                 'multiple' => false,
                 'expanded' => false

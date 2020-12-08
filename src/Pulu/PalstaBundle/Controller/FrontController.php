@@ -11,21 +11,19 @@ class FrontController extends Controller {
     public function indexAction(Request $R) {
         $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article');
         $repository->setLanguage($R->getLocale());
-        $travellingArticles = $repository->findTravellingsOrderedByPublishedForPublic();
+        $explorationArticles = $repository->findExplorationsOrderedByPublishedForPublic();
         $researchArticles = $repository->findResearchesOrderedByPublishedForPublic();
         $opinionArticles = $repository->findOpinionsOrderedByPublishedForPublic();
-        $artArticles = $repository->findArtsOrderedByPublishedForPublic();
-        $sportArticles = $repository->findSportsOrderedByPublishedForPublic();
-        $nutritionArticles = $repository->findNutritionsOrderedByPublishedForPublic();
+        $miscArticles = $repository->findMiscsOrderedByPublishedForPublic();
+        $trainingArticles = $repository->findTrainingsOrderedByPublishedForPublic();
         $keywords = $this->getKeywords($R);       
 
         return $this->render('PuluPalstaBundle:Front:index.html.php', array(
-            'travellingArticles' => $travellingArticles,
+            'explorationArticles' => $explorationArticles,
             'researchArticles' => $researchArticles,
             'opinionArticles' => $opinionArticles,
-            'artArticles' => $artArticles,
-            'sportArticles' => $sportArticles,
-            'nutritionArticles' => $nutritionArticles,
+            'miscArticles' => $miscArticles,
+            'trainingArticles' => $trainingArticles,
             'keywords' => $keywords
         ));
     }

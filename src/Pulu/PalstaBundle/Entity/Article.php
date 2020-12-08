@@ -44,21 +44,19 @@ class Article {
     const ACCESS_ALL = 100;
 
     const TYPE_UNDEFINED = 0;
-    const TYPE_TRAVEL = 1;
+    const TYPE_EXPLORATION = 1;
     const TYPE_RESEARCH = 2;
-    const TYPE_ART = 3;
+    const TYPE_MISC = 3;
     const TYPE_OPINION = 4;
-    const TYPE_SPORT = 5;
-    const TYPE_NUTRITION = 6;
+    const TYPE_TRAINING = 5;
 
     static public $typeNames = [
         self::TYPE_UNDEFINED => '',
-        self::TYPE_TRAVEL => 'Travel',
+        self::TYPE_EXPLORATION => 'Exploration',
         self::TYPE_RESEARCH => 'Research',
-        self::TYPE_ART => 'Art',
-        self::TYPE_OPINION => 'Opinion',
-        self::TYPE_SPORT => 'Sport',
-        self::TYPE_NUTRITION => 'Nutrition'
+        self::TYPE_MISC => 'Misc',
+        self::TYPE_OPINION => 'Statement',
+        self::TYPE_TRAINING => 'Training'
     ];
 
     public function __construct() {
@@ -109,14 +107,14 @@ class Article {
 
     public function getTypeColor() {
         switch ($this->getType()) {
-            case self::TYPE_TRAVEL:
+            case self::TYPE_EXPLORATION:
                 return 'navy';
             case self::TYPE_RESEARCH:
                 return 'green';
-            case self::TYPE_ART:
+            case self::TYPE_MISC:
                 return 'gold';
             case self::TYPE_OPINION:
-                return 'black';
+                return 'red';
             default:
                 return black;
         }

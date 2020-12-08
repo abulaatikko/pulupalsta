@@ -17,7 +17,7 @@
 <div class="row">
     <div class="six columns" id="visited-articles">
 
-<h3>Sport</h3>
+<h3>Training</h3>
 
 <table class="wide">
 <thead>
@@ -27,7 +27,7 @@
 </tr>
 </thead>
 <tbody>
-<?php foreach ($sportArticles as $article): ?>
+<?php foreach ($trainingArticles as $article): ?>
 <tr>
     <td><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
     <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
@@ -38,7 +38,7 @@
 </table>
 <p><br /></p>
 
-<h3>Travel</h3>
+<h3>Exploration</h3>
 
 <table class="wide">
 <thead>
@@ -57,7 +57,7 @@
 <?php $carbonCss = ''; ?>
 <?php $isCarbonStartPrinted = false; ?>
 <?php $isCarbonEndPrinted = false; ?>
-<?php foreach ($travellingArticles as $article): ?>
+<?php foreach ($explorationArticles as $article): ?>
 <?php if (1 == 2 && $article->getPublished()->format('Y') === '2015' && !$isCarbonEndPrinted): ?>
 <tr>
     <td colspan="3" class="zero-carbon-start-separator">ZERO CARBON SINCE 2016</td>
@@ -111,7 +111,7 @@
 </table>
 <p></p>
 
-<h3>Opinion</h3>
+<h3>Misc</h3>
 
 <table class="wide">
 <thead>
@@ -121,7 +121,7 @@
 </tr>
 </thead>
 <tbody>
-<?php foreach ($opinionArticles as $article): ?>
+<?php foreach ($miscArticles as $article): ?>
 <tr>
     <td><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
     <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
