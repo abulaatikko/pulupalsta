@@ -16,7 +16,7 @@ framework:
     csrf_protection: true
     validation:      { enabled: true }
     templating:      { engines: ['twig', 'php'] }
-    assets:          { version: v2.2.3 }
+    assets:          { version: v2.2.4 }
     default_locale:  fi
     trusted_proxies: {}
     session:         ~

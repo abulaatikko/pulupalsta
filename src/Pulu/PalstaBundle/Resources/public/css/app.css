@@ -6,11 +6,14 @@
 body			{background: #d2d2d2;}
 #main-wrapper   {margin: 2% 4%;}
 #main-contents	{border: 0px solid #3d3d3d; padding: 0 20px; background-color: #fefefe;}
-#title			{font-size: 64px; font-weight: 600; font-family: Verdana; margin: 5px; padding: 0px; text-align: center; letter-spacing: 0.05em; line-height: 1.3em; color: #000;}
-@media (max-width: 750px) {
-    #title      {margin: 50px 0 0 0;}
-}
+#title			{font-size: 72px; font-weight: 600; font-family: Verdana; margin: 8px 0 16px; padding: 0px; text-align: center; letter-spacing: 0.15em; line-height: 1.3em; color: #000;}
 #slogan			{font-family: Verdana; font-size: 1.1em; text-align: center; margin-bottom: 5px; color: #999999;}
+@media (max-width: 900px) {
+    #title          {font-size: 52px; margin: 16px 0;}
+}
+@media (max-width: 600px) {
+    #title          {font-size: 42px; margin: 32px 0;}
+}
 
 #copyright		{text-align: right; font-size: 0.9em; margin: 0px -10px; padding-top: 5px; font-family: Verdana; color: #999999;}
 #copyright a,
@@ -112,6 +115,14 @@ h3 {font-size: 26px;}
 h4 {font-size: 18px;}
 h5 {font-size: 16px;}
 h6 {font-size: 14px;}
+@media (max-width: 900px) {
+    h1              {font-size: 30px;}
+    h2              {font-size: 24px;}
+}
+@media (max-width: 600px) {
+    h1              {font-size: 26px;}
+    h2              {font-size: 22px;}
+}
 
 ul {margin-bottom: 20px; margin-left: 30px; list-style: square;}
 
@@ -345,8 +356,3 @@ td.zero-carbon-end-separator {
 
 
 
-@media (max-width: 600px) {
-    #title          {font-size: 2.6em;}
-    h1              {font-size: 30px;}
-    h2              {font-size: 24px;}
-}

@@ -1,8 +1,8 @@
 <?php echo '<?xml version="1.0" encoding="UTF-8" ?>' . "\n"; ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-    <title>Pulu-Z</title>
-    <description>Random projects</description>
+    <title>Project-Z</title>
+    <description>Project reports</description>
     <link>https://z.pulu.org</link>
     <atom:link href="https://z.pulu.org/en/feed/articles" rel="self" type="application/rss+xml" />
     <lastBuildDate><?php echo date('D, d M Y H:i:s O'); ?></lastBuildDate>

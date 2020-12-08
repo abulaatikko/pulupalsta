@@ -1,7 +1,7 @@
 <?php $view->extend('::base.html.php') ?>
 
-<?php $view['slots']->set('title', 'Front - Palsta') ?>
-<?php $view['slots']->set('description', 'Front of Palsta') ?>
+<?php $view['slots']->set('title', 'Z') ?>
+<?php $view['slots']->set('description', 'Front page of Project-Z') ?>
 
 <?php $view['slots']->start('body') ?>
 
@@ -11,13 +11,13 @@
 
 <h1>Intro <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_feed_articles') ?>" title="RSS Feed"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feed" /></a></h1>
 
-<p>This is a collection of projects. Current focus is on sport and travelling (<em>status in August 2020</em>). The most popular ones are in <strong>bold</strong> (top 25 %).</p>
+<p>This is a collection of project reports. Primary focus is on TRAINING, GEAR and RANDOM RESEARCH. The most popular articles are in <strong>bold</strong> (top 25 %).</p>
 
 <!-- Popular/Recent articles -->
 <div class="row">
     <div class="six columns" id="visited-articles">
 
-<h3>Training</h3>
+<h3>Training and Gear</h3>
 
 <table class="wide">
 <thead>
@@ -80,7 +80,7 @@
     </div>
     <div class="six columns" id="recent-articles">
 
-<h3>Research</h3>
+<h3>Random Research</h3>
 
 <table class="wide">
 <thead>
