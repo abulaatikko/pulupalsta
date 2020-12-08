@@ -10,7 +10,7 @@
 <?php $view['slots']->start('body') ?>
 
 <?php if (! $article->getIsPublic()): ?>
-    <div class="alert-box secondary" id="hidden-article">PIILOTETTU</div>
+    <div class="alert-box" id="hidden-article">DRAFT</div>
 <?php endif ?>
 
 <h1><?php echo $article->getName() ?></h1>
