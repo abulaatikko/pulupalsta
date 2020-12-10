@@ -25,7 +25,7 @@ class CommentType extends AbstractType {
                 'answers' => array('b', 'b')),*/
             array(
                 'question' => 'What\'s the name of this website?',
-                'answers' => array('puluprojects', 'pulupalsta', 'palsta', 'pulu')) // use lowercase
+                'answers' => array('puluprojects', 'pulupalsta', 'palsta', 'pulu', 'project-z', 'project z', 'z')) // use lowercase
         );
         shuffle($safety_questions);
 
