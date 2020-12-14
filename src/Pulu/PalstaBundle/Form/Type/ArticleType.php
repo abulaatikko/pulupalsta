@@ -69,6 +69,11 @@ class ArticleType extends AbstractType {
                 'format' => 'yyyy-MM-dd HH:mm:ss',
                 'label' => 'Muokattu (julkinen)',
                 'required' => false))
+            ->add('started', DateTimeType::class, array(
+                'widget' => 'single_text',
+                'format' => 'yyyy-MM-dd HH:mm:ss',
+                'label' => 'Aloitettu',
+                'required' => false))
             ->add('written_at', TextType::class, array(
                 'label' => 'Kirjoituspaikka',
                 'required' => false

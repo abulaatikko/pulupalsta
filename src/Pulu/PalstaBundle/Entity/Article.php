@@ -28,6 +28,7 @@ class Article {
     protected $modified;
     protected $modified_public;
     protected $published;
+    protected $started;
     protected $written_at;
     protected $deleted;
 
@@ -212,6 +213,14 @@ class Article {
 
     public function getPublished() {
         return $this->published;
+    }
+
+    public function setStarted($started) {
+        $this->started = $started;
+    }
+
+    public function getStarted() {
+        return $this->started;
     }
 
     public function setDeleted() {

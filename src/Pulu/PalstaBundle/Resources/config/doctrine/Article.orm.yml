@@ -27,6 +27,9 @@ Pulu\PalstaBundle\Entity\Article:
             nullable: true
         published:
             type: datetime
+        started:
+            type: datetime
+            nullable: true
         written_at:
             type: text
             nullable: true
