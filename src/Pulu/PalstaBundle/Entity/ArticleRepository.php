@@ -41,7 +41,7 @@ class ArticleRepository extends EntityRepository {
         $lang = $this->getLanguage();
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
-            ->where("A.is_public = TRUE AND A.deleted IS NULL AND B.language = :language")
+            ->where("A.is_draft != TRUE AND A.deleted IS NULL AND B.language = :language")
             ->setParameter("language", $lang)
             ->orderBy('B.name', 'ASC')
             ->getQuery()->getResult();
@@ -68,7 +68,7 @@ class ArticleRepository extends EntityRepository {
         $lang = $this->getLanguage();
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
-            ->where("A.is_public = TRUE AND A.deleted IS NULL AND B.language = :language")
+            ->where("A.is_draft != TRUE AND A.deleted IS NULL AND B.language = :language")
             ->setParameter("language", $lang)
             ->orderBy('A.published', 'DESC')
             ->setMaxResults($max)
@@ -82,7 +82,7 @@ class ArticleRepository extends EntityRepository {
 
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
-            ->where("A.is_public = TRUE AND A.deleted IS NULL AND B.language = A.language AND A.published BETWEEN :dateMin AND :dateMax")
+            ->where("A.is_draft != TRUE AND A.deleted IS NULL AND B.language = A.language AND A.published BETWEEN :dateMin AND :dateMax")
             ->setParameter("dateMin", $dateTimeMin->format('Y-m-d 00:00:00'))
             ->setParameter("dateMax", $dateTimeMax->format('Y-m-d 23:59:59'))
             ->orderBy('A.published', 'DESC')
@@ -105,7 +105,7 @@ class ArticleRepository extends EntityRepository {
         $lang = $this->getLanguage();
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
-            ->where("A.is_public = TRUE AND A.deleted IS NULL AND B.language = :language AND A.rating IS NOT NULL")
+            ->where("A.is_draft != TRUE AND A.deleted IS NULL AND B.language = :language AND A.rating IS NOT NULL")
             ->setParameter("language", $lang)
             ->orderBy('A.rating', 'DESC')
             ->setMaxResults($max)
@@ -119,7 +119,7 @@ class ArticleRepository extends EntityRepository {
         if (! empty($keyword_id)) {
             $builder->innerJoin('A.keywords', 'C');
         }
-        $where = "A.is_public = TRUE AND A.deleted IS NULL AND B.language = :language AND A.visits IS NOT NULL";
+        $where = "A.is_draft != TRUE AND A.deleted IS NULL AND B.language = :language AND A.visits IS NOT NULL";
         if (! empty($keyword_id)) {
             $where .= " AND C.keyword = :keyword_id";
         }
@@ -143,7 +143,7 @@ class ArticleRepository extends EntityRepository {
         if (! empty($keyword_id)) {
             $builder->innerJoin('A.keywords', 'C');
         }
-        $where = "A.is_public = TRUE AND A.deleted IS NULL AND B.language = :language AND A.average_monthly_visits IS NOT NULL";
+        $where = "A.is_draft != TRUE AND A.deleted IS NULL AND B.language = :language AND A.average_monthly_visits IS NOT NULL";
         if (! empty($keyword_id)) {
             $where .= " AND C.keyword = :keyword_id";
         }
@@ -174,7 +174,7 @@ class ArticleRepository extends EntityRepository {
     public function findExplorationsOrderedByPublishedForPublic() {
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
-            ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type AND B.language = :language")
+            ->where("A.is_draft != TRUE AND A.deleted IS NULL AND A.type = :type AND B.language = :language")
             ->setParameter("type", Article::TYPE_EXPLORATION)
             ->setParameter("language", $this->getLanguage())
             ->orderBy('A.published', 'DESC')
@@ -184,7 +184,7 @@ class ArticleRepository extends EntityRepository {
     public function findResearchesOrderedByPublishedForPublic() {
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
-            ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type")
+            ->where("A.is_draft != TRUE AND A.deleted IS NULL AND A.type = :type")
             ->setParameter("type", Article::TYPE_RESEARCH)
             ->orderBy('A.published', 'DESC')
             ->getQuery()->getResult();
@@ -193,7 +193,7 @@ class ArticleRepository extends EntityRepository {
     public function findOpinionsOrderedByPublishedForPublic() {
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
-            ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type")
+            ->where("A.is_draft != TRUE AND A.deleted IS NULL AND A.type = :type")
             ->setParameter("type", Article::TYPE_OPINION)
             ->orderBy('A.published', 'DESC')
             ->getQuery()->getResult();
@@ -202,7 +202,7 @@ class ArticleRepository extends EntityRepository {
     public function findMiscsOrderedByPublishedForPublic() {
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
-            ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type")
+            ->where("A.is_draft != TRUE AND A.deleted IS NULL AND A.type = :type")
             ->setParameter("type", Article::TYPE_MISC)
             ->orderBy('A.published', 'DESC')
             ->getQuery()->getResult();
@@ -211,7 +211,7 @@ class ArticleRepository extends EntityRepository {
     public function findTrainingsOrderedByPublishedForPublic() {
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
-            ->where("A.is_public = TRUE AND A.deleted IS NULL AND A.type = :type")
+            ->where("A.is_draft != TRUE AND A.deleted IS NULL AND A.type = :type")
             ->setParameter("type", Article::TYPE_TRAINING)
             ->orderBy('A.published', 'DESC')
             ->getQuery()->getResult();

@@ -9,7 +9,7 @@
 
 <?php $view['slots']->start('body') ?>
 
-<?php if (! $article->getIsPublic()): ?>
+<?php if (! $article->isPublic()): ?>
     <div class="alert-box" id="hidden-article">DRAFT</div>
 <?php endif ?>
 

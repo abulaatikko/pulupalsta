@@ -23,6 +23,7 @@ class Article {
     protected $use_translator;
     protected $language;
     protected $is_public;
+    protected $is_draft;
     protected $access;
     protected $created;
     protected $modified;
@@ -74,7 +75,7 @@ class Article {
         $this->visits = 0;
         $this->use_translator = false;
         $this->language = 'fi';
-        $this->is_public = false;
+        $this->is_draft = true;
         $this->is_one_of_best = false;
         $this->is_commentable = false;
         $this->access = self::ACCESS_ADMIN;
@@ -139,12 +140,12 @@ class Article {
         return $this->language;
     }
 
-    public function getIsPublic() {
-        return $this->is_public;
+    public function getIsDraft() {
+        return $this->is_draft;
     }
 
-    public function setIsPublic($isPublic) {
-        $this->is_public = $isPublic;
+    public function setIsDraft($isDraft) {
+        $this->is_draft = $isDraft;
         return $this;
     }
 
@@ -432,7 +433,7 @@ class Article {
     }
 
     public function isPublic() {
-        return $this->getIsPublic() && ! $this->getDeleted();
+        return ! $this->getIsDraft() && ! $this->getDeleted();
     }    
 
 }

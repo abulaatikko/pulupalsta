@@ -57,7 +57,7 @@
         <?php echo $view['form']->row($form['access']) ?>
         </div>
         <div class="one columns">
-        <?php echo $view['form']->row($form['is_public']) ?>
+        <?php echo $view['form']->row($form['is_draft']) ?>
         </div>
         <div class="one columns">
         <?php echo $view['form']->row($form['is_commentable']) ?>

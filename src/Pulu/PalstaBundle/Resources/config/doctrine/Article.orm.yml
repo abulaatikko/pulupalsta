@@ -70,6 +70,9 @@ Pulu\PalstaBundle\Entity\Article:
         is_public:
             type: boolean
             nullable: true
+        is_draft:
+            type: boolean
+            nullable: true
         access:
             type: integer
             nullable: true

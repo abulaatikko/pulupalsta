@@ -24,7 +24,7 @@ $iterator->uasort(function ($first, $second) {
 $array = new Doctrine\Common\Collections\ArrayCollection(iterator_to_array($iterator));
 
 $articles = $array->filter(function($article) {
-    return $article->getArticle()->getIsPublic() && ! $article->getArticle()->getDeleted();
+    return $article->getArticle()->isPublic();
 }); ?>
 <?php $count = $articles->count(); ?>
 <?php if ($count > 1): ?>
