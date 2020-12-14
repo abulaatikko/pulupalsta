@@ -6,13 +6,13 @@
 body			{background: #d2d2d2;}
 #main-wrapper   {margin: 2% 4%;}
 #main-contents	{border: 0px solid #3d3d3d; padding: 0 20px; background-color: #fefefe;}
-#title			{font-size: 72px; font-weight: 600; font-family: Verdana; margin: 8px 0 16px; padding: 0px; text-align: center; letter-spacing: 0.15em; line-height: 1.3em; color: #000;}
+#title			{font-size: 72px; font-weight: 600; font-family: Verdana; margin: 8px 0px 0px; padding: 0px; text-align: center; letter-spacing: 0.15em; line-height: 1.3em; color: #000;}
 #slogan			{font-family: Verdana; font-size: 1.1em; text-align: center; margin-bottom: 5px; color: #999999;}
 @media (max-width: 900px) {
-    #title          {font-size: 52px; margin: 16px 0;}
+    #title          {font-size: 52px; margin: 16px 0 0;}
 }
 @media (max-width: 600px) {
-    #title          {font-size: 42px; margin: 32px 0;}
+    #title          {font-size: 42px; margin: 24px 0 8px;}
 }
 
 #copyright		{text-align: right; font-size: 0.9em; margin: 0px -10px; padding-top: 5px; font-family: Verdana; color: #999999;}

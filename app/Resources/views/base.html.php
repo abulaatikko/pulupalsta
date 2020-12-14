@@ -56,7 +56,7 @@
 
 <!-- Main heading -->
 <p id="title">Project-Z</p>
-<p id="slogan" style="margin-top: -15px"></p>
+<!--<p id="slogan" style="margin-top: -15px"></p>-->
 
 <!-- Navigation row -->
 <div class="row">
