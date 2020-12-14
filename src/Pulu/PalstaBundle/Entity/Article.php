@@ -102,7 +102,7 @@ class Article {
     }
 
     public function getTypeName() {
-        return self::$typeNames[$this->getType()];
+        return array_key_exists($this->getType(), self::$typeNames) ? self::$typeNames[$this->getType()] : '';
     }
 
     public function getTypeColor() {
@@ -116,7 +116,7 @@ class Article {
             case self::TYPE_OPINION:
                 return 'red';
             default:
-                return black;
+                return 'black';
         }
     }
 
