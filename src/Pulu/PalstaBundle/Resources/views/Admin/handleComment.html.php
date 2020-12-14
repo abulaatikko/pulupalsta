@@ -38,6 +38,8 @@
     <p><?php echo $deleted->format('Y-m-d H:i:s') ?></p>
     <?php endif ?>
 
+    <?php echo $view['form']->row($form['body']) ?>
+
     <?php echo $view['form']->rest($form) ?>
     <?php if ($comment->getId() > 0): ?>
     <input type="hidden" name="id" value="<?php echo $comment->getId() ?>" />
