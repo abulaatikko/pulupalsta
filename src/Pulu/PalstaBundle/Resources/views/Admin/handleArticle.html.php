@@ -44,50 +44,64 @@
     <?php endif ?>
 
     <div class="row">
-    <div class="two columns">
-    <?php echo $view['form']->row($form['article_number']) ?>
-    </div>
-    <div class="two columns">
-    <?php echo $view['form']->row($form['is_commentable']) ?>
-    </div>
-    <div class="two columns">
-    <?php echo $view['form']->row($form['use_translator']) ?>
-    </div>
-    <div class="one columns">
-    <?php echo $view['form']->row($form['language']) ?>
-    </div>
-    <div class="one columns">
-    <?php echo $view['form']->row($form['is_public']) ?>
-    </div>
-    <div class="two columns">
-    <?php echo $view['form']->row($form['published']) ?>
-    </div>
-    <div class="one columns">
-    <?php echo $view['form']->row($form['access']) ?>
-    </div>
-    <div class="one columns">
-    <?php echo $view['form']->row($form['type']) ?>
-    </div>
+        <div class="two columns">
+        <?php echo $view['form']->row($form['article_number']) ?>
+        </div>
+        <div class="one columns">
+        <?php echo $view['form']->row($form['type']) ?>
+        </div>
+        <div class="one columns">
+        <?php echo $view['form']->row($form['language']) ?>
+        </div>
+        <div class="one columns">
+        <?php echo $view['form']->row($form['access']) ?>
+        </div>
+        <div class="one columns">
+        <?php echo $view['form']->row($form['is_public']) ?>
+        </div>
+        <div class="one columns">
+        <?php echo $view['form']->row($form['is_commentable']) ?>
+        </div>
+        <div class="four columns">
+        <?php echo $view['form']->row($form['use_translator']) ?>
+        </div>
     </div>
 
-    <label>Avainsanat</label>
+    <div class="row">
+        <div class="three columns">
+        <?php echo $view['form']->row($form['written_at']) ?>
+        </div>
+        <div class="three columns">
+        <?php echo $view['form']->row($form['started']) ?>
+        </div>
+        <div class="three columns">
+        <?php echo $view['form']->row($form['published']) ?>
+        </div>
+        <div class="three columns">
+        <?php echo $view['form']->row($form['modified_public']) ?>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="nine columns">
+        </div>
+        <div class="three columns">
+        <label>Avainsanat</label>
+        </div>
+    </div>
     <?php for($i = 0; $i <= 100; $i++): ?>
         <?php if (! isset($form['keyword_' . $i . '_id'])): ?>
             <?php break; ?>
         <?php endif ?>
     <div class="row">
-    <div class="three columns">
-    <?php echo $view['form']->row($form['keyword_' . $i . '_id']) ?>
-    </div>
-    <div class="three columns">
-    <?php echo $view['form']->row($form['keyword_' . $i . '_weight']) ?>
-    </div>
-    <div class="three columns">
-    <?php echo $view['form']->row($form['modified_public']) ?>
-    </div>
-    <div class="three columns">
-    <?php echo $view['form']->row($form['written_at']) ?>
-    </div>
+        <div class="nine columns">
+        </div>
+        <div class="two columns">
+        <?php echo $view['form']->row($form['keyword_' . $i . '_id']) ?>
+        </div>
+        <div class="one columns">
+        <?php echo $view['form']->row($form['keyword_' . $i . '_weight']) ?>
+        </div>
     </div>
     <?php endfor ?>
 
