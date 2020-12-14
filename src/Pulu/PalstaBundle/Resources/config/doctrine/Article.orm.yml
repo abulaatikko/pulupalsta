@@ -67,9 +67,6 @@ Pulu\PalstaBundle\Entity\Article:
             type: string
             length: 2
             nullable: true
-        is_public:
-            type: boolean
-            nullable: true
         is_draft:
             type: boolean
             nullable: true

@@ -22,7 +22,6 @@ class Article {
     protected $is_commentable;
     protected $use_translator;
     protected $language;
-    protected $is_public;
     protected $is_draft;
     protected $access;
     protected $created;
