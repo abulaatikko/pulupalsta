@@ -1,8 +1,8 @@
-# Pulupalsta
+# Project-Z
 
-* http://palsta.pulu.org/en
+* http://z.pulu.org/en
 * http://dev.palsta.pulu.org/app_dev.php/fi
-* https://github.com/lassiheikkinen/pulupalsta
+* https://github.com/abulaatikko/pulupalsta
 
 ## Requirements
 
@@ -13,8 +13,8 @@
 ## Installation
 
 ```
-git clone https://github.com/lassiheikkinen/pulupalsta.git palsta.pulu.org
-cd palsta.pulu.org
+git clone https://github.com/abulaatikko/pulupalsta.git z.pulu.org
+cd z.pulu.org
 curl -sS https://getcomposer.org/installer | php
 vim app/config/parameters.yml
 php composer.phar install --no-dev --optimize-autoloader; php app/console cache:clear --env=prod --no-debug; php app/console assetic:dump --env=prod --no-debug
@@ -25,7 +25,7 @@ And add commands to cron.
 
 ## Debug
 
-* Use app_dev.php like https://palsta.pulu.org/app_dev.php/fi/1-article-name
+* Use app_dev.php like https://z.pulu.org/app_dev.php/fi/1-article-name
     * needs nginx:
 
 ````
@@ -44,7 +44,7 @@ location ~ ^/(app_dev|config)\.php(/|$) {
 ### 1. Remember eval cache
 
 ````
-rm -rf /tmp/palsta-evalized-cache/*
+rm -rf /tmp/z-evalized-cache/*
 ````
 
 ### Logs
