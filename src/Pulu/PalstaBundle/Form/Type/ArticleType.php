@@ -44,17 +44,17 @@ class ArticleType extends AbstractType {
                 'label' => 'Tyyppi',
                 'choices' => array(
                     Article::$typeNames[Article::TYPE_UNDEFINED] => Article::TYPE_UNDEFINED,
-                    Article::$typeNames[Article::TYPE_EXPLORATION] => Article::TYPE_EXPLORATION,
+                    Article::$typeNames[Article::TYPE_TRAVEL] => Article::TYPE_TRAVEL,
                     Article::$typeNames[Article::TYPE_RESEARCH] => Article::TYPE_RESEARCH,
                     Article::$typeNames[Article::TYPE_MISC] => Article::TYPE_MISC,
                     Article::$typeNames[Article::TYPE_OPINION] => Article::TYPE_OPINION,
-                    Article::$typeNames[Article::TYPE_TRAINING] => Article::TYPE_TRAINING,
+                    Article::$typeNames[Article::TYPE_GEAR] => Article::TYPE_GEAR,
                 ),
                 'multiple' => false,
                 'expanded' => false
             ))
             ->add('is_draft', CheckboxType::class, array(
-                'label' => 'Vedos',
+                'label' => 'Piilossa',
                 'required' => false))
             ->add('is_commentable', CheckboxType::class, array(
                 'label' => 'Kommentoitavissa',

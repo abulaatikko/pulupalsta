@@ -171,11 +171,11 @@ class ArticleRepository extends EntityRepository {
             ->getQuery()->getSingleResult();
     }
 
-    public function findExplorationsOrderedByPublishedForPublic() {
+    public function findTravelsOrderedByPublishedForPublic() {
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
             ->where("A.is_draft != TRUE AND A.deleted IS NULL AND A.type = :type AND B.language = :language")
-            ->setParameter("type", Article::TYPE_EXPLORATION)
+            ->setParameter("type", Article::TYPE_TRAVEL)
             ->setParameter("language", $this->getLanguage())
             ->orderBy('A.published', 'DESC')
             ->getQuery()->getResult();
@@ -208,11 +208,11 @@ class ArticleRepository extends EntityRepository {
             ->getQuery()->getResult();
     }
 
-    public function findTrainingsOrderedByPublishedForPublic() {
+    public function findGearsOrderedByPublishedForPublic() {
         return $this->createQueryBuilder('A')
             ->innerJoin('A.localizations', 'B')
             ->where("A.is_draft != TRUE AND A.deleted IS NULL AND A.type = :type")
-            ->setParameter("type", Article::TYPE_TRAINING)
+            ->setParameter("type", Article::TYPE_GEAR)
             ->orderBy('A.published', 'DESC')
             ->getQuery()->getResult();
     }

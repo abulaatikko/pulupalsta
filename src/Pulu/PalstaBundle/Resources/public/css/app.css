@@ -70,9 +70,11 @@ div.alert-box, div.notice-box   {padding: 16px; font-size: 22px; line-height: 1.
 /* Datatables JS */
 .dataTable th                           {cursor: pointer;}
 .dataTable th.sorting                   {background-color: #3e942e;}
-.dataTable th.sorting_asc,
-.dataTable th.sorting_desc              {background-color: #378329;}
-#contents_wrapper                       {overflow: scroll;}
+/*.dataTable th.sorting_asc,
+.dataTable th.sorting_desc              {background-color: black;}*/
+.dataTable td.sorting_1                 {background-color: rgb(62 148 46 / 0.1);}
+#contents_wrapper, /* created by dataTable */
+.scroller-wrapper                       {overflow-x: auto;}
 
 table a, .tabs-content a, #navigation a, ul.breadcrumbs a {
     text-decoration: none;
@@ -117,11 +119,13 @@ h5 {font-size: 16px;}
 h6 {font-size: 14px;}
 @media (max-width: 900px) {
     h1              {font-size: 30px;}
-    h2              {font-size: 24px;}
+    h2              {font-size: 26px;}
+    h3              {font-size: 22px;}
 }
 @media (max-width: 600px) {
     h1              {font-size: 26px;}
-    h2              {font-size: 22px;}
+    h2              {font-size: 24px;}
+    h3              {font-size: 22px;}
 }
 
 ul {margin-bottom: 20px; margin-left: 30px; list-style: square;}
@@ -158,9 +162,6 @@ dl.tabs.pill dd.active a:hover {
 .keyword1			{font-size:80%; font-weight: lighter;}
 #select-keyword		{text-align: center; margin-top: 10%; color: #285EAE; font-size: 3em; font-weight: bold; line-height: 1.5em;}
 #select-keyword span	{font-size: 500%; line-height: 0.1em;}
-
-#visited-articles table	{margin-bottom: 0px;}
-#recent-articles table	{margin-bottom: 0px;}
 
 /* -----------------------------------------
    Article page

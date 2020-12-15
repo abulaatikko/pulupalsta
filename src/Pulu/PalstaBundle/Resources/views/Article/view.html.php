@@ -25,7 +25,7 @@
 &nbsp;&nbsp;
 <strong>Views:</strong> <?php echo $article->getVisits() ?>
 &nbsp;&nbsp;
-<strong>Category:</strong> <em><?php echo $article->getTypeName() ?></em>
+<strong>Type:</strong> <em><?php echo $article->getTypeName() ?></em>
 <?php endif; ?>
 <!--<?php if (! empty($article_keywords)): ?>
 &nbsp;&nbsp;<strong>Keywords:</strong>

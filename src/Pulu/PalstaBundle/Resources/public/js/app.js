@@ -78,32 +78,30 @@ $(document).ready(function() {
         'bInfo': false,
         'bPaginate': false,
         "aoColumnDefs": [
-            { "asSorting": [ "asc", "desc" ], "aTargets": [ 0 ] },
+            { "asSorting": [ "desc", "asc" ], "aTargets": [ 0 ] },
             { "asSorting": [ "desc", "asc" ], "aTargets": [ 1 ] },
-            { "asSorting": [ "desc", "asc" ], "aTargets": [ 2 ] },
+            { "asSorting": [ "asc", "desc" ], "aTargets": [ 2 ] },
             { "asSorting": [ "desc", "asc" ], "aTargets": [ 3 ] },
             { "asSorting": [ "desc", "asc" ], "aTargets": [ 4 ] },
             { "asSorting": [ "desc", "asc" ], "aTargets": [ 5 ] },
             { "asSorting": [ "desc", "asc" ], "aTargets": [ 6 ] }
-        ]
+        ],
+        "aaSorting": [] // no initial sorting
     });
+    //contentsTable.fnSort([[2, 'asc']]);
 
     var sort = getParameterByName('sort');
     if (sort != null) {
         if (sort == 'name') {
-            contentsTable.fnSort([[0, 'asc']]);
-        } else if (sort == 'visit') {
-            contentsTable.fnSort([[1, 'desc']]);
-        } else if (sort == 'rating') {
-            contentsTable.fnSort([[2, 'desc']]);
-        } else if (sort == 'comments') {
-            contentsTable.fnSort([[3, 'desc']]);
-        } else if (sort == 'commented') {
+            contentsTable.fnSort([[2, 'asc']]);
+        } else if (sort == 'views') {
             contentsTable.fnSort([[4, 'desc']]);
+        } else if (sort == 'popularity') {
+            contentsTable.fnSort([[3, 'desc']]);
         } else if (sort == 'modified') {
-            contentsTable.fnSort([[5, 'desc']]);
-        } else if (sort == 'published') {
             contentsTable.fnSort([[6, 'desc']]);
+        } else if (sort == 'published') {
+            contentsTable.fnSort([[5, 'desc']]);
         }        
     }
 
