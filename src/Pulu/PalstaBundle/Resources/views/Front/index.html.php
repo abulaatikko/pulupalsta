@@ -19,25 +19,27 @@
 <div class="row">
     <div class="six columns" id="visited-articles">
 
-<h3 style="margin-bottom: 12px">Newest</h3>
+<h3 style="margin-bottom: 6px">Newest</h3>
 
 <table class="wide">
 <thead>
 <tr>
-    <th colspan="2">Project</th>
+    <th colspan="3">Project</th>
     <th style="width: 1%;">Published</th>
 </tr>
 </thead>
 <tbody>
 <?php foreach ($newArticles as $article): ?>
+<?php $typeStyles = 'font-size: 60%; width: 1%; white-space: nowrap; text-align: right; font-weight: bold; color: ' . $article->getTypeColor(); ?>
 <tr>
+    <td style="<?php echo $typeStyles; ?>"><?php echo $article->getTypeName() ?></td>
     <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
     <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
     <td><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
 </tr>
 <?php endforeach ?>
 <tr>
-    <td colspan="3" style="text-align: center"><a href="<?php echo $view['router']->path('pulu_palsta_list', array('sort' => 'published')) ?>">See all</a></td>
+    <td colspan="4" style="text-align: center"><a href="<?php echo $view['router']->path('pulu_palsta_list', array('sort' => 'published')) ?>">See all</a></td>
 </tr>
 </tbody>
 </table>
@@ -45,25 +47,27 @@
     </div>
     <div class="six columns" id="recent-articles">
 
-<h3 style="margin-bottom: 12px">Most viewed</h3>
+<h3 style="margin-bottom: 6px">Most viewed</h3>
 
 <table class="wide">
 <thead>
 <tr>
-    <th colspan="2">Project</th>
+    <th colspan="3">Project</th>
     <th style="width: 1%">Views</th>
 </tr>
 </thead>
 <tbody>
 <?php foreach ($viewedArticles as $article): ?>
+<?php $typeStyles = 'font-size: 60%; width: 1%; white-space: nowrap; text-align: right; font-weight: bold; color: ' . $article->getTypeColor(); ?>
 <tr>
+    <td style="<?php echo $typeStyles; ?>"><?php echo $article->getTypeName() ?></td>
     <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
     <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
     <td><?php echo $article->getVisits(); ?></td>
 </tr>
 <?php endforeach ?>
 <tr>
-    <td colspan="3" style="text-align: center"><a href="<?php echo $view['router']->path('pulu_palsta_list', array('sort' => 'views')) ?>">See all</a></td>
+    <td colspan="4" style="text-align: center"><a href="<?php echo $view['router']->path('pulu_palsta_list', array('sort' => 'views')) ?>">See all</a></td>
 </tr>
 </tbody>
 </table>
