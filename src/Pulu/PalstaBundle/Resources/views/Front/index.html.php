@@ -17,7 +17,8 @@
 <p></p>
 
 <div class="row">
-    <div class="six columns" id="visited-articles">
+    <div class="six columns">
+        <div class="scroller-wrapper">
 
 <h3 style="margin-bottom: 6px">Newest</h3>
 
@@ -44,8 +45,10 @@
 </tbody>
 </table>
 
+        </div>
     </div>
-    <div class="six columns" id="recent-articles">
+    <div class="six columns">
+        <div class="scroller-wrapper">
 
 <h3 style="margin-bottom: 6px">Most viewed</h3>
 
@@ -73,6 +76,7 @@
 </table>
 <p></p>
 
+        </div>
     </div>
 </div>
 
