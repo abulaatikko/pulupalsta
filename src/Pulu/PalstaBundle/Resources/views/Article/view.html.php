@@ -63,38 +63,11 @@
 <?php endif ?>
 
 <?php
-// Old Puluprojects functions
 
 global $articleNumber, $mediaPathGlobal, $mediaUrlGlobal;
 $articleNumber = $article->getArticleNumber();
 $mediaPathGlobal = $mediaPath;
 $mediaUrlGlobal = $mediaUrl;
-
-/*function toFilename($string) {
-    $conversion_array = array(
-        'ä' => 'a', 'Ä' => 'A', 'Ö' => 'O', 'ö' => 'o', 'å' => 'a', 'Å' => 'A',
-        'á' => 'a', 'Á' => 'a', 'ó' => 'o', 'Ó' => 'o', 'ñ' => 'n', 'Ñ' => 'N',
-        'š' => 's', 'Š' => 's', '€' => 'e', 'ž' => 'z', 'Ž' => 'z'
-        );
-
-    $string = strtr($string, $conversion_array);
-    $string = toWord(str_replace(' ', '-', $string));
-    $string = preg_replace('/-{2,}/', '-', strtolower($string));
-    $string = trim(str_replace('-', ' ', $string));
-    $string = str_replace(' ', '-', $string);
-    $string = urlencode($string);
-    $string = preg_replace('/%../', '', urlencode($string));
-    return $string;
-}*/
-
-/*function toWord($str) {
-    static $bad = array(
-        '\'', '"', '<', '>', '{', '}', '[', ']', '`', '!', '@', '#',
-        '$', '%', '^', '&', '*', '(', ')', '=', '+', '|', '/', '\\',
-        ';', ':', ',', '?', '/', ' '
-    );
-    return str_replace($bad, '', $str);
-}*/
 
 function htmlize($line, $linebreak = true) {
     $return = '&lt;' . $line . '&gt;';
