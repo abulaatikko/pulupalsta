@@ -11,7 +11,8 @@
 
 <h1>Intro <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_feed_articles') ?>" title="RSS Feed"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feed" /></a></h1>
 
-<p>This is a collection of projects started since 2006. Focus is on TRAINING, GEAR and TRAVEL (+ random RESEARCH). The most popular are in <strong>bold</strong>.</p>
+<p></p>
+<p>This is a collection of projects started since 2006. Focus is on GEAR, TRAVEL and RESEARCH. The most popular ones are in <strong>bold</strong>.</p>
 
 <p></p>
 
