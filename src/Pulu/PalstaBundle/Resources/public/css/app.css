@@ -70,8 +70,9 @@ div.alert-box, div.notice-box   {padding: 16px; font-size: 22px; line-height: 1.
 /* Datatables JS */
 .dataTable th                           {cursor: pointer;}
 .dataTable th.sorting                   {background-color: #3e942e;}
-.dataTable th.sorting_asc,
-.dataTable th.sorting_desc              {background-color: #378329;}
+/*.dataTable th.sorting_asc,
+.dataTable th.sorting_desc              {background-color: black;}*/
+.dataTable td.sorting_1                 {background-color: rgb(62 148 46 / 0.1);}
 #contents_wrapper                       {overflow: scroll;}
 
 table a, .tabs-content a, #navigation a, ul.breadcrumbs a {
