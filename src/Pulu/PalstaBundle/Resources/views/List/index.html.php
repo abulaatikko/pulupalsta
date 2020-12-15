@@ -12,24 +12,28 @@
 <table class="wide" id="contents">
 <thead>
 <tr>
-    <th colspan="3">Article</th>
-    <th title="Number of Views">Views</th>
-    <th class="text-right nowrap" title="Average monthly views since publication">V. / mon</th>
+    <th></th>
+    <th></th>
+    <th>Project</th>
+    <th class="text-right nowrap" title="Average monthly views since published">Popularity</th>
+    <th class="text-right" title="Number of views">Views</th>
+    <th class="nowrap text-right">Published</th>
+    <th class="nowrap text-right">Modified</th>
     <!--<th title="Number of Comments">Com.</th>
     <th class="nowrap">Commented</th>-->
-    <th class="nowrap">Modified</th>
-    <th class="nowrap">Published</th>
 </tr>
 </thead>
 <tbody>
 <?php foreach ($articles as $article): ?>
-<?php $typeStyles = 'font-size: 60%; text-align: right; font-weight: bold; color: ' . $article->getTypeColor(); ?>
+<?php $typeStyles = 'font-size: 60%; width: 1%; white-space: nowrap; text-align: right; font-weight: bold; color: ' . $article->getTypeColor(); ?>
 <tr>
-    <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
-    <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
     <td style="<?php echo $typeStyles; ?>"><?php echo $article->getTypeName() ?></td>
-    <td class="text-right"><?php echo $article->getVisits() ?></td>
+    <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
+    <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
     <td class="nowrap text-right"><?php echo $article->getAverageMonthlyVisits(); ?></span></td>
+    <td class="text-right"><?php echo $article->getVisits() ?></td>
+    <td class="nowrap text-right"><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
+    <td class="nowrap text-right"><?php echo $article->getModified()->format('Y-m-d'); ?></td>
     <!--<td class="text-right"><?php echo $article->getCommentsCount() ?></td>
     <?php $lastCommented = $article->getLastCommented(); ?>
     <?php if ($lastCommented instanceof DateTime): ?>
@@ -37,18 +41,16 @@
     <?php else: ?>
     <td></td>
     <?php endif ?>-->
-    <td class="nowrap text-right"><?php echo $article->getModified()->format('Y-m-d'); ?></td>
-    <td class="nowrap text-right"><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
 </tr>
 <?php endforeach ?>
 </tbody>
 </table>
 
 <p class="table-notes">
-    Views = Number of Views<br />
-    V. / mon = Average monthly views since publication<br />
+    Views = Number of views<br />
+    Popularity = Average monthly views since published<br />
 <!--    Rat. = Rating<br />-->
-    Com. = Number of Comments
+<!--    Com. = Number of Comments-->
 </p>
 
 <!--

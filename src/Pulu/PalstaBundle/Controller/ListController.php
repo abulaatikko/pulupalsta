@@ -9,7 +9,7 @@ class ListController extends Controller {
     public function indexAction(Request $R) {
         $repository = $this->getDoctrine()->getRepository('PuluPalstaBundle:Article');
         $repository->setLanguage($R->getLocale());
-        $articles = $repository->findOrderedByPublishedForPublic(10000);
+        $articles = $repository->findAllOrderedByNameForPublic();
         return $this->render('PuluPalstaBundle:List:index.html.php', array(
             'articles' => $articles
         ));        
