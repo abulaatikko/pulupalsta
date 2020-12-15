@@ -54,7 +54,7 @@ class ArticleType extends AbstractType {
                 'expanded' => false
             ))
             ->add('is_draft', CheckboxType::class, array(
-                'label' => 'Vedos',
+                'label' => 'Piilossa',
                 'required' => false))
             ->add('is_commentable', CheckboxType::class, array(
                 'label' => 'Kommentoitavissa',
