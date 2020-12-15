@@ -11,130 +11,64 @@
 
 <h1>Intro <a style="float: right" href="<?php echo $view['router']->path('pulu_palsta_feed_articles') ?>" title="RSS Feed"><img src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/32_feed.png') ?>" alt="RSS Feed" /></a></h1>
 
-<p>This is a collection of projects. Primary focus is on TRAINING, GEAR and TRAVEL (+ random RESEARCH). The most popular articles are in <strong>bold</strong> (top 25 %).</p>
+<p>This is a collection of projects started since 2006. Focus is on TRAINING, GEAR and TRAVEL (+ random RESEARCH). The most popular are in <strong>bold</strong>.</p>
 
-<!-- Popular/Recent articles -->
+<p></p>
+
 <div class="row">
     <div class="six columns" id="visited-articles">
 
-<h3>Training and Gear</h3>
+<h3 style="margin-bottom: 12px">Newest</h3>
 
 <table class="wide">
 <thead>
 <tr>
-    <th>Published</th>
-    <th colspan="2">Article</th>
+    <th colspan="2">Project</th>
+    <th style="width: 1%;">Published</th>
 </tr>
 </thead>
 <tbody>
-<?php foreach ($trainingArticles as $article): ?>
+<?php foreach ($newArticles as $article): ?>
 <tr>
+    <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
+    <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
     <td><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
-    <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
-    <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
 </tr>
 <?php endforeach ?>
+<tr>
+    <td colspan="3" style="text-align: center"><a href="<?php echo $view['router']->path('pulu_palsta_list', array('sort' => 'published')) ?>">See all</a></td>
+</tr>
 </tbody>
 </table>
-<p><br /></p>
-
-<h3>Exploration</h3>
-
-<table class="wide">
-<thead>
-<tr>
-    <th>Published</th>
-    <th colspan="2">Article</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-    <td>TBA</td>
-    <td>Kaukana Kaakossa (Uusi-Seelanti, Singapore, Vietnam)</td>
-    <td>?</td>
-</tr>
-<?php $carbonCss = ''; ?>
-<?php $isCarbonStartPrinted = false; ?>
-<?php $isCarbonEndPrinted = false; ?>
-<?php foreach ($explorationArticles as $article): ?>
-<?php if (1 == 2 && $article->getPublished()->format('Y') === '2015' && !$isCarbonEndPrinted): ?>
-<tr>
-    <td colspan="3" class="zero-carbon-start-separator">ZERO CARBON SINCE 2016</td>
-</tr>
-<?php $isCarbonEndPrinted = true; ?>
-<?php $carbonCss = ''; //' class="carbon"'; ?>
-<?php endif; ?>
-<tr<?php echo $carbonCss ?>>
-    <td><?php echo $article->getPublished()->format('Y-m-d') ?></td>
-    <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
-    <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
-</tr>
-<?php endforeach ?>
-</tbody>
-</table>
-    <div class="six columns">
-        <p></p>
-    </div>
 
     </div>
     <div class="six columns" id="recent-articles">
 
-<h3>Research</h3>
+<h3 style="margin-bottom: 12px">Most viewed</h3>
 
 <table class="wide">
 <thead>
 <tr>
-    <th>Published</th>
-    <th colspan="2">Article</th>
+    <th colspan="2">Project</th>
+    <th style="width: 1%">Views</th>
 </tr>
 </thead>
 <tbody>
-<?php $carbonCss = ''; ?>
-<?php $isCarbonStartPrinted = false; ?>
-<?php $isCarbonEndPrinted = false; ?>
-<?php foreach ($researchArticles as $article): ?>
-<?php if (1 == 2 && $article->getPublished()->format('Y') === '2015' && !$isCarbonEndPrinted): ?>
+<?php foreach ($viewedArticles as $article): ?>
 <tr>
-    <td colspan="3" class="zero-carbon-start-separator">ZERO CARBON SINCE 2016</td>
-</tr>
-<?php $isCarbonEndPrinted = true; ?>
-<?php $carbonCss = ''; //' class="carbon"'; ?>
-<?php endif; ?>
-<tr<?php echo $carbonCss ?>>
-    <td><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
-    <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
     <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
+    <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
+    <td><?php echo $article->getVisits(); ?></td>
 </tr>
 <?php endforeach ?>
+<tr>
+    <td colspan="3" style="text-align: center"><a href="<?php echo $view['router']->path('pulu_palsta_list', array('sort' => 'views')) ?>">See all</a></td>
+</tr>
 </tbody>
 </table>
 <p></p>
 
-<h3>Misc</h3>
-
-<table class="wide">
-<thead>
-<tr>
-    <th>Published</th>
-    <th colspan="2">Article</th>
-</tr>
-</thead>
-<tbody>
-<?php foreach ($miscArticles as $article): ?>
-<tr>
-    <td><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
-    <td><a href='<?php echo $view['router']->path('pulu_palsta_article', array('article_number' => $article->getArticleNumber(), 'name' => $view['helper']->toFilename($article->getName()), '_locale' => $article->getLanguage())) ?>'><?php echo $article->getIsOneOfBest() ? '<strong>' : '' ?><?php echo $article->getName(); ?><?php echo $article->getIsOneOfBest() ? '</strong>' : '' ?></a></td>
-    <td class="centered" style="width: 30px"> <img class="flag" src="<?php echo $view['assets']->getUrl('bundles/pulupalsta/images/icons/' . $article->getLanguage() . '.svg') ?>" alt="" /></td>
-</tr>
-<?php endforeach ?>
-</tbody>
-</table>
-
     </div>
-    <div class="six columns">
-        <p></p>
-    </div>
-</div><!-- Popular/Recent articles ends -->
+</div>
 
 <?php $view['slots']->stop() ?>
