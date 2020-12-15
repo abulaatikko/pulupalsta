@@ -78,6 +78,10 @@ class ArticleType extends AbstractType {
                 'label' => 'Kirjoituspaikka',
                 'required' => false
             ))
+            ->add('teaser_image', TextType::class, array(
+                'label' => 'Kuva',
+                'required' => false
+            ))
             ->add('access', ChoiceType::class, array(
                 'label' => 'Lukuoikeus',
                 'choices' => array(

@@ -83,6 +83,12 @@
     </div>
 
     <div class="row">
+        <div class="twelve columns">
+        <?php echo $view['form']->row($form['teaser_image']) ?>
+        </div>
+    </div>
+
+    <div class="row">
         <div class="nine columns">
         </div>
         <div class="three columns">

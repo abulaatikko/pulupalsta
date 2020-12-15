@@ -217,4 +217,10 @@ class ArticleRepository extends EntityRepository {
             ->getQuery()->getResult();
     }
 
+    public function findSexyArticles() {
+        return $this->createQueryBuilder('A')
+            ->where("A.is_draft != TRUE AND A.deleted IS NULL AND A.teaser_image IS NOT NULL")
+            ->getQuery()->getResult();
+    }
+
 }

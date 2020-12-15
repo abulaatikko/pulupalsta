@@ -30,11 +30,14 @@ Pulu\PalstaBundle\Entity\Article:
         started:
             type: datetime
             nullable: true
+        deleted:
+            type: datetime
+            nullable: true
         written_at:
             type: text
             nullable: true
-        deleted:
-            type: datetime
+        teaser_image:
+            type: text
             nullable: true
         rating:
             type: decimal

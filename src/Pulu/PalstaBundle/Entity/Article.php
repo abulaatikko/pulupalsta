@@ -29,8 +29,9 @@ class Article {
     protected $modified_public;
     protected $published;
     protected $started;
-    protected $written_at;
     protected $deleted;
+    protected $written_at;
+    protected $teaser_image;
 
     protected $localizations;
     protected $revisions;
@@ -248,6 +249,15 @@ class Article {
 
     public function getWrittenAt() {
         return $this->written_at;
+    }
+
+    public function setTeaserImage($teaser_image) {
+        $this->teaser_image = $teaser_image;
+        return $this;
+    }
+
+    public function getTeaserImage() {
+        return $this->teaser_image;
     }
 
     public function setRawVisits(ArrayCollection $raw_visits) {
