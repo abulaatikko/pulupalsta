@@ -19,6 +19,7 @@
     <th class="text-right" title="Number of views">Views</th>
     <th class="nowrap text-right">Published</th>
     <th class="nowrap text-right">Modified</th>
+    <th class="nowrap text-right" title="Start moment of the project">Started</th>
     <!--<th title="Number of Comments">Com.</th>
     <th class="nowrap">Commented</th>-->
 </tr>
@@ -34,6 +35,7 @@
     <td class="text-right"><?php echo $article->getVisits() ?></td>
     <td class="nowrap text-right"><?php echo $article->getPublished()->format('Y-m-d'); ?></td>
     <td class="nowrap text-right"><?php echo $article->getModified()->format('Y-m-d'); ?></td>
+    <td class="nowrap text-right"><?php echo $article->getStarted()->format('Y-m-d'); ?></td>
     <!--<td class="text-right"><?php echo $article->getCommentsCount() ?></td>
     <?php $lastCommented = $article->getLastCommented(); ?>
     <?php if ($lastCommented instanceof DateTime): ?>
@@ -49,6 +51,7 @@
 <p class="table-notes">
     Views = Number of views<br />
     Popularity = Average monthly views since published<br />
+    Started = Start moment of the project
 <!--    Rat. = Rating<br />-->
 <!--    Com. = Number of Comments-->
 </p>
