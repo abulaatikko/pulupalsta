@@ -20,12 +20,14 @@
     <div class="six columns">
         <div class="scroller-wrapper">
 
-<h3 style="margin-bottom: 6px">Newest</h3>
+<h3 style="margin-bottom: 12px; text-align: center">Newest</h3>
 
 <table class="wide">
 <thead>
 <tr>
-    <th colspan="3">Project</th>
+    <th></th>
+    <th></th>
+    <th colspan="1">Project</th>
     <th style="width: 1%;">Published</th>
 </tr>
 </thead>
@@ -50,12 +52,14 @@
     <div class="six columns">
         <div class="scroller-wrapper">
 
-<h3 style="margin-bottom: 6px">Most viewed</h3>
+<h3 style="margin-bottom: 12px; text-align: center">Most viewed</h3>
 
 <table class="wide">
 <thead>
 <tr>
-    <th colspan="3">Project</th>
+    <th></th>
+    <th></th>
+    <th colspan="1">Project</th>
     <th style="width: 1%">Views</th>
 </tr>
 </thead>
